@@ -1,8 +1,8 @@
 """
 Distributed Tracing with LangSmith
 ===================================
-Trace LLM chains y agents con LangSmith.
-Visualiza flujo completo: retrieval → generation → post-processing.
+Trace LLM chains and agents with LangSmith.
+Visualize complete flow: retrieval → generation → post-processing.
 
 Requirements:
     pip install langsmith langchain
@@ -19,8 +19,8 @@ from datetime import datetime
 
 class Span:
     """
-    Representa un span en distributed tracing.
-    Un span es una unidad de trabajo (e.g., una llamada a retrieval).
+    Represents a span in distributed tracing.
+    A span is a unit of work (e.g., a retrieval call).
     """
 
     def __init__(self, name: str, parent_id: str = None):
@@ -33,25 +33,25 @@ class Span:
         self.children = []
 
     def end(self):
-        """Finaliza el span."""
+        """Finalize the span."""
         self.end_time = time.time()
 
     def duration_ms(self) -> float:
-        """Duración en ms."""
+        """Duration in ms."""
         if self.end_time:
             return (self.end_time - self.start_time) * 1000
         return 0
 
     def add_metadata(self, key: str, value: any):
-        """Añade metadata al span."""
+        """Add metadata to the span."""
         self.metadata[key] = value
 
     def add_child(self, child_span: 'Span'):
-        """Añade child span."""
+        """Add child span."""
         self.children.append(child_span)
 
     def print_tree(self, indent: int = 0):
-        """Imprime árbol de spans."""
+        """Print span tree."""
         prefix = "  " * indent
         duration = self.duration_ms()
 
@@ -73,8 +73,8 @@ class Span:
 
 class SimpleTracer:
     """
-    Tracer simple para demostración.
-    En producción: usar LangSmith, OpenTelemetry, etc.
+    Simple tracer for demonstration.
+    In production: use LangSmith, OpenTelemetry, etc.
     """
 
     def __init__(self):
@@ -82,7 +82,7 @@ class SimpleTracer:
         self.current_span = None
 
     def start_span(self, name: str) -> Span:
-        """Inicia un nuevo span."""
+        """Start a new span."""
         parent_id = self.current_span.span_id if self.current_span else None
         span = Span(name, parent_id)
 
@@ -95,7 +95,7 @@ class SimpleTracer:
         return span
 
     def end_span(self, span: Span):
-        """Finaliza span."""
+        """Finalize span."""
         span.end()
         self.current_span = span.parent_id
 
@@ -170,7 +170,7 @@ os.environ["LANGCHAIN_PROJECT"] = "my-project"
 @traceable(name="retrieval")
 def retrieve_documents(query: str) -> List[str]:
     '''
-    Retrieval con tracing automático.
+    Retrieval with automatic tracing.
     '''
     vector_store = FAISS.load_local("index")
     docs = vector_store.similarity_search(query, k=5)
@@ -179,7 +179,7 @@ def retrieve_documents(query: str) -> List[str]:
 @traceable(name="generation")
 def generate_response(query: str, context: str) -> str:
     '''
-    Generation con tracing.
+    Generation with tracing.
     '''
     llm = OpenAI(temperature=0)
     prompt = f"Context: {context}\\n\\nQuestion: {query}"
@@ -189,8 +189,8 @@ def generate_response(query: str, context: str) -> str:
 @traceable(name="rag_pipeline")
 def rag_pipeline(query: str) -> str:
     '''
-    RAG pipeline completo con tracing.
-    LangSmith automáticamente crea árbol de traces.
+    Complete RAG pipeline with tracing.
+    LangSmith automatically creates a trace tree.
     '''
     # Retrieval (traced)
     docs = retrieve_documents(query)
@@ -207,7 +207,7 @@ def rag_pipeline(query: str) -> str:
 
 result = rag_pipeline("What is the capital of France?")
 
-# En LangSmith dashboard verás:
+# In the LangSmith dashboard you will see:
 # rag_pipeline (230ms, $0.0012)
 #   ├─ retrieval (80ms)
 #   │    ├─ vector_search (75ms)
@@ -350,7 +350,7 @@ def demo_distributed_tracing():
 
 
 def demo_langsmith_features():
-    """Características de LangSmith."""
+    """LangSmith features."""
     print("\n" + "="*70)
     print("DEMO 5: LangSmith Features")
     print("="*70 + "\n")
@@ -414,6 +414,6 @@ if __name__ == "__main__":
     print("  5. View traces in dashboard")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL:")
+    print("REAL CODE:")
     print("="*70)
     print(REAL_LANGSMITH_CODE)

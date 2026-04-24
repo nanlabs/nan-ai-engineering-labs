@@ -1,7 +1,7 @@
 """
 CLIP Zero-Shot Classification
 ==============================
-Clasifica imágenes sin training usando CLIP de OpenAI.
+Classify images without training using OpenAI CLIP.
 CLIP aprende relaciones imagen-texto de 400M pares.
 
 Requirements:
@@ -11,7 +11,7 @@ Requirements:
 from PIL import Image
 import torch
 
-# Nota: En producción descomentar imports reales
+# Note: In production uncomment real imports
 # from transformers import CLIPProcessor, CLIPModel
 
 # ============================================================================
@@ -21,7 +21,7 @@ import torch
 class MockCLIPDemo:
     """
     Demo conceptual de CLIP zero-shot classification.
-    Muestra la lógica sin requerir modelo real.
+    Shows the logic without requiring a real model.
     """
 
     def __init__(self):
@@ -41,7 +41,7 @@ class MockCLIPDemo:
         # 3. similarity = image_features @ text_features.T -> [n_labels]
         # 4. probs = softmax(similarity * temperature)
 
-        # Mock probabilities (en producción son calculadas por CLIP)
+        # Mock probabilities (in production these are calculated by CLIP)
         import random
         random.seed(42)
 
@@ -118,7 +118,7 @@ print(f"Predicted: {predicted} ({results[predicted]:.2%})")
 def demo_animals():
     """Clasificar animales."""
     print("="*70)
-    print("DEMO 1: Clasificación de Animales")
+    print("DEMO 1: Animal Classification")
     print("="*70)
 
     clip = MockCLIPDemo()
@@ -128,13 +128,13 @@ def demo_animals():
         candidate_labels=["cat", "dog", "bird", "fish", "hamster"]
     )
 
-    print(f"\n✅ Predicción: {result['predicted_label']} ({result['confidence']:.2%})")
+    print(f"\n✅ Prediction: {result['predicted_label']} ({result['confidence']:.2%})")
 
 
 def demo_vehicles():
-    """Clasificar vehículos."""
+    """Classify vehicles."""
     print("\n" + "="*70)
-    print("DEMO 2: Clasificación de Vehículos")
+    print("DEMO 2: Vehicle Classification")
     print("="*70)
 
     clip = MockCLIPDemo()
@@ -144,13 +144,13 @@ def demo_vehicles():
         candidate_labels=["car", "truck", "motorcycle", "bicycle", "airplane"]
     )
 
-    print(f"\n✅ Predicción: {result['predicted_label']} ({result['confidence']:.2%})")
+    print(f"\n✅ Prediction: {result['predicted_label']} ({result['confidence']:.2%})")
 
 
 def demo_scenes():
     """Clasificar escenas."""
     print("\n" + "="*70)
-    print("DEMO 3: Clasificación de Escenas")
+    print("DEMO 3: Scene Classification")
     print("="*70)
 
     clip = MockCLIPDemo()
@@ -166,13 +166,13 @@ def demo_scenes():
         ]
     )
 
-    print(f"\n✅ Predicción: {result['predicted_label']} ({result['confidence']:.2%})")
+    print(f"\n✅ Prediction: {result['predicted_label']} ({result['confidence']:.2%})")
 
 
 def demo_emotions():
     """Clasificar emociones en rostros."""
     print("\n" + "="*70)
-    print("DEMO 4: Clasificación de Emociones (Zero-Shot!)")
+    print("DEMO 4: Emotion Classification (Zero-Shot!)")
     print("="*70)
 
     clip = MockCLIPDemo()
@@ -188,7 +188,7 @@ def demo_emotions():
         ]
     )
 
-    print(f"\n✅ Predicción: {result['predicted_label']} ({result['confidence']:.2%})")
+    print(f"\n✅ Prediction: {result['predicted_label']} ({result['confidence']:.2%})")
 
 
 if __name__ == "__main__":
@@ -205,12 +205,12 @@ if __name__ == "__main__":
     print("="*70)
     print("✅ No requiere dataset de training")
     print("✅ Funciona con cualquier label (incluso inventado)")
-    print("✅ Multilingüe (funciona en español, inglés, etc.)")
+    print("✅ Multilingual (works in Spanish, English, etc.)")
     print("✅ Flexible: cambia labels sin reentrenar")
     print("\n📚 Modelo real: openai/clip-vit-base-patch32 (Hugging Face)")
     print("📄 Paper: https://arxiv.org/abs/2103.00020")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL (para producción):")
+    print("REAL CODE (for production):")
     print("="*70)
     print(REAL_CLIP_CODE)

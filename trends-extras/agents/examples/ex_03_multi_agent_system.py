@@ -1,7 +1,7 @@
 """
 Multi-Agent System - Agentes Especializados que Colaboran
 
-Sistema con múltiples agentes que tienen expertise distintas y colaboran.
+System with multiple agents that have different expertise and collaborate.
 """
 
 from dataclasses import dataclass
@@ -16,14 +16,14 @@ class AgentRole(Enum):
 
 @dataclass
 class Message:
-    """Mensaje entre agentes"""
+    """Message between agents."""
     sender: str
     recipient: str
     content: str
     type: str  # "request", "response", "broadcast"
 
 class Agent:
-    """Agente base con capacidades de comunicación"""
+    """Base agent with communication capabilities."""
 
     def __init__(self, name: str, role: AgentRole, expertise: str):
         self.name = name
@@ -33,16 +33,16 @@ class Agent:
         self.memory: List[Dict] = []
 
     def receive_message(self, message: Message):
-        """Recibe mensaje de otro agente"""
+        """Receive message from another agent."""
         self.inbox.append(message)
-        print(f"📨 {self.name} recibió: {message.content[:50]}...")
+        print(f"📨 {self.name} received: {message.content[:50]}...")
 
     def process_task(self, task: str) -> str:
-        """Procesa tarea según expertise"""
+        """Process task according to expertise."""
         raise NotImplementedError
 
     def send_message(self, recipient: str, content: str, msg_type: str = "response") -> Message:
-        """Envía mensaje a otro agente"""
+        """Send message to another agent."""
         message = Message(
             sender=self.name,
             recipient=recipient,
@@ -53,16 +53,16 @@ class Agent:
         return message
 
 class ResearcherAgent(Agent):
-    """Agente especializado en búsqueda de información"""
+    """Agent specialised in information search."""
 
     def process_task(self, task: str) -> str:
-        print(f"\n🔍 {self.name} investigando: {task}")
+        print(f"\n🔍 {self.name} researching: {task}")
 
-        # Simulación de research
+        # Simulation of research
         research_results = {
-            "ai agents": "AI agents son sistemas autónomos que usan LLMs para razonar y actuar. Arquitectura: perception → reasoning → action. Frameworks principales: LangChain, AutoGPT.",
-            "multi-agent": "Multi-agent systems coordinan múltiples agentes especializados. Beneficios: especialización, paralelización, robustez.",
-            "langchain": "LangChain es framework para construir aplicaciones con LLMs. Incluye agents, chains, memory, tools."
+            "ai agents": "AI agents are autonomous systems that use LLMs to reason and act. Architecture: perception → reasoning → action. Main frameworks: LangChain, AutoGPT.",
+            "multi-agent": "Multi-agent systems coordinate multiple specialised agents. Benefits: specialisation, parallelisation, robustness.",
+            "langchain": "LangChain is a framework for building LLM applications. Includes agents, chains, memory, and tools."
         }
 
         for key, value in research_results.items():
@@ -70,52 +70,52 @@ class ResearcherAgent(Agent):
                 self.memory.append({"task": task, "result": value})
                 return value
 
-        return f"Investigué sobre '{task}' pero necesito más contexto."
+        return f"I researched '{task}' but need more context."
 
 class AnalystAgent(Agent):
-    """Agente especializado en análisis de datos"""
+    """Agent specialised in data analysis."""
 
     def process_task(self, task: str) -> str:
-        print(f"\n📊 {self.name} analizando: {task}")
+        print(f"\n📊 {self.name} analysing: {task}")
 
-        # Simulación de análisis
-        if "comparar" in task.lower():
+        # Simulation of analysis
+        if "compare" in task.lower():
             analysis = """
-            Análisis comparativo:
-            - LangChain: Mejor para prototyping rápido, ecosystem rico
-            - AutoGPT: Más autónomo, menos control
-            - Custom: Control total, más trabajo inicial
+            Comparative analysis:
+            - LangChain: Better for rapid prototyping, rich ecosystem
+            - AutoGPT: More autonomous, less control
+            - Custom: Full control, more initial work
 
-            Recomendación: LangChain para MVPs, custom para producción a escala
+            Recommendation: LangChain for MVPs, custom for production at scale
             """
         elif "pros" in task.lower() or "cons" in task.lower():
             analysis = """
-            Ventajas: Automatización, escalabilidad, especialización
-            Desventajas: Complejidad, costo, potenciales hallucinations
+            Advantages: Automation, scalability, specialisation
+            Disadvantages: Complexity, cost, potential hallucinations
             """
         else:
-            analysis = f"Análisis de '{task}': Requiero más datos específicos."
+            analysis = f"Analysis of '{task}': I need more specific data."
 
         self.memory.append({"task": task, "result": analysis})
         return analysis
 
 class WriterAgent(Agent):
-    """Agente especializado en síntesis y escritura"""
+    """Agent specialised in synthesis and writing."""
 
     def process_task(self, task: str) -> str:
-        print(f"\n✍️  {self.name} sintetizando: {task}")
+        print(f"\n✍️  {self.name} synthesising: {task}")
 
-        # Compilar información de memoria de otros agentes
-        # En sistema real, accedería a mensajes recibidos
+        # Compile information from other agents' memory
+        # In a real system, it would access received messages
 
         report = f"""
-# Reporte sobre {task}
+# Report on {task}
 
-Basado en investigación y análisis del equipo, aquí está la síntesis:
+Based on team research and analysis, here is the synthesis:
 
 {task}
 
-Este reporte fue generado colaborativamente por el multi-agent system.
+This report was collaboratively generated by the multi-agent system.
 """
 
         self.memory.append({"task": task, "result": report})
@@ -123,7 +123,7 @@ Este reporte fue generado colaborativamente por el multi-agent system.
 
 
 class CoordinatorAgent(Agent):
-    """Agente coordinador que orquesta el trabajo del equipo"""
+    """Coordinator agent that orchestrates team work."""
 
     def __init__(
             self, name: str, team: Dict[str, Agent]):
@@ -135,15 +135,15 @@ class CoordinatorAgent(Agent):
         self.team = team
 
     def process_task(self, task: str) -> str:
-        print(f"\n🎯 {self.name} coordinando tarea: {task}\n")
+        print(f"\n🎯 {self.name} coordinating task: {task}\n")
 
-        # Descomponer tarea en subtareas
-        print("📋 Descomponiendo tarea en subtareas...")
+        # Decompose task into subtasks
+        print("📋 Decomposing task into subtasks...")
         subtasks = self._decompose_task(task)
 
         results = {}
 
-        # Asignar subtareas a agentes especializados
+        # Assign subtasks to specialised agents
         for subtask, agent_role in subtasks:
             agent = self._get_agent_by_role(agent_role)
             if agent:
@@ -167,40 +167,40 @@ class CoordinatorAgent(Agent):
                 )
                 self.receive_message(response)
 
-        # Compilar reporte final
-        print("\n📝 Compilando reporte final...")
+        # Compile final report
+        print("\n📝 Compiling final report...")
         writer = self._get_agent_by_role(AgentRole.WRITER)
         if writer:
             summary = "\n\n".join([f"**{task}**:\n{result}" for task, result in results.items()])
             final_report = writer.process_task(summary)
             return final_report
 
-        return "Tarea completada pero no se pudo generar reporte."
+        return "Task completed but could not generate report."
 
     def _decompose_task(self, task: str) -> List[tuple]:
-        """Descompone tarea en subtareas + agente asignado"""
-        # Lógica simple de descomposición
-        if "reporte" in task.lower() or "analizar" in task.lower():
+        """Decompose task into subtasks + assigned agent."""
+        # Simple decomposition logic
+        if "report" in task.lower() or "analyse" in task.lower() or "analyze" in task.lower():
             return [
-                ("Investigar conceptos principales de " + task, AgentRole.RESEARCHER),
-                ("Analizar pros y cons de " + task, AgentRole.ANALYST),
-                ("Comparar frameworks mencionados", AgentRole.ANALYST),
+                ("Research main concepts of " + task, AgentRole.RESEARCHER),
+                ("Analyse pros and cons of " + task, AgentRole.ANALYST),
+                ("Compare mentioned frameworks", AgentRole.ANALYST),
             ]
         else:
             return [
-                ("Investigar " + task, AgentRole.RESEARCHER),
-                ("Analizar " + task, AgentRole.ANALYST),
+                ("Research " + task, AgentRole.RESEARCHER),
+                ("Analyse " + task, AgentRole.ANALYST),
             ]
 
     def _get_agent_by_role(self, role: AgentRole) -> Agent:
-        """Encuentra agente por rol"""
+        """Find agent by role."""
         for agent in self.team.values():
             if agent.role == role:
                 return agent
         return None
 
 
-# Demo: Multi-Agent System en acción
+# Demo: Multi-Agent System in action
 if __name__ == "__main__":
     print("=" * 60)
     print("🤖 MULTI-AGENT SYSTEM DEMO")
@@ -216,60 +216,60 @@ if __name__ == "__main__":
     # Crear coordinador
     coordinator = CoordinatorAgent("Director", team)
 
-    # Tarea compleja que requiere colaboración
-    task = "Crear reporte sobre AI Agents: qué son, frameworks disponibles, y casos de uso"
+    # Complex task requiring collaboration
+    task = "Create report on AI Agents: what they are, available frameworks, and use cases"
 
     # Ejecutar
     final_report = coordinator.process_task(task)
 
     print("\n\n" + "=" * 60)
-    print("📄 REPORTE FINAL")
+    print("📄 FINAL REPORT")
     print("=" * 60)
     print(final_report)
 
     # Mostrar memoria de cada agente
     print("\n\n" + "=" * 60)
-    print("🧠 MEMORIA DE AGENTES")
+    print("🧠 AGENT MEMORY")
     print("=" * 60)
     for name, agent in team.items():
         print(f"\n{agent.name} ({agent.role.value}):")
-        print(f"  Tareas procesadas: {len(agent.memory)}")
-        print(f"  Mensajes recibidos: {len(agent.inbox)}")
+        print(f"  Tasks processed: {len(agent.memory)}")
+        print(f"  Messages received: {len(agent.inbox)}")
 
 """
-Output esperado:
+Expected output:
 
 ==============================================================
 🤖 MULTI-AGENT SYSTEM DEMO
 ==============================================================
 
-🎯 Director coordinando tarea: Crear reporte sobre AI Agents...
+🎯 Director coordinating task: Create report on AI Agents...
 
-📋 Descomponiendo tarea en subtareas...
-📤 Director → Alice: Investigar conceptos principales...
-📨 Alice recibió: Investigar conceptos principales...
+📋 Decomposing task into subtasks...
+📤 Director → Alice: Research main concepts...
+📨 Alice received: Research main concepts...
 
-🔍 Alice investigando: Investigar conceptos principales...
-📤 Alice → Director: AI agents son sistemas autónomos...
-📨 Director recibió: AI agents son sistemas autónomos...
+🔍 Alice researching: Research main concepts...
+📤 Alice → Director: AI agents are autonomous systems...
+📨 Director received: AI agents are autonomous systems...
 
-[... más interacciones ...]
+[... more interactions ...]
 
-📝 Compilando reporte final...
+📝 Compiling final report...
 
-✍️  Carol sintetizando: ...
+✍️  Carol synthesising: ...
 
 ==============================================================
-📄 REPORTE FINAL
+📄 FINAL REPORT
 ==============================================================
-# Reporte sobre [task]
+# Report on [task]
 ...
 
 ==============================================================
-🧠 MEMORIA DE AGENTES
+🧠 AGENT MEMORY
 ==============================================================
 Alice (researcher):
-  Tareas procesadas: 1
-  Mensajes recibidos: 1
+  Tasks processed: 1
+  Messages received: 1
 ...
 """

@@ -1,8 +1,8 @@
 """
 Basic LLM Logging
 =================
-Logging estructurado para LLM applications.
-Track prompts, completions, metadata, errors.
+Structure logging for LLM calls:
+prompts, completions, metadata, errors.
 
 Requirements:
     pip install python-json-logger
@@ -12,15 +12,16 @@ import json
 import logging
 import time
 from datetime import datetime
-from typing import Dict, Any
+from typing import Dict
 
 # ============================================================================
 # STRUCTURED LOGGING SETUP
 # ============================================================================
 
+
 class LLMLogger:
     """
-    Logger estructurado para LLM calls.
+    Structure LLM call logging with JSON output.
     """
 
     def __init__(self, log_file: str = "llm_logs.jsonl"):
@@ -51,10 +52,10 @@ class LLMLogger:
         output_tokens: int,
         latency_ms: float,
         cost_usd: float,
-        metadata: Dict = None
+        metadata: dict = None
     ):
         """
-        Loggea una llamada al LLM.
+        Logging LLM call with structured metadata.
         """
         log_entry = {
             "timestamp": datetime.utcnow().isoformat(),
@@ -84,7 +85,7 @@ class LLMLogger:
         metadata: Dict = None
     ):
         """
-        Loggea un error.
+        logging error.
         """
         log_entry = {
             "timestamp": datetime.utcnow().isoformat(),
@@ -105,7 +106,7 @@ class LLMLogger:
 
 def mock_llm_with_logging(prompt: str, model: str = "gpt-3.5-turbo") -> Dict:
     """
-    Mock LLM que simula latency y retorna metadata.
+    Mock LLM that simulates latency and returns metadata.
     """
     start_time = time.time()
 
@@ -116,7 +117,7 @@ def mock_llm_with_logging(prompt: str, model: str = "gpt-3.5-turbo") -> Dict:
     completion = "This is a mock response for: " + prompt[:30]
 
     # Calculate metadata
-    input_tokens = len(prompt.split()) * 1.3  # Aproximación
+    input_tokens = len(prompt.split()) * 1.3  # Approximation
     output_tokens = len(completion.split()) * 1.3
     latency_ms = (time.time() - start_time) * 1000
 
@@ -135,18 +136,18 @@ def mock_llm_with_logging(prompt: str, model: str = "gpt-3.5-turbo") -> Dict:
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 def demo_basic_logging():
-    """Logging básico."""
+    """Basic logging."""
     print("="*70)
     print("DEMO 1: Basic LLM Logging")
     print("="*70 + "\n")
 
     logger = LLMLogger("demo_logs.jsonl")
 
-    # Simular varias llamadas
+    # Simulate several calls
     prompts = [
         "What is the capital of France?",
         "Explain quantum computing in simple terms",
@@ -177,14 +178,14 @@ def demo_basic_logging():
 
 
 def demo_error_logging():
-    """Logging de errores."""
+    """Error logging."""
     print("="*70)
     print("DEMO 2: Error Logging")
     print("="*70 + "\n")
 
     logger = LLMLogger("demo_logs.jsonl")
 
-    # Simular errores
+    # Simulate errors
     errors = [
         ("rate_limit", "Rate limit exceeded: 60 requests/min", "Hello"),
         ("timeout", "Request timed out after 30s", "Explain universe"),
@@ -205,17 +206,17 @@ def demo_error_logging():
 
 
 def demo_aggregation_queries():
-    """Queries de agregación en logs."""
+    """Log aggregation queries."""
     print("="*70)
     print("DEMO 3: Log Aggregation Queries")
     print("="*70 + "\n")
 
-    print("💡 Queries útiles con jq o SQL:\n")
+    print("💡 Useful queries with jq or SQL:\n")
 
-    print("1️⃣ Total de requests por usuario:")
+    print("1️⃣ Total requests per user:")
     print("   jq -r '.user_id' llm_logs.jsonl | sort | uniq -c\n")
 
-    print("2️⃣ Costo total por día:")
+    print("2️⃣ Total cost per day:")
     print("   jq -r '[.timestamp, .cost_usd] | @csv' llm_logs.jsonl | \\\n")
     print("     awk -F, '{sum[$1]+=$2} END {for(d in sum) print d, sum[d]}'\n")
 
@@ -223,17 +224,17 @@ def demo_aggregation_queries():
     print("   jq -r '.latency_ms' llm_logs.jsonl | sort -n | \\\n")
     print("     awk '{a[NR]=$1} END {print a[int(NR*0.95)]}'\n")
 
-    print("4️⃣ Errores más comunes:")
+    print("4️⃣ Most common errors:")
     print("   jq -r 'select(.level==\"ERROR\") | .error_type' llm_logs.jsonl | \\\n")
     print("     sort | uniq -c | sort -rn\n")
 
-    print("5️⃣ Average tokens por modelo:")
+    print("5️⃣ Average tokens per model:")
     print("   jq -r 'select(.model) | [.model, .tokens.total] | @csv' llm_logs.jsonl | \\\n")
     print("     awk -F, '{sum[$1]+=$2; cnt[$1]++} END {for(m in sum) print m, sum[m]/cnt[m]}'\n")
 
 
 def demo_log_analysis_script():
-    """Script de análisis de logs."""
+    """Log analysis script."""
     print("="*70)
     print("DEMO 4: Log Analysis Script")
     print("="*70 + "\n")
@@ -246,7 +247,7 @@ from datetime import datetime
 
 def analyze_logs(log_file: str):
     '''
-    Analiza logs de LLM.
+    Analyze LLM logs.
     '''
     stats = {
         'total_requests': 0,
@@ -299,7 +300,7 @@ if __name__ == '__main__':
 
 
 def demo_best_practices():
-    """Best practices para logging."""
+    """Logging best practices."""
     print("\n" + "="*70)
     print("DEMO 5: Logging Best Practices")
     print("="*70 + "\n")

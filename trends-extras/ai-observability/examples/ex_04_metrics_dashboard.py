@@ -1,8 +1,8 @@
 """
 Metrics Dashboard with Prometheus
 ==================================
-Expo metrics para monitoring con Prometheus + Grafana.
-Track latency, throughput, errors, costs en production.
+Expose metrics for monitoring with Prometheus + Grafana.
+Track latency, throughput, errors, and costs in production.
 
 Requirements:
     pip install prometheus-client
@@ -70,7 +70,7 @@ llm_cache_hit_rate = Gauge(
 
 class InstrumentedLLM:
     """
-    LLM wrapper que expone Prometheus metrics.
+    LLM wrapper that exposes Prometheus metrics.
     """
 
     def __init__(self, model: str = "gpt-3.5-turbo"):
@@ -81,8 +81,8 @@ class InstrumentedLLM:
 
     def _call_llm(self, prompt: str) -> dict:
         """
-        Simula llamada al LLM (mock).
-        En producción: llamar a OpenAI/Anthropic/etc.
+        Simulate LLM call (mock).
+        In production: call OpenAI/Anthropic/etc.
         """
         time.sleep(random.uniform(0.1, 2.0))  # Simulate latency
 
@@ -97,7 +97,7 @@ class InstrumentedLLM:
 
     def generate(self, prompt: str) -> dict:
         """
-        Genera respuesta con metrics.
+        Generate response with metrics.
         """
         # Increment active requests
         llm_active_requests.labels(model=self.model).inc()
@@ -154,9 +154,9 @@ class InstrumentedLLM:
 
 def expose_metrics(port: int = 8000):
     """
-    Expone metrics en /metrics endpoint.
+    Expose metrics at /metrics endpoint.
 
-    En producción:
+    In production:
         from prometheus_client import start_http_server
         start_http_server(8000)
     """
@@ -165,11 +165,11 @@ def expose_metrics(port: int = 8000):
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 def demo_basic_metrics():
-    """Metrics básicas."""
+    """Basic metrics."""
     print("="*70)
     print("DEMO 1: Basic Metrics Collection")
     print("="*70 + "\n")

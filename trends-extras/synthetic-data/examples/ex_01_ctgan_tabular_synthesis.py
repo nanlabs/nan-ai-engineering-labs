@@ -1,7 +1,7 @@
 """
 CTGAN: Synthetic Tabular Data Generation
 =========================================
-Genera datos tabulares sintéticos con CTGAN preservando distribuciones y correlaciones.
+Generate synthetic tabular data with CTGAN preserving distributions and correlations.
 
 Requirements:
     pip install sdv pandas matplotlib seaborn scikit-learn
@@ -26,7 +26,7 @@ warnings.filterwarnings('ignore')
 
 def create_sample_dataset() -> pd.DataFrame:
     """
-    Crea dataset de ejemplo (simulación de datos de clientes).
+    Create sample dataset (simulation of customer data).
     """
     np.random.seed(42)
     n = 1000
@@ -76,16 +76,16 @@ def train_ctgan(real_data: pd.DataFrame) -> CTGAN:
     """
     Entrena CTGAN en datos reales.
 
-    CTGAN usa GANs para generar datos sintéticos:
-    - Generator: Crea datos sintéticos
-    - Discriminator: Distingue real vs sintético
+    CTGAN uses GANs to generate synthetic data:
+    - Generator: Creates synthetic data
+    - Discriminator: Distinguishes real vs synthetic
     - Conditional: Preserva distribuciones condicionales
     """
     print("🧠 Training CTGAN...")
     print(f"   Real data shape: {real_data.shape}")
 
     model = CTGAN(
-        epochs=100,  # Más epochs = mejor calidad (pero más lento)
+        epochs=100,  # More epochs = better quality (but slower)
         batch_size=500,
         generator_dim=(256, 256),
         discriminator_dim=(256, 256)
@@ -99,7 +99,7 @@ def train_ctgan(real_data: pd.DataFrame) -> CTGAN:
 
 def generate_synthetic_data(model: CTGAN, n_samples: int = 1000) -> pd.DataFrame:
     """
-    Genera datos sintéticos.
+    Generate synthetic data.
     """
     print(f"🎲 Generating {n_samples} synthetic samples...")
     synthetic_data = model.sample(n_samples)
@@ -114,7 +114,7 @@ def generate_synthetic_data(model: CTGAN, n_samples: int = 1000) -> pd.DataFrame
 
 def validate_distributions(real_data: pd.DataFrame, synthetic_data: pd.DataFrame):
     """
-    Compara distribuciones de features numéricas.
+    Compare distributions of numerical features.
     """
     print("="*70)
     print("VALIDATION 1: Distribution Comparison")
@@ -137,7 +137,7 @@ def validate_distributions(real_data: pd.DataFrame, synthetic_data: pd.DataFrame
 
 def validate_correlations(real_data: pd.DataFrame, synthetic_data: pd.DataFrame):
     """
-    Compara matrices de correlación.
+    Compare correlation matrices.
     """
     print("="*70)
     print("VALIDATION 2: Correlation Matrices")
@@ -231,7 +231,7 @@ def validate_ml_utility(real_data: pd.DataFrame, synthetic_data: pd.DataFrame):
 
 def validate_categorical_distributions(real_data: pd.DataFrame, synthetic_data: pd.DataFrame):
     """
-    Compara distribuciones de features categóricas.
+    Compare distributions of categorical features.
     """
     print("="*70)
     print("VALIDATION 4: Categorical Feature Distributions")

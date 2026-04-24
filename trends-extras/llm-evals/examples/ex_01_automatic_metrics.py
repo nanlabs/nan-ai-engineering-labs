@@ -1,8 +1,8 @@
 """
 Automatic Metrics for LLM Evaluation
 =====================================
-Calcula métricas automáticas: BLEU, ROUGE, BERTScore.
-Útil para evaluar quality sin human evaluation costosa.
+Calculate automatic metrics: BLEU, ROUGE, BERTScore.
+Useful for evaluating quality without costly human evaluation.
 
 Requirements:
     pip install rouge-score sacrebleu bert-score nltk
@@ -17,10 +17,10 @@ from typing import List, Dict
 
 def calculate_bleu_1(reference: str, candidate: str) -> float:
     """
-    BLEU-1: Unigram (palabra) overlap entre reference y candidate.
+    BLEU-1: Unigram (word) overlap between reference and candidate.
 
-    BLEU real usa n-gramas (1-4) y brevity penalty.
-    Aquí simplificado para demostración.
+    Real BLEU uses n-grams (1-4) and brevity penalty.
+    Simplified here for demonstration.
     """
     ref_words = reference.lower().split()
     cand_words = candidate.lower().split()
@@ -36,9 +36,9 @@ def calculate_bleu_1(reference: str, candidate: str) -> float:
 
 def calculate_rouge_l(reference: str, candidate: str) -> Dict[str, float]:
     """
-    ROUGE-L: Longest Common Subsequence entre reference y candidate.
+    ROUGE-L: Longest Common Subsequence between reference and candidate.
 
-    Mide recall-oriented overlap (importante para summarization).
+    Measures recall-oriented overlap (important for summarization).
     """
     ref_words = reference.lower().split()
     cand_words = candidate.lower().split()
@@ -84,8 +84,8 @@ from bert_score import score as bert_score
 # 1. BLEU (Bilingual Evaluation Understudy)
 # ============================================================================
 
-# BLEU mide n-gram overlap (1-4 gramas)
-# Usado en machine translation, pero también text generation
+# BLEU measures n-gram overlap (1-4 grams)
+# Used in machine translation, but also in text generation
 
 references = ["The cat sat on the mat"]
 candidate = "A cat was sitting on the mat"
@@ -93,13 +93,13 @@ candidate = "A cat was sitting on the mat"
 bleu = BLEU()
 score = bleu.corpus_score([candidate], [[ref] for ref in references])
 print(f"BLEU: {score.score:.2f}")
-# Output: ~40-60 típico para buena generación
+# Output: ~40-60 typical for good generation
 
 # ============================================================================
 # 2. ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
 # ============================================================================
 
-# ROUGE mide recall (importante para summarization)
+# ROUGE measures recall (important for summarization)
 # ROUGE-1: unigrams, ROUGE-2: bigrams, ROUGE-L: longest common subsequence
 
 scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
@@ -109,7 +109,7 @@ print(f"ROUGE-1: {scores['rouge1'].fmeasure:.3f}")
 print(f"ROUGE-2: {scores['rouge2'].fmeasure:.3f}")
 print(f"ROUGE-L: {scores['rougeL'].fmeasure:.3f}")
 
-# Interpretación:
+# Interpretation:
 # > 0.5: Excellent
 # 0.3-0.5: Good
 # < 0.3: Poor
@@ -118,8 +118,8 @@ print(f"ROUGE-L: {scores['rougeL'].fmeasure:.3f}")
 # 3. BERTScore (Semantic Similarity)
 # ============================================================================
 
-# BERTScore usa embeddings para medir semantic similarity
-# Mejor que BLEU/ROUGE para capturar paráfrasis
+# BERTScore uses embeddings to measure semantic similarity
+# Better than BLEU/ROUGE for capturing paraphrases
 
 P, R, F1 = bert_score(
     [candidate],
@@ -130,7 +130,7 @@ P, R, F1 = bert_score(
 
 print(f"BERTScore F1: {F1[0]:.3f}")
 
-# Interpretación:
+# Interpretation:
 # > 0.90: Excellent
 # 0.85-0.90: Good
 # < 0.85: Needs improvement
@@ -138,11 +138,11 @@ print(f"BERTScore F1: {F1[0]:.3f}")
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 def demo_translation_metrics():
-    """Evaluar traducción."""
+    """Evaluate translation."""
     print("="*70)
     print("DEMO 1: Machine Translation Evaluation")
     print("="*70 + "\n")
@@ -152,7 +152,7 @@ def demo_translation_metrics():
     candidates = [
         ("A cat was sitting on the mat", "Good translation"),
         ("The cat on mat sat", "Poor grammar"),
-        ("El gato se sentó", "Wrong language"),
+        ("The cat sat differently", "Wrong word order"),
     ]
 
     for candidate, description in candidates:
@@ -168,7 +168,7 @@ def demo_translation_metrics():
 
 
 def demo_summarization_metrics():
-    """Evaluar summarization."""
+    """Evaluate summarization."""
     print("="*70)
     print("DEMO 2: Summarization Evaluation")
     print("="*70 + "\n")
@@ -194,7 +194,7 @@ def demo_summarization_metrics():
 
 
 def demo_qa_metrics():
-    """Evaluar QA."""
+    """Evaluate QA."""
     print("="*70)
     print("DEMO 3: Question Answering Evaluation")
     print("="*70 + "\n")
@@ -231,20 +231,20 @@ def demo_qa_metrics():
 
 
 def demo_metric_comparison():
-    """Comparar métricas."""
+    """Compare metrics."""
     print("="*70)
     print("DEMO 4: Metric Comparison")
     print("="*70 + "\n")
 
     reference = "Machine learning is a subset of artificial intelligence"
 
-    # Paráfrasis perfecta semánticamente
+    # Semantically perfect paraphrase
     paraphrase = "ML is part of AI"
 
     # Overlap exacto pero sin sentido
     nonsense = "Machine learning artificial intelligence subset is a of"
 
-    print("🔹 Paráfrasis semántica:")
+    print("🔹 Semantic paraphrase:")
     print(f"   Ref: {reference}")
     print(f"   Gen: {paraphrase}")
     bleu_p = calculate_bleu_1(reference, paraphrase)
@@ -262,14 +262,14 @@ def demo_metric_comparison():
     print(f"   ROUGE-L: {rouge_n['f1']:.3f}")
     print(f"   BERTScore would be LOW - no semantic sense\n")
 
-    print("💡 LECCIÓN: Usar múltiples métricas!")
+    print("💡 LESSON: Use multiple metrics!")
     print("   • BLEU/ROUGE: Surface overlap")
     print("   • BERTScore: Semantic similarity")
     print("   • Both together: Comprehensive evaluation")
 
 
 def demo_metrics_cheatsheet():
-    """Cheatsheet de métricas."""
+    """Metrics cheatsheet."""
     print("\n" + "="*70)
     print("CHEATSHEET: Choosing the Right Metric")
     print("="*70 + "\n")
@@ -315,7 +315,7 @@ def demo_metrics_cheatsheet():
 
 if __name__ == "__main__":
     print("\n🎯 AUTOMATIC METRICS FOR LLM EVALUATION")
-    print("📊 Evaluar quality sin human judges\n")
+    print("📊 Evaluate quality without human judges\n")
 
     demo_translation_metrics()
     demo_summarization_metrics()
@@ -324,7 +324,7 @@ if __name__ == "__main__":
     demo_metrics_cheatsheet()
 
     print("\n" + "="*70)
-    print("📚 PARA PRODUCCIÓN:")
+    print("📚 FOR PRODUCTION:")
     print("="*70)
     print(REAL_METRICS_CODE)
 

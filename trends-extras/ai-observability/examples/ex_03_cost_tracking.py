@@ -1,7 +1,7 @@
 """
 Cost Tracking for LLM Applications
 ===================================
-Track y optimiza costos de LLM calls.
+Track and optimize LLM call costs.
 Budget alerts, cost analytics, optimization recommendations.
 
 Requirements:
@@ -19,7 +19,7 @@ from collections import defaultdict
 
 class CostCalculator:
     """
-    Calcula costos de LLM calls basados en tokens.
+    Calculate LLM call costs based on tokens.
     """
 
     # Pricing (as of 2024, prices may change)
@@ -62,10 +62,10 @@ class CostCalculator:
 
     def count_tokens(self, text: str, model: str = "gpt-3.5-turbo") -> int:
         """
-        Cuenta tokens en texto.
+        Count tokens in text.
         """
-        # Simplified: count words * 1.3 (aproximación)
-        # En producción: usar tiktoken real
+        # Simplified: count words * 1.3 (approximation)
+        # In production: use real tiktoken
         return int(len(text.split()) * 1.3)
 
     def calculate_cost(
@@ -75,7 +75,7 @@ class CostCalculator:
         model: str = "gpt-3.5-turbo"
     ) -> Dict:
         """
-        Calcula costo de una llamada.
+        Calculate cost of a call.
         """
         # Count tokens
         input_tokens = self.count_tokens(prompt, model)
@@ -109,7 +109,7 @@ class CostCalculator:
 
 class CostTracker:
     """
-    Track costos overtime con budget alerts.
+    Track costs over time with budget alerts.
     """
 
     def __init__(self, daily_budget: float = 100.0, monthly_budget: float = 2000.0):
@@ -129,7 +129,7 @@ class CostTracker:
         timestamp: datetime = None
     ):
         """
-        Loggea una llamada.
+        Log a call.
         """
         if timestamp is None:
             timestamp = datetime.now()
@@ -150,7 +150,7 @@ class CostTracker:
         self.cost_by_day[day_key] += cost
 
     def get_daily_cost(self, date: datetime = None) -> float:
-        """Get costo del día."""
+        """Get daily cost."""
         if date is None:
             date = datetime.now()
 
@@ -158,7 +158,7 @@ class CostTracker:
         return self.cost_by_day.get(day_key, 0.0)
 
     def check_budget_alert(self) -> List[str]:
-        """Check si se excedió budget."""
+        """Check if budget was exceeded."""
         alerts = []
 
         daily_cost = self.get_daily_cost()
@@ -170,7 +170,7 @@ class CostTracker:
         return alerts
 
     def get_top_users(self, n: int = 5) -> List[tuple]:
-        """Get top N users por costo."""
+        """Get top N users by cost."""
         return sorted(
             self.cost_by_user.items(),
             key=lambda x: x[1],
@@ -178,11 +178,11 @@ class CostTracker:
         )[:n]
 
     def get_cost_by_model(self) -> Dict[str, float]:
-        """Get costo breakdown por modelo."""
+        """Get cost breakdown by model."""
         return dict(self.cost_by_model)
 
     def generate_report(self) -> str:
-        """Genera reporte de costos."""
+        """Generate cost report."""
         report = []
         report.append("="*70)
         report.append("COST REPORT")
@@ -217,11 +217,11 @@ class CostTracker:
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 def demo_cost_calculation():
-    """Calcular costos."""
+    """Calculate costs."""
     print("="*70)
     print("DEMO 1: Cost Calculation")
     print("="*70 + "\n")
@@ -246,7 +246,7 @@ def demo_cost_calculation():
 
 
 def demo_cost_tracking():
-    """Track costos."""
+    """Track costs."""
     print("="*70)
     print("DEMO 2: Cost Tracking")
     print("="*70 + "\n")
@@ -299,7 +299,7 @@ def demo_budget_alerts():
 
 
 def demo_cost_optimization():
-    """Optimizaciones de costo."""
+    """Cost optimization strategies."""
     print("="*70)
     print("DEMO 4: Cost Optimization Strategies")
     print("="*70 + "\n")

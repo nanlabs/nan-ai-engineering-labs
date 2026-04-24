@@ -2,7 +2,6 @@
 
 Total modules scanned: 12
 
-
 ## Summary Statistics
 
 - **Total files**: 274
@@ -17,10 +16,9 @@ Total modules scanned: 12
 
 **Status**: 20 English | 1 Spanish | 0 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -64,15 +62,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 02-data-collection-cleaning-visualization
 
 **Status**: 10 English | 12 Spanish | 1 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -120,15 +116,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 03-machine-learning-fundamentals
 
 **Status**: 11 English | 11 Spanish | 1 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -176,15 +170,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Mixed |
 
-
 ### 04-deep-learning-basics
 
 **Status**: 11 English | 9 Spanish | 3 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -232,15 +224,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 05-nlp-large-language-models
 
 **Status**: 7 English | 10 Spanish | 6 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -288,15 +278,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 06-computer-vision
 
 **Status**: 10 English | 9 Spanish | 4 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -344,15 +332,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 07-time-series-anomaly-detection
 
 **Status**: 10 English | 12 Spanish | 1 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -400,15 +386,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 08-recommender-systems
 
 **Status**: 10 English | 12 Spanish | 1 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -456,15 +440,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 09-generative-ai-prompt-engineering
 
 **Status**: 10 English | 11 Spanish | 2 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -512,15 +494,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 10-ethics-bias-explainability
 
 **Status**: 9 English | 11 Spanish | 3 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -568,15 +548,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 11-data-privacy-security
 
 **Status**: 11 English | 11 Spanish | 1 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -624,15 +602,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Spanish |
 
-
 ### 12-mlops-ai-in-production
 
 **Status**: 11 English | 9 Spanish | 3 Mixed | 0 Unknown
 
-
 | File | Type | Language |
 
-|------|------|----------|
+|\------|------|----------|
 
 | README.md | Markdown | English |
 
@@ -680,17 +656,13 @@ Total modules scanned: 12
 
 | theory/README.md | Markdown | Mixed |
 
-
-
 ## Files Requiring English Conversion
-
 
 **Total files needing conversion**: 144
 
-
 | Module | File | Current Language |
 
-|--------|------|------------------|
+|\--------|------|------------------|
 
 | 01-programming-math-for-ml | theory/README.md | Spanish |
 

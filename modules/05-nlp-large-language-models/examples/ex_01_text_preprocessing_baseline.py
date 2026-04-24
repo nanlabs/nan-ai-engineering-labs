@@ -8,13 +8,13 @@ from __future__ import annotations
 
 import re
 
-STOPWORDS = {"el", "la", "de", "y", "en", "es", "un", "una", "que"}
+STOPWORDS = {"the", "a", "an", "in", "on", "is", "of", "and", "that"}
 
 
 def normalize_text(text: str) -> str:
     """Lowercase text and remove punctuation."""
     text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9áéíóúñ\s]", " ", text)
+    text = re.sub(r"[^a-z0-9\s]", " ", text)
     text = re.sub(r"\s+", " ", text)
     return text
 
@@ -28,9 +28,9 @@ def tokenize(text: str) -> list[str]:
 def main() -> None:
     """Show deterministic preprocessing output for three short texts."""
     corpus = [
-        "La experiencia de usuario en AI es clave.",
-        "Un modelo robusto mejora la calidad de respuesta.",
-        "En producción, monitorear deriva evita sorpresas.",
+        "User experience in AI is key.",
+        "A robust model improves response quality.",
+        "In production, monitoring drift prevents surprises.",
     ]
 
     for index, sentence in enumerate(corpus, start=1):

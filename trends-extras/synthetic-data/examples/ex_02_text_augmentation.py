@@ -219,7 +219,7 @@ class SemanticValidator:
 
     def validate(self, original: str, augmented: str, threshold: float = 0.75) -> Dict:
         """
-        Calcula similaridad semántica.
+        Calculate semantic similarity.
 
         Returns:
             dict with similarity score and validation result

@@ -1,7 +1,7 @@
 """
 Output Filtering Guardrails
 ============================
-Filtra outputs del LLM: PII redaction, toxicity detection, content policy.
+Filter LLM outputs: PII redaction, toxicity detection, content policy.
 """
 
 import re
@@ -53,7 +53,7 @@ def redact_pii(text: str) -> Dict:
     pii_found = detect_pii(text)
     redacted = text
 
-    # Redact en orden inverso para mantener índices
+    # Redact in reverse order to preserve indices
     for detection in sorted(pii_found, key=lambda x: x['start'], reverse=True):
         start, end = detection['start'], detection['end']
         pii_type = detection['type']
@@ -69,7 +69,7 @@ def redact_pii(text: str) -> Dict:
 # TOXICITY DETECTION
 # ============================================================================
 
-# Lista simple de palabras tóxicas (en producción usa modelo ML)
+# Simple list of toxic words (in production use an ML model)
 TOXIC_WORDS = [
     "idiot", "stupid", "hate", "kill", "death", "ugly",
     "worthless", "loser", "pathetic", "disgusting"
@@ -80,7 +80,7 @@ def detect_toxicity(text: str) -> Dict:
     """
     Detecta toxicidad en el texto.
 
-    En producción, usa un modelo como:
+    In production, use a model such as:
     - Detoxify (transformers)
     - Perspective API
     - Azure Content Safety
@@ -110,13 +110,13 @@ def detect_toxicity(text: str) -> Dict:
 PROHIBITED_TOPICS = [
     r"how to (make|build|create) (a bomb|explosive|weapon)",
     r"(illegal|ilegal) (drugs|drogas)",
-    r"(hack|hacking|steal|robar)\s+(a\s+)?(password|data|informacion|información)",
+    r"(hack|hacking|steal)\s+(a\s+)?(password|data|information)",
 ]
 
 
 def check_content_policy(text: str) -> Dict:
     """
-    Verifica si el texto viola políticas de contenido.
+    Check whether text violates content policy.
     """
     text_lower = text.lower()
 
@@ -185,7 +185,7 @@ def output_guardrail(llm_output: str) -> Dict:
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 if __name__ == "__main__":
@@ -193,16 +193,16 @@ if __name__ == "__main__":
     print("OUTPUT FILTERING GUARDRAILS")
     print("="*70)
 
-    # Caso 1: Output seguro
-    print("\n1. Output seguro:")
+    # Case 1: Safe output
+    print("\n1. Safe output:")
     safe_output = "Paris is the capital of France. It's a beautiful city with rich history."
     result = output_guardrail(safe_output)
     print(f"Output: {safe_output}")
     print(f"✅ Safe: {result['is_safe']}")
     print(f"Safe Output: {result['safe_output']}")
 
-    # Caso 2: Output con PII
-    print("\n2. Output con PII:")
+    # Case 2: Output with PII
+    print("\n2. Output with PII:")
     pii_output = "Contact John at john.doe@example.com or call 555-123-4567."
     result = output_guardrail(pii_output)
     print(f"Output: {pii_output}")
@@ -210,8 +210,8 @@ if __name__ == "__main__":
     print(f"Safe Output: {result['safe_output']}")
     print(f"Issues: {result['issues']}")
 
-    # Caso 3: Output tóxico
-    print("\n3. Output tóxico:")
+    # Case 3: Toxic output
+    print("\n3. Toxic output:")
     toxic_output = "That's a stupid idea and you're an idiot for thinking that."
     result = output_guardrail(toxic_output)
     print(f"Output: {toxic_output}")
@@ -219,8 +219,8 @@ if __name__ == "__main__":
     print(f"Safe Output: {result['safe_output']}")
     print(f"Issues: {result['issues']}")
 
-    # Caso 4: Violación de política
-    print("\n4. Violación de política:")
+    # Case 4: Policy violation
+    print("\n4. Policy violation:")
     policy_output = "Here's how to hack a password using brute force techniques..."
     result = output_guardrail(policy_output)
     print(f"Output: {policy_output}")
@@ -228,8 +228,8 @@ if __name__ == "__main__":
     print(f"Safe Output: {result['safe_output']}")
     print(f"Issues: {result['issues']}")
 
-    # Caso 5: Output con tarjeta de crédito
-    print("\n5. Output con número de tarjeta:")
+    # Case 5: Output with credit card number
+    print("\n5. Output with card number:")
     cc_output = "The customer's card number is 4532-1234-5678-9010."
     result = output_guardrail(cc_output)
     print(f"Output: {cc_output}")

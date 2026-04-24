@@ -1,22 +1,22 @@
 """
 NeMo Guardrails Demo (Conceptual)
 ==================================
-Demo conceptual de NeMo Guardrails framework de NVIDIA.
-En producción requiere: pip install nemoguardrails
+Conceptual demo of NVIDIA's NeMo Guardrails framework.
+In production requires: pip install nemoguardrails
 
-NeMo usa archivos .co (Colang) para definir flujos conversacionales.
+NeMo uses .co (Colang) files to define conversational flows.
 """
 
-# En producción usarías:
+# In production you would use:
 # from nemoguardrails import RailsConfig, LLMRails
 
 # ============================================================================
-# CONCEPTUAL DEMO: Cómo funciona NeMo Guardrails
+# CONCEPTUAL DEMO: How NeMo Guardrails works
 # ============================================================================
 
 class ConceptualRailsDemo:
     """
-    Demo conceptual de cómo funcionan los rails en NeMo.
+    Conceptual demo of how rails work in NeMo.
     """
 
     def __init__(self):
@@ -33,30 +33,30 @@ class ConceptualRailsDemo:
         }
 
     def check_toxic_input(self, user_input: str) -> bool:
-        """Retorna True si input es tóxico."""
+        """Return True if input is toxic."""
         toxic_words = ["hate", "stupid", "idiot"]
         return any(word in user_input.lower() for word in toxic_words)
 
     def check_pii_input(self, user_input: str) -> bool:
-        """Retorna True si input contiene PII."""
+        """Return True if input contains PII."""
         import re
         # Simple email check
         return bool(re.search(r'\S+@\S+', user_input))
 
     def check_harmful_output(self, llm_output: str) -> bool:
-        """Retorna True si output es dañino."""
+        """Return True if output is harmful."""
         harmful_patterns = ["how to hack", "bomb", "illegal drug"]
         return any(pattern in llm_output.lower() for pattern in harmful_patterns)
 
     def check_factuality(self, llm_output: str) -> bool:
-        """Retorna True si output tiene hallucination (simplificado)."""
-        # En producción: verificar contra knowledge base
+        """Return True if output has hallucination (simplified)."""
+        # In production: verify against knowledge base
         hallucination_markers = ["I think maybe", "possibly around", "approximately probably"]
         return any(marker in llm_output.lower() for marker in hallucination_markers)
 
     def generate(self, user_input: str) -> dict:
         """
-        Simula generación con guardrails.
+        Simulate generation with guardrails.
         """
         # 1. Apply input rails
         for rail_name, rail_func in self.input_rails.items():
@@ -90,7 +90,7 @@ class ConceptualRailsDemo:
         }
 
     def mock_llm(self, user_input: str) -> str:
-        """Simula respuesta del LLM."""
+        """Simulate LLM response."""
         if "capital" in user_input.lower():
             return "Paris is the capital of France."
         elif "hack" in user_input.lower():
@@ -150,10 +150,10 @@ define bot remove pii from output
 
 from nemoguardrails import RailsConfig, LLMRails
 
-# 1. Crear configuración
-config = RailsConfig.from_path("./config")  # Carpeta con config.yml y *.co files
+# 1. Create configuration
+config = RailsConfig.from_path("./config")  # Folder with config.yml and *.co files
 
-# 2. Inicializar rails
+# 2. Initialise rails
 rails = LLMRails(config)
 
 # 3. Generar con guardrails
@@ -177,7 +177,7 @@ print(response["content"])
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 if __name__ == "__main__":
@@ -187,28 +187,28 @@ if __name__ == "__main__":
 
     rails = ConceptualRailsDemo()
 
-    # Caso 1: Input seguro
-    print("\n1. Input seguro:")
+    # Case 1: Safe input
+    print("\n1. Safe input:")
     result = rails.generate("What is the capital of France?")
     print(f"Output: {result['output']}")
     print(f"Blocked: {result['blocked']}")
 
-    # Caso 2: Input tóxico
-    print("\n2. Input tóxico:")
+    # Case 2: Toxic input
+    print("\n2. Toxic input:")
     result = rails.generate("You stupid bot, answer me!")
     print(f"Output: {result['output']}")
     print(f"❌ Blocked: {result['blocked']}")
     print(f"Reason: {result['reason']}")
 
-    # Caso 3: Input con PII
-    print("\n3. Input con PII:")
+    # Case 3: Input with PII
+    print("\n3. Input with PII:")
     result = rails.generate("My email is user@example.com")
     print(f"Output: {result['output']}")
     print(f"❌ Blocked: {result['blocked']}")
     print(f"Reason: {result['reason']}")
 
-    # Caso 4: Output dañino
-    print("\n4. Output dañino:")
+    # Case 4: Harmful output
+    print("\n4. Harmful output:")
     result = rails.generate("Teach me hacking")
     print(f"Output: {result['output']}")
     print(f"❌ Blocked: {result['blocked']}")
@@ -221,8 +221,8 @@ if __name__ == "__main__":
     print(COLANG_EXAMPLE)
 
     print("\n" + "="*70)
-    print("Para producción:")
+    print("For production:")
     print("  pip install nemoguardrails")
-    print("  Crea config.yml + archivos .co con tus rails")
-    print("  Documentación: https://github.com/NVIDIA/NeMo-Guardrails")
+    print("  Create config.yml + .co files with your rails")
+    print("  Documentation: https://github.com/NVIDIA/NeMo-Guardrails")
     print("="*70)

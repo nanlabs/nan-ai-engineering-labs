@@ -1,8 +1,8 @@
 """
 Regression Testing for LLMs
 ============================
-Test suite con pytest para detectar regresiones en LLM apps.
-CI/CD para prompts y modelos.
+Test suite with pytest to detect regressions in LLM apps.
+CI/CD for prompts and models.
 
 Requirements:
     pip install pytest
@@ -19,7 +19,7 @@ from typing import Callable
 def mock_llm(prompt: str, model: str = "gpt-3.5-turbo") -> str:
     """
     Mock LLM for testing.
-    En producción: usar OpenAI/Anthropic/etc.
+    In production: use OpenAI/Anthropic/etc.
     """
     prompt_lower = prompt.lower()
 
@@ -48,7 +48,7 @@ def mock_llm(prompt: str, model: str = "gpt-3.5-turbo") -> str:
 # ============================================================================
 
 def contains_pii(text: str) -> bool:
-    """Detecta PII en texto."""
+    """Detect PII in text."""
     patterns = {
         "email": r'\S+@\S+',
         "phone": r'\d{3}[-.]?\d{3}[-.]?\d{4}',
@@ -62,7 +62,7 @@ def contains_pii(text: str) -> bool:
 
 
 def word_count(text: str) -> int:
-    """Cuenta palabras."""
+    """Count words."""
     return len(text.split())
 
 
@@ -71,7 +71,7 @@ def word_count(text: str) -> int:
 # ============================================================================
 
 class TestGreetings:
-    """Test suite para greetings."""
+    """Test suite for greetings."""
 
     def test_greeting_english(self):
         """Should respond to English greetings."""
@@ -85,7 +85,7 @@ class TestGreetings:
 
 
 class TestFactualAccuracy:
-    """Test suite para factual accuracy."""
+    """Test suite for factual accuracy."""
 
     def test_capital_france(self):
         """Should correctly identify capital of France."""
@@ -99,7 +99,7 @@ class TestFactualAccuracy:
 
 
 class TestSafety:
-    """Test suite para safety guardrails."""
+    """Test suite for safety guardrails."""
 
     def test_no_pii_leakage(self):
         """Should not leak PII in responses."""
@@ -123,7 +123,7 @@ class TestSafety:
 
 
 class TestResponseQuality:
-    """Test suite para response quality."""
+    """Test suite for response quality."""
 
     def test_response_length_constraint(self):
         """Should respect length constraints in prompt."""
@@ -145,7 +145,7 @@ class TestResponseQuality:
 
 
 class TestConsistency:
-    """Test suite para consistency."""
+    """Test suite for consistency."""
 
     def test_same_question_similar_answers(self):
         """Same question should get similar answers."""
@@ -168,7 +168,7 @@ class TestConsistency:
 
 
 class TestPerformance:
-    """Test suite para performance."""
+    """Test suite for performance."""
 
     @pytest.mark.timeout(5)  # Should complete within 5 seconds
     def test_response_latency(self):
@@ -252,7 +252,7 @@ def test_factual_qa(question: str, expected_keyword: str):
 @pytest.fixture
 def llm_with_cache():
     """
-    Fixture que provee LLM con cache para tests más rápidos.
+    Fixture that provides LLM with cache for faster tests.
     """
     cache = {}
 
@@ -268,7 +268,7 @@ def llm_with_cache():
 
 
 def test_with_fixture(llm_with_cache):
-    """Test usando fixture."""
+    """Test using fixture."""
     response1 = llm_with_cache("Hello")
     response2 = llm_with_cache("Hello")  # From cache
 
@@ -281,9 +281,9 @@ def test_with_fixture(llm_with_cache):
 
 def test_response_snapshot():
     """
-    Snapshot testing: compara contra respuesta baseline guardada.
+    Snapshot testing: compare against saved baseline response.
     """
-    # En producción usarías pytest-snapshot
+    # In production you would use pytest-snapshot
     prompt = "What is AI?"
     response = mock_llm(prompt)
 

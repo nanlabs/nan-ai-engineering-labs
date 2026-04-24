@@ -1,8 +1,8 @@
 """
 Visual Question Answering (VQA)
 ================================
-Responde preguntas sobre imágenes usando BLIP-VQA.
-Combina visión + razonamiento para entender escenas.
+Answer questions about images using BLIP-VQA.
+Combines vision + reasoning to understand scenes.
 
 Requirements:
     pip install transformers torch pillow
@@ -22,7 +22,7 @@ class MockVQADemo:
     def __init__(self):
         print("🔄 Mock BLIP-VQA model loaded (conceptual demo)\n")
 
-        # Knowledge base simulado (en producción, el modelo "ve" la imagen)
+        # Simulated knowledge base (in production, the model "sees" the image)
         self.image_knowledge = {
             "dog_park.jpg": {
                 "objects": ["dog", "ball", "grass", "trees"],
@@ -54,7 +54,7 @@ class MockVQADemo:
             {"objects": ["unknown"], "colors": {}, "count": {}}
         )
 
-        # Simple rule-based answering (en producción es el modelo VQA)
+        # Simple rule-based answering (in production this is the VQA model)
         question_lower = question.lower()
 
         if "what color" in question_lower:
@@ -185,7 +185,7 @@ def demo_reasoning_questions():
 
 
 def demo_multi_question_conversation():
-    """Conversación con múltiples preguntas."""
+    """Conversation with multiple questions."""
     print("="*70)
     print("DEMO 4: Multi-Question Conversation")
     print("="*70 + "\n")
@@ -210,12 +210,12 @@ def demo_multi_question_conversation():
 
 
 def demo_yes_no_questions():
-    """Preguntas de sí/no."""
+    """Yes/no questions."""
     print("="*70)
     print("DEMO 5: Yes/No Questions")
     print("="*70 + "\n")
 
-    # En producción, VQA puede responder sí/no
+    # In production, VQA can answer yes/no
     print("📸 Imagen: dog_park.jpg\n")
 
     questions_and_answers = [
@@ -280,7 +280,7 @@ def demo_vqa_pipeline():
 
 if __name__ == "__main__":
     print("\n🎯 VISUAL QUESTION ANSWERING (VQA)")
-    print("🤔 Responde preguntas sobre imágenes\n")
+    print("🤔 Answers questions about images\n")
 
     demo_object_questions()
     demo_counting_questions()
@@ -292,7 +292,7 @@ if __name__ == "__main__":
     print("\n" + "="*70)
     print("💡 USE CASES:")
     print("="*70)
-    print("✅ Accessibility: Responder preguntas sobre imágenes")
+    print("✅ Accessibility: Answer questions about images")
     print("✅ E-commerce: 'Is this shirt blue?' sin tags manuales")
     print("✅ Content Moderation: 'Is there violence in this image?'")
     print("✅ Education: Interactive visual learning")
@@ -301,9 +301,9 @@ if __name__ == "__main__":
 
     print("\n📚 Modelo: Salesforce/blip-vqa-base")
     print("📄 Paper: https://arxiv.org/abs/2201.12086")
-    print("📊 Dataset: VQAv2 (>1M questions sobre 200K imágenes)")
+    print("📊 Dataset: VQAv2 (>1M questions on 200K images)")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL (para producción):")
+    print("REAL CODE (for production):")
     print("="*70)
     print(REAL_VQA_CODE)

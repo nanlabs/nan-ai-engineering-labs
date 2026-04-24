@@ -1,7 +1,7 @@
 """
 Privacy-Preserving Synthetic Data with Differential Privacy
 ============================================================
-Genera datos sintéticos con garantías de privacy usando Differential Privacy.
+Generate synthetic data with privacy guarantees using Differential Privacy.
 
 Requirements:
     pip install diffprivlib pandas numpy matplotlib scikit-learn
@@ -25,7 +25,7 @@ warnings.filterwarnings('ignore')
 
 def explain_differential_privacy():
     """
-    Explica qué es Differential Privacy.
+    Explain what Differential Privacy is.
     """
     print("="*70)
     print("WHAT IS DIFFERENTIAL PRIVACY?")

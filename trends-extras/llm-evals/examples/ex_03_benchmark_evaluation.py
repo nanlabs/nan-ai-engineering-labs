@@ -1,8 +1,8 @@
 """
 Benchmark Evaluation
 ====================
-Evalúa LLMs en benchmarks estándar: MMLU, HellaSwag, TruthfulQA.
-Compara modelos objetivamente.
+Evaluate LLMs on standard benchmarks: MMLU, HellaSwag, TruthfulQA.
+Compare models objectively.
 
 Requirements:
     pip install datasets  # Hugging Face datasets
@@ -71,8 +71,8 @@ TRUTHFULQA_SAMPLE = [
 
 class MMLUEvaluator:
     """
-    Evalúa modelo en MMLU benchmark.
-    Mide conocimiento general en 57 subjects.
+    Evaluate model on MMLU benchmark.
+    Measures general knowledge across 57 subjects.
     """
 
     def __init__(self):
@@ -80,10 +80,10 @@ class MMLUEvaluator:
 
     def evaluate(self, model_fn) -> Dict:
         """
-        Evalúa modelo.
+        Evaluate model.
 
         Args:
-            model_fn: Función que toma (question, choices) y retorna índice
+            model_fn: Function that takes (question, choices) and returns index
         """
         correct = 0
         total = len(self.questions)
@@ -104,7 +104,7 @@ class MMLUEvaluator:
 
 class HellaSwagEvaluator:
     """
-    Evalúa common sense reasoning.
+    Evaluate common sense reasoning.
     """
 
     def __init__(self):
@@ -113,7 +113,7 @@ class HellaSwagEvaluator:
     def evaluate(self, model_fn) -> Dict:
         """
         Args:
-            model_fn: Función que toma (context, endings) y retorna índice
+            model_fn: Function that takes (context, endings) and returns index
         """
         correct = 0
         total = len(self.examples)
@@ -177,7 +177,7 @@ dataset = load_dataset("cais/mmlu", "all")
 
 def evaluate_mmlu(model_name: str, subject: str = "college_mathematics"):
     '''
-    Evalúa modelo en MMLU.
+    Evaluate model on MMLU.
     '''
     test_data = dataset["test"].filter(lambda x: x["subject"] == subject)
 
@@ -222,7 +222,7 @@ dataset = load_dataset("hellaswag")
 
 def evaluate_hellaswag(model_name: str):
     '''
-    Evalúa common sense reasoning.
+    Evaluate common sense reasoning.
     '''
     test_data = dataset["validation"][:100]  # Sample
 
@@ -258,10 +258,10 @@ dataset = load_dataset("truthful_qa", "generation")
 
 def evaluate_truthfulness(model_name: str):
     '''
-    Evalúa truthfulness (no supersticiones, mitos).
+    Evaluate truthfulness (no superstitions, myths).
     '''
-    # Esta es más compleja: requiere GPT-4 como judge
-    # o modelo entrenado para detectar truthfulness
+    # This is more complex: requires GPT-4 as judge
+    # or a model trained to detect truthfulness
     pass
 
 
@@ -285,11 +285,11 @@ for model, scores in sorted(results.items(), key=lambda x: x[1]["mmlu"], reverse
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# USAGE EXAMPLES
 # ============================================================================
 
 def demo_mmlu():
-    """Evaluar en MMLU."""
+    """Evaluate on MMLU."""
     print("="*70)
     print("DEMO 1: MMLU (Multi-task Language Understanding)")
     print("="*70 + "\n")
@@ -446,6 +446,6 @@ if __name__ == "__main__":
     print("  • AlpacaEval: https://tatsu-lab.github.io/alpaca_eval/")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL:")
+    print("REAL CODE:")
     print("="*70)
     print(REAL_CODE)

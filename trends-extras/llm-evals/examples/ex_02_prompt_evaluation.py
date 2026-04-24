@@ -1,8 +1,8 @@
 """
 Prompt Evaluation & A/B Testing
 ================================
-Compara prompts para seleccionar el mejor.
-A/B testing sistemático para prompt engineering.
+Compare prompts to select the best one.
+Systematic A/B testing for prompt engineering.
 
 Requirements:
     pip install openai  # o tu LLM provider
@@ -18,20 +18,20 @@ from dataclasses import dataclass
 
 def mock_llm(prompt: str, model: str = "gpt-3.5-turbo") -> str:
     """
-    Mock LLM para demo (en producción usar OpenAI/Anthropic/etc).
+    Mock LLM for demo (in production use OpenAI/Anthropic/etc).
     """
     # Simulate different prompt qualities
-    if "español" in prompt.lower() and "concisa" in prompt.lower():
+    if "concise" in prompt.lower():
         # Good prompt
         responses = [
-            "París es la capital de Francia.",
-            "La capital de Francia es París.",
+            "Paris is the capital of France.",
+            "The capital of France is Paris.",
         ]
-    elif "español" in prompt.lower():
+    elif "answer" in prompt.lower() or "question" in prompt.lower():
         # Medium prompt
         responses = [
-            "La capital de Francia es París, una ciudad hermosa con rica historia.",
-            "París. Es una ciudad muy bonita.",
+            "The capital of France is Paris, a beautiful city with rich history.",
+            "Paris. It's a very beautiful city.",
         ]
     else:
         # Basic prompt
@@ -49,7 +49,7 @@ def mock_llm(prompt: str, model: str = "gpt-3.5-turbo") -> str:
 
 @dataclass
 class EvalResult:
-    """Resultado de evaluación."""
+    """Evaluation result."""
     prompt_id: str
     avg_length: float
     correct_language: float
@@ -59,7 +59,7 @@ class EvalResult:
 
 class PromptEvaluator:
     """
-    Evalúa prompts automáticamente.
+    Evaluate prompts automatically.
     """
 
     def __init__(self, test_questions: List[str]):
@@ -67,7 +67,7 @@ class PromptEvaluator:
 
     def evaluate_prompt(self, prompt_template: str, prompt_id: str) -> EvalResult:
         """
-        Evalúa un prompt en el test set.
+        Evaluate a prompt on the test set.
         """
         responses = []
 
@@ -79,10 +79,9 @@ class PromptEvaluator:
         # Calculate metrics
         avg_length = sum(len(r.split()) for r in responses) / len(responses)
 
-        # Check if Spanish
-        spanish_words = ["es", "la", "de", "el", "una"]
+        # Check if answer is non-empty
         correct_language = sum(
-            any(word in r.lower() for word in spanish_words)
+            len(r.strip()) > 0
             for r in responses
         ) / len(responses)
 
@@ -159,7 +158,7 @@ from typing import List
 
 def evaluate_prompt_real(prompt_template: str, test_set: List[str]) -> float:
     '''
-    Evalúa prompt con LLM real.
+    Evaluate prompt with real LLM.
     '''
     scores = []
 
@@ -173,13 +172,13 @@ def evaluate_prompt_real(prompt_template: str, test_set: List[str]) -> float:
 
         # 2. Evaluate with GPT-4 as judge
         eval_prompt = f'''
-        Evalúa esta respuesta en escala 1-5:
+        Evaluate this response on a scale of 1-5:
 
-        Pregunta: {question}
-        Respuesta: {response}
+        Question: {question}
+        Response: {response}
 
-        Criterios: claridad, concisión, corrección
-        Responde solo el número.
+        Criteria: clarity, conciseness, correctness
+        Reply with just the number.
         '''
 
         score = float(openai.ChatCompletion.create(
@@ -194,14 +193,14 @@ def evaluate_prompt_real(prompt_template: str, test_set: List[str]) -> float:
 
 # A/B Testing con LLM real
 prompts = {
-    "A": "Responde: {question}",
-    "B": "Eres un asistente útil. Responde en español de forma concisa: {question}"
+    "A": "Answer: {question}",
+    "B": "You are a helpful assistant. Answer concisely: {question}"
 }
 
 test_set = [
-    "¿Cuál es la capital de Francia?",
-    "¿Qué es la fotosíntesis?",
-    "¿Quién escribió Don Quijote?"
+    "What is the capital of France?",
+    "What is photosynthesis?",
+    "Who wrote Don Quixote?"
 ]
 
 for prompt_id, template in prompts.items():
@@ -215,23 +214,23 @@ for prompt_id, template in prompts.items():
 # ============================================================================
 
 def demo_basic_ab_test():
-    """A/B test básico."""
+    """Basic A/B test."""
     print("="*70)
     print("DEMO 1: Basic A/B Test")
     print("="*70 + "\n")
 
     # Test set
     test_questions = [
-        "¿Cuál es la capital de Francia?",
-        "¿Cuál es la capital de España?",
-        "¿Cuál es la capital de Italia?",
+        "What is the capital of France?",
+        "What is the capital of Spain?",
+        "What is the capital of Italy?",
     ]
 
     # Prompts to test
     prompts = {
-        "A_baseline": "Responde: {question}",
-        "B_role": "Eres un asistente útil. Responde: {question}",
-        "C_detailed": "Eres un asistente útil. Responde en español de forma concisa: {question}",
+        "A_baseline": "Answer: {question}",
+        "B_role": "You are a helpful assistant. Answer: {question}",
+        "C_detailed": "You are a helpful assistant. Answer concisely: {question}",
     }
 
     results = ab_test_prompts(prompts, test_questions)
@@ -251,21 +250,21 @@ def demo_basic_ab_test():
 
 
 def demo_iterative_improvement():
-    """Mejora iterativa de prompts."""
+    """Iterative prompt improvement."""
     print("\n" + "="*70)
     print("DEMO 2: Iterative Prompt Improvement")
     print("="*70 + "\n")
 
     test_questions = [
-        "¿Cuál es la capital de Francia?",
-        "¿Quién escribió Don Quijote?",
+        "What is the capital of France?",
+        "Who wrote Don Quixote?",
     ]
 
     iterations = [
-        ("v1_basic", "Responde: {question}"),
-        ("v2_role", "Eres un experto. Responde: {question}"),
-        ("v3_constraints", "Eres un experto. Responde en español, máximo 10 palabras: {question}"),
-        ("v4_format", "Eres un experto. Responde en español de forma concisa y clara: {question}"),
+        ("v1_basic", "Answer: {question}"),
+        ("v2_role", "You are an expert. Answer: {question}"),
+        ("v3_constraints", "You are an expert. Answer in maximum 10 words: {question}"),
+        ("v4_format", "You are an expert. Answer concisely and clearly: {question}"),
     ]
 
     print("🔄 Iterative Improvement:\n")
@@ -285,7 +284,7 @@ def demo_iterative_improvement():
 
 
 def demo_statistical_significance():
-    """Test de significancia estadística."""
+    """Statistical significance test."""
     print("\n" + "="*70)
     print("DEMO 3: Statistical Significance")
     print("="*70 + "\n")
@@ -314,7 +313,7 @@ def demo_statistical_significance():
 
 
 def demo_multidimensional_evaluation():
-    """Evaluación multi-dimensional."""
+    """Multi-dimensional evaluation."""
     print("\n" + "="*70)
     print("DEMO 4: Multi-Dimensional Evaluation")
     print("="*70 + "\n")
@@ -340,7 +339,7 @@ def demo_multidimensional_evaluation():
 
 
 def demo_prompt_versioning():
-    """Versionado de prompts."""
+    """Prompt versioning."""
     print("\n" + "="*70)
     print("DEMO 5: Prompt Versioning")
     print("="*70 + "\n")
@@ -357,7 +356,7 @@ def demo_prompt_versioning():
       │     Score: 0.72 (↑ 10.8%)
       │
       ├── v2.0_add_constraints.txt
-      │     "Eres un experto. Responde en español..."
+      │     "You are an expert. Answer concisely..."
       │     Score: 0.85 (↑ 18.1%)
       │     ⭐ PRODUCTION
       │
@@ -395,6 +394,6 @@ if __name__ == "__main__":
     print("  ✅ Document why changes were made")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL (con OpenAI):")
+    print("REAL CODE (with OpenAI):")
     print("="*70)
     print(REAL_CODE)

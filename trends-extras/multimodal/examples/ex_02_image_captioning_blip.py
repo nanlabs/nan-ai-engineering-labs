@@ -1,7 +1,7 @@
 """
 Image Captioning with BLIP
 ===========================
-Genera descripciones de imágenes usando BLIP de Salesforce.
+Generate image descriptions using Salesforce BLIP.
 BLIP (Bootstrapping Language-Image Pre-training) es SOTA para captioning.
 
 Requirements:
@@ -35,11 +35,11 @@ class MockBLIPDemo:
 
         if conditional_text:
             print(f"💬 Conditional: {conditional_text}")
-            # Conditional captioning guía la generación
+            # Conditional captioning guides generation
             caption = f"{conditional_text} a golden retriever playing in a park"
         else:
-            # Unconditional captioning (descripción libre)
-            # En producción BLIP genera esto automáticamente
+            # Unconditional captioning (free description)
+            # In production BLIP generates this automatically
             caption = "a dog playing with a ball in a sunny park"
 
         print(f"📝 Caption: {caption}\n")
@@ -61,7 +61,7 @@ model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-capt
 # 2. Load image
 image = Image.open("photo.jpg")
 
-# 3. Unconditional captioning (descripción libre)
+# 3. Unconditional captioning (free description)
 inputs = processor(image, return_tensors="pt")
 outputs = model.generate(**inputs, max_length=50)
 caption = processor.decode(outputs[0], skip_special_tokens=True)
@@ -69,7 +69,7 @@ caption = processor.decode(outputs[0], skip_special_tokens=True)
 print(f"Caption: {caption}")
 # Output: "a dog playing with a ball in a park"
 
-# 4. Conditional captioning (guiar la descripción)
+# 4. Conditional captioning (guide the description)
 text = "A professional photo of"
 inputs = processor(image, text=text, return_tensors="pt")
 outputs = model.generate(**inputs, max_length=50)
@@ -92,7 +92,7 @@ def demo_unconditional():
 
     blip = MockBLIPDemo()
 
-    # Diferentes tipos de imágenes
+    # Different image types
     images = [
         "dog_park.jpg",
         "city_street.jpg",
@@ -145,7 +145,7 @@ def demo_comparison():
     blip_caption = "a sunset over the beach with colorful sky"
     print(f"🤖 BLIP:  {blip_caption}")
 
-    print("\n💡 BLIP es más conciso, humano más descriptivo/emotivo")
+    print("\n💡 BLIP is more concise, humans are more descriptive/emotive")
 
 
 def demo_multilingual():
@@ -162,9 +162,9 @@ def demo_multilingual():
     print("🇬🇧 English:")
     blip.generate_caption(image, conditional_text="An image of")
 
-    # Español (mediante conditional)
-    print("🇪🇸 Español:")
-    blip.generate_caption(image, conditional_text="Una fotografía de")
+    # Spanish (via conditional)
+    print("🇪🇸 Spanish:")
+    blip.generate_caption(image, conditional_text="A photograph of")
 
     print("💡 Usa conditional text para guiar el idioma")
 
@@ -174,7 +174,7 @@ def demo_multilingual():
 # ============================================================================
 
 def demo_quality_metrics():
-    """Métricas de calidad de captions."""
+    """Caption quality metrics."""
     print("\n" + "="*70)
     print("DEMO 5: Caption Quality Metrics")
     print("="*70)
@@ -188,7 +188,7 @@ def demo_quality_metrics():
     print(f"Ground truth: {ground_truth}")
     print(f"Generated:    {generated}\n")
 
-    # Métricas (simplificadas)
+    # Metrics (simplified)
     def calculate_bleu_1(reference, candidate):
         """BLEU-1 simplificado (unigram overlap)."""
         ref_words = set(reference.lower().split())
@@ -204,7 +204,7 @@ def demo_quality_metrics():
 
 if __name__ == "__main__":
     print("\n🎯 IMAGE CAPTIONING WITH BLIP")
-    print("📝 Genera descripciones automáticas de imágenes\n")
+    print("📝 Generates automatic image descriptions\n")
 
     demo_unconditional()
     demo_conditional()
@@ -219,12 +219,12 @@ if __name__ == "__main__":
     print("✅ E-commerce: Auto-tag productos")
     print("✅ Social Media: Sugerir captions para posts")
     print("✅ Content Moderation: Detectar contenido inapropiado")
-    print("✅ Search: Indexar imágenes por contenido")
+    print("✅ Search: Index images by content")
 
     print("\n📚 Modelo: Salesforce/blip-image-captioning-base")
     print("📄 Paper: https://arxiv.org/abs/2201.12086")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL (para producción):")
+    print("REAL CODE (for production):")
     print("="*70)
     print(REAL_BLIP_CODE)

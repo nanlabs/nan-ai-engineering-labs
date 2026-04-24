@@ -1,8 +1,8 @@
 """
 Text-to-Image with Stable Diffusion
 ====================================
-Genera imágenes desde texto usando Stable Diffusion.
-Modelo de difusión que crea imágenes de alta calidad.
+Generate images from text using Stable Diffusion.
+Diffusion model that creates high-quality images.
 
 Requirements:
     pip install diffusers transformers torch pillow accelerate
@@ -19,7 +19,7 @@ class MockStableDiffusionDemo:
 
     def __init__(self):
         print("🔄 Mock Stable Diffusion loaded (conceptual demo)")
-        print("En producción: StableDiffusionPipeline.from_pretrained()\n")
+        print("In production: StableDiffusionPipeline.from_pretrained()\n")
 
     def generate_image(
         self,
@@ -34,11 +34,11 @@ class MockStableDiffusionDemo:
         Genera imagen desde texto.
 
         Args:
-            prompt: Descripción de la imagen deseada
+            prompt: Description of the desired image
             negative_prompt: Lo que NO quieres en la imagen
-            num_inference_steps: Más pasos = mejor calidad (pero más lento)
-            guidance_scale: Qué tan estricto seguir el prompt (7-15 típico)
-            width, height: Dimensiones (múltiplos de 64)
+            num_inference_steps: More steps = better quality (but slower)
+            guidance_scale: How strictly to follow the prompt (7-15 typical)
+            width, height: Dimensions (multiples of 64)
         """
         print(f"🎨 Generando imagen...")
         print(f"📝 Prompt: {prompt}")
@@ -49,7 +49,7 @@ class MockStableDiffusionDemo:
         print(f"⚙️  Steps: {num_inference_steps}, Guidance: {guidance_scale}")
         print(f"📐 Size: {width}x{height}")
 
-        # En producción, aquí se ejecuta el diffusion process:
+        # In production, the diffusion process runs here:
         # 1. Encode prompt → text embeddings
         # 2. Start from random noise
         # 3. Iteratively denoise (num_inference_steps veces)
@@ -91,8 +91,8 @@ negative_prompt = "blurry, low quality, distorted"
 image = pipe(
     prompt=prompt,
     negative_prompt=negative_prompt,
-    num_inference_steps=50,  # 20-100 típico (más = mejor calidad)
-    guidance_scale=7.5,      # 7-15 típico (más = sigue más el prompt)
+    num_inference_steps=50,  # 20-100 typical (more = better quality)
+    guidance_scale=7.5,      # 7-15 typical (higher = follows prompt more strictly)
     width=512,
     height=512
 ).images[0]
@@ -107,7 +107,7 @@ image.save("output.png")
 # ============================================================================
 
 def demo_basic_generation():
-    """Generación básica."""
+    """Basic generation."""
     print("="*70)
     print("DEMO 1: Basic Image Generation")
     print("="*70 + "\n")
@@ -149,7 +149,7 @@ def demo_negative_prompts():
 
 
 def demo_style_variations():
-    """Diferentes estilos artísticos."""
+    """Different artistic styles."""
     print("\n" + "="*70)
     print("DEMO 3: Artistic Styles")
     print("="*70 + "\n")
@@ -172,7 +172,7 @@ def demo_style_variations():
 
 
 def demo_parameter_effects():
-    """Efecto de parámetros."""
+    """Parameter effects."""
     print("="*70)
     print("DEMO 4: Parameter Effects")
     print("="*70 + "\n")
@@ -183,7 +183,7 @@ def demo_parameter_effects():
 
     # Guidance scale variations
     print("📊 Guidance Scale Effect:")
-    print("  Low (5.0):  Más creativo, menos adherencia al prompt")
+    print("  Low (5.0):  More creative, less adherence to prompt")
     sd.generate_image(prompt, guidance_scale=5.0)
 
     print("  Medium (7.5): Balance")
@@ -194,13 +194,13 @@ def demo_parameter_effects():
 
     # Steps variations
     print("\n🔢 Inference Steps Effect:")
-    print("  20 steps: Rápido pero menor calidad")
+    print("  20 steps: Fast but lower quality")
     sd.generate_image(prompt, num_inference_steps=20)
 
     print("  50 steps: Balance (recomendado)")
     sd.generate_image(prompt, num_inference_steps=50)
 
-    print("  100 steps: Mejor calidad pero 2x más lento")
+    print("  100 steps: Better quality but 2x slower")
     sd.generate_image(prompt, num_inference_steps=100)
 
 
@@ -227,7 +227,7 @@ def demo_aspect_ratios():
 
 
 def demo_prompting_techniques():
-    """Técnicas de prompting."""
+    """Prompting techniques."""
     print("="*70)
     print("DEMO 6: Advanced Prompting Techniques")
     print("="*70 + "\n")
@@ -243,24 +243,24 @@ def demo_prompting_techniques():
     print("  ✅ trending on artstation, award winning")
     print("  ✅ cinematic lighting, dramatic composition\n")
 
-    print("3️⃣ Estilo artístico:")
+    print("3️⃣ Artistic style:")
     print("  ✅ by Greg Rutkowski (digital art)")
     print("  ✅ Studio Ghibli style (anime)")
     print("  ✅ in the style of Monet (impressionism)\n")
 
-    print("4️⃣ Iluminación:")
+    print("4️⃣ Lighting:")
     print("  ✅ golden hour lighting")
     print("  ✅ volumetric fog")
     print("  ✅ rim lighting, backlit\n")
 
-    print("5️⃣ Composición:")
+    print("5️⃣ Composition:")
     print("  ✅ centered, symmetrical")
     print("  ✅ rule of thirds")
     print("  ✅ wide angle, close-up\n")
 
 
 def demo_diffusion_process():
-    """Explicar el proceso de difusión."""
+    """Explain the diffusion process."""
     print("="*70)
     print("DEMO 7: How Diffusion Works")
     print("="*70 + "\n")
@@ -279,12 +279,12 @@ def demo_diffusion_process():
     print("  [░░░░░░░░░░░░░░░░] Clean image!\n")
 
     print("💡 Cada step predice y remueve un poco de 'ruido'")
-    print("💡 Guidance scale controla qué tan estricto sigue el prompt")
+    print("💡 Guidance scale controls how strictly the prompt is followed")
 
 
 if __name__ == "__main__":
     print("\n🎯 TEXT-TO-IMAGE WITH STABLE DIFFUSION")
-    print("🖼️  Genera imágenes desde descripciones de texto\n")
+    print("🖼️  Generates images from text descriptions\n")
 
     demo_basic_generation()
     demo_negative_prompts()
@@ -299,15 +299,15 @@ if __name__ == "__main__":
     print("="*70)
     print("✅ Content Creation: Arte para blogs, marketing")
     print("✅ Game Development: Concept art, textures")
-    print("✅ Product Design: Visualizar ideas rápidamente")
+    print("✅ Product Design: Visualise ideas quickly")
     print("✅ Education: Ilustrar conceptos")
     print("✅ Entertainment: Crear personajes, escenas")
 
     print("\n⚠️  CONSIDERACIONES:")
     print("  • Requiere GPU potente (>6GB VRAM)")
-    print("  • Copyright: Modelo entrenado con imágenes de internet")
-    print("  • Content policy: No generar contenido ilegal/dañino")
-    print("  • Watermarking: Algunas versiones añaden watermark")
+    print("  • Copyright: Model trained on internet images")
+    print("  • Content policy: Do not generate illegal/harmful content")
+    print("  • Watermarking: Some versions add a watermark")
 
     print("\n📚 Modelos:")
     print("  • stabilityai/stable-diffusion-2-1 (latest open)")
@@ -317,6 +317,6 @@ if __name__ == "__main__":
     print("\n📄 Paper: https://arxiv.org/abs/2112.10752")
 
     print("\n" + "="*70)
-    print("CÓDIGO REAL (para producción):")
+    print("REAL CODE (for production):")
     print("="*70)
     print(REAL_SD_CODE)
