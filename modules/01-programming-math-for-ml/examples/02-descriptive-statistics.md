@@ -1,26 +1,26 @@
-# Example 2 — Estadística descriptiva con Pandas
+# Example 2 — Descriptive statistics with Pandas
 
 ## Objective
 
-Calcular media, mediana, desvío estándar y detectar outliers en un dataset real usando Pandas.
+Calculate mean, median, standard deviation and detect outliers in a real dataset using Pandas.
 
 ## Concepts previos
 
-- **Media:** promedio aritmético de los valores.
-- **Mediana:** valor central cuando los Data están ordenados.
-- **Desvío estándar:** mide cuánto se dispersan los valores respecto a la media.
-- **outliers:** valores atípicos que se desvían significativamente del resto.
+- **Mean:** arithmetic average of the values.
+- **Median:** central value when the Data is ordered.
+- **Standard deviation:** measures how much the values ​​are dispersed with respect to the mean.
+- **outliers:** outlier values ​​that deviate significantly from the rest.
 
-## Implementación paso a paso
+## Step by step implementation
 
-### 1. Importar librerías
+### 1. Import libraries
 
 ```python
 import pandas as pd
 import numpy as np
 ```
 
-### 2. Crear un dataset de Example
+### 2. Create an Example dataset
 
 ```python
 # Simular datos de tiempos de respuesta de un servidor (en ms)
@@ -45,7 +45,7 @@ print(df.head())
 4            145.461832
 ```
 
-### 3. Calcular estadísticas descriptivas
+### 3. Calculate descriptive statistics
 
 ```python
 media = df['tiempo_respuesta_ms'].mean()
@@ -65,7 +65,7 @@ Mediana: 151.23 ms
 Desvío estándar: 74.52 ms
 ```
 
-### 4. Visualizar distribución con un resumen rápido
+### 4. View distribution with a quick summary
 
 ```python
 print("\nResumen estadístico completo:")
@@ -86,7 +86,7 @@ min              105.678945
 max              520.000000
 ```
 
-### 5. Detectar outliers usando el método IQR
+### 5. Detect outliers using the IQR method
 
 ```python
 Q1 = df['tiempo_respuesta_ms'].quantile(0.25)
@@ -121,12 +121,12 @@ Outliers detectados: 5
 99              510.0
 ```
 
-### 6. Interpretación
+### 6. Interpretation
 
-- La **mediana** es menor que la **media**, indicando que hay valores atípicos altos que inflan el promedio.
-- Los **outliers** detectados corresponden a los tiempos de respuesta anormalmente lentos (>450ms).
+- The **median** is less than the **mean**, indicating that there are high outliers that inflate the average.
+- The **outliers** detected correspond to abnormally slow response times (>450ms).
 
-## Código completo ejecutable
+## Complete executable code
 
 ```python
 import pandas as pd
@@ -163,14 +163,14 @@ print(outliers['tiempo_respuesta_ms'].values)
 
 ## Errors comunes
 
-- ❌ Usar solo la media sin considerar la mediana (sensible a outliers).
-- ❌ No verificar la distribución de Data antes de aplicar Models.
-- ❌ Confundir varianza con desvío estándar (desv = √varianza).
+- ❌ Use only the mean without considering the median (sensitive to outliers).
+- ❌ Do not verify the Data distribution before applying Models.
+- ❌ Confuse variance with standard deviation (dev = √variance).
 
 ## Exercise propuesto
 
-Carga un dataset real de Kaggle y calcula:
+Load a real Kaggle dataset and calculate:
 
-1. Media, mediana y desvío estándar de altura de personas.
-1. Detecta outliers usando el método IQR.
-1. Visualiza la distribución con un histograma usando Matplotlib.
+1. Mean, median and standard deviation of height of people.
+1. Detect outliers using the IQR method.
+1. Visualize the distribution with a histogram using Matplotlib.

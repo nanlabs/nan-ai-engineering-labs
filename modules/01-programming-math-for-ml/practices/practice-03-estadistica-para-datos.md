@@ -1,27 +1,27 @@
-# Práctica 03 — Estadística para datos
+# Practice 03 — Statistics for data
 
 ## Objective
 
-Calcular e interpretar métricas estadísticas básicas en un dataset.
+Calculate and interpret basic statistical metrics in a dataset.
 
 ## Enunciado
 
-1. Cargar un CSV simple (puede ser sintético).
-1. Calcular media, mediana, varianza y desvío estándar por columna numérica.
-1. Detectar outliers con regla de IQR o z-score.
-1. Graficar histograma de una variable clave.
+1. Upload a simple CSV (can be synthetic).
+1. Calculate mean, median, variance and standard deviation per numerical column.
+1. Detect outliers with IQR or z-score rule.
+1. Plot histogram of a key variable.
 
 ## Entregable
 
-- Notebook con cálculos, gráfico y breve interpretación.
+- Notebook with calculations, graph and brief interpretation.
 
-## Validación
+## Validation
 
-- Métricas calculadas correctamente.
-- Método de outliers justificado.
-- Conclusión clara sobre la distribución de datos.
+- Metrics calculated correctly.
+- Justified outliers method.
+- Clear conclusion about data distribution.
 
 ## Errores comunes
 
-- Incluir columnas categóricas en cálculos numéricos.
+- Include categorical columns in numerical calculations.
 - No tratar valores faltantes.

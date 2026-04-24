@@ -1,40 +1,40 @@
 # MLOps & AI in Production
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender a deployar, monitorear y mantener modelos ML en producción con CI/CD, observability y mejores prácticas de MLOps.
+Learn how to deploy, monitor and maintain ML models in production with CI/CD, observability and MLOps best practices.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Containerizar modelos con Docker para reproducibilidad
-- Implementar CI/CD pipelines con GitHub Actions para ML
+- Containerize models with Docker for reproducibility
+- Implement CI/CD pipelines with GitHub Actions for ML
 - Setup model registry con MLflow para version control
-- Detectar data drift y model decay en producción
-- Implementar monitoring con Prometheus + Grafana
-- Crear alerting automático para anomalías
+- Detect data drift and model decay in production
+- Implement monitoring with Prometheus + Grafana
+- Create automatic alerting for anomalies
 - Automated retraining pipelines
-- A/B testing infrastructure para modelos
+- A/B testing infrastructure for models
 - Log predictions y performance metrics
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (MLOps lifecycle, deployment strategies, monitoring, CI/CD)
-- **examples/**: ejemplos guiados con Docker, MLflow, FastAPI
+- **examples/**: guided examples with Docker, MLflow, FastAPI
 - **practices/**: ejercicios hands-on
   - 01: CI/CD para ML (Dockerfile, GitHub Actions, MLflow registry, automated retraining, data drift detection, A/B testing)
   - 02: Monitoring y Observability (logging predictions, Prometheus metrics, Grafana dashboard, alerting, performance tracking, cost monitoring)
 - **mini-project/**: full MLOps pipeline (training → testing → deployment → monitoring)
-- **evaluation/**: checklist y rúbrica
+- **evaluation/**: checklist and rubric
 - **notes/**: deployment decisions y incident logs
 
 ## 📋 Prerrequisitos
 
 - Módulo 03: Machine Learning Fundamentals (model training)
-- Conocimientos básicos de Docker
-- Familiaridad con Git/GitHub
+- Basic knowledge of Docker
+- Familiarity with Git/GitHub
 - Linux command line basics
 
-## 📅 Plan de Estudio Recomendado
+## 📅 ​​Recommended Study Plan
 
 **Semana 1** (8-10 horas):
 
@@ -50,7 +50,7 @@ Aprender a deployar, monitorear y mantener modelos ML en producción con CI/CD, 
 ## ✅ Competencias Clave
 
 - [ ] Dockerize ML models (Dockerfile, requirements.txt)
-- [ ] FastAPI para model serving
+- [ ] FastAPI for model serving
 - [ ] CI/CD con GitHub Actions (test → train → deploy)
 - [ ] Model registry y versioning (MLflow)
 - [ ] Data drift detection (KS test, PSI)
@@ -61,11 +61,11 @@ Aprender a deployar, monitorear y mantener modelos ML en producción con CI/CD, 
 - [ ] A/B testing infrastructure
 - [ ] Cost monitoring
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
+- 2 solved and validated practices
 - Mini-proyecto: full MLOps pipeline desplegado y monitoreado
-- Evaluación final aprobada (>=70/100)
+- Final evaluation approved (>=70/100)
 - Demostrar: Docker, CI/CD, monitoring, alerting, drift detection
 
 ## 📚 Recursos Adicionales
@@ -95,35 +95,35 @@ Aprender a deployar, monitorear y mantener modelos ML en producción con CI/CD, 
 - [MLOps Specialization (Coursera)](https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops)
 - [Full Stack Deep Learning](https://fullstackdeeplearning.com/)
 
-## 🚀 Próximos Pasos
+## 🚀 Next Steps
 
-¡Felicitaciones! Has completado los 12 módulos core. Ahora puedes:
+Congratulations! You have completed all 12 core modules. Now you can:
 
 - Explorar **trends-extras/** (agents, guardrails, multimodal, etc.)
-- Profundizar en tu área de interés
+- Go deeper into your area of ​​interest
 - Construir proyectos end-to-end
 - Contribuir a proyectos open source
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

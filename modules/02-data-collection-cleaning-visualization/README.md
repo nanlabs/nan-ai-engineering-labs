@@ -1,54 +1,54 @@
 # Data Collection, Cleaning & Visualization
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender a obtener datos, limpiarlos correctamente y visualizarlos para tomar decisiones de modelado con fundamentos sólidos.
+Learn how to obtain data, properly clean it, and visualize it to make informed modeling decisions.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Identificar y recolectar datos útiles para un problema real
-- Detectar y resolver problemas de calidad de datos (missing values, outliers, inconsistencias)
-- Construir visualizaciones claras para análisis exploratorio
-- Entregar un dataset limpio y documentado para ML
-- Aplicar técnicas de feature engineering básico
-- Crear dashboards informativos con matplotlib/seaborn
+- Identify and collect useful data for a real problem
+- Detect and resolve data quality problems (missing values, outliers, inconsistencies)
+- Build clear visualizations for exploratory analysis
+- Deliver a clean and documented dataset for ML
+- Apply basic feature engineering techniques
+- Create informative dashboards with matplotlib/seaborn
 
 ## 📂 Estructura interna
 
-- **theory/**: fundamentos teóricos en español (técnicas de recolección, limpieza, visualización)
-- **examples/**: ejemplos guiados (web scraping, pipelines de limpieza, visualizaciones)
-- **practices/**: ejercicios hands-on con soluciones
-  - 01: Limpieza de Datos y Exploración (missing values, outliers, validación)
-  - 02: Visualización Avanzada (dashboards, small multiples, animaciones)
-- **mini-project/**: caso integrador - Sistema completo de EDA
-- **evaluation/**: checklist y rúbrica de autoevaluación
-- **notes/**: tus apuntes y decisiones técnicas
+- **theory/**: theoretical foundations in Spanish (collection, cleaning, visualization techniques)
+- **examples/**: guided examples (web scraping, cleaning pipelines, visualizations)
+- **practices/**: hands-on exercises with solutions
+  - 01: Data Cleaning and Exploration (missing values, outliers, validation)
+  - 02: Advanced Visualization (dashboards, small multiples, animations)
+- **mini-project/**: integrative case - Complete EDA system
+- **evaluation/**: self-assessment checklist and rubric
+- **notes/**: your notes and technical decisions
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: tipos de datos, fuentes y calidad básica.
-- L2 Aplicado: limpieza con Pandas y análisis exploratorio visual.
-- L3 Avanzado: tratamiento de outliers, sesgos y trazabilidad.
-- L4 Senior: decisiones de preparación según impacto en modelos.
+- L1 Fundamentals: types of data, sources and basic quality.
+- Applied L2: cleaning with Pandas and visual exploratory analysis.
+- L3 Advanced: treatment of outliers, biases and traceability.
+- L4 Senior: preparation decisions according to impact on models.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Data Collection, Cleaning & Visualization
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: recolección de datos y criterios de calidad.
+- Week 1: data collection and quality criteria.
 - Semana 2: limpieza estructurada y valores faltantes.
-- Semana 3: visualización y EDA (análisis exploratorio).
-- S✅ Criterio de módulo completado
-- 2 prácticas resueltas y validadas
-- Mini-proyecto con dataset limpio y reporte visual
-- Evaluación final aprobada (>=70/100)
-- Demostrar: limpieza de datos, detección de outliers, visualizaciones efectivas
+- Week 3: visualization and EDA (exploratory analysis).
+- S✅ Completed module criterion
+- 2 solved and validated practices
+- Mini-project with clean dataset and visual report
+- Final evaluation approved (>=70/100)
+- Demonstrate: data cleaning, outlier detection, effective visualizations
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 - [Matplotlib](https://matplotlib.org/) + [Seaborn](https://seaborn.pydata.org/)
@@ -63,29 +63,29 @@ Aprender a obtener datos, limpiarlos correctamente y visualizarlos para tomar de
 
 - [Tidy Data (Hadley Wickham)](https://vita.had.co.nz/papers/tidy-data.pdf)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 03: Machine Learning Fundamentals** - Aplicarás estas técnicas para preparar datos para modelos ML
+**Module 03: Machine Learning Fundamentals** - You will apply these techniques to prepare data for ML models
 
-- Mini-proyecto con dataset limpio y reporte visual.
-- Evaluación final aprobada (>=70/100).
+- Mini-project with clean dataset and visual report.
+- Final evaluation approved (>=70/100).
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

@@ -1,52 +1,52 @@
 # Computer Vision
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender fundamentos de visión por computadora para analizar imágenes, entrenar clasificadores y tomar decisiones técnicas sobre modelos visuales.
+Learn computer vision fundamentals to analyze images, train classifiers, and make technical decisions about visual models.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Entender representación digital de imágenes y preprocesamiento (resize, normalize, augmentation)
-- Entrenar CNNs para clasificación de imágenes (custom architectures + pre-trained)
+- Understand digital representation of images and preprocessing (resize, normalize, augmentation)
+- Train CNNs for image classification (custom architectures + pre-trained)
 - Implementar object detection con YOLO (bounding boxes, NMS, mAP)
 - Aplicar image segmentation (semantic y instance segmentation)
 - Usar transfer learning y fine-tuning efectivamente
-- Evaluar con métricas apropiadas (accuracy, IoU, mAP) y explicar errores
+- Evaluate with appropriate metrics (accuracy, IoU, mAP) and explain errors
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (píxeles, CNNs, architectures, detection/segmentation)
-- **examples/**: ejemplos guiados con PyTorch/torchvision
+- **examples/**: guided examples with PyTorch/torchvision
 - **practices/**: ejercicios hands-on
-  - 01: Clasificación de Imágenes con CNNs (ResNet vs VGG, data augmentation ablation)
+  - 01: Image Classification with CNNs (ResNet vs VGG, data augmentation ablation)
   - 02: Object Detection y Segmentation (YOLO, Mask R-CNN, NMS, real-time tracking)
-- **mini-project/**: sistema de detección/clasificación completo
-- **evaluation/**: checklist y rúbrica
+- **mini-project/**: complete detection/classification system
+- **evaluation/**: checklist and rubric
 - **notes/**: arquitecturas probadas y resultados
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: píxeles, canales, resolución y transformaciones básicas.
-- L2 Aplicado: clasificación de imágenes con CNN básica.
-- L3 Avanzado: augmentación, fine-tuning y análisis de errores.
-- L4 Senior: decisiones de arquitectura por precisión, costo y latencia.
+- L1 Fundamentals: pixels, channels, resolution and basic transformations.
+- Applied L2: image classification with basic CNN.
+- L3 Advanced: augmentation, fine-tuning and error analysis.
+- L4 Senior: architecture decisions for precision, cost and latency.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Computer Vision
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: fundamentos de imagen y preprocesamiento.
-- Semana 2: CNN básica para clasificación.
-- Semana 3: mejora de performance y robustez.
-- Semana 4: mini-proyecto + evaluación final.
+- Week 1: image fundamentals and preprocessing.
+- Week 2: Basic CNN for classification.
+- Week 3: performance and robustness improvement.
+- Week 4: mini-project + final evaluation.
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto funcional con métricas (accuracy, mAP, IoU)
-- Evaluación final aprobada (>=70/100)
+- 2 solved and validated practices
+- Functional mini-project with metrics (accuracy, mAP, IoU)
+- Final evaluation approved (>=70/100)
 - Demostrar: CNNs custom, transfer learning, object detection, segmentation
 
 ## 📚 Recursos Adicionales
@@ -67,26 +67,26 @@ Aprender fundamentos de visión por computadora para analizar imágenes, entrena
 - [You Only Look Once (YOLO)](https://arxiv.org/abs/1506.02640)
 - [Mask R-CNN](https://arxiv.org/abs/1703.06870)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 07: Time Series & Anomaly Detection** - Forecasting y detección de anomalías
+**Module 07: Time Series & Anomaly Detection** - Forecasting and anomaly detection
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

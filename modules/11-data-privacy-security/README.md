@@ -1,38 +1,38 @@
 # Data Privacy & Security
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender técnicas de privacidad y seguridad para proteger datos sensibles en ML, implementar differential privacy y federated learning.
+Learn privacy and security techniques to protect sensitive data in ML, implement differential privacy and federated learning.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Implementar encriptación simétrica (Fernet) y asimétrica (RSA) para datos
-- Aplicar hashing seguro (bcrypt, SHA-256) para passwords y data integrity
-- Entender y aplicar homomorphic encryption básico
+- Implement symmetric (Fernet) and asymmetric (RSA) encryption for data
+- Apply secure hashing (bcrypt, SHA-256) for passwords and data integrity
+- Understand and apply basic homomorphic encryption
 - Implementar differential privacy (Laplace mechanism, DP-SGD)
-- Simular federated learning con múltiples clientes
+- Simulate federated learning with multiple clients
 - Gestionar privacy budgets (ε, δ)
 - Analizar privacy-utility trade-offs
-- Diseñar secure ML pipelines
+- Design secure ML pipelines
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (cryptography, differential privacy, federated learning, secure computation)
-- **examples/**: ejemplos guiados con cryptography, OpenDP, PySyft
+- **examples/**: guided examples with cryptography, OpenDP, PySyft
 - **practices/**: ejercicios hands-on
-  - 01: Encriptación y Hashing (bcrypt, SHA-256, Fernet, RSA, homomorphic encryption, key management)
+  - 01: Encryption and Hashing (bcrypt, SHA-256, Fernet, RSA, homomorphic encryption, key management)
   - 02: Differential Privacy y Federated Learning (Laplace mechanism, DP-SGD, privacy budgets, FL simulation, secure aggregation)
 - **mini-project/**: secure ML pipeline con privacy guarantees
-- **evaluation/**: checklist y rúbrica
+- **evaluation/**: checklist and rubric
 - **notes/**: privacy considerations y threat models
 
 ## 📋 Prerrequisitos
 
 - Módulo 03: Machine Learning Fundamentals (training pipelines)
-- Conocimientos básicos de criptografía
-- Comprensión de threat models
+- Basic knowledge of cryptography
+- Understanding threat models
 
-## 📅 Plan de Estudio Recomendado
+## 📅 ​​Recommended Study Plan
 
 **Semana 1** (6-8 horas):
 
@@ -47,9 +47,9 @@ Aprender técnicas de privacidad y seguridad para proteger datos sensibles en ML
 
 ## ✅ Competencias Clave
 
-- [ ] Hashing seguro con bcrypt
-- [ ] Encriptación simétrica (Fernet)
-- [ ] Encriptación asimétrica (RSA)
+- [ ] Secure hashing with bcrypt
+- [ ] Symmetric encryption (Fernet)
+- [ ] Asymmetric encryption (RSA)
 - [ ] Homomorphic encryption basics
 - [ ] Differential privacy (Laplace, Gaussian mechanisms)
 - [ ] Privacy budget tracking
@@ -57,16 +57,16 @@ Aprender técnicas de privacidad y seguridad para proteger datos sensibles en ML
 - [ ] Federated learning simulation
 - [ ] Privacy-utility trade-offs
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
+- 2 solved and validated practices
 - Mini-proyecto: secure ML pipeline funcional
-- Evaluación final aprobada (>=70/100)
+- Final evaluation approved (>=70/100)
 - Demostrar: encryption, differential privacy, federated learning, privacy budgets
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [Cryptography.io](https://cryptography.io/)
 - [OpenDP](https://github.com/opendp/opendp)
@@ -87,30 +87,30 @@ Aprender técnicas de privacidad y seguridad para proteger datos sensibles en ML
 
 - [Applied Cryptography (Coursera)](https://www.coursera.org/specializations/applied-crypto)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
 **Módulo 12: MLOps & AI in Production** - CI/CD, monitoring, deployment
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

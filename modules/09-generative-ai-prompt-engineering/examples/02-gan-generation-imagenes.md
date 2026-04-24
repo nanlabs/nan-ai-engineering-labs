@@ -483,12 +483,12 @@ L_G = -log(D(G(z)))
 
 ### 🔧 Troubleshooting
 
-| Problem            | Síntoma                       | Solución                               |
+| Problem             | Síntoma                       | Solución                               |
 | ------------------- | ----------------------------- | -------------------------------------- |
 | Mode Collapse       | G genera siempre igual        | Unrolled GAN, Minibatch Discrimination |
 | Vanishing Gradients | G Loss no baja                | Wasserstein GAN, Least Squares GAN     |
 | Oscilaciones        | Losses suben/bajan mucho      | Reducir LR, label smoothing            |
-| Images borrosas   | G Loss baja pero mala calidad | Usar Progressive GAN, StyleGAN         |
+| Images borrosas     | G Loss baja pero mala calidad | Usar Progressive GAN, StyleGAN         |
 
 ### 📌 Checklist GAN
 

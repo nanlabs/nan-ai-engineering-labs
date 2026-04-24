@@ -15,7 +15,6 @@ SPANISH_ENGLISH_DICT = {
     "lección": "lesson",
     "Lecciones": "Lessons",
     "lecciones": "lessons",
-    
     # Content sections
     "Introducción": "Introduction",
     "introducción": "introduction",
@@ -29,7 +28,6 @@ SPANISH_ENGLISH_DICT = {
     "contenido": "content",
     "Contenidos": "Contents",
     "contenidos": "contents",
-    
     # Learning materials
     "Práctica": "Practice",
     "práctica": "practice",
@@ -47,7 +45,6 @@ SPANISH_ENGLISH_DICT = {
     "problema": "problem",
     "Problemas": "Problems",
     "problemas": "problems",
-    
     # Learning content
     "Teoría": "Theory",
     "teoría": "theory",
@@ -69,7 +66,6 @@ SPANISH_ENGLISH_DICT = {
     "concepto": "concept",
     "Conceptos": "Concepts",
     "conceptos": "concepts",
-    
     # Programming concepts
     "Aprendizaje": "Learning",
     "aprendizaje": "learning",
@@ -95,7 +91,6 @@ SPANISH_ENGLISH_DICT = {
     "estructura": "structure",
     "Estructuras": "Structures",
     "estructuras": "structures",
-    
     # ML-specific
     "Modelo": "Model",
     "modelo": "model",
@@ -125,7 +120,6 @@ SPANISH_ENGLISH_DICT = {
     "overfitting": "overfitting",
     "Underfitting": "Underfitting",
     "underfitting": "underfitting",
-    
     # Data science
     "Conjunto de datos": "Dataset",
     "conjunto de datos": "dataset",
@@ -149,7 +143,6 @@ SPANISH_ENGLISH_DICT = {
     "outliers": "outliers",
     "Visualización": "Visualization",
     "visualización": "visualization",
-    
     # Deep Learning
     "Red neuronal": "Neural network",
     "redes neuronales": "neural networks",
@@ -169,7 +162,6 @@ SPANISH_ENGLISH_DICT = {
     "gradient": "gradient",
     "Descenso de gradiente": "Gradient descent",
     "descenso de gradiente": "gradient descent",
-    
     # NLP
     "Procesamiento de texto": "Text processing",
     "procesamiento de texto": "text processing",
@@ -189,7 +181,6 @@ SPANISH_ENGLISH_DICT = {
     "clasificación": "classification",
     "Clasificador": "Classifier",
     "clasificador": "classifier",
-    
     # Computer Vision
     "Imagen": "Image",
     "imagen": "image",
@@ -209,7 +200,6 @@ SPANISH_ENGLISH_DICT = {
     "filtro": "filter",
     "Filtros": "Filters",
     "filtros": "filters",
-    
     # Time Series
     "Serie temporal": "Time series",
     "series temporales": "time series",
@@ -217,8 +207,6 @@ SPANISH_ENGLISH_DICT = {
     "pronóstico": "forecast",
     "Pronósticos": "Forecasts",
     "pronósticos": "forecasts",
-    "Predicción": "Prediction",
-    "predicción": "prediction",
     "Tendencia": "Trend",
     "tendencia": "trend",
     "Estacionalidad": "Seasonality",
@@ -227,7 +215,6 @@ SPANISH_ENGLISH_DICT = {
     "anomalía": "anomaly",
     "Anomalías": "Anomalies",
     "anomalías": "anomalies",
-    
     # Evaluation
     "Precisión": "Precision",
     "precisión": "precision",
@@ -247,12 +234,7 @@ SPANISH_ENGLISH_DICT = {
     "error": "error",
     "Errores": "Errors",
     "errores": "errors",
-    
     # General
-    "Introducción": "Introduction",
-    "introducción": "introduction",
-    "Conclusión": "Conclusion",
-    "conclusión": "conclusion",
     "Conclusiones": "Conclusions",
     "conclusiones": "conclusions",
     "Recursos": "Resources",
@@ -275,8 +257,6 @@ SPANISH_ENGLISH_DICT = {
     "resultados": "results",
     "Análisis": "Analysis",
     "análisis": "analysis",
-    "Conclusión": "Conclusion",
-    "conclusión": "conclusion",
 }
 
 # File name mappings
@@ -288,7 +268,6 @@ FILE_NAME_MAPPINGS = {
     "regresion-lineal": "linear-regression",
     "gradiente-un-parametro": "gradient-descent-one-parameter",
     "pipeline-matematico": "mathematical-pipeline",
-    
     # Data
     "limpieza-dataset": "dataset-cleaning",
     "eda-completo": "complete-eda",
@@ -297,7 +276,6 @@ FILE_NAME_MAPPINGS = {
     "deteccion-outliers": "outlier-detection",
     "calidad-datos": "data-quality",
     "pipeline-limpieza": "cleaning-pipeline",
-    
     # ML
     "pipeline-clasificacion": "classification-pipeline",
     "regresion-diagnostico": "regression-diagnostics",
@@ -306,7 +284,6 @@ FILE_NAME_MAPPINGS = {
     "regularizacion": "regularization",
     "profundidad-overfitting": "tree-depth-overfitting",
     "comparacion-modelos": "model-comparison",
-    
     # DL
     "red-neuronal-simple": "simple-neural-network",
     "red-neuronal": "neural-network",
@@ -314,7 +291,6 @@ FILE_NAME_MAPPINGS = {
     "neurona-forward": "neuron-forward",
     "descenso-gradiente": "gradient-descent",
     "backpropagation": "backpropagation",
-    
     # NLP
     "clasificacion-sentimientos": "sentiment-classification",
     "prompt-engineering": "prompt-engineering",
@@ -322,36 +298,30 @@ FILE_NAME_MAPPINGS = {
     "embeddings": "embeddings",
     "similitud-coseno": "cosine-similarity",
     "rag-evaluacion": "rag-evaluation",
-    
     # CV
     "clasificacion-imagenes": "image-classification",
     "transfer-learning": "transfer-learning",
     "deteccion-objetos": "object-detection",
     "segmentacion": "segmentation",
     "aumentacion": "augmentation",
-    
     # Time Series
     "pronostico-series": "time-series-forecasting",
     "deteccion-anomalias": "anomaly-detection",
     "backtesting": "backtesting",
-    
     # Recommender
     "collaborative-filtering": "collaborative-filtering",
     "matrix-factorization": "matrix-factorization",
     "content-based": "content-based",
     "cold-start": "cold-start",
-    
     # Generative AI
     "rag-retrieval": "rag-retrieval",
     "gan-generacion": "gan-generation",
     "vae-diffusion": "vae-diffusion",
-    
     # Ethics
     "deteccion-bias": "bias-detection",
     "fairness": "fairness",
     "explainability": "explainability",
     "shap-lime": "shap-lime",
-    
     # Security
     "anonimizacion": "anonymization",
     "k-anonymity": "k-anonymity",
@@ -359,7 +329,6 @@ FILE_NAME_MAPPINGS = {
     "encriptacion": "encryption",
     "hashing": "hashing",
     "federated": "federated",
-    
     # MLOps
     "deployment": "deployment",
     "monitoring": "monitoring",
@@ -370,7 +339,6 @@ FILE_NAME_MAPPINGS = {
     "versionado": "versioning",
     "cicd": "cicd",
     "observability": "observability",
-    
     # Practices
     "ingesta-perfilado": "ingestion-profiling",
     "limpieza-nulos": "null-cleaning",
@@ -401,28 +369,29 @@ FILE_NAME_MAPPINGS = {
     "alertas": "alerts",
 }
 
+
 def translate_text(text: str) -> str:
     """
     Translate Spanish text to English using the dictionary.
     Handles case preservation and word boundaries.
     """
     result = text
-    
+
     # Sort by length (longest first) to handle compound phrases
     sorted_pairs = sorted(SPANISH_ENGLISH_DICT.items(), key=lambda x: len(x[0]), reverse=True)
-    
+
     for spanish, english in sorted_pairs:
         # Use word boundaries to avoid partial replacements
-        pattern = r'\b' + re.escape(spanish) + r'\b'
+        pattern = r"\b" + re.escape(spanish) + r"\b"
         result = re.sub(pattern, english, result, flags=re.IGNORECASE)
-    
+
     return result
 
 
 def translate_filename(filename: str) -> str:
     """Translate filename from Spanish to English."""
     name = filename
-    
+
     # Handle .md and .py extensions
     ext = ""
     if name.endswith(".md"):
@@ -431,16 +400,17 @@ def translate_filename(filename: str) -> str:
     elif name.endswith(".py"):
         ext = ".py"
         name = name[:-3]
-    
+
     # Apply mappings
     for spanish, english in FILE_NAME_MAPPINGS.items():
         name = name.replace(spanish, english)
-    
+
     return name + ext
 
 
 if __name__ == "__main__":
     import re
+
     # Test examples
     test_text = "Introducción a los algoritmos de aprendizaje automático"
     print(f"Original: {test_text}")

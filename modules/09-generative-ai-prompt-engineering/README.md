@@ -1,12 +1,12 @@
 # Generative AI & Prompt Engineering
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Dominar técnicas de IA generativa (GANs, VAEs, Diffusion) y prompt engineering para crear contenido sintético y optimizar interacciones con LLMs.
+Master generative AI techniques (GANs, VAEs, Diffusion) and prompt engineering to create synthetic content and optimize interactions with LLMs.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Implementar GANs (vanilla, DCGAN, conditional, WGAN) para generar imágenes
+- Implement GANs (vanilla, DCGAN, conditional, WGAN) to generate images
 - Construir Variational Autoencoders con reparameterization trick
 - Entender diffusion models y denoising process
 - Aplicar prompt engineering avanzado (zero-shot, few-shot, chain-of-thought)
@@ -16,25 +16,25 @@ Dominar técnicas de IA generativa (GANs, VAEs, Diffusion) y prompt engineering 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (GANs, VAEs, diffusion, prompt engineering strategies)
-- **examples/**: ejemplos guiados con PyTorch
+- **examples/**: guided examples with PyTorch
 - **practices/**: ejercicios hands-on
   - 01: GANs (vanilla GAN, DCGAN, conditional GAN, mode collapse, WGAN, Pix2Pix)
   - 02: VAE y Diffusion (VAE implementation, latent interpolation, β-VAE, diffusion basics, denoising)
-- **mini-project/**: generador completo (imágenes o texto)
-- **evaluation/**: checklist y rúbrica
-- **notes/**: experimentos con arquitecturas generativas
+- **mini-project/**: complete generator (images or text)
+- **evaluation/**: checklist and rubric
+- **notes/**: experiments with generative architectures
 
 ## 📋 Prerrequisitos
 
 - Módulo 04: Deep Learning Basics (PyTorch, training loops)
-- Módulo 05: NLP & LLMs (para prompt engineering avanzado)
-- Familiaridad con backpropagation y optimización
+- Module 05: NLP & LLMs (for advanced prompt engineering)
+- Familiarity with backpropagation and optimization
 
-## 📅 Plan de Estudio Recomendado
+## 📅 ​​Recommended Study Plan
 
 **Semana 1-2** (8-10 horas):
 
-1. Lee material de `/theory` sobre GANs y VAEs (2h)
+1. Read material from `/theory` about GANs and VAEs (2h)
 1. Ejecuta `/examples` (3h)
 1. Completa `/practices/01-gans.md` (4h)
 
@@ -51,11 +51,11 @@ Dominar técnicas de IA generativa (GANs, VAEs, Diffusion) y prompt engineering 
 - [ ] Latent space exploration
 - [ ] Prompt engineering efectivo
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
+- 2 solved and validated practices
 - Mini-proyecto: generador funcional (samples realistas)
-- Evaluación final aprobada (>=70/100)
+- Final evaluation approved (>=70/100)
 - Demostrar: GAN training, VAE implementation, prompt engineering
 
 ## 📚 Recursos Adicionales
@@ -77,30 +77,30 @@ Dominar técnicas de IA generativa (GANs, VAEs, Diffusion) y prompt engineering 
 - [Diffusion Models Explained](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)
 - [Prompt Engineering Guide](https://www.promptingguide.ai/)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 10: Ethics, Bias & Explainability** - Fairness y explicabilidad en ML
+**Module 10: Ethics, Bias & Explainability** - Fairness and explainability in ML
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

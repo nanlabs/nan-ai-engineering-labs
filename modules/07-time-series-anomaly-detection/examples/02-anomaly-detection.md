@@ -597,7 +597,7 @@ ______________________________________________________________________
 | **Z-Score**          | 0.88      | 0.83   | 0.85     | Simple, rápido                                           | Asume distribución normal, no captura contexto temporal |
 | **IQR**              | 0.49      | 0.94   | 0.64     | Robusto a outliers                                       | Muchos falsos positivos                                 |
 | **Isolation Forest** | 0.50      | 0.94   | 0.65     | No asume distribución, maneja multi-dimensional          | Requiere feature engineering                            |
-| **LSTM Autoencoder** | 0.75      | 0.89   | 0.81     | Captura patrones temporales, detecta Anomalies complejas | Lento, requiere Data                                   |
+| **LSTM Autoencoder** | 0.75      | 0.89   | 0.81     | Captura patrones temporales, detecta Anomalies complejas | Lento, requiere Data                                    |
 
 ### 🎯 Cuándo usar cada método
 

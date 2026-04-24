@@ -1,93 +1,93 @@
-# Programación y Matemática para ML
+# Programming and Mathematics for ML
 
 ## Module objective
 
-Construir una base sólida desde cero en Python y matemática aplicada para entender, entrenar y mejorar modelos de machine learning con criterio técnico.
+Build a solid foundation from scratch in Python and applied mathematics to understand, train and improve machine learning models with technical criteria.
 
 ## What you will achieve
 
-- Dominar Python para datos (NumPy, Pandas, Matplotlib) con fluidez.
-- Entender álgebra lineal, cálculo y probabilidad con intuición práctica aplicada a ML.
-- Implementar operaciones matemáticas y métricas con código reproducible.
-- Completar un mini-proyecto de regresión lineal implementado desde cero.
-- Explicar decisiones numéricas, reproducibilidad y trade-offs técnicos (nivel avanzado).
+- Fluently master Python for data (NumPy, Pandas, Matplotlib).
+- Understand linear algebra, calculus and probability with practical intuition applied to ML.
+- Implement mathematical and metric operations with reproducible code.
+- Complete a linear regression mini-project implemented from scratch.
+- Explain numerical decisions, reproducibility and technical trade-offs (advanced level).
 
 ## Estructura interna mejorada
 
-- **theory/**: teoría profunda con videos enlazados (3Blue1Brown, StatQuest, Khan Academy), recursos escritos y checklist de comprensión.
-- **examples/**: ejemplos completos y resueltos con código ejecutable, salidas esperadas y errores comunes documentados.
-- **practices/**: prácticas con parte guiada resuelta + ejercicios propuestos para resolver de forma autónoma.
-- **mini-project/**: caso integrador completo con dataset real.
-- **evaluation/**: checklist y rúbrica de auto-evaluación.
-- **notes/**: tus apuntes, decisiones técnicas y lecciones aprendidas.
+- **theory/**: In-depth theory with linked videos (3Blue1Brown, StatQuest, Khan Academy), written resources, and comprehension checklist.
+- **examples/**: Complete, resolved examples with executable code, expected outputs, and common errors documented.
+- **practices/**: practices with a guided part solved + exercises proposed to solve independently.
+- **mini-project/**: complete integrative case with real dataset.
+- **evaluation/**: checklist and self-evaluation rubric.
+- **notes/**: your notes, technical decisions and lessons learned.
 
 ## Recommended plan (by progress, not by weeks)
 
-### Paso 1: Teoría base (2-4 sesiones)
+### Step 1: Base theory (2-4 sessions)
 
 1. Leer [theory/README.md](./theory/README.md) completo.
 1. Ver videos recomendados en orden sugerido:
    - Python + NumPy + Pandas (~3 horas total)
-   - Álgebra lineal (3Blue1Brown, ~3 horas)
-   - Cálculo (3Blue1Brown, ~3 horas)
+   - Linear algebra (3Blue1Brown, ~3 hours)
+   - Calculation (3Blue1Brown, ~3 hours)
    - Probabilidad (StatQuest, ~2 horas)
-1. Tomar notas propias en `notes/TEORIA-RESUMEN.md`.
+1. Take your own notes in `notes/TEORIA-RESUMEN.md`.
 
 ### Paso 2: Ejemplos guiados (1-2 sesiones)
 
 1. Ejecutar [examples/01-vectores-producto-punto.md](./examples/01-vectores-producto-punto.md).
 1. Ejecutar [examples/02-estadistica-descriptiva.md](./examples/02-estadistica-descriptiva.md).
-1. Resolver ejercicios propuestos al final de cada ejemplo.
+1. Solve exercises proposed at the end of each example.
 1. Documentar dudas o descubrimientos en `notes/`.
 
-### Paso 3: Prácticas (3-4 sesiones)
+### Step 3: Practices (3-4 sessions)
 
-1. Resolver parte guiada de [practice-01-python-y-numpy.md](./practices/practice-01-python-y-numpy.md).
-1. Resolver ejercicios propuestos de forma autónoma (Parte 2).
-1. Repetir con [practice-02-algebra-lineal-aplicada.md](./practices/practice-02-algebra-lineal-aplicada.md).
-1. Continuar con practices 03, 04, 05 (estadística, optimización, pipeline integrado).
-1. Guardar código de soluciones en `practices/solutions/` (crear carpeta).
+1. Solve guided part of [practice-01-python-y-numpy.md](./practices/practice-01-python-y-numpy.md).
+1. Solve proposed exercises independently (Part 2).
+1. Repeat with [practice-02-applied-linear-algebra.md](./practices/practice-02-applied-linear-algebra.md).
+1. Continue with practices 03, 04, 05 (statistics, optimization, integrated pipeline).
+1. Save solutions code in `practices/solutions/` (create folder).
 
 ### Paso 4: Mini-proyecto (2-3 sesiones)
 
 1. Leer enunciado completo en [mini-project/README.md](./mini-project/README.md).
-1. Implementar regresión lineal desde cero con gradiente descendente.
-1. Evaluar con métricas (MAE, RMSE, R²).
+1. Implement linear regression from scratch with gradient descent.
+1. Evaluate with metrics (MAE, RMSE, R²).
 1. Documentar conclusiones y siguientes mejoras.
 
-### Paso 5: Evaluación y cierre (1 sesión)
+### Step 5: Evaluation and closure (1 session)
 
-1. Completar [evaluation/README.md](./evaluation/README.md) (auto-evaluación).
-1. Verificar puntaje mínimo >= 70/100.
-1. Actualizar [STATUS.md](./STATUS.md) con nivel alcanzado y bloqueos resueltos.
+1. Complete [evaluation/README.md](./evaluation/README.md) (self-evaluation).
+1. Verify minimum score >= 70/100.
+1. Update [STATUS.md](./STATUS.md) with level reached and crashes resolved.
 1. Registrar lecciones principales en `notes/LECCIONES-APRENDIDAS.md`.
 
 ## Level path (L1-L4)
 
-- **L1 Fundamentos:** Variables, funciones, arrays, álgebra lineal básica, Python fluido.
-- **L2 Aplicado:** Derivadas, optimización, probabilidad, estadística descriptiva aplicada a datos reales.
-- **L3 Avanzado:** Implementación de gradiente descendente, validación de resultados, análisis de convergencia.
-- **L4 Senior:** Análisis de trade-offs numéricos, reproducibilidad completa, calidad experimental y documentación impecable.
+- **L1 Fundamentals:** Variables, functions, arrays, basic linear algebra, fluent Python.
+- **L2 Applied:** Derivatives, optimization, probability, descriptive statistics applied to real data.
+- **L3 Advanced:** Implementation of gradient descent, validation of results, convergence analysis.
+- **L4 Senior:** Analysis of numerical trade-offs, complete reproducibility, experimental quality and impeccable documentation.
 
-## Material de referencia original
+## Original reference material
 
-Este módulo está basado y expandido desde: [docs/init-path/content/Programming & Math for ML.md](../../docs/init-path/content/Programming%20&%20Math%20for%20ML.md).
+This module is based on and expanded from: [docs/init-path/content/Programming & Math for ML.md](../../docs/init-path/content/Programming%20&%20Math%20for%20ML.md).
 
 ## Module completion criteria
 
-Antes de pasar al módulo 02, debes cumplir:
+Before moving to module 02, you must complete:
 
-- ✅ Teoría leída y resumida en `notes/`.
-- ✅ Prácticas 01-05 resueltas y verificadas.
-- ✅ Mini-proyecto funcionando con métricas documentadas.
-- ✅ Evaluación final aprobada (>= 70/100).
+- ✅ Theory read and summarized in `notes/`.
+- ✅ Practices 01-05 solved and verified.
+- ✅ Mini-project working with documented metrics.
+- ✅ Final evaluation approved (>= 70/100).
 - ✅ Lecciones aprendidas registradas en `notes/`.
-- ✅ STATUS.md actualizado con nivel alcanzado y próximos pasos claros.
+- ✅ STATUS.md updated with level achieved and clear next steps.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.

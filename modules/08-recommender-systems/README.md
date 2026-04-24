@@ -1,37 +1,37 @@
 # Recommender Systems
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender a diseñar sistemas de recomendación que ayuden a personalizar experiencias y aumentar valor de producto con métricas técnicas y de negocio.
+Learn to design recommendation systems that help personalize experiences and increase product value with technical and business metrics.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Entender enfoques de recomendación (popularity-based, content-based, collaborative filtering)
-- Implementar user-based y item-based CF desde cero con NumPy
-- Aplicar matrix factorization (SVD, ALS) para escalabilidad
+- Understand recommendation approaches (popularity-based, content-based, collaborative filtering)
+- Implement user-based and item-based CF from scratch with NumPy
+- Apply matrix factorization (SVD, ALS) for scalability
 - Construir hybrid recommenders (CF + content-based weighted)
-- Manejar cold start problem con estrategias
-- Evaluar con RMSE/MAE y métricas de diversidad (coverage, novelty, serendipity)
+- Manage cold start problem with strategies
+- Evaluate with RMSE/MAE and diversity metrics (coverage, novelty, serendipity)
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (CF, content-based, matrix factorization, evaluation)
-- **examples/**: ejemplos guiados con NumPy, Surprise
+- **examples/**: guided examples with NumPy, Surprise
 - **practices/**: ejercicios hands-on
   - 01: Collaborative Filtering (user-based, item-based, SVD, ALS, cold start)
   - 02: Content-Based y Hybrid (TF-IDF, neural CF, A/B testing, serendipity)
-- **mini-project/**: sistema de recomendaciones completo con evaluación
-- **evaluation/**: checklist y rúbrica
-- **notes/**: experimentos con diferentes approaches
+- **mini-project/**: complete recommendation system with evaluation
+- **evaluation/**: checklist and rubric
+- **notes/**: experiments with different approaches
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: tipos de recomendadores y problemas frecuentes.
-- L2 Aplicado: baseline y filtrado colaborativo básico.
-- L3 Avanzado: evaluación robusta y mejoras de ranking.
-- L4 Senior: decisiones de arquitectura y cold start a escala.
+- L1 Fundamentals: types of recommenders and frequent problems.
+- Applied L2: baseline and basic collaborative filtering.
+- L3 Advanced: robust evaluation and ranking improvements.
+- L4 Senior: architecture decisions and cold start at scale.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Recommender Systems
 
@@ -39,19 +39,19 @@ Aprender a diseñar sistemas de recomendación que ayuden a personalizar experie
 
 - Semana 1: fundamentos y baseline simple.
 - Semana 2: modelos colaborativos.
-- Semana 3: evaluación y mejoras de ranking.
-- Semana 4: mini-proyecto + evaluación final.
+- Week 3: evaluation and ranking improvements.
+- Week 4: mini-project + final evaluation.
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto con recomendaciones evaluadas (RMSE, diversity metrics)
-- Evaluación final aprobada (>=70/100)
+- 2 solved and validated practices
+- Mini-project with evaluated recommendations (RMSE, diversity metrics)
+- Final evaluation approved (>=70/100)
 - Demostrar: CF implementation, matrix factorization, hybrid systems, cold start handling
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [Surprise (RecSys Library)](http://surpriselib.com/)
 - [Microsoft Recommenders](https://github.com/microsoft/recommenders)
@@ -67,26 +67,26 @@ Aprender a diseñar sistemas de recomendación que ayuden a personalizar experie
 - [Matrix Factorization Techniques](https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf)
 - [Neural Collaborative Filtering](https://arxiv.org/abs/1708.05031)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 09: Generative AI & Prompt Engineering** - GANs, VAEs y diffusion models
+**Module 09: Generative AI & Prompt Engineering** - GANs, VAEs and diffusion models
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

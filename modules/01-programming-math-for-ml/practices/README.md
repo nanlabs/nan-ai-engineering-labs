@@ -1,6 +1,6 @@
-# Practices — Programación y Matemática para ML
+# Practices — Programming and Mathematics for ML
 
-Estas Practices están ordenadas de menor a mayor dificultad.
+These Practices are ordered from least to most difficult.
 
 ## Practices
 
@@ -12,6 +12,6 @@ Estas Practices están ordenadas de menor a mayor dificultad.
 
 ## Approval criteria
 
-- Resolver al menos 4/5 Practices con Results correctos.
+- Solve at least 4/5 Practices with correct Results.
 - Documentar decisiones en `notes/`.
-- Repetir la Practice fallida hasta que pase Validation.
+- Repeat the failed Practice until Validation passes.

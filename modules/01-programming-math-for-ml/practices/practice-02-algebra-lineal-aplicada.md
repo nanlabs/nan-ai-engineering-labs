@@ -1,28 +1,28 @@
-# Práctica 02 — Álgebra lineal aplicada
+# Practice 02 — Applied linear algebra
 
 ## Objective
 
-Aplicar operaciones de álgebra lineal usando NumPy para resolver problemas típicos de ML: representación de datos, transformaciones y similitud.
+Apply linear algebra operations using NumPy to solve typical ML problems: data representation, transformations and similarity.
 
-## Nivel de dificultad
+## Difficulty level
 
 ⭐⭐ Intermedio (L2)
 
-## Duración estimada
+## Estimated duration
 
 40-50 minutos
 
 ______________________________________________________________________
 
-## Parte 1: Resuelta (guía paso a paso)
+## Part 1: Solved (step by step guide)
 
 ### Ejercicio 1.1: Representar un dataset como matriz
 
-**Consigna:** Representa un dataset de 4 muestras con 3 características cada una como una matriz. Calcula la media de cada característica (columna).
+**Setpoint:** Represents a dataset of 4 samples with 3 features each as a matrix. Calculate the mean of each characteristic (column).
 
-**Contexto ML:** En ML, cada fila es una muestra (ejemplo) y cada columna es una feature (característica).
+**ML Context:** In ML, each row is a sample and each column is a feature.
 
-**Solución:**
+**Solution:**
 
 ```python
 import numpy as np
@@ -58,20 +58,20 @@ Dimensiones: (4, 3)
 Media por característica: [171.25  66.25  29.5 ]
 ```
 
-**Explicación:**
+**Explanation:**
 
-- `axis=0` calcula la media vertical (por columnas).
-- Esto es útil para normalizar datasets (restar la media, dividir por desv. estándar).
+- `axis=0` calculates the vertical mean (by columns).
+- This is useful for normalizing datasets (subtract mean, divide by standard deviation).
 
 ______________________________________________________________________
 
-### Ejercicio 1.2: Multiplicación matriz-vector (predicción lineal)
+### Exercise 1.2: Matrix-vector multiplication (linear prediction)
 
-**Consigna:** Dado un vector de pesos `w` y un vector de entrada `x`, calcula la predicción usando el producto punto (modelo lineal simple).
+**Setpoint:** Given a weight vector `w` and an input vector `x`, calculate the prediction using the dot product (simple linear model).
 
-**Contexto ML:** `y = w · x + b` es la fórmula de un modelo lineal.
+**ML Context:** `y = w · x + b` is the formula for a linear model.
 
-**Solución:**
+**Solution:**
 
 ```python
 import numpy as np
@@ -101,19 +101,19 @@ Entrada: [170  65  25]
 Predicción: 170.50
 ```
 
-**Explicación:**
+**Explanation:**
 
-- Esto simula cómo una neurona de una red neuronal calcula su salida antes de aplicar la función de activación.
-- En ML real, `w` y `b` se aprenden durante el entrenamiento.
+- This simulates how a neuron in a neural network calculates its output before applying the activation function.
+- In real ML, `w` and `b` are learned during training.
 
 ______________________________________________________________________
 
-## Parte 2: Para resolver (propuesta)
+## Part 2: To solve (proposal)
 
-### Ejercicio 2.1: Normalización de datos
+### Exercise 2.1: Data Normalization
 
 **Consigna:**
-Dado el siguiente dataset:
+Given the following dataset:
 
 ```python
 X = np.array([
@@ -124,12 +124,12 @@ X = np.array([
 ])
 ```
 
-Normaliza cada columna usando la fórmula:
-**X_norm = (X - media) / desviación_estándar**
+Normalize each column using the formula:
+**X_norm = (X - mean) / standard_deviation**
 
-**Criterio de éxito:**
+**Success Criteria:**
 
-- Cada columna debe tener media ≈ 0 y desviación estándar ≈ 1.
+- Each column must have mean ≈ 0 and standard deviation ≈ 1.
 - Usa `np.mean()` y `np.std()` con `axis=0`.
 
 **Pistas:**
@@ -145,25 +145,25 @@ ______________________________________________________________________
 ### Ejercicio 2.2: Similitud coseno entre muestras
 
 **Consigna:**
-Tienes dos usuarios representados como vectores de preferencias:
+You have two users represented as preference vectors:
 
 ```python
 usuario_1 = np.array([5, 3, 0, 4, 2])
 usuario_2 = np.array([4, 2, 1, 5, 3])
 ```
 
-Calcula la **similitud coseno** entre ambos.
+Calculate the **cosine similarity** between the two.
 
-**Fórmula:**
+**Formula:**
 
 ```
 similitud_coseno = (a · b) / (||a|| * ||b||)
 ```
 
-**Criterio de éxito:**
+**Success Criteria:**
 
 - Resultado entre -1 y 1.
-- Si el resultado es cercano a 1, ambos usuarios tienen preferencias similares.
+- If the result is close to 1, both users have similar preferences.
 
 **Pistas:**
 
@@ -176,12 +176,12 @@ similitud = dot_product / (norma_1 * norma_2)
 
 ______________________________________________________________________
 
-### Ejercicio 2.3: Multiplicación de matrices
+### Exercise 2.3: Matrix multiplication
 
 **Consigna:**
-Tienes una matriz de datos `X` (3 muestras, 2 características) y una matriz de pesos `W` (2 características, 4 neuronas).
+You have a data matrix `X` (3 samples, 2 features) and a weight matrix `W` (2 features, 4 neurons).
 
-Calcula `Y = X @ W` (predicciones para las 3 muestras en 4 salidas).
+Calculate `Y = X @ W` (predictions for the 3 samples in 4 outputs).
 
 ```python
 X = np.array([
@@ -196,25 +196,25 @@ W = np.array([
 ])
 ```
 
-**Criterio de éxito:**
+**Success Criteria:**
 
-- Resultado debe ser una matriz de 3x4.
-- Cada fila representa las salidas de una muestra para 4 neuronas.
+- Result must be a 3x4 matrix.
+- Each row represents the outputs of a sample for 4 neurons.
 
 **Pistas:**
 
-- Usa `@` o `np.matmul()` para multiplicación de matrices.
+- Use `@` or `np.matmul()` for matrix multiplication.
 - Dimensiones: (3, 2) @ (2, 4) = (3, 4).
 
 ______________________________________________________________________
 
 ## Entregable
 
-- Un notebook o script `.py` con las soluciones de la Parte 2.
-- Comentarios explicando cada paso y demostrando comprensión.
-- Validación de dimensiones y resultados.
+- A notebook or script `.py` with the solutions from Part 2.
+- Comments explaining each step and demonstrating understanding.
+- Validation of dimensions and results.
 
-## Recursos de ayuda
+## Help resources
 
 - [NumPy Linear Algebra](https://numpy.org/doc/stable/reference/routines.linalg.html)
 - [Broadcasting en NumPy](https://numpy.org/doc/stable/user/basics.broadcasting.html)

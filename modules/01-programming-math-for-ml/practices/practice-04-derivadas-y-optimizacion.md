@@ -1,27 +1,27 @@
-# Practice 04 — Derivadas y optimización
+# Practice 04 — Derivatives and optimization
 
 ## Objective
 
-Implementar gradiente descendente para minimizar una Function simple.
+Implement gradient descent to minimize a simple Function.
 
 ## Enunciado
 
 1. Definir la Function $f(x)=x^2 + 4x + 4$.
 1. Derivar manualmente y programar su gradiente.
-1. Implementar iteraciones de gradiente descendente.
-1. Graficar la evolución de la Function por iteración.
+1. Implement gradient descent iterations.
+1. Graph the evolution of the Function per iteration.
 
 ## Entregable
 
-- Script o notebook con código y gráfico de convergencia.
+- Script or notebook with code and convergence graph.
 
 ## Validation
 
-- El valor de la Function disminuye con iteraciones.
+- The value of the Function decreases with iterations.
 - Se Testing al menos 2 learning rates.
-- Se explica cuándo converge y cuándo diverge.
+- It explains when it converges and when it diverges.
 
 ## Errors comunes
 
 - Learning rate demasiado alto.
-- error en signo de la actualización.
+- error in update sign.

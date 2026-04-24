@@ -1,57 +1,57 @@
 # NLP & Large Language Models
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender fundamentos de procesamiento de lenguaje natural y bases de LLMs para construir soluciones textuales útiles y evaluables.
+Learn the fundamentals of natural language processing and the bases of LLMs to build useful and evaluable textual solutions.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Entender tokenización (word/subword), embeddings (Word2Vec, GloVe, transformers) y pipelines de NLP
-- Construir modelos NLP clásicos (BoW, TF-IDF, sentiment analysis, topic modeling)
+- Understand tokenization (word/subword), embeddings (Word2Vec, GloVe, transformers) and NLP pipelines
+- Build classic NLP models (BoW, TF-IDF, sentiment analysis, topic modeling)
 - Usar Hugging Face Transformers (BERT, GPT, pipelines pre-entrenados)
 - Aplicar prompt engineering (zero-shot, few-shot, chain-of-thought)
-- Fine-tuning de modelos pre-entrenados con LoRA
-- Diseñar un mini flujo RAG básico con retrieval + generation
+- Fine-tuning of pre-trained models with LoRA
+- Design a basic mini RAG flow with retrieval + generation
 
 ## 📂 Estructura interna
 
-- **theory/**: fundamentos (tokenización, embeddings, transformers, LLMs)
-- **examples/**: ejemplos guiados con NLTK, Gensim, Hugging Face
+- **theory/**: fundamentals (tokenization, embeddings, transformers, LLMs)
+- **examples/**: guided examples with NLTK, Gensim, Hugging Face
 - **practices/**: ejercicios hands-on
-  - 01: Procesamiento de Texto y Embeddings (limpieza, TF-IDF, Word2Vec, clasificación)
+  - 01: Text Processing and Embeddings (cleaning, TF-IDF, Word2Vec, classification)
   - 02: Fine-Tuning y Prompting (Hugging Face, few-shot, CoT, RAG básico)
-- **mini-project/**: chatbot o sistema Q&A con LLM
-- **evaluation/**: checklist y rúbrica
+- **mini-project/**: chatbot or Q&A system with LLM
+- **evaluation/**: checklist and rubric
 - **notes/**: prompts efectivos y experimentos
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: limpieza textual, tokenización y representación.
-- L2 Aplicado: clasificación de texto y análisis semántico básico.
-- L3 Avanzado: prompting, embeddings y evaluación de salidas LLM.
-- L4 Senior: diseño de soluciones NLP/LLM con trade-offs claros.
+- L1 Fundamentals: textual cleanliness, tokenization and representation.
+- Applied L2: text classification and basic semantic analysis.
+- L3 Advanced: prompting, embeddings and evaluation of LLM exits.
+- L4 Senior: design of NLP/LLM solutions with clear trade-offs.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/NLP & Large Language Models
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: fundamentos de NLP.
-- Semana 2: modelos clásicos de texto.
-- Semana 3: introducción a LLMs, prompting y evaluación.
-- Semana 4: mini-proyecto + evaluación final.
+- Week 1: NLP fundamentals.
+- Week 2: classic text models.
+- Week 3: introduction to LLMs, prompting and evaluation.
+- Week 4: mini-project + final evaluation.
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto con evaluación básica de resultados (BLEU/ROUGE/manual)
-- Evaluación final aprobada (>=70/100)
-- Demostrar: preprocesamiento de texto, embeddings, uso de transformers, prompt engineering
+- 2 solved and validated practices
+- Mini-project with basic evaluation of results (BLEU/ROUGE/manual)
+- Final evaluation approved (>=70/100)
+- Demonstrate: text preprocessing, embeddings, use of transformers, prompt engineering
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [Hugging Face Transformers](https://huggingface.co/docs/transformers/index)
 - [NLTK Book](https://www.nltk.org/book/)
@@ -62,31 +62,31 @@ Aprender fundamentos de procesamiento de lenguaje natural y bases de LLMs para c
 - [Hugging Face NLP Course](https://huggingface.co/learn/nlp-course/chapter1/1)
 - [CS224n: NLP with Deep Learning](http://web.stanford.edu/class/cs224n/)
 
-**Guías:**
+**Guides:**
 
 - [Prompt Engineering Guide](https://www.promptingguide.ai/)
 - [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 06: Computer Vision** - Detección de objetos y segmentación de imágenes
+**Module 06: Computer Vision** - Object detection and image segmentation
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

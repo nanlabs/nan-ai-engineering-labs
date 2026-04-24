@@ -454,10 +454,10 @@ ______________________________________________________________________
 
 ### ✅ Metrics de Fairness
 
-| Metric                | Definición                              | Cuándo usar                                       |
+| Metric                 | Definición                              | Cuándo usar                                       |
 | ---------------------- | --------------------------------------- | ------------------------------------------------- |
 | **Demographic Parity** | P(Ŷ=1\|A=a) igual para todos los grupos | Decisiones que no afectan proporción de población |
-| **Equalized Odds**     | TPR y FPR iguales entre grupos          | Errors (FP y FN) tienen mismo costo              |
+| **Equalized Odds**     | TPR y FPR iguales entre grupos          | Errors (FP y FN) tienen mismo costo               |
 | **Equal Opportunity**  | Solo TPR igual entre grupos             | FP menos grave que FN (ej: screening médico)      |
 
 ### 🎯 Trade-offs

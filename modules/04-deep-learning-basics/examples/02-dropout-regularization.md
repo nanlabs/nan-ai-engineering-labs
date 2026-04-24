@@ -443,7 +443,7 @@ ______________________________________________________________________
 
 ### ✅ Comparación final
 
-| Metric             | Baseline | Dropout | Dropout + L2 | Mejora |
+| Metric              | Baseline | Dropout | Dropout + L2 | Mejora |
 | ------------------- | -------- | ------- | ------------ | ------ |
 | **Test Acc**        | 97.89%   | 98.12%  | **98.24%**   | +0.35% |
 | **overfitting Gap** | +1.43%   | -0.23%  | **-0.79%**   | ✅     |

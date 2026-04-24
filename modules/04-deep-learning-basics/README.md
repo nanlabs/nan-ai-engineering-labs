@@ -2,52 +2,52 @@
 
 ## 🎯 Objective del Module
 
-Entender los fundamentos de deep learning para construir, entrenar y evaluar neural networks simples con criterio técnico.
+Understand the fundamentals of deep learning to build, train and evaluate simple neural networks with technical criteria.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Comprender Neurons artificiales, Layers y Functions de Activation (ReLU, Sigmoid, Tanh)
+- Understanding artificial neurons, layers and activation functions (ReLU, Sigmoid, Tanh)
 - Entrenar neural networks con PyTorch (nn.Module, optimizers, loss functions)
-- Construir CNNs para Classification de Images (Conv2d, MaxPool, arquitecturas depth)
+- Build CNNs for Image Classification (Conv2d, MaxPool, depth architectures)
 - Identificar overfitting y aplicar Regularization (Dropout, BatchNorm, L2)
-- Usar Models pre-entrenados con transfer learning (ResNet, VGG)
-- Evaluar con curvas de Learning y test accuracy
+- Use pre-trained Models with transfer learning (ResNet, VGG)
+- Evaluate with Learning curves and test accuracy
 
 ## 📂 Structure interna
 
-- **theory/**: fundamentos teóricos (backpropagation, arquitecturas, Regularization)
-- **examples/**: Examples guiados con PyTorch
+- **theory/**: theoretical foundations (backpropagation, architectures, Regularization)
+- **examples/**: Guided examples with PyTorch
 - **practices/**: Exercises hands-on
   - 01: neural networks con PyTorch (nn.Module, training loop, optimizers comparison, early stopping)
   - 02: CNNs y Transfer Learning (arquitecturas convolucionales, data augmentation, fine-tuning, Grad-CAM)
-- **mini-project/**: Classifier de Images completo
-- **evaluation/**: checklist y rúbrica
+- **mini-project/**: Complete Image Classifier
+- **evaluation/**: checklist and rubric
 - **notes/**: arquitecturas experimentadas y Results
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: arquitectura básica de redes y forward pass.
-- L2 Aplicado: Training con backpropagation en frameworks modernos.
-- L3 Avanzado: Regularization, tuning y debugging de Training.
-- L4 Senior: decisiones de arquitectura por costo, Precision y tiempo.
+- L1 Fundamentals: basic network architecture and forward pass.
+- Applied L2: Training with backpropagation in modern frameworks.
+- L3 Advanced: Regularization, tuning and debugging of Training.
+- L4 Senior: architecture decisions by cost, precision and time.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Deep Learning Basics
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: Concepts base de neural networks.
-- Semana 2: Training de MLP para Classification.
-- Semana 3: ajuste de Hyperparameters y control de overfitting.
+- Week 1: Basic concepts of neural networks.
+- Week 2: MLP Training for Classification.
+- Week 3: Hyperparameters adjustment and overfitting control.
 - Semana 4: Mini-project + Evaluation final.
 
-## ✅ Criterio de Module completado
+## ✅ Module criteria completed
 
 - 2 Practices resueltas y validadas
-- Mini-project funcionando con >90% accuracy
+- Mini-project running with >90% accuracy
 - Evaluation final aprobada (>=70/100)
-- Demostrar: construcción de arquitecturas, training loops, Regularization, transfer learning
+- Demonstrate: construction of architectures, training loops, Regularization, transfer learning
 
 ## 📚 Resources Adicionales
 
@@ -66,26 +66,26 @@ Entender los fundamentos de deep learning para construir, entrenar y evaluar neu
 - [ImageNet Classification with Deep CNNs (AlexNet)](https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 - [Deep Residual Learning (ResNet)](https://arxiv.org/abs/1512.03385)
 
-## 🚀 Próximo Module
+## 🚀 Next Module
 
-**Module 05: NLP & Large Language Models** - Procesamiento de lenguaje natural
+**Module 05: NLP & Large Language Models** - Natural Language Processing
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

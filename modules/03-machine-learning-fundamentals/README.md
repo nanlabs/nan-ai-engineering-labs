@@ -2,56 +2,56 @@
 
 ## 🎯 Objective del Module
 
-Comprender los fundamentos de machine learning supervisado y no supervisado para entrenar, evaluar y comparar Models con criterio técnico.
+Understand the fundamentals of supervised and unsupervised machine learning to train, evaluate and compare Models with technical criteria.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Diferenciar Problems de regresión, Classification y clustering
+- Differentiate Regression, Classification and Clustering Problems
 - Entrenar Models base con `scikit-learn` (LinearRegression, LogisticRegression, DecisionTrees, RandomForest)
 - Evaluar performance con Metrics correctas (MSE/RMSE/R², accuracy/Precision/recall/f1, Confusion Matrix)
 - Evitar Errors comunes como overfitting y data leakage
 - Aplicar GridSearchCV para hyperparameter tuning
-- Comparar múltiples Algorithms y seleccionar el mejor
+- Compare multiple Algorithms and select the best one
 
 ## 📂 Structure interna
 
 - **theory/**: fundamentos teóricos (supervised/unsupervised learning, bias-variance trade-off)
-- **examples/**: Examples guiados con sklearn
+- **examples/**: Guided examples with sklearn
 - **practices/**: Exercises hands-on
-  - 01: Regresión Lineal y Logística (simple/multiple regression, thresholds, ROC curves)
+  - 01: Linear and Logistic Regression (simple/multiple regression, thresholds, ROC curves)
   - 02: Árboles y Random Forests (decision trees, feature importance, ensemble methods)
-- **mini-project/**: comparación de múltiples Algorithms en dataset real
-- **evaluation/**: checklist y rúbrica
+- **mini-project/**: comparison of multiple Algorithms in real dataset
+- **evaluation/**: checklist and rubric
 - **notes/**: tus apuntes y decisiones
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: Types de Learning y pipeline básico.
-- L2 Aplicado: Training y Evaluation de Models clásicos.
-- L3 Avanzado: tuning, Validation cruzada y selección de Model.
+- L1 Fundamentals: Types of Learning and basic pipeline.
+- Applied L2: Training and Evaluation of classic Models.
+- L3 Advanced: tuning, cross validation and Model selection.
 - L4 Senior: trade-offs entre Precision, interpretabilidad y costo.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Machine Learning Fundamentals
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: Concepts base + pipeline mínimo.
-- Semana 2: regresión y Classification.
-- Semana 3: Validation, Metrics y tuning básico.
+- Week 1: Base concepts + minimum pipeline.
+- Week 2: regression and Classification.
+- Week 3: Validation, Metrics and basic tuning.
 - Semana 4: Mini-project + Evaluation.
 
-## ✅ Criterio de Module completado
+## ✅ Module criteria completed
 
 - 2 Practices resueltas y validadas
-- Mini-project con baseline y mejora comparada
+- Mini-project with baseline and comparative improvement
 - Evaluation final aprobada (>=70/100)
-- Demostrar: Training de Models, Evaluation con Metrics apropiadas, tuning de Hyperparameters
+- Demonstrate: Training of Models, Evaluation with appropriate Metrics, tuning of Hyperparameters
 
 ## 📚 Resources Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [scikit-learn Documentation](https://scikit-learn.org/stable/documentation.html)
 - [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
@@ -65,26 +65,26 @@ Comprender los fundamentos de machine learning supervisado y no supervisado para
 
 - [Hands-On Machine Learning (Aurélien Géron)](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)
 
-## 🚀 Próximo Module
+## 🚀 Next Module
 
 **Module 04: Deep Learning Basics** - Introduction a neural networks con PyTorch
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

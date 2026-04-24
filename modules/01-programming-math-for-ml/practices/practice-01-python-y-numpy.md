@@ -1,26 +1,26 @@
-# Práctica 01 — Python y NumPy
+# Practice 01 — Python and NumPy
 
 ## Objective
 
-Familiarizarte con Python básico y operaciones fundamentales con NumPy para manipular arrays y vectores.
+Get familiar with basic Python and fundamental operations with NumPy to manipulate arrays and vectors.
 
-## Nivel de dificultad
+## Difficulty level
 
-⭐ Básico (L1)
+⭐ Basic (L1)
 
-## Duración estimada
+## Estimated duration
 
 30-40 minutos
 
 ______________________________________________________________________
 
-## Parte 1: Resuelta (guía paso a paso)
+## Part 1: Solved (step by step guide)
 
-### Ejercicio 1.1: Crear arrays y realizar operaciones básicas
+### Exercise 1.1: Create arrays and perform basic operations
 
-**Consigna:** Crea dos arrays de NumPy con 5 números cada uno y realiza suma, resta, multiplicación elemento a elemento.
+**Instruction:** Create two NumPy arrays with 5 numbers each and perform addition, subtraction, and multiplication element by element.
 
-**Solución:**
+**Solution:**
 
 ```python
 import numpy as np
@@ -51,18 +51,18 @@ Resta (b-a): [ 9 18 27 36 45]
 Multiplicación: [ 10  40  90 160 250]
 ```
 
-**Explicación:**
+**Explanation:**
 
-- Las operaciones aritméticas en NumPy se aplican elemento por elemento (broadcasting).
-- Esto es mucho más eficiente que usar loops en Python puro.
+- Arithmetic operations in NumPy are applied element by element (broadcasting).
+- This is much more efficient than using loops in pure Python.
 
 ______________________________________________________________________
 
-### Ejercicio 1.2: Calcular estadísticas básicas
+### Exercise 1.2: Calculate basic statistics
 
-**Consigna:** Dado un array de 10 números, calcula la media, el máximo, el mínimo y la suma total.
+**Instruction:** Given an array of 10 numbers, calculate the mean, maximum, minimum and total sum.
 
-**Solución:**
+**Solution:**
 
 ```python
 import numpy as np
@@ -91,83 +91,83 @@ Mínimo: 12
 Suma total: 517
 ```
 
-**Explicación:**
+**Explanation:**
 
-- `np.mean()`, `np.max()`, `np.min()`, `np.sum()` son funciones vectorizadas muy rápidas.
-- Son la base para cálculos estadísticos en datasets grandes.
+- `np.mean()`, `np.max()`, `np.min()`, `np.sum()` are very fast vectorized functions.
+- They are the basis for statistical calculations in large datasets.
 
 ______________________________________________________________________
 
-## Parte 2: Para resolver (propuesta)
+## Part 2: To solve (proposal)
 
 ### Ejercicio 2.1: Filtrado condicional
 
 **Consigna:**
-Crea un array con 15 números aleatorios entre 1 y 100. Filtra y muestra solo los números mayores a 50.
+Create an array with 15 random numbers between 1 and 100. Filter and display only numbers greater than 50.
 
 **Pistas:**
 
-- Usa `np.random.randint(1, 101, size=15)` para generar números aleatorios.
-- Usa indexación booleana: `array[array > 50]`.
+- Use `np.random.randint(1, 101, size=15)` to generate random numbers.
+- Use boolean indexing: `array[array > 50]`.
 
-**Criterio de éxito:**
+**Success Criteria:**
 
-- El array original debe tener 15 elementos.
-- El array filtrado debe contener solo valores > 50.
-- Debe ser reproducible (fija una semilla con `np.random.seed(42)`).
+- The original array must have 15 elements.
+- The filtered array must only contain values ​​> 50.
+- Must be reproducible (set a seed with `np.random.seed(42)`).
 
 ______________________________________________________________________
 
-### Ejercicio 2.2: Reshape y transposición
+### Exercise 2.2: Reshape and transposition
 
 **Consigna:**
-Crea un array de 12 números consecutivos (del 1 al 12). Reshape a una matriz de 3x4. Luego transpone la matriz y muestra ambas.
+Create an array of 12 consecutive numbers (1 to 12). Reshape to a 3x4 matrix. Then transpose the matrix and display both.
 
 **Pistas:**
 
-- Usa `np.arange(1, 13)` para crear números consecutivos.
-- Usa `.reshape(3, 4)` para convertir a matriz.
+- Use `np.arange(1, 13)` to create consecutive numbers.
+- Uses `.reshape(3, 4)` to convert the matrix.
 - Usa `.T` o `np.transpose()` para transponer.
 
-**Criterio de éxito:**
+**Success Criteria:**
 
 - Matriz original: 3 filas x 4 columnas.
 - Matriz transpuesta: 4 filas x 3 columnas.
-- Los valores deben coincidir correctamente en posiciones traspuestas.
+- Values ​​must match correctly in transposed positions.
 
 ______________________________________________________________________
 
 ### Ejercicio 2.3: Producto punto entre vectores
 
 **Consigna:**
-Crea dos vectores de tamaño 5 con valores de tu elección. Calcula:
+Create two vectors of size 5 with values ​​of your choice. Calculate:
 
 1. Producto punto.
-1. Norma (magnitud) de cada vector.
-1. Ángulo entre ambos vectores (usa la fórmula del coseno).
+1. Norm (magnitude) of each vector.
+1. Angle between both vectors (use the cosine formula).
 
 **Pistas:**
 
 - Producto punto: `np.dot(a, b)`.
 - Norma: `np.linalg.norm(a)`.
-- Coseno del ángulo: `cos(θ) = (a·b) / (||a|| * ||b||)`.
-- Ángulo en grados: `np.arccos(coseno) * 180 / np.pi`.
+- Cosine of the angle: `cos(θ) = (a·b) / (||a|| * ||b||)`.
+- Angle in degrees: `np.arccos(coseno) * 180 / np.pi`.
 
-**Criterio de éxito:**
+**Success Criteria:**
 
 - Producto punto calculado correctamente.
 - Normas positivas.
-- Ángulo entre 0° y 180°.
+- Angle between 0° and 180°.
 
 ______________________________________________________________________
 
 ## Entregable
 
-- Un notebook o script `.py` con las soluciones de la Parte 2.
+- A notebook or script `.py` with the solutions from Part 2.
 - Comentarios explicando cada paso.
-- Salidas visibles (usa `print()` para mostrar resultados).
+- Visible outputs (use `print()` to show results).
 
-## Recursos de ayuda
+## Help resources
 
 - [NumPy Quickstart](https://numpy.org/doc/stable/user/quickstart.html)
 - [NumPy Array Creation](https://numpy.org/doc/stable/user/basics.creation.html)

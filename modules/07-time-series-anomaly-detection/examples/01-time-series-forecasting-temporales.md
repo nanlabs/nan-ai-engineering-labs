@@ -482,9 +482,9 @@ ______________________________________________________________________
 
 ### ✅ Results
 
-| Model           | MAE      | RMSE      | Ventajas                                                     |
-| ---------------- | -------- | --------- | ------------------------------------------------------------ |
-| **ARIMA(1,1,1)** | 12.34    | 15.67     | Simple, interpretable                                        |
+| Model            | MAE      | RMSE      | Ventajas                                                    |
+| ---------------- | -------- | --------- | ----------------------------------------------------------- |
+| **ARIMA(1,1,1)** | 12.34    | 15.67     | Simple, interpretable                                       |
 | **Prophet**      | **8.12** | **10.45** | Maneja múltiples estacionalidades, robusto a Data faltantes |
 
 ### 🎯 Pipeline de Forecast

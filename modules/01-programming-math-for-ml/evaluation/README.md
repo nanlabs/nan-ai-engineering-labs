@@ -1,36 +1,36 @@
-# Evaluation — Programación y Matemática para ML
+# Evaluation — Programming and Mathematics for ML
 
 ## Weighting
 
-- Teoría: 25%
-- Prácticas: 40%
+- Theory: 25%
+- Practices: 40%
 - Mini-proyecto: 35%
 
-## Rúbrica (1 a 5)
+## Rubric (1 to 5)
 
-- Comprensión conceptual: define y explica ideas clave con claridad.
-- Implementación: código correcto, legible y reproducible.
-- Pensamiento matemático: justifica operaciones y métricas.
-- Comunicación: conclusiones claras y accionables.
+- Conceptual understanding: defines and explains key ideas clearly.
+- Implementation: correct, readable and reproducible code.
+- Mathematical thinking: justifies operations and metrics.
+- Communication: clear and actionable conclusions.
 
-## Evaluación final (checklist)
+## Final evaluation (checklist)
 
-- [ ] Explico diferencia entre vector y matriz con ejemplo.
+- [ ] I explain the difference between vector and matrix with example.
 - [ ] Implemento producto punto y lo interpreto.
 - [ ] Calculo media/varianza y describo su utilidad.
 - [ ] Implemento gradiente descendente simple.
-- [ ] Entreno y evalúo una regresión lineal.
+- [ ] I train and evaluate a linear regression.
 - [ ] Documento decisiones y limitaciones.
 
 ## Approval criteria
 
-- Puntaje final mínimo: 70/100.
-- Si un bloque queda \<60%, repetir práctica o mini-proyecto asociado.
+- Minimum final score: 70/100.
+- If a block remains \<60%, repeat the associated practice or mini-project.
 
 ## Rubric
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

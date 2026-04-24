@@ -1,30 +1,30 @@
-# Mini-project — Programación y Matemática para ML
+# Mini-project — Programming and Mathematics for ML
 
 ## Project
 
-Regresión lineal explicada desde cero: de los Data a la Metric.
+Linear regression explained from scratch: from Data to Metric.
 
 ## Objective
 
-Construir un proyecto simple y completo para demostrar dominio de fundamentos matemáticos y de programación.
+Build a simple and complete project to demonstrate mastery of mathematical and programming fundamentals.
 
 ## Scope
 
-- Dataset pequeño (real o sintético).
-- Cleaning mínima y Analysis exploratorio.
-- Training de regresión lineal.
+- Small dataset (real or synthetic).
+- Minimal Cleaning and Exploratory Analysis.
+- Linear regression training.
 - Evaluation con MSE y MAE.
-- Interpretación de Results.
+- Interpretation of Results.
 
 ## Deliverables
 
 - Notebook o script reproducible.
-- README técnico del proyecto.
-- Section de Lessons aprendidas.
+- Technical README of the project.
+- Lessons learned section.
 
 ## Acceptance criteria
 
-- Corre de principio a fin sin Errors.
+- Runs from start to finish without Errors.
 - Metrics calculadas e interpretadas correctamente.
-- Explica al menos 3 decisiones técnicas tomadas.
+- Explain at least 3 technical decisions made.
 - Incluye mejoras futuras propuestas.

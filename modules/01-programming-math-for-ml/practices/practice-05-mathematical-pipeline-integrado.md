@@ -1,28 +1,28 @@
-# Práctica 05 — Pipeline matemático integrado
+# Practice 05 — Integrated mathematical pipeline
 
 ## Objective
 
-Integrar programación + álgebra + estadística + optimización en un flujo único.
+Integrate programming + algebra + statistics + optimization in a single flow.
 
 ## Enunciado
 
-1. Generar dataset sintético con relación lineal y ruido.
+1. Generate synthetic dataset with linear relationship and noise.
 1. Estandarizar variables.
-1. Ajustar regresión lineal simple (puede ser desde fórmula o con librería).
+1. Adjust simple linear regression (can be from formula or with library).
 1. Calcular MSE y MAE.
-1. Comparar resultados entre enfoque manual y librería.
+1. Compare results between manual and library focus.
 
 ## Entregable
 
-- Notebook final con pipeline completo y conclusiones.
+- Final notebook with complete pipeline and conclusions.
 
-## Validación
+## Validation
 
-- Pipeline reproducible de punta a punta.
-- Métricas correctamente calculadas.
-- Comparación entre enfoques clara y argumentada.
+- Pipeline reproducible from end to end.
+- Correctly calculated metrics.
+- Clear and reasoned comparison between approaches.
 
 ## Errores comunes
 
-- No separar datos de entrenamiento y validación.
-- Métricas calculadas sobre arrays desalineados.
+- Do not separate training and validation data.
+- Metrics calculated on misaligned arrays.

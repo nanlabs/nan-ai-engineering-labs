@@ -1,37 +1,37 @@
 # Ethics, Bias & Explainability
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender a identificar, medir y mitigar sesgos en modelos ML, y explicar decisiones de modelos para construir IA responsable y transparente.
+Learn to identify, measure and mitigate biases in ML models, and explain model decisions to build responsible and transparent AI.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
 - Detectar bias en datasets y modelos (demographic parity, equalized odds)
-- Calcular disparate impact y métricas de fairness
+- Calculate nonsense impact and fairness metrics
 - Implementar técnicas de debiasing (reweighting, threshold optimization, adversarial)
-- Aplicar SHAP values para feature importance
-- Usar LIME para explicar black-box models
+- Apply SHAP values ​​to feature importance
+- Use LIME to explain black-box models
 - Generar counterfactual explanations y Anchors rules
-- Construir dashboards de fairness
+- Build fairness dashboards
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (tipos de bias, fairness metrics, explainability methods)
-- **examples/**: ejemplos guiados con Fairlearn, SHAP, LIME
+- **examples/**: guided examples with Fairlearn, SHAP, LIME
 - **practices/**: ejercicios hands-on
-  - 01: Detección y Mitigación de Bias (disparate impact, reweighting, thresholds, adversarial debiasing, counterfactuals)
+  - 01: Detection and Mitigation of Bias (nonsense impact, reweighting, thresholds, adversarial debiasing, counterfactuals)
   - 02: Explainability con SHAP y LIME (SHAP for trees/NNs, LIME tabular, PDPs, Anchors, dashboard)
-- **mini-project/**: auditoría de fairness + sistema de explicaciones
-- **evaluation/**: checklist y rúbrica
-- **notes/**: casos de bias encontrados y mitigaciones aplicadas
+- **mini-project/**: fairness audit + explanation system
+- **evaluation/**: checklist and rubric
+- **notes/**: bias cases found and mitigations applied
 
 ## 📋 Prerrequisitos
 
-- Módulo 03: Machine Learning Fundamentals (clasificación, métricas)
-- Conocimientos de métricas (confusion matrix, TPR, FPR)
-- Conciencia sobre impactos sociales de ML
+- Module 03: Machine Learning Fundamentals (classification, metrics)
+- Knowledge of metrics (confusion matrix, TPR, FPR)
+- Awareness about social impacts of ML
 
-## 📅 Plan de Estudio Recomendado
+## 📅 ​​Recommended Study Plan
 
 **Semana 1** (6-8 horas):
 
@@ -54,16 +54,16 @@ Aprender a identificar, medir y mitigar sesgos en modelos ML, y explicar decisio
 - [ ] Counterfactual explanations
 - [ ] Fairness vs accuracy trade-offs
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto: auditoría de fairness completa
-- Evaluación final aprobada (>=70/100)
-- Demostrar: detección de bias, debiasing, SHAP/LIME, dashboard de fairness
+- 2 solved and validated practices
+- Mini-project: complete fairness audit
+- Final evaluation approved (>=70/100)
+- Demonstrate: bias detection, debiasing, SHAP/LIME, fairness dashboard
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [Fairlearn](https://fairlearn.org/)
 - [AI Fairness 360 (IBM)](https://aif360.mybluemix.net/)
@@ -83,30 +83,30 @@ Aprender a identificar, medir y mitigar sesgos en modelos ML, y explicar decisio
 
 - [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
 **Módulo 11: Data Privacy & Security** - Encriptación, differential privacy, federated learning
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

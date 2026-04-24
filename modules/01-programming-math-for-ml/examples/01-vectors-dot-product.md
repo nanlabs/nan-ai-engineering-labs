@@ -2,16 +2,16 @@
 
 ## Objective
 
-Representar vectores usando NumPy y calcular similitud básica entre ellos mediante el producto punto (dot product).
+Represent vectors using NumPy and calculate basic similarity between them using the dot product.
 
 ## Concepts previos
 
-- Un **vector** es una lista ordenada de números.
-- El **producto punto** de dos vectores mide su similitud direccional.
-- Fórmula: `a · b = a₁b₁ + a₂b₂ + ... + aₙbₙ`
-- Si el producto punto es alto, los vectores apuntan en direcciones similares.
+- A **vector** is an ordered list of numbers.
+- The **dot product** of two vectors measures their directional similarity.
+- Formula: `a · b = a₁b₁ + a₂b₂ + ... + aₙbₙ`
+- If the dot product is high, the vectors point in similar directions.
 
-## Implementación paso a paso
+## Step by step implementation
 
 ### 1. Importar NumPy
 
@@ -29,7 +29,7 @@ producto_a = np.array([4.5, 3.2, 5.0])  # [precio, calidad, popularidad]
 producto_b = np.array([4.7, 3.0, 4.8])
 ```
 
-### 3. Calcular el producto punto
+### 3. Calculate the dot product
 
 ```python
 similitud = np.dot(producto_a, producto_b)
@@ -42,7 +42,7 @@ print(f"Similitud entre productos: {similitud:.2f}")
 Similitud entre productos: 54.71
 ```
 
-### 4. Calcular la norma (longitud) de cada vector
+### 4. Calculate the norm (length) of each vector
 
 ```python
 norma_a = np.linalg.norm(producto_a)
@@ -72,14 +72,14 @@ print(f"Similitud coseno: {similitud_coseno:.4f}")
 Similitud coseno: 1.0281
 ```
 
-> ⚠️ **Nota:** La similitud coseno debería estar entre -1 y 1. Si sale mayor a 1, hay un error de redondeo o los vectores son casi idénticos.
+> ⚠️ **Note:** The cosine similarity should be between -1 and 1. If it is greater than 1, there is a rounding error or the vectors are almost identical.
 
-### 6. Interpretación
+### 6. Interpretation
 
 - Un valor cercano a 1 indica que ambos productos son muy similares en sus Features.
-- Esto lo usamos en ML para medir similitud entre embeddings de textos, Images, etc.
+- We use this in ML to measure similarity between text embeddings, Images, etc.
 
-## Código completo ejecutable
+## Complete executable code
 
 ```python
 import numpy as np
@@ -104,17 +104,17 @@ print(f"Similitud coseno: {similitud_coseno:.4f}")
 
 ## Errors comunes
 
-- ❌ Olvidar que los vectores deben tener la misma dimensión.
-- ❌ Confundir producto punto con multiplicación elemento a elemento (`*`).
-- ❌ No normalizar antes de calcular coseno (usar normas).
+- ❌ Forget that vectors must have the same dimension.
+- ❌ Confuse dot product with element-by-element multiplication (`*`).
+- ❌ Do not normalize before calculating cosine (use norms).
 
 ## Exercise propuesto
 
-Crea dos vectores que representen usuarios según sus preferencias de géneros de películas:
+Create two vectors that represent users based on their movie genre preferences:
 
 ```python
 usuario_1 = np.array([5, 3, 0, 4])  # [acción, comedia, drama, sci-fi]
 usuario_2 = np.array([4, 2, 1, 5])
 ```
 
-Calcula la similitud coseno entre ambos usuarios para ver qué tan parecidos son sus gustos.
+Calculate the cosine similarity between both users to see how similar their tastes are.

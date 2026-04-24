@@ -1,57 +1,57 @@
 # Time Series & Anomaly Detection
 
-## 🎯 Objetivo del módulo
+## 🎯 Module objective
 
-Aprender a modelar series temporales y detectar anomalías para anticipar eventos, fallas o comportamientos fuera de patrón.
+Learn to model time series and detect anomalies to anticipate events, failures or out-of-pattern behavior.
 
-## 💡 Qué vas a lograr
+## 💡 What are you going to achieve
 
-- Entender componentes de series temporales (tendencia, estacionalidad, ruido, descomposición)
-- Construir modelos de forecasting (ARIMA, Prophet, LSTM)
+- Understand components of time series (trend, seasonality, noise, decomposition)
+- Build forecasting models (ARIMA, Prophet, LSTM)
 - Implementar detectors de anomalías (Z-score, IQR, Isolation Forest, LSTM Autoencoder)
 - Aplicar cross-validation temporal y multi-step forecasting
-- Evaluar con métricas temporales (MAE, RMSE, MAPE) y análisis visual
-- Diseñar sistemas de detección en tiempo real
+- Evaluate with temporal metrics (MAE, RMSE, MAPE) and visual analysis
+- Design detection systems in real time
 
 ## 📂 Estructura interna
 
 - **theory/**: fundamentos (series temporales, estacionariedad, forecasting, anomaly detection)
-- **examples/**: ejemplos guiados con statsmodels, Prophet, PyOD
+- **examples/**: guided examples with statsmodels, Prophet, PyOD
 - **practices/**: ejercicios hands-on
   - 01: Forecasting de Series Temporales (ARIMA, Prophet, LSTM, cross-validation temporal)
-  - 02: Detección de Anomalías (Z-score, IsoForest, LSTM Autoencoder, ensemble, real-time)
-- **mini-project/**: sistema de forecasting + detección de anomalías
-- **evaluation/**: checklist y rúbrica
-- **notes/**: experimentos con diferentes modelos
+  - 02: Anomaly Detection (Z-score, IsoForest, LSTM Autoencoder, ensemble, real-time)
+- **mini-project/**: forecasting system + anomaly detection
+- **evaluation/**: checklist and rubric
+- **notes/**: experiments with different models
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: estructura temporal y preparación de datos.
-- L2 Aplicado: baseline de pronóstico y métricas.
-- L3 Avanzado: detección de anomalías y tuning temporal.
-- L4 Senior: decisiones de monitoreo en producción y falsos positivos.
+- L1 Fundamentals: temporal structure and data preparation.
+- L2 Applied: forecast baseline and metrics.
+- L3 Advanced: anomaly detection and temporal tuning.
+- L4 Senior: production monitoring decisions and false positives.
 
-## Migración
+## Migration
 
 - Fuente base original: folders/Time Series & Anomaly Detection
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: fundamentos de series temporales.
-- Semana 2: modelos de pronóstico base.
-- Semana 3: detección de anomalías y evaluación.
-- Semana 4: mini-proyecto + evaluación final.
+- Week 1: basics of time series.
+- Week 2: base forecast models.
+- Week 3: anomaly detection and evaluation.
+- Week 4: mini-project + final evaluation.
 
-## ✅ Criterio de módulo completado
+## ✅ Module criteria completed
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto con forecasting y anomalías detectadas
-- Evaluación final aprobada (>=70/100)
-- Demostrar: forecasting con ARIMA/Prophet, detección con múltiples métodos, evaluación
+- 2 solved and validated practices
+- Mini-project with forecasting and detected anomalies
+- Final evaluation approved (>=70/100)
+- Demonstrate: forecasting with ARIMA/Prophet, detection with multiple methods, evaluation
 
 ## 📚 Recursos Adicionales
 
-**Librerías:**
+**Bookstores:**
 
 - [statsmodels TSA](https://www.statsmodels.org/stable/tsa.html)
 - [Facebook Prophet](https://facebook.github.io/prophet/)
@@ -66,26 +66,26 @@ Aprender a modelar series temporales y detectar anomalías para anticipar evento
 
 - [Forecasting: Principles and Practice](https://otexts.com/fpp3/)
 
-## 🚀 Próximo Módulo
+## 🚀 Next Module
 
-**Módulo 08: Recommender Systems** - Sistemas de recomendación
+**Module 08: Recommender Systems** - Recommendation systems
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+Pending completion of this section.

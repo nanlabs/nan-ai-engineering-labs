@@ -411,7 +411,7 @@ ______________________________________________________________________
 
 ### ✅ Results
 
-| Model              | Test accuracy | CV Mean | CV Std |
+| Model               | Test accuracy | CV Mean | CV Std |
 | ------------------- | ------------- | ------- | ------ |
 | Logistic Regression | 1.0000        | 0.9667  | 0.0316 |
 | Decision Tree       | 1.0000        | 0.9583  | 0.0316 |
