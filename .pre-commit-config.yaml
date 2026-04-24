@@ -1,0 +1,67 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        files: '^scripts/.*\.py$'
+      - id: ruff
+        name: ruff module naming (N999)
+        args: [--select, N999]
+        files: '^(modules|trends-extras|templates|scripts)/.*\.py$'
+      - id: ruff-format
+        files: '^scripts/.*\.py$'
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        additional_dependencies: [mdformat-gfm]
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.6
+    hooks:
+      - id: bandit
+        args: [-c, pyproject.toml]
+        additional_dependencies: ["bandit[toml]"]
+        files: '^scripts/.*\.py$'
+
+  - repo: local
+    hooks:
+      - id: markdownlint-cli2-local
+        name: markdownlint-cli2 (local)
+        entry: npx --yes markdownlint-cli2 --fix
+        language: system
+        types: [markdown]
+
+      - id: basedpyright-local
+        name: basedpyright (local)
+        entry: basedpyright
+        language: python
+        additional_dependencies: [basedpyright==1.24.0]
+        files: '^scripts/.*\.py$'
+
+      - id: validate-learning-labs
+        name: Validate learning lab contract
+        entry: python3 scripts/validate_learning_labs.py --strict-core --strict-headings
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: validate-english-content
+        name: Validate English-only content
+        entry: python3 scripts/validate_english_content.py
+        language: system
+        files: '^(AGENTS\.md|\.github/(skills|agents)/.*\.md)$'

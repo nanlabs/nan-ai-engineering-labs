@@ -1,0 +1,41 @@
+[project]
+name = "training-ai"
+version = "0.1.0"
+description = "AI and ML training labs with standardized module contracts"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+  "pre-commit>=3.7.0",
+  "ruff>=0.6.0",
+  "basedpyright>=1.18.0",
+  "mdformat>=0.7.21",
+  "mdformat-gfm>=0.4.1",
+  "bandit[toml]>=1.7.8",
+  "pytest>=8.2.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["T201"]
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+pythonVersion = "3.11"
+reportMissingTypeStubs = false
+
+[tool.bandit]
+exclude_dirs = ["venv"]
+
+[tool.pytest.ini_options]
+addopts = ["-q"]
+python_files = ["test_*.py"]
