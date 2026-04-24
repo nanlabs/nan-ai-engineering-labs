@@ -1,4 +1,4 @@
-# Ejemplo 02 — Matrix Factorization con SVD (Singular Value Decomposition)
+# Example 02 — Matrix Factorization con SVD (Singular Value Decomposition)
 
 ## Contexto
 
@@ -24,7 +24,7 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📦 Generar datos
+## 📦 Generar Data
 
 ```python
 # Simular ratings
@@ -102,7 +102,7 @@ Ejemplo de predicción para user 0, movie 10: 3.45
 
 ______________________________________________________________________
 
-## 🎯 Función de recomendación
+## 🎯 Function de recomendación
 
 ```python
 def recommend_movies_svd(user_id, predictions_df, user_item_matrix, top_n=5):
@@ -134,7 +134,7 @@ for movie_id, predicted_rating in recommendations:
 
 ______________________________________________________________________
 
-## 📊 Evaluación
+## 📊 Evaluation
 
 ### Train/Test Split
 
@@ -166,7 +166,7 @@ predictions_train_df = pd.DataFrame(predictions_train,
                                      columns=train_matrix.columns)
 ```
 
-### Calcular métricas
+### Calcular Metrics
 
 ```python
 # Obtener predicciones para test set
@@ -202,7 +202,7 @@ RMSE: 0.987
 
 ______________________________________________________________________
 
-## 🔍 Análisis de factores latentes
+## 🔍 Analysis de factores latentes
 
 ### Visualizar factores
 
@@ -295,7 +295,7 @@ ______________________________________________________________________
 | **Escalabilidad**             | Pobre (n usuarios grande) | Excelente                  |
 | **Sparsity**                  | Sensible                  | Maneja bien                |
 | **Interpretabilidad**         | Alta (similitud directa)  | Media (factores latentes)  |
-| **Accuracy**                  | Buena                     | **Mejor**                  |
+| **accuracy**                  | Buena                     | **Mejor**                  |
 
 ### 🎯 Ventajas de SVD
 
@@ -313,7 +313,7 @@ ______________________________________________________________________
 
 1. **Neural Matrix Factorization:**
 
-   - Reemplaza producto punto U × V con red neuronal
+   - Reemplaza producto punto U × V con Neural network
    - Captura relaciones no lineales
 
 1. **Factorization Machines:**
@@ -333,5 +333,5 @@ ______________________________________________________________________
 - ✅ Elegir k apropiado (5-50 típicamente)
 - ✅ Evaluar con cross-validation
 - ✅ Regularizar para prevenir overfitting (en variantes ALS)
-- ✅ Actualizar modelo periódicamente (nuevos datos)
+- ✅ Actualizar Model periódicamente (nuevos Data)
 - ✅ Combinar con content-based para cold start

@@ -2,23 +2,23 @@
 
 ## Why this module matters
 
-Solo el 13% de los modelos de ML llegan a producción (según Gartner). MLOps cierra la brecha entre experimentos en notebooks y sistemas confiables en producción. Dominar MLOps te posiciona como ingeniero completo, no solo data scientist.
+Solo el 13% de los Models de ML llegan a producción (según Gartner). MLOps cierra la brecha entre experimentos en notebooks y sistemas confiables en producción. Dominar MLOps te posiciona como ingeniero completo, no solo data scientist.
 
 ______________________________________________________________________
 
 ## 1. ¿Qué es MLOps?
 
-**MLOps (Machine Learning Operations):** Conjunto de prácticas, herramientas y cultura para **construir, desplegar y operar** modelos de ML de forma **confiable, reproducible y escalable**.
+**MLOps (Machine Learning Operations):** Conjunto de Practices, herramientas y cultura para **construir, desplegar y operar** Models de ML de forma **confiable, reproducible y escalable**.
 
 ### Analogía con DevOps
 
 - **DevOps:** Automatización de desarrollo y operaciones de software.
-- **MLOps:** DevOps + desafíos únicos de ML (datos, modelos, drift).
+- **MLOps:** DevOps + desafíos únicos de ML (Data, Models, drift).
 
 ### ¿Por qué MLOps es diferente?
 
-- **Código es solo parte:** Datos y modelos también cambian.
-- **Degradación silenciosa:** Modelo pierde accuracy sin errores técnicos.
+- **Código es solo parte:** Data y Models también cambian.
+- **Degradación silenciosa:** Model pierde accuracy sin Errors técnicos.
 - **Experimentación intensiva:** Muchos experimentos, pocos van a producción.
 
 📹 **Videos recomendados:**
@@ -36,34 +36,34 @@ ______________________________________________________________________
 
 - EDA (Exploratory Data Analysis).
 - Feature engineering.
-- Entrenamiento de modelos.
-- Comparación de algoritmos.
+- Training de Models.
+- Comparación de Algorithms.
 
 **Herramientas:**
 
 - Jupyter Notebooks, Google Colab.
 - MLflow, Weights & Biases para tracking.
 
-### Fase 2: Entrenamiento y validación
+### Fase 2: Training y Validation
 
 **Actividades:**
 
-- Entrenar modelo final con datos completos.
-- Validación rigurosa (cross-validation, test set).
-- Tuning de hiperparámetros.
+- Entrenar Model final con Data completos.
+- Validation rigurosa (cross-validation, test set).
+- Tuning de Hyperparameters.
 
 **Herramientas:**
 
 - Kubeflow, SageMaker, Vertex AI.
 - Optuna, Ray Tune para hyperparameter tuning.
 
-### Fase 3: Registro de modelo (Model Registry)
+### Fase 3: Registro de Model (Model Registry)
 
 **Actividades:**
 
-- Guardar modelo entrenado.
-- Versionar modelo.
-- Documentar metadata (métricas, features, hiperparámetros).
+- Guardar Model entrenado.
+- Versionar Model.
+- Documentar metadata (Metrics, features, Hyperparameters).
 
 **Herramientas:**
 
@@ -75,8 +75,8 @@ ______________________________________________________________________
 
 **Actividades:**
 
-- Empaquetar modelo (Docker, ONNX).
-- Exponer API de predicción.
+- Empaquetar Model (Docker, ONNX).
+- Exponer API de Prediction.
 - Configurar infraestructura (CPU/GPU, scaling).
 
 **Herramientas:**
@@ -91,7 +91,7 @@ ______________________________________________________________________
 
 - Monitorear performance (latencia, accuracy).
 - Detectar drift.
-- Reentrenar modelo con datos recientes.
+- Reentrenar Model con Data recientes.
 
 **Herramientas:**
 
@@ -112,26 +112,26 @@ ______________________________________________________________________
 
 - **Git:** Estándar para código fuente.
 
-#### Versionado de datos
+#### Versionado de Data
 
-Datos cambian, necesitas trackear versiones.
+Data cambian, necesitas trackear versiones.
 
 **Herramientas:**
 
-- **DVC (Data Version Control):** Git para datos.
+- **DVC (Data Version Control):** Git para Data.
 - **LakeFS:** Versionado de data lakes.
 - **Delta Lake:** Versionado transaccional.
 
-#### Versionado de modelos
+#### Versionado de Models
 
-Guardar cada modelo entrenado con metadata.
+Guardar cada Model entrenado con metadata.
 
 **Metadata:**
 
-- Versión de datos usados.
-- Hiperparámetros.
-- Métricas de validación.
-- Fecha de entrenamiento.
+- Versión de Data usados.
+- Hyperparameters.
+- Metrics de Validation.
+- Fecha de Training.
 - Autor.
 
 **Herramientas:**
@@ -146,12 +146,12 @@ Guardar cada modelo entrenado con metadata.
 - Tests automatizados:
   - Unit tests para código.
   - Data validation (schema, distribuciones).
-  - Model validation (métricas mínimas).
+  - Model validation (Metrics mínimas).
 
 **CD (Continuous Deployment):**
 
 - Despliegue automatizado a staging.
-- Validación en staging.
+- Validation en staging.
 - Despliegue a producción (manual o automático).
 
 **Herramientas:**
@@ -161,14 +161,14 @@ Guardar cada modelo entrenado con metadata.
 
 ### Feature Store
 
-**Problema:** Features calculadas múltiples veces de forma inconsistente.
+**Problem:** Features calculadas múltiples veces de forma inconsistente.
 
 **Solución:** Repositorio centralizado de features.
 
 **Beneficios:**
 
 - Reutilización de features.
-- Consistencia entre entrenamiento y serving.
+- Consistencia entre Training y serving.
 - Features pre-computadas (latencia baja).
 
 **Herramientas:**
@@ -182,28 +182,28 @@ Guardar cada modelo entrenado con metadata.
 1. [Feature Stores Explained - Tecton](https://www.youtube.com/watch?v=2m2LqZfKqKI) - 15 min
 1. [CI/CD for ML - Google Cloud](https://www.youtube.com/watch?v=hFhZsDgZFfg) - 20 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [DVC Documentation](https://dvc.org/doc)
 - [Feast Documentation](https://docs.feast.dev/)
 
 ______________________________________________________________________
 
-## 4. Serving: Cómo servir predicciones
+## 4. Serving: Cómo servir Predictions
 
 ### Batch Prediction
 
-**Uso:** Predicciones programadas sobre lotes de datos.
+**Usage:** Predictions programadas sobre lotes de Data.
 
-**Ejemplo:** Recomendar productos semanalmente a todos los usuarios.
+**Example:** Recomendar productos semanalmente a todos los usuarios.
 
 **Ventaja:** Simple, tolerante a latencia alta.
 
 ### Online Prediction (Real-time)
 
-**Uso:** Predicciones en tiempo real por request.
+**Usage:** Predictions en tiempo real por request.
 
-**Ejemplo:** Detectar fraude al momento de transacción.
+**Example:** Detectar fraude al momento de transacción.
 
 **Requerimiento:** Latencia baja (\<100ms típicamente).
 
@@ -215,9 +215,9 @@ ______________________________________________________________________
 
 ### Streaming Prediction
 
-**Uso:** Predicciones sobre flujos continuos de datos.
+**Usage:** Predictions sobre flujos continuos de Data.
 
-**Ejemplo:** Detección de anomalías en sensores IoT.
+**Example:** Detección de Anomalies en sensores IoT.
 
 **Herramientas:**
 
@@ -240,17 +240,17 @@ ______________________________________________________________________
 
 ## 5. Monitoreo en producción
 
-### Métricas operacionales
+### Metrics operacionales
 
 #### Latencia
 
-Tiempo de respuesta de predicción.
+Tiempo de respuesta de Prediction.
 
 **Target:** Depende del caso (p95 \<100ms para real-time).
 
 #### Throughput
 
-Predicciones por segundo.
+Predictions por segundo.
 
 #### Uptime / Availability
 
@@ -260,15 +260,15 @@ Predicciones por segundo.
 
 #### Costo
 
-Costo computacional (CPU/GPU, transferencia de datos).
+Costo computacional (CPU/GPU, transferencia de Data).
 
-### Métricas de modelo
+### Metrics de Model
 
-#### Accuracy / Performance
+#### accuracy / Performance
 
-¿El modelo sigue teniendo buen performance?
+¿El Model sigue teniendo buen performance?
 
-**Problema:** En producción no siempre tienes ground truth inmediatamente.
+**Problem:** En producción no siempre tienes ground truth inmediatamente.
 
 **Solución:**
 
@@ -279,7 +279,7 @@ Costo computacional (CPU/GPU, transferencia de datos).
 
 **Definición:** Distribución de entradas cambia.
 
-**Ejemplo:** Modelo entrenado en 2020, en 2024 comportamiento de usuarios cambió.
+**Example:** Model entrenado en 2020, en 2024 comportamiento de usuarios cambió.
 
 **Detección:**
 
@@ -290,27 +290,27 @@ Costo computacional (CPU/GPU, transferencia de datos).
 
 **Definición:** Relación entre entradas y target cambia.
 
-**Ejemplo:** Antes COVID, después COVID (patrones de compra cambiaron radicalmente).
+**Example:** Antes COVID, después COVID (patrones de compra cambiaron radicalmente).
 
 **Detección:**
 
 - Monitorear accuracy en subset reciente.
-- Comparar distribuciones de predicciones.
+- Comparar distribuciones de Predictions.
 
 #### Prediction Drift
 
-Distribución de predicciones cambia.
+Distribución de Predictions cambia.
 
-**Ejemplo:** Modelo predice "fraude" para 1% de transacciones, ahora predice 10%.
+**Example:** Model predice "fraude" para 1% de transacciones, ahora predice 10%.
 
-**Alerta:** Posible cambio en datos o falla en modelo.
+**Alerta:** Posible cambio en Data o falla en Model.
 
 📹 **Videos recomendados:**
 
 1. [ML Monitoring - Chip Huyen](https://www.youtube.com/watch?v=TYk8wOo48xs) - 40 min
 1. [Data Drift Explained - Evidently AI](https://www.youtube.com/watch?v=bKh6CTgHiLU) - 15 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [Evidently AI Docs](https://docs.evidentlyai.com/)
 - [Google ML Monitoring Best Practices](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
@@ -320,9 +320,9 @@ Distribución de predicciones cambia.
 **Configurar alertas cuando:**
 
 - Latencia > umbral.
-- Error rate > umbral.
+- error rate > umbral.
 - Data drift detectado.
-- Accuracy cae > X%.
+- accuracy cae > X%.
 
 **Herramientas:**
 
@@ -335,16 +335,16 @@ ______________________________________________________________________
 
 ### Blue/Green Deployment
 
-**Concepto:** Mantener dos ambientes (blue/green). Cambiar tráfico instantáneamente.
+**Concept:** Mantener dos ambientes (blue/green). Cambiar tráfico instantáneamente.
 
 **Ventaja:** Rollback instantáneo.
 **Desventaja:** Duplica infraestructura (costoso).
 
 ### Canary Deployment
 
-**Concepto:** Desplegar nuevo modelo a pequeño % de tráfico. Incrementar gradualmente.
+**Concept:** Desplegar nuevo Model a pequeño % de tráfico. Incrementar gradualmente.
 
-**Ejemplo:**
+**Example:**
 
 ```
 V1: 95% tráfico
@@ -356,15 +356,15 @@ V2 (canary): 5% tráfico
 
 ### Shadow Deployment
 
-**Concepto:** Nuevo modelo recibe tráfico pero predicciones NO se usan (solo logging).
+**Concept:** Nuevo Model recibe tráfico pero Predictions NO se usan (solo logging).
 
 **Ventaja:** Validar en producción sin impacto.
 
 ### A/B Testing
 
-**Concepto:** Dividir usuarios aleatoriamente entre modelos.
+**Concept:** Dividir usuarios aleatoriamente entre Models.
 
-**Objetivo:** Medir impacto en métrica de negocio (ej: revenue, engagement).
+**Objective:** Medir impacto en Metric de negocio (ej: revenue, engagement).
 
 **Importante:** Requiere significancia estadística.
 
@@ -378,33 +378,33 @@ ______________________________________________________________________
 
 ### ¿Cuándo reentrenar?
 
-1. **Performance degradation:** Accuracy cayó.
+1. **Performance degradation:** accuracy cayó.
 1. **Data drift detectado:** Distribución cambió.
 1. **Scheduled:** Periódicamente (semanal, mensual).
-1. **Nuevos datos disponibles:** Dataset creció significativamente.
+1. **Nuevos Data disponibles:** Dataset creció significativamente.
 
 ### Estrategias de retraining
 
 #### Retraining desde cero
 
-Entrenar completamente con todos los datos.
+Entrenar completamente con todos los Data.
 
-**Ventaja:** Modelo fresco.
+**Ventaja:** Model fresco.
 **Desventaja:** Costoso.
 
 #### Incremental learning
 
-Actualizar modelo existente con datos nuevos.
+Actualizar Model existente con Data nuevos.
 
 **Ventaja:** Rápido.
-**Desventaja:** No todos los modelos lo soportan.
+**Desventaja:** No todos los Models lo soportan.
 
 ### Pipeline automatizado
 
 1. Detectar trigger (drift, schedule).
-1. Recolectar datos recientes.
-1. Entrenar modelo.
-1. Validar (métricas > umbral).
+1. Recolectar Data recientes.
+1. Entrenar Model.
+1. Validar (Metrics > umbral).
 1. Registrar en model registry.
 1. Desplegar con estrategia segura (canary).
 1. Monitorear.
@@ -418,14 +418,14 @@ ______________________________________________________________________
 - **AWS SageMaker:** Completo, integrado con AWS.
 - **Google Vertex AI:** Integrado con GCP.
 - **Azure ML:** Integrado con Azure.
-- **Databricks:** Unificado para datos + ML.
+- **Databricks:** Unificado para Data + ML.
 
 ### Open-Source Tools
 
 - **MLflow:** Tracking, registry, serving.
 - **Kubeflow:** Pipelines de ML en Kubernetes.
 - **Metaflow (Netflix):** Workflow management.
-- **DVC:** Versionado de datos.
+- **DVC:** Versionado de Data.
 - **Weights & Biases:** Experiment tracking.
 
 ### Orchestration
@@ -440,12 +440,12 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 9. Buenas prácticas
+## 9. Buenas Practices
 
 - ✅ Empezar simple: No construir infraestructura compleja desde día 1.
 - ✅ Automatizar gradualmente: A medida que el sistema madura.
 - ✅ Definir SLOs (Service Level Objectives) desde el inicio: latencia, accuracy, uptime.
-- ✅ Mantener trazabilidad completa: código, datos, modelo, predicciones.
+- ✅ Mantener trazabilidad completa: código, Data, Model, Predictions.
 - ✅ Implementar CI/CD para ML: tests automatizados, despliegue controlado.
 - ✅ Monitorear más que accuracy: drift, latencia, costo.
 - ✅ Usar feature store si reutilizas features.
@@ -453,7 +453,7 @@ ______________________________________________________________________
 - ✅ Diseñar runbooks para incidentes: qué hacer si accuracy cae.
 - ✅ Documentar decisiones de arquitectura.
 
-📚 **Recursos generales:**
+📚 **Resources generales:**
 
 - [MLOps Principles - Google Cloud](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
 - [Full Stack Deep Learning (Course)](https://fullstackdeeplearning.com/)
@@ -467,14 +467,14 @@ ______________________________________________________________________
 Antes de completar tu formación, deberías poder:
 
 - ✅ Describir flujo completo desde experimento a producción.
-- ✅ Versionar datos, código y modelos con DVC/MLflow.
-- ✅ Implementar CI/CD pipeline para modelo.
-- ✅ Servir modelo con API (FastAPI/Flask).
+- ✅ Versionar Data, código y Models con DVC/MLflow.
+- ✅ Implementar CI/CD pipeline para Model.
+- ✅ Servir Model con API (FastAPI/Flask).
 - ✅ Elegir estrategia de serving (batch, online, streaming) según caso.
 - ✅ Monitorear latencia, accuracy, y drift en producción.
 - ✅ Detectar data drift y concept drift.
 - ✅ Implementar canary deployment para reducir riesgo.
 - ✅ Diseñar pipeline automatizado de retraining.
-- ✅ Definir SLOs y alertas para modelo en producción.
+- ✅ Definir SLOs y alertas para Model en producción.
 
-Si respondiste "sí" a todas, ¡estás listo para llevar modelos de ML a producción de forma profesional! 🎉
+Si respondiste "sí" a todas, ¡estás listo para llevar Models de ML a producción de forma profesional! 🎉

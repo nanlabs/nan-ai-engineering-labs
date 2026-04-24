@@ -1,4 +1,4 @@
-# Práctica 01 — Ingesta y perfilado
+# Practice 01 — Ingesta y perfilado
 
 ## Objective
 
@@ -13,9 +13,9 @@ Cargar un dataset y construir un diagnóstico inicial de calidad.
 
 ## Entregable
 
-Notebook con resumen de hallazgos y prioridades de limpieza.
+Notebook con resumen de hallazgos y prioridades de Cleaning.
 
-## Validación
+## Validation
 
-- El perfilado incluye tipos, nulos y duplicados.
-- Se listan al menos 3 problemas concretos.
+- El perfilado incluye Types, nulos y duplicados.
+- Se listan al menos 3 Problems concretos.

@@ -1,15 +1,15 @@
-# Ejemplo 2 — Estadística descriptiva con Pandas
+# Example 2 — Estadística descriptiva con Pandas
 
 ## Objective
 
 Calcular media, mediana, desvío estándar y detectar outliers en un dataset real usando Pandas.
 
-## Conceptos previos
+## Concepts previos
 
 - **Media:** promedio aritmético de los valores.
-- **Mediana:** valor central cuando los datos están ordenados.
+- **Mediana:** valor central cuando los Data están ordenados.
 - **Desvío estándar:** mide cuánto se dispersan los valores respecto a la media.
-- **Outliers:** valores atípicos que se desvían significativamente del resto.
+- **outliers:** valores atípicos que se desvían significativamente del resto.
 
 ## Implementación paso a paso
 
@@ -20,7 +20,7 @@ import pandas as pd
 import numpy as np
 ```
 
-### 2. Crear un dataset de ejemplo
+### 2. Crear un dataset de Example
 
 ```python
 # Simular datos de tiempos de respuesta de un servidor (en ms)
@@ -161,13 +161,13 @@ print(f"\nOutliers detectados ({len(outliers)}):")
 print(outliers['tiempo_respuesta_ms'].values)
 ```
 
-## Errores comunes
+## Errors comunes
 
 - ❌ Usar solo la media sin considerar la mediana (sensible a outliers).
-- ❌ No verificar la distribución de datos antes de aplicar modelos.
+- ❌ No verificar la distribución de Data antes de aplicar Models.
 - ❌ Confundir varianza con desvío estándar (desv = √varianza).
 
-## Ejercicio propuesto
+## Exercise propuesto
 
 Carga un dataset real de Kaggle y calcula:
 

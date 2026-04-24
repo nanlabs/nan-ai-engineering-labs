@@ -1,20 +1,20 @@
-# Ejemplo 02 — Dropout y Regularización para Combatir Overfitting
+# Example 02 — Dropout y Regularization para Combatir overfitting
 
 ## Contexto
 
-Detectaste overfitting en el Ejemplo 01 (train acc 99.3%, test acc 97.9%). Aprenderás a usar **Dropout**, **L2 regularization** y **Early Stopping** para mejorar generalización.
+Detectaste overfitting en el Example 01 (train acc 99.3%, test acc 97.9%). Aprenderás a usar **Dropout**, **L2 regularization** y **Early Stopping** para mejorar generalización.
 
 ## Objective
 
-Reducir el gap entre train y test accuracy implementando técnicas de regularización.
+Reducir el gap entre train y test accuracy implementando técnicas de Regularization.
 
 ______________________________________________________________________
 
-## 🔄 Comparación: Modelo sin vs con regularización
+## 🔄 Comparación: Model sin vs con Regularization
 
 Entrenaremos 3 versiones:
 
-1. **Baseline:** Red simple (Ejemplo 01)
+1. **Baseline:** Red simple (Example 01)
 1. **Con Dropout:** Agregar dropout
 1. **Con Dropout + L2:** Dropout + weight decay
 
@@ -52,7 +52,7 @@ ______________________________________________________________________
 
 ## 🏗️ Paso 2: Definir arquitecturas
 
-### Modelo 1: Baseline (sin regularización)
+### Model 1: Baseline (sin Regularization)
 
 ```python
 class BaselineNN(nn.Module):
@@ -72,7 +72,7 @@ class BaselineNN(nn.Module):
         return x
 ```
 
-### Modelo 2: Con Dropout
+### Model 2: Con Dropout
 
 ```python
 class DropoutNN(nn.Module):
@@ -97,13 +97,13 @@ class DropoutNN(nn.Module):
 
 **¿Qué es Dropout?**
 
-- Durante entrenamiento: Desactiva aleatoriamente el `p%` de neuronas (ej: p=0.5 = 50%)
-- Durante evaluación: Usa todas las neuronas (pero escala outputs por `1-p`)
-- **Efecto:** Previene co-adaptación de neuronas → reduce overfitting
+- Durante Training: Desactiva aleatoriamente el `p%` de Neurons (ej: p=0.5 = 50%)
+- Durante Evaluation: Usa todas las Neurons (pero escala outputs por `1-p`)
+- **Efecto:** Previene co-adaptación de Neurons → reduce overfitting
 
 ______________________________________________________________________
 
-## 🧪 Paso 3: Función de entrenamiento con Early Stopping
+## 🧪 Paso 3: Function de Training con Early Stopping
 
 ```python
 def train_with_validation(model, train_loader, test_loader, criterion, optimizer,
@@ -196,9 +196,9 @@ def train_with_validation(model, train_loader, test_loader, criterion, optimizer
 
 ______________________________________________________________________
 
-## 🏋️ Paso 4: Entrenar los 3 modelos
+## 🏋️ Paso 4: Entrenar los 3 Models
 
-### Modelo 1: Baseline
+### Model 1: Baseline
 
 ```python
 print("=== MODELO 1: BASELINE (Sin Regularización) ===\n")
@@ -229,7 +229,7 @@ train_losses1, train_accs1, test_losses1, test_accs1 = history1
 ⚠️ Early stopping en época 15 (sin mejora por 5 épocas)
 ```
 
-### Modelo 2: Con Dropout
+### Model 2: Con Dropout
 
 ```python
 print("\n=== MODELO 2: CON DROPOUT ===\n")
@@ -259,7 +259,7 @@ train_losses2, train_accs2, test_losses2, test_accs2 = history2
 
 **Observación:** Train acc más baja (esperado con dropout), pero test acc más alta
 
-### Modelo 3: Dropout + L2 Regularization (Weight Decay)
+### Model 3: Dropout + L2 Regularization (Weight Decay)
 
 ```python
 print("\n=== MODELO 3: DROPOUT + L2 REGULARIZATION ===\n")
@@ -280,13 +280,13 @@ train_losses3, train_accs3, test_losses3, test_accs3 = history3
 
 - Penaliza pesos grandes agregando término `λ * ||w||²` a loss
 - Equivalente a L2 regularization en optimizadores de PyTorch
-- **Efecto:** Pesos más pequeños → modelo más simple → menos overfitting
+- **Efecto:** Pesos más pequeños → Model más simple → menos overfitting
 
 ______________________________________________________________________
 
-## 📊 Paso 5: Comparar resultados
+## 📊 Paso 5: Comparar Results
 
-### 5.1 Tabla de métricas finales
+### 5.1 Tabla de Metrics finales
 
 ```python
 import pandas as pd
@@ -373,8 +373,8 @@ plt.show()
 
 **Observaciones visuales:**
 
-- **Train Loss:** Modelos regularizados tienen loss más alto (esperado)
-- **Test Loss:** Modelos regularizados tienen loss más bajo (mejor generalización)
+- **Train Loss:** Models regularizados tienen loss más alto (esperado)
+- **Test Loss:** Models regularizados tienen loss más bajo (mejor generalización)
 - **Train Acc:** Baseline llega a 99% rápido; regularizados más lentos pero estables
 - **Test Acc:** Regularizados superan baseline (~98.2% vs 97.9%)
 
@@ -435,7 +435,7 @@ plt.show()
           0.7      95.12     97.34  -2.22  ⬅️ Demasiado dropout
 ```
 
-**Conclusión:** Dropout = 0.5 ofrece mejor balance
+**Conclusion:** Dropout = 0.5 ofrece mejor balance
 
 ______________________________________________________________________
 
@@ -443,35 +443,35 @@ ______________________________________________________________________
 
 ### ✅ Comparación final
 
-| Métrica             | Baseline | Dropout | Dropout + L2 | Mejora |
+| Metric             | Baseline | Dropout | Dropout + L2 | Mejora |
 | ------------------- | -------- | ------- | ------------ | ------ |
 | **Test Acc**        | 97.89%   | 98.12%  | **98.24%**   | +0.35% |
-| **Overfitting Gap** | +1.43%   | -0.23%  | **-0.79%**   | ✅     |
+| **overfitting Gap** | +1.43%   | -0.23%  | **-0.79%**   | ✅     |
 | **Test Loss**       | 0.0856   | 0.0723  | **0.0689**   | -19.5% |
 
 ### 🎯 Técnicas implementadas
 
 1. **Dropout (p=0.5):**
 
-   - Desactiva 50% de neuronas aleatoriamente durante entrenamiento
-   - Reduce co-adaptación de neuronas
-   - **Resultado:** +0.23% en test acc
+   - Desactiva 50% de Neurons aleatoriamente durante Training
+   - Reduce co-adaptación de Neurons
+   - **Result:** +0.23% en test acc
 
 1. **L2 Regularization (weight_decay=1e-4):**
 
    - Penaliza pesos grandes
-   - Simplifica modelo
-   - **Resultado:** +0.12% adicional en test acc
+   - Simplifica Model
+   - **Result:** +0.12% adicional en test acc
 
 1. **Early Stopping (patience=5):**
 
-   - Detiene entrenamiento cuando test loss deja de mejorar
+   - Detiene Training cuando test loss deja de mejorar
    - Previene overtraining
-   - **Resultado:** Ahorra ~5-7 épocas
+   - **Result:** Ahorra ~5-7 épocas
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
 ### ✅ Dropout
 
@@ -490,13 +490,13 @@ Dropout(p=0.5) → [1.0, 2.0, 3.0, 4.0]  # Sin dropout (pero implícitamente esc
 **Dónde aplicar:**
 
 - ✅ Después de activaciones (ReLU, Tanh)
-- ✅ En capas fully connected
-- ❌ No aplicar en última capa (antes de output)
+- ✅ En Layers fully connected
+- ❌ No aplicar en última Layer (antes de output)
 
 **Valores típicos:**
 
-- p=0.2-0.3: Capas tempranas (features más simples)
-- p=0.5: Capas profundas (features complejas)
+- p=0.2-0.3: Layers tempranas (features más simples)
+- p=0.5: Layers profundas (features complejas)
 - p=0.7-0.8: Demasiado agresivo (underfitting)
 
 ### ✅ Weight Decay / L2 Regularization
@@ -516,16 +516,16 @@ optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
 
 **Valores típicos:**
 
-- 1e-4 a 1e-3: Regularización moderada
-- 1e-5: Regularización ligera
-- 1e-2: Regularización agresiva (puede causar underfitting)
+- 1e-4 a 1e-3: Regularization moderada
+- 1e-5: Regularization ligera
+- 1e-2: Regularization agresiva (puede causar underfitting)
 
 ### ✅ Early Stopping
 
 **Criterios:**
 
 - **Patience:** Número de épocas sin mejora antes de parar
-- **Métrica:** Validation loss (no accuracy)
+- **Metric:** Validation loss (no accuracy)
 - **Checkpoint:** Guardar mejores pesos, restaurar al final
 
 **Implementación:**
@@ -541,19 +541,19 @@ else:
         break  # Parar entrenamiento
 ```
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
-- ❌ **Olvidar `model.eval()`:** Dropout activo durante evaluación → resultados incorrectos
-- ❌ **Dropout en última capa:** Añade ruido innecesario a predicciones
-- ❌ **Weight decay muy alto:** Underfitting (modelo demasiado simple)
+- ❌ **Olvidar `model.eval()`:** Dropout activo durante Evaluation → Results incorrectos
+- ❌ **Dropout en última Layer:** Añade ruido innecesario a Predictions
+- ❌ **Weight decay muy alto:** underfitting (Model demasiado simple)
 - ❌ **Early stopping con train loss:** Siempre usar validation loss
 
 ### 💡 Mejoras adicionales
 
-1. **Batch Normalization:** Normalizar activaciones entre capas
+1. **Batch Normalization:** Normalizar activaciones entre Layers
 1. **Data Augmentation:** Rotaciones, traslaciones, ruido
-1. **Ensemble:** Combinar múltiples modelos
-1. **Learning Rate Scheduling:** Reducir lr durante entrenamiento
+1. **Ensemble:** Combinar múltiples Models
+1. **Learning Rate Scheduling:** Reducir lr durante Training
 
 ______________________________________________________________________
 
@@ -580,9 +580,9 @@ with torch.no_grad():
     # ... inferencia
 ```
 
-### 📌 Checklist de regularización
+### 📌 Checklist de Regularization
 
-- ✅ Usar dropout (p=0.5) en capas intermedias
+- ✅ Usar dropout (p=0.5) en Layers intermedias
 - ✅ Agregar weight decay (1e-4) al optimizador
 - ✅ Implementar early stopping (patience=5)
 - ✅ Validar con `model.eval()` / `model.train()`

@@ -1,4 +1,4 @@
-# Práctica 04 — Outliers y calidad de datos
+# Practice 04 — outliers y calidad de Data
 
 ## Objective
 
@@ -15,7 +15,7 @@ Detectar outliers y decidir tratamiento según contexto de negocio.
 
 Notebook con comparación antes/después.
 
-## Validación
+## Validation
 
 - Método de detección explicado.
 - Decisión argumentada.

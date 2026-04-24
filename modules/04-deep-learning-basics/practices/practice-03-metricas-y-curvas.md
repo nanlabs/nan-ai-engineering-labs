@@ -1,8 +1,8 @@
-# Práctica 03 — Métricas y curvas
+# Practice 03 — Metrics y curvas
 
 ## Objective
 
-Interpretar el comportamiento de entrenamiento del modelo.
+Interpretar el comportamiento de Training del Model.
 
 ## Enunciado
 
@@ -11,7 +11,7 @@ Interpretar el comportamiento de entrenamiento del modelo.
 1. Identificar señales de underfitting u overfitting.
 1. Proponer un ajuste.
 
-## Validación
+## Validation
 
 - Curvas correctamente graficadas.
 - Diagnóstico razonable.

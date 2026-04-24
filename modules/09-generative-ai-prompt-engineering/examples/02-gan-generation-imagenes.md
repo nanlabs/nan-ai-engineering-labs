@@ -1,8 +1,8 @@
-# Ejemplo 02 — GAN para Generación de Imágenes
+# Example 02 — GAN para Generación de Images
 
 ## Contexto
 
-Las GANs (Generative Adversarial Networks) usan 2 redes neuronales que compiten: **Generator** crea imágenes falsas, **Discriminator** intenta distinguir reales de falsas.
+Las GANs (Generative Adversarial Networks) usan 2 neural networks que compiten: **Generator** crea Images falsas, **Discriminator** intenta distinguir reales de falsas.
 
 ## Objective
 
@@ -35,7 +35,7 @@ lr = 0.0002
 
 ______________________________________________________________________
 
-## 📚 Cargar datos
+## 📚 Cargar Data
 
 ```python
 # Transformaciones
@@ -245,7 +245,7 @@ Epoch [50/50] | D Loss: 0.4523 | G Loss: 0.7456
 
 ______________________________________________________________________
 
-## 📊 Visualización
+## 📊 Visualization
 
 ### Evolución de pérdidas
 
@@ -263,7 +263,7 @@ plt.savefig('gan_losses.png', dpi=150)
 plt.show()
 ```
 
-### Imágenes generadas
+### Images generadas
 
 ```python
 # Generar con fixed noise
@@ -402,7 +402,7 @@ class ConditionalGenerator(nn.Module):
 
 ______________________________________________________________________
 
-## 📈 Métricas de evaluación
+## 📈 Metrics de Evaluation
 
 ### Inception Score (IS)
 
@@ -464,7 +464,7 @@ L_D = -[log(D(x_real)) + log(1 - D(G(z)))]
 L_G = -log(D(G(z)))
 ```
 
-### 💡 Mejores prácticas
+### 💡 Mejores Practices
 
 - ✅ Usar LeakyReLU en Discriminator (evita dying ReLUs)
 - ✅ BatchNorm en ambas redes (estabiliza training)
@@ -473,7 +473,7 @@ L_G = -log(D(G(z)))
 - ✅ Entrenar D más veces que G si D es débil
 - ✅ Monitorear ambas losses (deben converger sin dominar)
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ D muy fuerte → G no aprende (gradientes desaparecen)
 - ❌ G muy fuerte → D siempre falla (mode collapse)
@@ -483,22 +483,22 @@ L_G = -log(D(G(z)))
 
 ### 🔧 Troubleshooting
 
-| Problema            | Síntoma                       | Solución                               |
+| Problem            | Síntoma                       | Solución                               |
 | ------------------- | ----------------------------- | -------------------------------------- |
 | Mode Collapse       | G genera siempre igual        | Unrolled GAN, Minibatch Discrimination |
 | Vanishing Gradients | G Loss no baja                | Wasserstein GAN, Least Squares GAN     |
 | Oscilaciones        | Losses suben/bajan mucho      | Reducir LR, label smoothing            |
-| Imágenes borrosas   | G Loss baja pero mala calidad | Usar Progressive GAN, StyleGAN         |
+| Images borrosas   | G Loss baja pero mala calidad | Usar Progressive GAN, StyleGAN         |
 
 ### 📌 Checklist GAN
 
 - ✅ Arquitectura balanceada (G y D similares capacidad)
 - ✅ Learning rate adecuado (0.0002 típico)
-- ✅ BatchNorm en capas intermedias
+- ✅ BatchNorm en Layers intermedias
 - ✅ LeakyReLU en Discriminator
 - ✅ Ruido latente suficiente (100-200 dim)
 - ✅ Monitorear losses (no divergen)
-- ✅ Validación visual periódica
+- ✅ Validation visual periódica
 - ✅ Evaluar diversidad (IS, FID)
 
 ### 🚀 Next steps

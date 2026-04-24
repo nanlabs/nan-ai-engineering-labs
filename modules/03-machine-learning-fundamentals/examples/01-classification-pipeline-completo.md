@@ -1,8 +1,8 @@
-# Ejemplo 01 — Pipeline Completo de Clasificación (Iris Dataset)
+# Example 01 — Pipeline Completo de Classification (Iris Dataset)
 
 ## Contexto
 
-Construirás un pipeline completo de Machine Learning desde cero: desde datos crudos hasta predicción, siguiendo las mejores prácticas profesionales. Usaremos el dataset Iris (clasificación de especies de flores) por ser didáctico pero representativo.
+Construirás un pipeline completo de Machine Learning desde cero: desde Data crudos hasta Prediction, siguiendo las mejores Practices profesionales. Usaremos el dataset Iris (Classification de especies de flores) por ser didáctico pero representativo.
 
 ## Objective
 
@@ -10,7 +10,7 @@ Predecir la especie de flor Iris basándose en mediciones de sépalos y pétalos
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Importar librerías y cargar datos
+## 🚀 Paso 1: Importar librerías y cargar Data
 
 ```python
 import numpy as np
@@ -64,7 +64,7 @@ Distribución de clases:
 
 ______________________________________________________________________
 
-## 📊 Paso 2: Análisis Exploratorio (EDA)
+## 📊 Paso 2: Analysis Exploratorio (EDA)
 
 ### 2.1 Estadísticas descriptivas
 
@@ -109,7 +109,7 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🔧 Paso 3: Preparación de datos
+## 🔧 Paso 3: Preparación de Data
 
 ### 3.1 Train/Test Split
 
@@ -168,7 +168,7 @@ std            1.008403         1.008403             1.008403          1.008403
 
 ______________________________________________________________________
 
-## 🤖 Paso 4: Entrenamiento de modelos
+## 🤖 Paso 4: Training de Models
 
 ### 4.1 Baseline: Logistic Regression
 
@@ -232,7 +232,7 @@ print(f"Accuracy: {acc_rf:.4f}")
 
 ______________________________________________________________________
 
-## 📈 Paso 5: Comparación de modelos
+## 📈 Paso 5: Comparación de Models
 
 ### 5.1 Cross-validation
 
@@ -271,7 +271,7 @@ Random Forest:
   Scores: [1.         0.95833333 1.         0.95833333 0.91666667]
 ```
 
-### 5.2 Visualización de comparación
+### 5.2 Visualization de comparación
 
 ```python
 # Comparar performance
@@ -307,7 +307,7 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🎯 Paso 6: Análisis detallado del mejor modelo
+## 🎯 Paso 6: Analysis detallado del mejor Model
 
 ```python
 # Seleccionar mejor modelo (Logistic Regression y Random Forest empatan)
@@ -390,7 +390,7 @@ print(f"\nPredicción para muestra nueva: {iris.target_names[prediction[0]]}")
 
 ______________________________________________________________________
 
-## 💾 Paso 8: Guardar modelo
+## 💾 Paso 8: Guardar Model
 
 ```python
 import joblib
@@ -409,17 +409,17 @@ ______________________________________________________________________
 
 ## 📝 Resumen ejecutivo
 
-### ✅ Resultados
+### ✅ Results
 
-| Modelo              | Test Accuracy | CV Mean | CV Std |
+| Model              | Test accuracy | CV Mean | CV Std |
 | ------------------- | ------------- | ------- | ------ |
 | Logistic Regression | 1.0000        | 0.9667  | 0.0316 |
 | Decision Tree       | 1.0000        | 0.9583  | 0.0316 |
 | Random Forest       | 1.0000        | 0.9667  | 0.0316 |
 
-**Modelo seleccionado:** Random Forest
+**Model seleccionado:** Random Forest
 
-- Accuracy perfecto en test set (1.00)
+- accuracy perfecto en test set (1.00)
 - Robusto en cross-validation (0.9667 ± 0.0316)
 - Interpretable (feature importance)
 
@@ -439,21 +439,21 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
-### ✅ Buenas prácticas aplicadas
+### ✅ Buenas Practices aplicadas
 
 1. **Train/test split estratificado** → Preserva distribución de clases
 1. **Escalado después de split** → Previene data leakage
-1. **Cross-validation** → Validación robusta (no confiar solo en test accuracy)
-1. **Comparación de múltiples modelos** → Baseline simple vs complejos
-1. **Pipeline de scikit-learn** → Reproducibilidad y prevenir errores
+1. **Cross-validation** → Validation robusta (no confiar solo en test accuracy)
+1. **Comparación de múltiples Models** → Baseline simple vs complejos
+1. **Pipeline de scikit-learn** → Reproducibilidad y prevenir Errors
 1. **Feature importance** → Interpretabilidad
 
-### 🚫 Errores comunes evitados
+### 🚫 Errors comunes evitados
 
 - ❌ Escalar antes de split (data leakage)
-- ❌ Optimizar hiperparámetros mirando test set (overfitting)
+- ❌ Optimizar Hyperparameters mirando test set (overfitting)
 - ❌ No usar cross-validation (sobreestimar performance)
 - ❌ Olvidar estratificación (split desbalanceado)
 
@@ -463,7 +463,7 @@ ______________________________________________________________________
 - `train_test_split` con `stratify`: Split balanceado
 - `cross_val_score`: Cross-validation
 - `Pipeline`: Workflow reproducible
-- `joblib`: Persistencia de modelos
+- `joblib`: Persistencia de Models
 
 ### 💡 Próximos pasos
 
@@ -472,6 +472,6 @@ Para datasets reales más complejos:
 1. Manejo de missing values y outliers
 1. Feature engineering más sofisticado
 1. Hyperparameter tuning (Grid Search, Random Search)
-1. Análisis de errores (por qué el modelo falla)
+1. Analysis de Errors (por qué el Model falla)
 1. Calibración de probabilidades
 1. Threshold optimization (si costos de FP/FN difieren)

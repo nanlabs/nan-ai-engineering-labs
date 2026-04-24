@@ -1,17 +1,17 @@
-# Práctica 03 — Modelo temporal mejorado
+# Practice 03 — Model temporal mejorado
 
 ## Objective
 
-Superar el baseline con un modelo temporal más robusto.
+Superar el baseline con un Model temporal más robusto.
 
 ## Enunciado
 
 1. Entrenar ARIMA, SARIMA o Prophet.
-1. Evaluar sobre ventana de validación.
+1. Evaluar sobre ventana de Validation.
 1. Comparar contra baseline.
-1. Analizar cuándo falla el modelo.
+1. Analizar cuándo falla el Model.
 
-## Validación
+## Validation
 
 - Mejora cuantificada vs baseline.
 - Limitaciones claramente explicadas.

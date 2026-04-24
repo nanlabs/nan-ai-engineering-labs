@@ -2,22 +2,22 @@
 
 ## Why this module matters
 
-Deep Learning ha revolucionado IA en la última década, permitiendo avances en visión por computadora, procesamiento de lenguaje natural y sistemas generativos. Entender los fundamentos de redes neuronales te permite trabajar con arquitecturas modernas, fine-tunear modelos y diagnosticar problemas de entrenamiento.
+Deep Learning ha revolucionado IA en la última década, permitiendo avances en visión por computadora, procesamiento de lenguaje natural y sistemas generativos. Entender los fundamentos de neural networks te permite trabajar con arquitecturas modernas, fine-tunear Models y diagnosticar Problems de Training.
 
 ______________________________________________________________________
 
 ## 1. ¿Qué es Deep Learning?
 
-**Deep Learning** es un subconjunto de Machine Learning basado en **redes neuronales artificiales con múltiples capas** ("profundas") que aprenden representaciones jerárquicas de los datos.
+**Deep Learning** es un subconjunto de Machine Learning basado en **neural networks artificiales con múltiples Layers** ("profundas") que aprenden representaciones jerárquicas de los Data.
 
 ### ¿Por qué "deep"?
 
-Las capas profundas permiten al modelo aprender features de bajo nivel (bordes, texturas) en capas iniciales y features de alto nivel (objetos, conceptos) en capas posteriores.
+Las Layers profundas permiten al Model aprender features de bajo nivel (bordes, texturas) en Layers iniciales y features de alto nivel (objetos, Concepts) en Layers posteriores.
 
 ### Diferencia con ML tradicional
 
 - **ML tradicional:** requiere feature engineering manual.
-- **Deep Learning:** aprende features automáticamente a partir de datos raw.
+- **Deep Learning:** aprende features automáticamente a partir de Data raw.
 
 📹 **Videos recomendados:**
 
@@ -27,27 +27,27 @@ Las capas profundas permiten al modelo aprender features de bajo nivel (bordes, 
 
 ______________________________________________________________________
 
-## 2. Arquitectura de una red neuronal
+## 2. Arquitectura de una Neural network
 
-### Neurona artificial (perceptron)
+### Neuron artificial (perceptron)
 
 Unidad básica que realiza:
 
 1. **Suma ponderada:** `z = w₁x₁ + w₂x₂ + ... + wₙxₙ + b`
-1. **Función de activación:** `a = σ(z)`
+1. **Function de Activation:** `a = σ(z)`
 
 Donde:
 
 - `x`: entradas (features)
 - `w`: pesos (parámetros aprendidos)
 - `b`: sesgo/bias
-- `σ`: función de activación
+- `σ`: Function de Activation
 
-### Capas de una red
+### Layers de una red
 
-- **Capa de entrada:** recibe los datos raw.
-- **Capas ocultas:** procesan y transforman información.
-- **Capa de salida:** produce la predicción final.
+- **Layer de entrada:** recibe los Data raw.
+- **Layers ocultas:** procesan y transforman información.
+- **Layer de salida:** produce la Prediction final.
 
 ### Arquitectura típica
 
@@ -60,9 +60,9 @@ Entrada (784 píxeles) →
 
 ______________________________________________________________________
 
-## 3. Funciones de activación
+## 3. Functions de Activation
 
-Las funciones de activación introducen **no linealidad**, permitiendo a la red aprender patrones complejos.
+Las Functions de Activation introducen **no linealidad**, permitiendo a la red aprender patrones complejos.
 
 ### ReLU (Rectified Linear Unit)
 
@@ -70,9 +70,9 @@ Las funciones de activación introducen **no linealidad**, permitiendo a la red 
 f(x) = max(0, x)
 ```
 
-- **Uso:** capas ocultas (default moderno).
+- **Usage:** Layers ocultas (default moderno).
 - **Ventaja:** simple, eficiente, mitiga vanishing gradients.
-- **Desventaja:** "dying ReLU" (neuronas muertas con salida siempre 0).
+- **Desventaja:** "dying ReLU" (Neurons muertas con salida siempre 0).
 
 ### Sigmoid
 
@@ -80,9 +80,9 @@ f(x) = max(0, x)
 f(x) = 1 / (1 + e^(-x))
 ```
 
-- **Uso:** clasificación binaria (capa de salida).
+- **Usage:** Classification binaria (Layer de salida).
 - **Rango:** (0, 1) → interpretable como probabilidad.
-- **Desventaja:** vanishing gradients en capas profundas.
+- **Desventaja:** vanishing gradients en Layers profundas.
 
 ### Tanh
 
@@ -91,7 +91,7 @@ f(x) = (e^x - e^(-x)) / (e^x + e^(-x))
 ```
 
 - **Rango:** (-1, 1).
-- **Uso:** alternativa a sigmoid en capas ocultas (menos común hoy).
+- **Usage:** alternativa a sigmoid en Layers ocultas (menos común hoy).
 
 ### Softmax
 
@@ -99,7 +99,7 @@ f(x) = (e^x - e^(-x)) / (e^x + e^(-x))
 f(xᵢ) = e^xᵢ / Σ(e^xⱼ)
 ```
 
-- **Uso:** clasificación multiclase (capa de salida).
+- **Usage:** Classification multiclase (Layer de salida).
 - **Propiedad:** salidas suman 1 (distribución de probabilidad).
 
 📹 **Videos recomendados:**
@@ -111,13 +111,13 @@ ______________________________________________________________________
 
 ## 4. Forward Propagation
 
-**Forward propagation** es el proceso de calcular la predicción pasando datos a través de la red, capa por capa.
+**Forward propagation** es el proceso de calcular la Prediction pasando Data a través de la red, Layer por Layer.
 
 ### Pasos
 
 1. Multiplicar entradas por pesos: `Z = W·X + b`
-1. Aplicar activación: `A = σ(Z)`
-1. Repetir para cada capa hasta llegar a la salida.
+1. Aplicar Activation: `A = σ(Z)`
+1. Repetir para cada Layer hasta llegar a la salida.
 
 📹 **Videos recomendados:**
 
@@ -125,23 +125,23 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 5. Funciones de pérdida (Loss Functions)
+## 5. Functions de pérdida (Loss Functions)
 
-Miden **qué tan malo** es el modelo. El objetivo del entrenamiento es **minimizar la pérdida**.
+Miden **qué tan malo** es el Model. El Objective del Training es **minimizar la pérdida**.
 
-### Mean Squared Error (MSE) - Regresión
+### Mean Squared error (MSE) - Regresión
 
 ```
 MSE = (1/n) Σ (y_true - y_pred)²
 ```
 
-### Binary Cross-Entropy - Clasificación binaria
+### Binary Cross-Entropy - Classification binaria
 
 ```
 BCE = -[y·log(ŷ) + (1-y)·log(1-ŷ)]
 ```
 
-### Categorical Cross-Entropy - Clasificación multiclase
+### Categorical Cross-Entropy - Classification multiclase
 
 ```
 CCE = -Σ yᵢ·log(ŷᵢ)
@@ -158,7 +158,7 @@ ______________________________________________________________________
 
 **Backpropagation** calcula los gradientes (derivadas) de la pérdida respecto a cada peso, propagando el error desde la salida hacia la entrada.
 
-### Algoritmo
+### Algorithm
 
 1. Calcular pérdida en la salida.
 1. Calcular gradiente de la pérdida respecto a la salida.
@@ -174,9 +174,9 @@ ______________________________________________________________________
 
 ## 7. Optimizadores
 
-Algoritmos que actualizan los pesos basándose en gradientes.
+Algorithms que actualizan los pesos basándose en gradientes.
 
-### Stochastic Gradient Descent (SGD)
+### Stochastic gradient Descent (SGD)
 
 ```
 w = w - lr * gradient
@@ -191,24 +191,24 @@ Acelera convergencia acumulando velocidad en direcciones consistentes.
 
 ### Adam (Adaptive Moment Estimation)
 
-Combinamomentum con tasa de aprendizaje adaptativa por parámetro.
+Combinamomentum con tasa de Learning adaptativa por parámetro.
 
 - **Default recomendado** para la mayoría de casos.
-- Hiperparámetros típicos: `lr=0.001`, `beta1=0.9`, `beta2=0.999`.
+- Hyperparameters típicos: `lr=0.001`, `beta1=0.9`, `beta2=0.999`.
 
 📹 **Videos recomendados:**
 
 1. [Gradient Descent - StatQuest](https://www.youtube.com/watch?v=sDv4f4s2SB8) - 9 min
 1. [Optimizers Explained - Andrej Karpathy](https://www.youtube.com/watch?v=IHZwWFHWa-w) - 46 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [An Overview of Gradient Descent Optimization](https://ruder.io/optimizing-gradient-descent/)
 - [Adam Paper (original)](https://arxiv.org/abs/1412.6980)
 
 ______________________________________________________________________
 
-## 8. Hiperparámetros clave
+## 8. Hyperparameters clave
 
 - **Learning rate:** tamaño del paso en actualización de pesos.
 
@@ -216,43 +216,43 @@ ______________________________________________________________________
   - Muy bajo: convergencia lenta.
   - Típico: 0.001 (Adam), 0.01 (SGD).
 
-- **Batch size:** número de ejemplos procesados antes de actualizar pesos.
+- **Batch size:** número de Examples procesados antes de actualizar pesos.
 
   - Batch completo: estable pero lento.
   - Batch pequeño: rápido pero ruidoso.
   - Típico: 32, 64, 128.
 
-- **Epochs:** número de veces que el modelo ve todo el dataset.
+- **Epochs:** número de veces que el Model ve todo el dataset.
 
   - Monitorear para evitar overfitting.
 
-- **Número de capas y neuronas:**
+- **Número de Layers y Neurons:**
 
   - Más profundidad → más capacidad pero más overfitting.
   - Empezar simple y agregar complejidad si es necesario.
 
 ______________________________________________________________________
 
-## 9. Regularización y Overfitting
+## 9. Regularization y overfitting
 
 ### Dropout
 
-Durante entrenamiento, "apaga" aleatoriamente un % de neuronas en cada iteración.
+Durante Training, "apaga" aleatoriamente un % de Neurons en cada iteración.
 
-- Fuerza a la red a no depender de neuronas específicas.
+- Fuerza a la red a no depender de Neurons específicas.
 - Típico: dropout=0.2 a 0.5.
 
 ### Early Stopping
 
-Detener entrenamiento cuando la pérdida de validación deja de mejorar.
+Detener Training cuando la pérdida de Validation deja de mejorar.
 
-### Regularización L2 (Weight Decay)
+### Regularization L2 (Weight Decay)
 
-Penaliza pesos grandes agregando término a la función de pérdida.
+Penaliza pesos grandes agregando término a la Function de pérdida.
 
 ### Data Augmentation
 
-Generar variaciones de datos de entrenamiento (rotaciones, zoom, ruido).
+Generar variaciones de Data de Training (rotaciones, zoom, ruido).
 
 📹 **Videos recomendados:**
 
@@ -285,7 +285,7 @@ ______________________________________________________________________
 1. [TensorFlow 2.0 Complete Course](https://www.youtube.com/watch?v=tPYj3fFJGjk) - 7 horas
 1. [PyTorch vs TensorFlow - Krish Naik](https://www.youtube.com/watch?v=sVm2FPi_WHQ) - 20 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 - [TensorFlow / Keras Guides](https://www.tensorflow.org/guide)
@@ -293,31 +293,31 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 11. Buenas prácticas de entrenamiento
+## 11. Buenas Practices de Training
 
-- ✅ Normalizar/estandarizar datos de entrada.
+- ✅ Normalizar/estandarizar Data de entrada.
 - ✅ Empezar con arquitectura simple (baseline).
 - ✅ Monitorear curvas de loss y accuracy (train vs validation).
 - ✅ Usar early stopping para prevenir overfitting.
-- ✅ Guardar checkpoints del modelo durante entrenamiento.
+- ✅ Guardar checkpoints del Model durante Training.
 - ✅ Probar múltiples learning rates (lr schedule, lr finder).
-- ✅ Visualizar predicciones del modelo en casos difíciles.
-- ✅ Usar GPU para acelerar entrenamiento (Google Colab gratuito).
+- ✅ Visualizar Predictions del Model en casos difíciles.
+- ✅ Usar GPU para acelerar Training (Google Colab gratuito).
 
 ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente módulo, deberías poder:
+Antes de pasar al siguiente Module, deberías poder:
 
-- ✅ Explicar arquitectura de una red neuronal (capas, neuronas, activaciones).
+- ✅ Explicar arquitectura de una Neural network (Layers, Neurons, activaciones).
 - ✅ Diferenciar forward propagation vs backpropagation con claridad.
-- ✅ Elegir función de activación apropiada según capa y problema.
-- ✅ Seleccionar función de pérdida correcta (MSE, BCE, CCE).
-- ✅ Implementar y entrenar una red neuronal simple con PyTorch o TensorFlow.
-- ✅ Interpretar curvas de entrenamiento y detectar overfitting/underfitting.
-- ✅ Aplicar técnicas de regularización (dropout, early stopping).
-- ✅ Ajustar hiperparámetros (learning rate, batch size, epochs).
-- ✅ Usar GPU para acelerar entrenamiento.
+- ✅ Elegir Function de Activation apropiada según Layer y Problem.
+- ✅ Seleccionar Function de pérdida correcta (MSE, BCE, CCE).
+- ✅ Implementar y entrenar una Neural network simple con PyTorch o TensorFlow.
+- ✅ Interpretar curvas de Training y detectar overfitting/underfitting.
+- ✅ Aplicar técnicas de Regularization (dropout, early stopping).
+- ✅ Ajustar Hyperparameters (learning rate, batch size, epochs).
+- ✅ Usar GPU para acelerar Training.
 
 Si respondiste "sí" a todas, estás listo para arquitecturas avanzadas (CNNs, RNNs, Transformers).

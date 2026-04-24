@@ -1,12 +1,12 @@
-# Ejemplo 02 — Monitoring y Detección de Drift en Producción
+# Example 02 — Monitoring y Detección de Drift en Producción
 
 ## Contexto
 
-Modelos ML en producción degradan su performance por **data drift** (cambios en distribución de features) y **concept drift** (cambios en relación X→y).
+Models ML en producción degradan su performance por **data drift** (cambios en distribución de features) y **concept drift** (cambios en relación X→y).
 
 ## Objective
 
-Implementar sistema de monitoring para detectar drift y alertar antes de que el modelo falle.
+Implementar sistema de monitoring para detectar drift y alertar antes de que el Model falle.
 
 ______________________________________________________________________
 
@@ -29,7 +29,7 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📚 Datos de entrenamiento
+## 📚 Data de Training
 
 ```python
 # Simular dataset de aprobación de crédito
@@ -104,7 +104,7 @@ Default rate: 28.35%
 
 ______________________________________________________________________
 
-## 🤖 Entrenar modelo
+## 🤖 Entrenar Model
 
 ```python
 # Features y target
@@ -215,7 +215,7 @@ num_credit_lines:
   Drift prod:  p-value=0.2345 | Drift: ❌ NO
 ```
 
-### Visualización de distribuciones
+### Visualization de distribuciones
 
 ```python
 fig, axes = plt.subplots(2, 3, figsize=(16, 10))
@@ -319,7 +319,7 @@ print(perf_df.head(10))
 9      9    0.7520   0.8445      100
 ```
 
-### Visualización de degradación
+### Visualization de degradación
 
 ```python
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
@@ -589,16 +589,16 @@ ______________________________________________________________________
 
 ## 📝 Resumen
 
-### ✅ Tipos de Drift
+### ✅ Types de Drift
 
-| Tipo                 | Qué cambia | Detección                | Solución                         |
-| -------------------- | ---------- | ------------------------ | -------------------------------- |
-| **Data Drift**       | P(X)       | KS test, PSI, MMD        | Normalización, reentrenamiento   |
-| **Concept Drift**    | P(y\|X)    | Performance degradation  | Reentrenamiento con nuevos datos |
-| **Label Drift**      | P(y)       | Class distribution shift | Balanceo, threshold tuning       |
-| **Prediction Drift** | P(ŷ)       | Output distribution      | Calibración, reentrenamiento     |
+| Type                 | Qué cambia | Detección                | Solución                        |
+| -------------------- | ---------- | ------------------------ | ------------------------------- |
+| **Data Drift**       | P(X)       | KS test, PSI, MMD        | Normalization, reentrenamiento  |
+| **Concept Drift**    | P(y\|X)    | Performance degradation  | Reentrenamiento con nuevos Data |
+| **Label Drift**      | P(y)       | Class distribution shift | Balanceo, threshold tuning      |
+| **Prediction Drift** | P(ŷ)       | Output distribution      | Calibración, reentrenamiento    |
 
-### 🎯 Métricas de Drift
+### 🎯 Metrics de Drift
 
 **Data Drift (features):**
 
@@ -609,39 +609,39 @@ ______________________________________________________________________
 
 **Concept Drift (performance):**
 
-- Accuracy, Precision, Recall degradation
-- ROC-AUC drop
+- accuracy, Precision, recall degradation
+- ROC-auc drop
 - Calibration error increase
 
-### 💡 Mejores prácticas
+### 💡 Mejores Practices
 
 - ✅ Monitorear continuamente en producción
 - ✅ Establecer thresholds claros (warning vs critical)
-- ✅ Logging detallado de predicciones y features
-- ✅ Almacenar datos de producción para reentrenamiento
+- ✅ Logging detallado de Predictions y features
+- ✅ Almacenar Data de producción para reentrenamiento
 - ✅ Alertas automáticas (Slack, PagerDuty)
 - ✅ Dashboard de monitoreo (Grafana, custom)
-- ✅ A/B testing antes de desplegar modelo reentrenado
+- ✅ A/B testing antes de desplegar Model reentrenado
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ No monitorear (blind production)
 - ❌ Solo monitoreartotal accuracy (no por segmento)
 - ❌ Threshold muy sensible (demasiadas alertas)
-- ❌ No almacenar datos de producción
-- ❌ Reentrenar sin validar modelo nuevo
-- ❌ Olvidar data lineage (qué datos se usaron)
+- ❌ No almacenar Data de producción
+- ❌ Reentrenar sin validar Model nuevo
+- ❌ Olvidar data lineage (qué Data se usaron)
 
 ### 📌 Checklist Monitoring
 
 - ✅ Data drift detection configurado (KS test, PSI)
 - ✅ Performance tracking en tiempo real
 - ✅ Alertas configuradas (warning + critical)
-- ✅ Dashboards visuales de métricas
-- ✅ Logging de predicciones con metadata
+- ✅ Dashboards visuales de Metrics
+- ✅ Logging de Predictions con metadata
 - ✅ Sistema de reentrenamiento automático
 - ✅ A/B testing framework
-- ✅ Rollback plan si nuevo modelo falla
+- ✅ Rollback plan si nuevo Model falla
 
 ### 🛠️ Herramientas
 

@@ -2,7 +2,7 @@
 
 ## Why this module matters
 
-El 80% de los datos empresariales está en formato texto. NLP te permite extraer valor de documentos, emails, chats, reviews y más. Los Large Language Models (LLMs) han democratizado capacidades antes imposibles: generación, traducción, resumen y razonamiento sobre texto.
+El 80% de los Data empresariales está en formato texto. NLP te permite extraer valor de documentos, emails, chats, reviews y más. Los Large Language Models (LLMs) han democratizado capacidades antes imposibles: generación, traducción, resumen y razonamiento sobre texto.
 
 ______________________________________________________________________
 
@@ -15,12 +15,12 @@ ______________________________________________________________________
 - **Ambigüedad:** "banco" puede ser institución financiera o asiento.
 - **Contexto:** el significado depende de lo anterior/posterior.
 - **Sarcasmo e ironía:** difíciles de detectar.
-- **Variaciones lingüísticas:** dialectos, slang, errores ortográficos.
+- **Variaciones lingüísticas:** dialectos, slang, Errors ortográficos.
 
 ### Aplicaciones reales
 
 - Chatbots y asistentes virtuales.
-- Análisis de sentimiento en redes sociales.
+- Analysis de Sentiment en redes sociales.
 - Traducción automática.
 - Resumen de documentos.
 - Búsqueda semántica.
@@ -39,22 +39,22 @@ ______________________________________________________________________
 
 - Web scraping, APIs (Twitter, Reddit), datasets públicos.
 
-### Paso 2: Limpieza
+### Paso 2: Cleaning
 
 **Operaciones comunes:**
 
 - Convertir a lowercase.
 - Remover puntuación (según caso).
 - Remover stopwords (palabras muy frecuentes: "el", "la", "de").
-- Normalización de caracteres (acentos, unicode).
+- Normalization de caracteres (acentos, unicode).
 
-**Cuidado:** Siempre validar si la limpieza ayuda a tu tarea específica.
+**Cuidado:** Siempre validar si la Cleaning ayuda a tu tarea específica.
 
-### Paso 3: Tokenización
+### Paso 3: Tokenization
 
 Dividir texto en unidades (tokens): palabras, subpalabras o caracteres.
 
-**Ejemplo:**
+**Example:**
 
 ```
 "Machine Learning es genial."
@@ -63,29 +63,29 @@ Dividir texto en unidades (tokens): palabras, subpalabras o caracteres.
 
 ### Paso 4: Representación numérica
 
-Los modelos necesitan números, no texto.
+Los Models necesitan números, no texto.
 
 **Opciones:**
 
 - **Bag of Words (BoW):** contar frecuencia de cada palabra (ignora orden).
 - **TF-IDF:** penaliza palabras muy frecuentes, premia palabras discriminativas.
-- **Embeddings:** vectores densos que capturan semántica (Word2Vec, GloVe, FastText).
+- **embeddings:** vectores densos que capturan semántica (Word2Vec, GloVe, FastText).
 
 ### Paso 5: Modelado
 
 - Clasificadores clásicos (Naive Bayes, Logistic Regression, Random Forest).
-- Redes neuronales (RNN, LSTM, Transformers).
+- neural networks (RNN, LSTM, Transformers).
 
-### Paso 6: Evaluación
+### Paso 6: Evaluation
 
-- Métricas según tarea (accuracy, F1, BLEU, ROUGE).
+- Metrics según tarea (accuracy, f1, BLEU, ROUGE).
 
 📹 **Videos recomendados:**
 
 1. [Text Preprocessing - Krish Naik](https://www.youtube.com/watch?v=nxhCyeRR75Q) - 30 min
 1. [Tokenization Explained - Hugging Face](https://www.youtube.com/watch?v=VFp38yj8h3A) - 15 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [NLTK Book (Free)](https://www.nltk.org/book/)
 - [spaCy Documentation](https://spacy.io/usage/spacy-101)
@@ -96,7 +96,7 @@ ______________________________________________________________________
 
 ### Bag of Words (BoW)
 
-**Concepto:** Representar documento como vector de frecuencias de palabras.
+**Concept:** Representar documento como vector de frecuencias de palabras.
 
 **Ventaja:** Simple, interpretable.
 **Desventaja:** Ignora orden y contexto.
@@ -106,13 +106,13 @@ ______________________________________________________________________
 **Fórmula:** `TF-IDF = (frecuencia en documento) × log(total docs / docs con término)`
 
 **Ventaja:** Reduce peso de palabras muy comunes.
-**Uso:** Búsqueda de información, clasificación clásica.
+**Usage:** Búsqueda de información, Classification clásica.
 
-### Word Embeddings
+### Word embeddings
 
-**Concepto:** Representar palabras como vectores densos en espacio continuo donde palabras similares están cerca.
+**Concept:** Representar palabras como vectores densos en espacio continuo donde palabras similares están cerca.
 
-**Modelos populares:**
+**Models populares:**
 
 - **Word2Vec:** aprende embeddings prediciendo palabras vecinas.
 - **GloVe:** basado en co-ocurrencias globales.
@@ -120,13 +120,13 @@ ______________________________________________________________________
 
 **Ventaja:** Captura relaciones semánticas.
 
-- Ejemplo: `king - man + woman ≈ queen`
+- Example: `king - man + woman ≈ queen`
 
-### Embeddings contextuales (Transformers)
+### embeddings contextuales (Transformers)
 
 Palabras tienen representaciones diferentes según contexto.
 
-- **BERT, RoBERTa, GPT:** modelos pre-entrenados que generan embeddings contextuales.
+- **BERT, RoBERTa, GPT:** Models pre-entrenados que generan embeddings contextuales.
 
 📹 **Videos recomendados:**
 
@@ -137,16 +137,16 @@ ______________________________________________________________________
 
 ## 4. Tareas frecuentes en NLP
 
-### Clasificación de texto
+### Classification de texto
 
-- Detectar spam, sentimiento (positivo/negativo), intención del usuario.
-- **Métricas:** Accuracy, Precision, Recall, F1.
+- Detectar spam, Sentiment (positivo/negativo), intención del usuario.
+- **Metrics:** accuracy, Precision, recall, f1.
 
 ### Named Entity Recognition (NER)
 
 Extraer entidades: personas, lugares, organizaciones, fechas.
 
-**Ejemplo:**
+**Example:**
 
 ```
 "Elon Musk fundó Tesla en 2003."
@@ -164,7 +164,7 @@ Encontrar documentos relevantes basándose en significado, no solo palabras exac
 
 ### Generación de texto
 
-Producir texto coherente: chatbots, auto-completado, creación de contenido.
+Producir texto coherente: chatbots, auto-completado, creación de Content.
 
 📹 **Videos recomendados:**
 
@@ -173,7 +173,7 @@ Producir texto coherente: chatbots, auto-completado, creación de contenido.
 
 ______________________________________________________________________
 
-## 5. Arquitecturas de redes neuronales para NLP
+## 5. Arquitecturas de neural networks para NLP
 
 ### RNN (Recurrent Neural Networks)
 
@@ -193,11 +193,11 @@ Variante de RNN que mitiga vanishing gradients con compuertas (gates).
 
 - Procesan secuencias en paralelo (no secuencialmente como RNN).
 - Capturan dependencias a largo plazo.
-- Escalables a modelos enormes.
+- Escalables a Models enormes.
 
 **Arquitecturas clave:**
 
-- **BERT:** encoder (bueno para clasificación, NER).
+- **BERT:** encoder (bueno para Classification, NER).
 - **GPT:** decoder (bueno para generación).
 - **T5, BART:** encoder-decoder (traducción, resumen).
 
@@ -207,7 +207,7 @@ Variante de RNN que mitiga vanishing gradients con compuertas (gates).
 1. [BERT Explained - CodeEmporium](https://www.youtube.com/watch?v=xI0HHN5XKDo) - 20 min
 1. [Transformers from Scratch - Andrej Karpathy](https://www.youtube.com/watch?v=kCc8FmEb1nY) - 2 horas
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [The Illustrated Transformer (Blog)](http://jalammar.github.io/illustrated-transformer/)
 - [Hugging Face Course (Free)](https://huggingface.co/course/chapter1)
@@ -218,9 +218,9 @@ ______________________________________________________________________
 
 ### ¿Qué son?
 
-Modelos de lenguaje **masivos** (millones/billones de parámetros) entrenados sobre corpus textuales enormes (internet, libros, código).
+Models de lenguaje **masivos** (millones/billones de parámetros) entrenados sobre corpus textuales enormes (internet, libros, código).
 
-**Ejemplos:**
+**Examples:**
 
 - GPT-4 (OpenAI)
 - Claude (Anthropic)
@@ -229,17 +229,17 @@ Modelos de lenguaje **masivos** (millones/billones de parámetros) entrenados so
 
 ### Capacidades emergentes
 
-A medida que los modelos crecen, emergen habilidades no explícitamente entrenadas:
+A medida que los Models crecen, emergen habilidades no explícitamente entrenadas:
 
 - Razonamiento multi-paso.
-- Traducción entre idiomas que el modelo nunca vio juntos.
+- Traducción entre idiomas que el Model nunca vio juntos.
 - Generación de código.
-- Resolución de problemas matemáticos.
+- Resolución de Problems matemáticos.
 
 ### Limitaciones críticas
 
 - **Alucinaciones:** generar información falsa con confianza.
-- **Sesgo:** reflejan sesgos presentes en datos de entrenamiento.
+- **Sesgo:** reflejan sesgos presentes en Data de Training.
 - **No razonan:** memorizan y generan patrones estadísticos.
 - **Interpretabilidad:** difícil entender "por qué" generan cierta salida.
 
@@ -262,7 +262,7 @@ La entrada de texto que le das al LLM para generar una salida.
 1. **Contexto:** información relevante.
 1. **Formato esperado:** cómo quieres la respuesta.
 
-**Ejemplo:**
+**Example:**
 
 ```
 Tarea: Clasificar el sentimiento de la siguiente reseña.
@@ -272,8 +272,8 @@ Formato: Responde solo con "Positivo", "Neutral" o "Negativo".
 
 ### Técnicas avanzadas
 
-- **Zero-shot:** sin ejemplos.
-- **Few-shot:** incluir 2-5 ejemplos de entrada-salida.
+- **Zero-shot:** sin Examples.
+- **Few-shot:** incluir 2-5 Examples de entrada-salida.
 - **Chain-of-Thought (CoT):** pedir razonamiento paso a paso.
 - **Self-consistency:** generar múltiples respuestas y votar.
 
@@ -282,30 +282,30 @@ Formato: Responde solo con "Positivo", "Neutral" o "Negativo".
 1. [Prompt Engineering Guide - OpenAI](https://www.youtube.com/watch?v=T9aRN5JkmL8) - 25 min
 1. [Advanced Prompting - DeepLearning.AI](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) - curso corto gratuito
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 - [Prompt Engineering Guide (GitHub)](https://github.com/dair-ai/Prompt-Engineering-Guide)
 
 ______________________________________________________________________
 
-## 8. Evaluación de LLMs
+## 8. Evaluation de LLMs
 
-### Métricas automáticas
+### Metrics automáticas
 
 - **BLEU, ROUGE:** comparar texto generado con referencia (traducción, resumen).
-- **Perplexity:** qué tan "sorprendido" está el modelo (menor = mejor).
+- **Perplexity:** qué tan "sorprendido" está el Model (menor = mejor).
 
 **Limitación:** No capturan calidad real, especialmente en tareas abiertas.
 
-### Evaluación humana
+### Evaluation humana
 
 - Correctitud, relevancia, coherencia, consistencia, seguridad.
 - Costosa pero esencial para producción.
 
-### Evaluación con LLM
+### Evaluation con LLM
 
-Usar un LLM más potente para evaluar salidas de otro modelo ("LLM-as-a-judge").
+Usar un LLM más potente para evaluar salidas de otro Model ("LLM-as-a-judge").
 
 📹 **Videos recomendados:**
 
@@ -317,10 +317,10 @@ ______________________________________________________________________
 
 ### Fine-tuning
 
-Reentrenar un LLM pre-entrenado en datos específicos de tu dominio.
+Reentrenar un LLM pre-entrenado en Data específicos de tu dominio.
 
-**Ventaja:** Modelo especializado.
-**Desventaja:** Costoso, requiere datos de calidad.
+**Ventaja:** Model especializado.
+**Desventaja:** Costoso, requiere Data de calidad.
 
 ### RAG (Retrieval-Augmented Generation)
 
@@ -339,24 +339,24 @@ Combinar LLM con búsqueda en base de documentos.
 1. [Fine-tuning LLMs - Hugging Face](https://www.youtube.com/watch?v=eC6Hd1hFvos) - 30 min
 1. [RAG Explained - LangChain](https://www.youtube.com/watch?v=sVcwVQRHIc8) - 20 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [Hugging Face Fine-tuning Guide](https://huggingface.co/docs/transformers/training)
 - [LangChain RAG Tutorial](https://python.langchain.com/docs/use_cases/question_answering/)
 
 ______________________________________________________________________
 
-## 10. Buenas prácticas
+## 10. Buenas Practices
 
 - ✅ Empezar con baseline clásico (TF-IDF + Logistic Regression) para establecer punto de referencia.
-- ✅ Probar LLMs solo si el problema lo justifica (no usar cañón para matar mosquito).
-- ✅ Guardar prompts y resultados para comparar iteraciones.
-- ✅ Medir con métricas Y analizar ejemplos de error.
-- ✅ Validar que el modelo no memorice datos sensibles.
-- ✅ Implementar guardrails (filtros de seguridad, validación de salidas).
+- ✅ Probar LLMs solo si el Problem lo justifica (no usar cañón para matar mosquito).
+- ✅ Guardar prompts y Results para comparar iteraciones.
+- ✅ Medir con Metrics Y analizar Examples de error.
+- ✅ Validar que el Model no memorice Data sensibles.
+- ✅ Implementar guardrails (Filters de seguridad, Validation de salidas).
 - ✅ Monitorear costos en APIs de LLMs.
 
-📚 **Recursos generales:**
+📚 **Resources generales:**
 
 - [Speech and Language Processing (Book - Free)](https://web.stanford.edu/~jurafsky/slp3/)
 - [Hugging Face Transformers Course](https://huggingface.co/course/chapter0)
@@ -366,14 +366,14 @@ ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente módulo, deberías poder:
+Antes de pasar al siguiente Module, deberías poder:
 
 - ✅ Explicar diferencia entre BoW, TF-IDF y embeddings contextuales.
-- ✅ Decidir cuándo usar modelo clásico vs Transformer vs LLM.
-- ✅ Tokenizar y preprocesar texto para clasificación.
+- ✅ Decidir cuándo usar Model clásico vs Transformer vs LLM.
+- ✅ Tokenizar y preprocesar texto para Classification.
 - ✅ Diseñar prompts efectivos con instrucción, contexto y formato.
-- ✅ Implementar clasificación de texto con scikit-learn y Transformers.
-- ✅ Evaluar modelos NLP con métricas apropiadas.
+- ✅ Implementar Classification de texto con scikit-learn y Transformers.
+- ✅ Evaluar Models NLP con Metrics apropiadas.
 - ✅ Identificar alucinaciones y sesgos en salidas de LLMs.
 - ✅ Explicar trade-offs entre fine-tuning y RAG.
 

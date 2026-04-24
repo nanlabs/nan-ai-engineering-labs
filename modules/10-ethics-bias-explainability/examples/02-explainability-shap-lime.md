@@ -1,12 +1,12 @@
-# Ejemplo 02 — Explainability con SHAP y LIME
+# Example 02 — Explainability con SHAP y LIME
 
 ## Contexto
 
-Modelos complejos (Random Forest, XGBoost, Neural Nets) son "black boxes". SHAP y LIME proporcionan explicaciones de por qué el modelo predice X.
+Models complejos (Random Forest, XGBoost, Neural Nets) son "black boxes". SHAP y LIME proporcionan explicaciones de por qué el Model predice X.
 
 ## Objective
 
-Explicar predicciones de modelo de clasificación usando SHAP (global + local) y LIME (local).
+Explicar Predictions de Model de Classification usando SHAP (global + local) y LIME (local).
 
 ______________________________________________________________________
 
@@ -87,7 +87,7 @@ Tasa de churn: 34.20%
 
 ______________________________________________________________________
 
-## 🤖 Entrenar modelo
+## 🤖 Entrenar Model
 
 ```python
 # Features
@@ -373,7 +373,7 @@ plt.show()
 
 ______________________________________________________________________
 
-## 💡 Casos de uso
+## 💡 Casos de Usage
 
 ### 1. Auditoría de decisiones
 
@@ -474,39 +474,39 @@ ______________________________________________________________________
 
 | Aspecto             | SHAP                                       | LIME                       |
 | ------------------- | ------------------------------------------ | -------------------------- |
-| **Base teórica**    | Shapley values (teoría de juegos)          | Local linear approximation |
+| **Base teórica**    | Shapley values (Theory de juegos)          | Local linear approximation |
 | **Consistencia**    | Garantizada (propiedades Shapley)          | No garantizada             |
 | **Velocidad**       | Lento (especialmente KernelExplainer)      | Rápido                     |
 | **Global vs Local** | Ambos                                      | Solo local                 |
 | **Model-agnostic**  | Sí (KernelExplainer), optimized para trees | Sí                         |
-| **Interpretación**  | Contribución aditiva                       | Peso en modelo local       |
+| **Interpretación**  | Contribución aditiva                       | Peso en Model local        |
 
 ### 🎯 Cuándo usar cada uno
 
 **SHAP:**
 
 - ✅ Necesitas explicaciones globales + locales
-- ✅ Modelo basado en árboles (TreeExplainer es rápido)
+- ✅ Model basado en árboles (TreeExplainer es rápido)
 - ✅ Consistencia matemática crítica (regulación, legal)
-- ✅ Análisis de interacciones entre features
+- ✅ Analysis de interacciones entre features
 
 **LIME:**
 
 - ✅ Explicaciones rápidas en producción
-- ✅ Modelos arbitrarios (incluso APIs externas)
+- ✅ Models arbitrarios (incluso APIs externas)
 - ✅ Interpretabilidad sencilla para stakeholders
 - ✅ Prototipado rápido
 
-### 💡 Mejores prácticas
+### 💡 Mejores Practices
 
-- ✅ Usar ambos métodos para validación cruzada
+- ✅ Usar ambos métodos para Validation cruzada
 - ✅ Explicar decisiones críticas (rechazos, diagnósticos)
 - ✅ Integrar explicaciones en UI para usuarios finales
 - ✅ Documentar assumptions (ej: independence en LIME)
 - ✅ Validar con expertos del dominio
 - ✅ Monitorear cambios en explicaciones (drift)
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ Confiar ciegamente en una sola explicación
 - ❌ Ignorar correlaciones entre features
@@ -521,13 +521,13 @@ ______________________________________________________________________
 - ✅ Explicaciones locales para casos críticos
 - ✅ Visualizaciones comprensibles para stakeholders
 - ✅ Recomendaciones accionables derivadas
-- ✅ Validación con expertos del dominio
+- ✅ Validation con expertos del dominio
 - ✅ Documentación de limitaciones
 - ✅ Integración en workflow de decisión
 
 ### 🚀 Extensiones
 
-- **Conterfactual Explanations:** "Si tenure fuera 24 meses (en vez de 6), predicción sería No Churn"
-- **Anchors:** Reglas simples que "anclan" predicción (ej: "Si tenure > 24 → No Churn con 95% confianza")
+- **Conterfactual Explanations:** "Si tenure fuera 24 meses (en vez de 6), Prediction sería No Churn"
+- **Anchors:** Reglas simples que "anclan" Prediction (ej: "Si tenure > 24 → No Churn con 95% confianza")
 - **Integrated Gradients:** Para neural networks
 - **SHAP Interaction Values:** Capturar interacciones de segundo orden

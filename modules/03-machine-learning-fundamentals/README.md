@@ -1,35 +1,35 @@
 # Machine Learning Fundamentals
 
-## 🎯 Objetivo del módulo
+## 🎯 Objective del Module
 
-Comprender los fundamentos de machine learning supervisado y no supervisado para entrenar, evaluar y comparar modelos con criterio técnico.
+Comprender los fundamentos de machine learning supervisado y no supervisado para entrenar, evaluar y comparar Models con criterio técnico.
 
 ## 💡 Qué vas a lograr
 
-- Diferenciar problemas de regresión, clasificación y clustering
-- Entrenar modelos base con `scikit-learn` (LinearRegression, LogisticRegression, DecisionTrees, RandomForest)
-- Evaluar performance con métricas correctas (MSE/RMSE/R², Accuracy/Precision/Recall/F1, Confusion Matrix)
-- Evitar errores comunes como overfitting y data leakage
+- Diferenciar Problems de regresión, Classification y clustering
+- Entrenar Models base con `scikit-learn` (LinearRegression, LogisticRegression, DecisionTrees, RandomForest)
+- Evaluar performance con Metrics correctas (MSE/RMSE/R², accuracy/Precision/recall/f1, Confusion Matrix)
+- Evitar Errors comunes como overfitting y data leakage
 - Aplicar GridSearchCV para hyperparameter tuning
-- Comparar múltiples algoritmos y seleccionar el mejor
+- Comparar múltiples Algorithms y seleccionar el mejor
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
 - **theory/**: fundamentos teóricos (supervised/unsupervised learning, bias-variance trade-off)
-- **examples/**: ejemplos guiados con sklearn
-- **practices/**: ejercicios hands-on
+- **examples/**: Examples guiados con sklearn
+- **practices/**: Exercises hands-on
   - 01: Regresión Lineal y Logística (simple/multiple regression, thresholds, ROC curves)
   - 02: Árboles y Random Forests (decision trees, feature importance, ensemble methods)
-- **mini-project/**: comparación de múltiples algoritmos en dataset real
+- **mini-project/**: comparación de múltiples Algorithms en dataset real
 - **evaluation/**: checklist y rúbrica
 - **notes/**: tus apuntes y decisiones
 
 ## Level path (L1-L4)
 
-- L1 Fundamentos: tipos de aprendizaje y pipeline básico.
-- L2 Aplicado: entrenamiento y evaluación de modelos clásicos.
-- L3 Avanzado: tuning, validación cruzada y selección de modelo.
-- L4 Senior: trade-offs entre precisión, interpretabilidad y costo.
+- L1 Fundamentos: Types de Learning y pipeline básico.
+- L2 Aplicado: Training y Evaluation de Models clásicos.
+- L3 Avanzado: tuning, Validation cruzada y selección de Model.
+- L4 Senior: trade-offs entre Precision, interpretabilidad y costo.
 
 ## Migración
 
@@ -37,19 +37,19 @@ Comprender los fundamentos de machine learning supervisado y no supervisado para
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: conceptos base + pipeline mínimo.
-- Semana 2: regresión y clasificación.
-- Semana 3: validación, métricas y tuning básico.
-- Semana 4: mini-proyecto + evaluación.
+- Semana 1: Concepts base + pipeline mínimo.
+- Semana 2: regresión y Classification.
+- Semana 3: Validation, Metrics y tuning básico.
+- Semana 4: Mini-project + Evaluation.
 
-## ✅ Criterio de módulo completado
+## ✅ Criterio de Module completado
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto con baseline y mejora comparada
-- Evaluación final aprobada (>=70/100)
-- Demostrar: entrenamiento de modelos, evaluación con métricas apropiadas, tuning de hiperparámetros
+- 2 Practices resueltas y validadas
+- Mini-project con baseline y mejora comparada
+- Evaluation final aprobada (>=70/100)
+- Demostrar: Training de Models, Evaluation con Metrics apropiadas, tuning de Hyperparameters
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Librerías:**
 
@@ -65,9 +65,9 @@ Comprender los fundamentos de machine learning supervisado y no supervisado para
 
 - [Hands-On Machine Learning (Aurélien Géron)](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)
 
-## 🚀 Próximo Módulo
+## 🚀 Próximo Module
 
-**Módulo 04: Deep Learning Basics** - Introducción a redes neuronales con PyTorch
+**Module 04: Deep Learning Basics** - Introduction a neural networks con PyTorch
 
 ## Module objective
 

@@ -1,17 +1,17 @@
-# Práctica 03 — Métricas y análisis de errores
+# Practice 03 — Metrics y Analysis de Errors
 
 ## Objective
 
-Interpretar resultados más allá de una sola métrica.
+Interpretar Results más allá de una sola Metric.
 
 ## Enunciado
 
-1. Comparar dos modelos para el mismo problema.
-1. Analizar dónde falla cada modelo.
-1. Elegir métrica principal según contexto de negocio.
+1. Comparar dos Models para el mismo Problem.
+1. Analizar dónde falla cada Model.
+1. Elegir Metric principal según contexto de negocio.
 1. Escribir recomendación técnica final.
 
-## Validación
+## Validation
 
 - Comparación argumentada.
-- Elección de métrica justificada.
+- Elección de Metric justificada.

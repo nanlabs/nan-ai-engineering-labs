@@ -1,4 +1,4 @@
-# Ejemplo 02 — Differential Privacy en la Práctica
+# Example 02 — Differential Privacy en la Practice
 
 ## Contexto
 
@@ -6,7 +6,7 @@
 
 ## Objective
 
-Implementar mecanismos de Differential Privacy para consultas estadísticas sobre datos sensibles.
+Implementar mecanismos de Differential Privacy para consultas estadísticas sobre Data sensibles.
 
 ______________________________________________________________________
 
@@ -67,7 +67,7 @@ Salario mediano: $74,123.45
 
 ______________________________________________________________________
 
-## 🔐 Differential Privacy: Conceptos
+## 🔐 Differential Privacy: Concepts
 
 ### Definición formal
 
@@ -186,7 +186,7 @@ Sensitivity: $249.53
   Error: $78.22 (0.10%)
 ```
 
-### Visualización del ruido
+### Visualization del ruido
 
 ```python
 # Simular múltiples releases con ruido
@@ -448,7 +448,7 @@ print(f"Mejora: {(simple_composition - advanced) / simple_composition * 100:.1f}
 
 ______________________________________________________________________
 
-## 💡 Casos de uso reales
+## 💡 Casos de Usage reales
 
 ### 1. Reporte de salarios por departamento
 
@@ -537,21 +537,21 @@ ______________________________________________________________________
 
 ### ✅ Mecanismos de DP
 
-| Mecanismo               | Distribución     | Uso                                | DP Guarantee |
+| Mecanismo               | Distribución     | Usage                              | DP Guarantee |
 | ----------------------- | ---------------- | ---------------------------------- | ------------ |
 | **Laplace**             | Laplace(0, Δf/ε) | Queries numéricas (conteos, sumas) | ε-DP         |
 | **Gaussian**            | Normal(0, σ²)    | Queries con composición            | (ε, δ)-DP    |
 | **Exponential**         | Exponencial      | Selección (argmax)                 | ε-DP         |
-| **Randomized Response** | Bernoulli        | Datos categóricos                  | ε-DP         |
+| **Randomized Response** | Bernoulli        | Data categóricos                   | ε-DP         |
 
 ### 🎯 Parámetros clave
 
 **Epsilon (ε):**
 
-- 0.01 - 0.1: Privacidad muy alta (datos médicos)
-- 0.1 - 1.0: Privacidad alta (datos financieros)
-- 1.0 - 3.0: Privacidad media (datos corporativos)
-- > 3.0: Privacidad baja (datos públicos anonimizados)
+- 0.01 - 0.1: Privacidad muy alta (Data médicos)
+- 0.1 - 1.0: Privacidad alta (Data financieros)
+- 1.0 - 3.0: Privacidad media (Data corporativos)
+- > 3.0: Privacidad baja (Data públicos anonimizados)
 
 **Delta (δ):**
 
@@ -565,21 +565,21 @@ ______________________________________________________________________
 - Sum: Δf = max_value
 - Mean: Δf = range / n
 
-### 💡 Mejores prácticas
+### 💡 Mejores Practices
 
-- ✅ Pre-calcular sensitivity (no estimarla de los datos)
+- ✅ Pre-calcular sensitivity (no estimarla de los Data)
 - ✅ Usar parallel composition cuando sea posible
 - ✅ Trackear privacy budget cuidadosamente
 - ✅ Post-procesar para garantías (ej: no negativos en conteos)
 - ✅ Documentar todos los parámetros (ε, δ, sensitivity)
 - ✅ Considerar utility-privacy trade-off por stakeholder
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
-- ❌ Calcular sensitivity desde los datos (privacy leak)
+- ❌ Calcular sensitivity desde los Data (privacy leak)
 - ❌ Olvidar composición (múltiples queries agotan budget)
 - ❌ Elegir ε arbitrariamente sin justificación
-- ❌ Publicar tanto DP como datos originales
+- ❌ Publicar tanto DP como Data originales
 - ❌ No considerar side information del atacante
 
 ### 📌 Checklist DP
@@ -611,9 +611,9 @@ ______________________________________________________________________
 # clf.fit(X, y)
 ```
 
-### 🌐 Casos de uso reales
+### 🌐 Casos de Usage reales
 
-- **US Census 2020:** ε ≈ 19.6 para proteger datos censales
+- **US Census 2020:** ε ≈ 19.6 para proteger Data censales
 - **Google RAPPOR:** Chrome usage statistics con local DP
 - **Apple:** Keyboard suggestions con ε = 2-6
 - **Microsoft:** Telemetry con ε-DP

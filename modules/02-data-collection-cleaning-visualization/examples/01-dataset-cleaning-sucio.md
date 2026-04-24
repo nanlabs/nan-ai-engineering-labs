@@ -1,8 +1,8 @@
-# Ejemplo 01 — Limpieza de Dataset Sucio (Ventas de E-commerce)
+# Example 01 — Cleaning de Dataset Sucio (Ventas de E-commerce)
 
 ## Contexto
 
-Trabajas para un e-commerce que tiene un dataset de transacciones con múltiples problemas de calidad. Tu tarea es limpiar los datos antes de entrenar un modelo de predicción de churn.
+Trabajas para un e-commerce que tiene un dataset de transacciones con múltiples Problems de calidad. Tu tarea es limpiar los Data antes de entrenar un Model de Prediction de churn.
 
 ## Dataset problemático
 
@@ -102,9 +102,9 @@ email            0
 Filas duplicadas (email): 1  👈 user3@mail.com aparece 2 veces
 ```
 
-### Problemas detectados
+### Problems detectados
 
-1. **age:** tipo object (debería ser int), tiene NaN y valor "treinta"
+1. **age:** Type object (debería ser int), tiene NaN y valor "treinta"
 1. **income:** 2 valores nulos
 1. **purchase_date:** formato inconsistente, valor "invalid"
 1. **category:** inconsistencia de mayúsculas/minúsculas
@@ -114,7 +114,7 @@ Filas duplicadas (email): 1  👈 user3@mail.com aparece 2 veces
 
 ______________________________________________________________________
 
-## 🛠️ Paso 2: Limpieza sistemática
+## 🛠️ Paso 2: Cleaning sistemática
 
 ### 2.1 Remover duplicados
 
@@ -161,7 +161,7 @@ print(f"\nNaN restantes en age: {df_clean['age'].isnull().sum()}")
 
 **Decisión:**
 
-- Outlier (150) reemplazado con mediana
+- outlier (150) reemplazado con mediana
 - NaN imputados con mediana
 
 ### 2.3 Corregir columna `income`
@@ -177,7 +177,7 @@ df_clean['income'].fillna(df_clean['income'].median(), inplace=True)
 print(f"NaN restantes en income: {df_clean['income'].isnull().sum()}")
 ```
 
-**Decisión:** Imputación por grupo (category) para mayor precisión.
+**Decisión:** Imputación por grupo (category) para mayor Precision.
 
 ### 2.4 Corregir columna `purchase_date`
 
@@ -223,7 +223,7 @@ Fashion        3
 Home           3
 ```
 
-### 2.6 Corregir anomalías en `total_spent`
+### 2.6 Corregir Anomalies en `total_spent`
 
 ```python
 # Detectar valores negativos
@@ -238,7 +238,7 @@ df_clean = df_clean[df_clean['total_spent'] >= 0]
 print(f"Dimensiones tras eliminar negativos: {df_clean.shape}")
 ```
 
-**Decisión:** Eliminar transacciones negativas (interpretadas como refunds, fuera de alcance del análisis).
+**Decisión:** Eliminar transacciones negativas (interpretadas como refunds, fuera de alcance del Analysis).
 
 ### 2.7 Validar emails
 
@@ -295,7 +295,7 @@ Dimensiones finales: (9, 7)
 
 - Filas originales: 12 → Filas finales: 9 (3 eliminadas)
 - Nulos imputados: age (2), income (2)
-- Outliers corregidos: 1 (age=150)
+- outliers corregidos: 1 (age=150)
 - Duplicados eliminados: 1
 - Fechas inválidas eliminadas: 1
 - Emails inválidos eliminados: 1
@@ -304,7 +304,7 @@ Dimensiones finales: (9, 7)
 
 ______________________________________________________________________
 
-## 📊 Paso 4: Visualización de calidad
+## 📊 Paso 4: Visualization de calidad
 
 ```python
 import matplotlib.pyplot as plt
@@ -343,25 +343,25 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
-### ✅ Buenas prácticas aplicadas
+### ✅ Buenas Practices aplicadas
 
 1. **Diagnóstico antes de actuar:** `info()`, `describe()`, `isnull()`
 1. **Documentar decisiones:** ¿Por qué eliminar vs imputar?
-1. **Validación contextual:** IQR para outliers, regex para emails
+1. **Validation contextual:** IQR para outliers, regex para emails
 1. **Imputación inteligente:** Por grupo (category) en lugar de global
 1. **Preservar trazabilidad:** Dataset original intacto, transformaciones en copia
 
 ### ⚠️ Consideraciones de negocio
 
-- **Eliminar vs corregir:** Depende del % de datos afectados y disponibilidad de información adicional
+- **Eliminar vs corregir:** Depende del % de Data afectados y disponibilidad de información adicional
 - **Imputación:** Puede introducir sesgo. Documentar método usado
-- **Outliers:** No siempre son errores. Validar con experto de dominio
+- **outliers:** No siempre son Errors. Validar con experto de dominio
 
 ### 🔧 Herramientas útiles
 
 - `pd.to_numeric(errors='coerce')`: Conversión robusta
 - `groupby().transform()`: Imputación por grupo
-- `dropna()` vs `fillna()`: Trade-off entre pérdida de datos y calidad
-- Regex para validación de formatos
+- `dropna()` vs `fillna()`: Trade-off entre pérdida de Data y calidad
+- Regex para Validation de formatos

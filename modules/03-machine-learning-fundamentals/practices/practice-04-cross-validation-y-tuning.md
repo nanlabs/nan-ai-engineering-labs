@@ -1,8 +1,8 @@
-# Práctica 04 — Validación cruzada y tuning
+# Practice 04 — Validation cruzada y tuning
 
 ## Objective
 
-Mejorar el baseline con validación cruzada e hiperparámetros.
+Mejorar el baseline con Validation cruzada e Hyperparameters.
 
 ## Enunciado
 
@@ -11,7 +11,7 @@ Mejorar el baseline con validación cruzada e hiperparámetros.
 1. Comparar score vs baseline.
 1. Registrar riesgo de overfitting.
 
-## Validación
+## Validation
 
-- Se usa validación cruzada correctamente.
+- Se usa Validation cruzada correctamente.
 - Mejora cuantificada respecto al baseline.

@@ -6,13 +6,13 @@ Dataset confiable para modelado de churn (o caso equivalente).
 
 ## Objective
 
-Construir un pipeline reproducible de ingesta, limpieza y visualización que deje los datos listos para el próximo módulo de ML.
+Construir un pipeline reproducible de ingesta, Cleaning y Visualization que deje los Data listos para el próximo Module de ML.
 
 ## Scope
 
 - Ingesta de dataset.
 - Perfilado inicial.
-- Limpieza de nulos, duplicados y formatos.
+- Cleaning de nulos, duplicados y formatos.
 - Tratamiento de outliers.
 - EDA con visualizaciones clave.
 - Exportación del dataset final limpio.
@@ -26,6 +26,6 @@ Construir un pipeline reproducible de ingesta, limpieza y visualización que dej
 ## Acceptance criteria
 
 - Pipeline corre de punta a punta.
-- Decisiones de limpieza justificadas.
+- Decisiones de Cleaning justificadas.
 - Visualizaciones responden preguntas concretas.
-- Dataset final apto para entrenamiento.
+- Dataset final apto para Training.

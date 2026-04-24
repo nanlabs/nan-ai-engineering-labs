@@ -2,15 +2,15 @@
 
 ## Why this module matters
 
-Series temporales están en todas partes: precios de acciones, demanda de productos, tráfico web, sensores IoT, métricas de salud. Predecir el futuro y detectar anomalías son capacidades críticas para tomar decisiones proactivas y prevenir fallas en sistemas.
+time series están en todas partes: precios de acciones, demanda de productos, tráfico web, sensores IoT, Metrics de salud. Predecir el futuro y detectar Anomalies son capacidades críticas para tomar decisiones proactivas y prevenir fallas en sistemas.
 
 ______________________________________________________________________
 
-## 1. ¿Qué es una serie temporal?
+## 1. ¿Qué es una Time series?
 
-**Serie temporal (time series):** Secuencia de datos **ordenados por tiempo** donde el orden importa porque valores futuros dependen de valores pasados.
+**Time series (time series):** Secuencia de Data **ordenados por tiempo** donde el orden importa porque valores futuros dependen de valores pasados.
 
-**Ejemplos:**
+**Examples:**
 
 - Precio de acciones por minuto.
 - Temperatura diaria.
@@ -18,7 +18,7 @@ ______________________________________________________________________
 - Trafico web por hora.
 - Sensor de máquina cada segundo.
 
-### Diferencia con datos tabulares
+### Diferencia con Data tabulares
 
 - **Temporal:** orden cronológico es esencial.
 - **Tabular:** filas son independientes (generalmente).
@@ -30,21 +30,21 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 2. Componentes de una serie temporal
+## 2. Componentes de una Time series
 
-Descomponer serie temporal en componentes ayuda a entender estructura y elegir modelo.
+Descomponer Time series en componentes ayuda a entender Structure y elegir Model.
 
-### Tendencia (Trend)
+### Trend (Trend)
 
 Dirección general a largo plazo: creciente, decreciente o estable.
 
-**Ejemplo:** Ventas de e-commerce crecen año tras año.
+**Example:** Ventas de e-commerce crecen año tras año.
 
-### Estacionalidad (Seasonality)
+### Seasonality (Seasonality)
 
 Patrones repetitivos con período fijo (día, semana, mes, año).
 
-**Ejemplo:** Ventas de helado aumentan en verano cada año.
+**Example:** Ventas de helado aumentan en verano cada año.
 
 ### Ciclos
 
@@ -52,7 +52,7 @@ Fluctuaciones de largo plazo sin período fijo (ej: ciclos económicos).
 
 ### Ruido (Residuales)
 
-Variabilidad aleatoria que no se explica por tendencia, estacionalidad o ciclos.
+Variabilidad aleatoria que no se explica por Trend, Seasonality o ciclos.
 
 ### Descomposición
 
@@ -60,22 +60,22 @@ Variabilidad aleatoria que no se explica por tendencia, estacionalidad o ciclos.
 Y(t) = Tendencia + Estacionalidad + Residuales
 ```
 
-**Tipos:**
+**Types:**
 
 - **Aditiva:** `Y = T + S + R` (cuando amplitud estacional es constante).
-- **Multiplicativa:** `Y = T × S × R` (cuando amplitud estacional crece con tendencia).
+- **Multiplicativa:** `Y = T × S × R` (cuando amplitud estacional crece con Trend).
 
 📹 **Videos recomendados:**
 
 1. [Time Series Decomposition - Ritvik Math](https://www.youtube.com/watch?v=SRhL80phcE8) - 10 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [Statsmodels Seasonal Decompose](https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.seasonal_decompose.html)
 
 ______________________________________________________________________
 
-## 3. Preparación de datos temporales
+## 3. Preparación de Data temporales
 
 ### Paso 1: Ordenar por timestamp
 
@@ -86,9 +86,9 @@ df = df.sort_values('timestamp')
 ### Paso 2: Verificar frecuencia temporal
 
 - Diaria, horaria, cada 5 minutos?
-- Uso: `df.set_index('timestamp').asfreq('D')` (pandas).
+- Usage: `df.set_index('timestamp').asfreq('D')` (pandas).
 
-### Paso 3: Manejo de valores faltantes
+### Paso 3: Manejo de missing values
 
 **Opciones:**
 
@@ -111,7 +111,7 @@ Crear features a partir del timestamp:
 - **Lags:** valores en instantes previos (ej: venta de hace 7 días).
 - **Rolling statistics:** promedio/std móvil de ventana (ej: promedio 7 días).
 
-**Ejemplo:**
+**Example:**
 
 ```python
 df['lag_7'] = df['sales'].shift(7)
@@ -126,7 +126,7 @@ ______________________________________________________________________
 
 ## 4. Train/Test split temporal
 
-### 🚫 Error común: Split aleatorio
+### 🚫 error común: Split aleatorio
 
 No mezclar pasado y futuro. Esto causa **data leakage temporal**.
 
@@ -137,7 +137,7 @@ train = df[df['timestamp'] < '2023-01-01']
 test = df[df['timestamp'] >= '2023-01-01']
 ```
 
-### Validación: Time Series Cross-Validation
+### Validation: Time Series Cross-Validation
 
 Ventanas deslizantes que respetan orden temporal.
 
@@ -153,7 +153,7 @@ Fold 3: Train [1-140] | Validate [141-160]
 
 ______________________________________________________________________
 
-## 5. Modelos de forecasting
+## 5. Models de forecasting
 
 ### Baselines simples (SIEMPRE empezar con esto)
 
@@ -179,11 +179,11 @@ Promedio de últimos `n` valores.
 
 - **AR (p):** autoregresión (depende de valores pasados).
 - **I (d):** diferenciación (hacer serie estacionaria).
-- **MA (q):** promedio móvil de errores.
+- **MA (q):** promedio móvil de Errors.
 
-**SARIMA:** ARIMA + estacionalidad.
+**SARIMA:** ARIMA + Seasonality.
 
-**Uso:** Series univariadas con patrones claros.
+**Usage:** Series univariadas con patrones claros.
 
 📹 **Videos recomendados:**
 
@@ -192,7 +192,7 @@ Promedio de últimos `n` valores.
 
 ### Prophet (Facebook)
 
-Modelo aditivo generalizado diseñado para series con estacionalidad fuerte y feriados.
+Model aditivo generalizado diseñado para series con Seasonality fuerte y feriados.
 
 **Ventajas:**
 
@@ -206,13 +206,13 @@ Modelo aditivo generalizado diseñado para series con estacionalidad fuerte y fe
 
 1. [Prophet Tutorial - Data Science Garage](https://www.youtube.com/watch?v=pOYAXv15r3A) - 20 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [Prophet Docs](https://facebook.github.io/prophet/)
 
 ### Machine Learning con features temporales
 
-Usar algoritmos clásicos (Random Forest, XGBoost) con features temporales como lags, rolling stats, features de fecha.
+Usar Algorithms clásicos (Random Forest, XGBoost) con features temporales como lags, rolling stats, features de fecha.
 
 **Ventajas:**
 
@@ -225,9 +225,9 @@ Usar algoritmos clásicos (Random Forest, XGBoost) con features temporales como 
 
 Redes recurrentes para secuencias.
 
-**Uso:** Series muy largas, múltiples series relacionadas.
+**Usage:** Series muy largas, múltiples series relacionadas.
 
-**Desventaja:** Requiere muchos datos y tuning.
+**Desventaja:** Requiere muchos Data y tuning.
 
 📹 **Videos recomendados:**
 
@@ -236,26 +236,26 @@ Redes recurrentes para secuencias.
 
 ______________________________________________________________________
 
-## 6. Métricas de forecasting
+## 6. Metrics de forecasting
 
-### MAE (Mean Absolute Error)
+### MAE (Mean Absolute error)
 
 ```
 MAE = (1/n) Σ |y_true - y_pred|
 ```
 
 - Fácil de interpretar (en mismas unidades que `y`).
-- Trata todos los errores igual.
+- Trata todos los Errors igual.
 
-### RMSE (Root Mean Squared Error)
+### RMSE (Root Mean Squared error)
 
 ```
 RMSE = √[(1/n) Σ (y_true - y_pred)²]
 ```
 
-- Penaliza errores grandes más fuertemente.
+- Penaliza Errors grandes más fuertemente.
 
-### MAPE (Mean Absolute Percentage Error)
+### MAPE (Mean Absolute Percentage error)
 
 ```
 MAPE = (100/n) Σ |(y_true - y_pred) / y_true|
@@ -264,13 +264,13 @@ MAPE = (100/n) Σ |(y_true - y_pred) / y_true|
 - Expresa error como %.
 - **Cuidado:** no funciona si `y_true` tiene ceros.
 
-### Elección de métrica
+### Elección de Metric
 
-- **MAE:** cuando todos los errores importan igual.
-- **RMSE:** cuando errores grandes son muy costosos.
+- **MAE:** cuando todos los Errors importan igual.
+- **RMSE:** cuando Errors grandes son muy costosos.
 - **MAPE:** cuando quieres error relativo (% de error).
 
-**Recomendación:** Usar múltiples métricas + visualización de predicciones.
+**Recomendación:** Usar múltiples Metrics + Visualization de Predictions.
 
 📹 **Videos recomendados:**
 
@@ -278,11 +278,11 @@ MAPE = (100/n) Σ |(y_true - y_pred) / y_true|
 
 ______________________________________________________________________
 
-## 7. Detección de anomalías
+## 7. Detección de Anomalies
 
-### ¿Qué es una anomalía?
+### ¿Qué es una Anomaly?
 
-Punto de datos que se desvía significativamente del patrón normal.
+Punto de Data que se desvía significativamente del patrón normal.
 
 **Aplicaciones:**
 
@@ -322,12 +322,12 @@ if abs(z_score) > 3:
 
 **Autoencoders:**
 
-- Red neuronal que aprende a reconstruir datos normales.
-- Error de reconstrucción alto = anomalía.
+- Neural network que aprende a reconstruir Data normales.
+- error de reconstrucción alto = Anomaly.
 
 **DBSCAN Clustering:**
 
-- Puntos que no pertenecen a ningún cluster = anomalías.
+- Puntos que no pertenecen a ningún cluster = Anomalies.
 
 📹 **Videos recomendados:**
 
@@ -335,16 +335,16 @@ if abs(z_score) > 3:
 1. [Isolation Forest - Krish Naik](https://www.youtube.com/watch?v=5p8B2Ikcw-k) - 20 min
 1. [Autoencoders for Anomaly Detection](https://www.youtube.com/watch?v=2K3ScZp1dXQ) - 25 min
 
-📚 **Recursos escritos:**
+📚 **Resources escritos:**
 
 - [Scikit-learn Anomaly Detection](https://scikit-learn.org/stable/modules/outlier_detection.html)
 - [PyOD Library](https://pyod.readthedocs.io/) - biblioteca especializada
 
-### Métricas para anomalía
+### Metrics para Anomaly
 
-- **Precision:** de las que detecté como anomalías, ¿cuántas lo son realmente?
-- **Recall:** de las anomalías reales, ¿cuántas detecté?
-- **F1:** balance.
+- **Precision:** de las que detecté como Anomalies, ¿cuántas lo son realmente?
+- **recall:** de las Anomalies reales, ¿cuántas detecté?
+- **f1:** balance.
 
 **Trade-off:**
 
@@ -355,18 +355,18 @@ if abs(z_score) > 3:
 
 ______________________________________________________________________
 
-## 8. Buenas prácticas
+## 8. Buenas Practices
 
 - ✅ Siempre empezar con baseline simple (naive, seasonal naive).
 - ✅ Usar split temporal (no aleatorio).
 - ✅ Validar con time series cross-validation.
-- ✅ Visualizar predicciones junto con datos reales.
+- ✅ Visualizar Predictions junto con Data reales.
 - ✅ Monitorear drift: patrones cambian con el tiempo.
-- ✅ Re-entrenar modelos periódicamente con datos recientes.
+- ✅ Re-entrenar Models periódicamente con Data recientes.
 - ✅ Documentar frecuencia, unidades y transformaciones aplicadas.
-- ✅ Para anomalías, evaluar en producción (feedback loop).
+- ✅ Para Anomalies, evaluar en producción (feedback loop).
 
-📚 **Recursos generales:**
+📚 **Resources generales:**
 
 - [Forecasting: Principles and Practice (Book - Free)](https://otexts.com/fpp3/)
 - [Statsmodels Time Series Guide](https://www.statsmodels.org/stable/tsa.html)
@@ -376,15 +376,15 @@ ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente módulo, deberías poder:
+Antes de pasar al siguiente Module, deberías poder:
 
-- ✅ Identificar tendencia, estacionalidad y ruido en un gráfico.
-- ✅ Explicar por qué split aleatorio es incorrecto en series temporales.
+- ✅ Identificar Trend, Seasonality y ruido en un gráfico.
+- ✅ Explicar por qué split aleatorio es incorrecto en time series.
 - ✅ Construir features temporales (lags, rolling stats, features de fecha).
-- ✅ Implementar baseline naive y comparar con modelos complejos.
-- ✅ Elegir métrica de forecasting apropiada (MAE, RMSE, MAPE).
-- ✅ Detectar anomalías usando umbrales dinámicos o Isolation Forest.
+- ✅ Implementar baseline naive y comparar con Models complejos.
+- ✅ Elegir Metric de forecasting apropiada (MAE, RMSE, MAPE).
+- ✅ Detectar Anomalies usando umbrales dinámicos o Isolation Forest.
 - ✅ Justificar trade-off precision/recall según contexto de negocio.
 - ✅ Implementar time series cross-validation con scikit-learn.
 
-Si respondiste "sí" a todas, estás listo para aplicaciones avanzadas de series temporales.
+Si respondiste "sí" a todas, estás listo para aplicaciones avanzadas de time series.

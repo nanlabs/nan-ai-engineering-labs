@@ -2,7 +2,7 @@
 
 ## Project
 
-Regresión lineal explicada desde cero: de los datos a la métrica.
+Regresión lineal explicada desde cero: de los Data a la Metric.
 
 ## Objective
 
@@ -11,20 +11,20 @@ Construir un proyecto simple y completo para demostrar dominio de fundamentos ma
 ## Scope
 
 - Dataset pequeño (real o sintético).
-- Limpieza mínima y análisis exploratorio.
-- Entrenamiento de regresión lineal.
-- Evaluación con MSE y MAE.
-- Interpretación de resultados.
+- Cleaning mínima y Analysis exploratorio.
+- Training de regresión lineal.
+- Evaluation con MSE y MAE.
+- Interpretación de Results.
 
 ## Deliverables
 
 - Notebook o script reproducible.
 - README técnico del proyecto.
-- Sección de lecciones aprendidas.
+- Section de Lessons aprendidas.
 
 ## Acceptance criteria
 
-- Corre de principio a fin sin errores.
-- Métricas calculadas e interpretadas correctamente.
+- Corre de principio a fin sin Errors.
+- Metrics calculadas e interpretadas correctamente.
 - Explica al menos 3 decisiones técnicas tomadas.
 - Incluye mejoras futuras propuestas.

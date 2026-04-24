@@ -1,10 +1,10 @@
-# Ejemplo 1 — Vectores y producto punto
+# Example 1 — Vectores y producto punto
 
 ## Objective
 
 Representar vectores usando NumPy y calcular similitud básica entre ellos mediante el producto punto (dot product).
 
-## Conceptos previos
+## Concepts previos
 
 - Un **vector** es una lista ordenada de números.
 - El **producto punto** de dos vectores mide su similitud direccional.
@@ -76,8 +76,8 @@ Similitud coseno: 1.0281
 
 ### 6. Interpretación
 
-- Un valor cercano a 1 indica que ambos productos son muy similares en sus características.
-- Esto lo usamos en ML para medir similitud entre embeddings de textos, imágenes, etc.
+- Un valor cercano a 1 indica que ambos productos son muy similares en sus Features.
+- Esto lo usamos en ML para medir similitud entre embeddings de textos, Images, etc.
 
 ## Código completo ejecutable
 
@@ -102,13 +102,13 @@ similitud_coseno = similitud / (norma_a * norma_b)
 print(f"Similitud coseno: {similitud_coseno:.4f}")
 ```
 
-## Errores comunes
+## Errors comunes
 
 - ❌ Olvidar que los vectores deben tener la misma dimensión.
 - ❌ Confundir producto punto con multiplicación elemento a elemento (`*`).
 - ❌ No normalizar antes de calcular coseno (usar normas).
 
-## Ejercicio propuesto
+## Exercise propuesto
 
 Crea dos vectores que representen usuarios según sus preferencias de géneros de películas:
 

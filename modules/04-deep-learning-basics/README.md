@@ -1,35 +1,35 @@
 # Deep Learning Basics
 
-## 🎯 Objetivo del módulo
+## 🎯 Objective del Module
 
-Entender los fundamentos de deep learning para construir, entrenar y evaluar redes neuronales simples con criterio técnico.
+Entender los fundamentos de deep learning para construir, entrenar y evaluar neural networks simples con criterio técnico.
 
 ## 💡 Qué vas a lograr
 
-- Comprender neuronas artificiales, capas y funciones de activación (ReLU, Sigmoid, Tanh)
-- Entrenar redes neuronales con PyTorch (nn.Module, optimizers, loss functions)
-- Construir CNNs para clasificación de imágenes (Conv2d, MaxPool, arquitecturas depth)
-- Identificar overfitting y aplicar regularización (Dropout, BatchNorm, L2)
-- Usar modelos pre-entrenados con transfer learning (ResNet, VGG)
-- Evaluar con curvas de aprendizaje y test accuracy
+- Comprender Neurons artificiales, Layers y Functions de Activation (ReLU, Sigmoid, Tanh)
+- Entrenar neural networks con PyTorch (nn.Module, optimizers, loss functions)
+- Construir CNNs para Classification de Images (Conv2d, MaxPool, arquitecturas depth)
+- Identificar overfitting y aplicar Regularization (Dropout, BatchNorm, L2)
+- Usar Models pre-entrenados con transfer learning (ResNet, VGG)
+- Evaluar con curvas de Learning y test accuracy
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos teóricos (backpropagation, arquitecturas, regularización)
-- **examples/**: ejemplos guiados con PyTorch
-- **practices/**: ejercicios hands-on
-  - 01: Redes Neuronales con PyTorch (nn.Module, training loop, optimizers comparison, early stopping)
+- **theory/**: fundamentos teóricos (backpropagation, arquitecturas, Regularization)
+- **examples/**: Examples guiados con PyTorch
+- **practices/**: Exercises hands-on
+  - 01: neural networks con PyTorch (nn.Module, training loop, optimizers comparison, early stopping)
   - 02: CNNs y Transfer Learning (arquitecturas convolucionales, data augmentation, fine-tuning, Grad-CAM)
-- **mini-project/**: clasificador de imágenes completo
+- **mini-project/**: Classifier de Images completo
 - **evaluation/**: checklist y rúbrica
-- **notes/**: arquitecturas experimentadas y resultados
+- **notes/**: arquitecturas experimentadas y Results
 
 ## Level path (L1-L4)
 
 - L1 Fundamentos: arquitectura básica de redes y forward pass.
-- L2 Aplicado: entrenamiento con backpropagation en frameworks modernos.
-- L3 Avanzado: regularización, tuning y debugging de entrenamiento.
-- L4 Senior: decisiones de arquitectura por costo, precisión y tiempo.
+- L2 Aplicado: Training con backpropagation en frameworks modernos.
+- L3 Avanzado: Regularization, tuning y debugging de Training.
+- L4 Senior: decisiones de arquitectura por costo, Precision y tiempo.
 
 ## Migración
 
@@ -37,19 +37,19 @@ Entender los fundamentos de deep learning para construir, entrenar y evaluar red
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: conceptos base de redes neuronales.
-- Semana 2: entrenamiento de MLP para clasificación.
-- Semana 3: ajuste de hiperparámetros y control de overfitting.
-- Semana 4: mini-proyecto + evaluación final.
+- Semana 1: Concepts base de neural networks.
+- Semana 2: Training de MLP para Classification.
+- Semana 3: ajuste de Hyperparameters y control de overfitting.
+- Semana 4: Mini-project + Evaluation final.
 
-## ✅ Criterio de módulo completado
+## ✅ Criterio de Module completado
 
-- 2 prácticas resueltas y validadas
-- Mini-proyecto funcionando con >90% accuracy
-- Evaluación final aprobada (>=70/100)
-- Demostrar: construcción de arquitecturas, training loops, regularización, transfer learning
+- 2 Practices resueltas y validadas
+- Mini-project funcionando con >90% accuracy
+- Evaluation final aprobada (>=70/100)
+- Demostrar: construcción de arquitecturas, training loops, Regularization, transfer learning
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Framework:**
 
@@ -66,9 +66,9 @@ Entender los fundamentos de deep learning para construir, entrenar y evaluar red
 - [ImageNet Classification with Deep CNNs (AlexNet)](https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 - [Deep Residual Learning (ResNet)](https://arxiv.org/abs/1512.03385)
 
-## 🚀 Próximo Módulo
+## 🚀 Próximo Module
 
-**Módulo 05: NLP & Large Language Models** - Procesamiento de lenguaje natural
+**Module 05: NLP & Large Language Models** - Procesamiento de lenguaje natural
 
 ## Module objective
 

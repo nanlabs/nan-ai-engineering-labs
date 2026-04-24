@@ -1,12 +1,12 @@
-# Ejemplo 02 — Detección de Anomalías en Series Temporales
+# Example 02 — Detección de Anomalies en time series
 
 ## Contexto
 
-Las anomalías son observaciones que se desvían significativamente del comportamiento normal. Aprenderás técnicas estadísticas, basadas en ML y deep learning para detectar anomalías en series temporales.
+Las Anomalies son observaciones que se desvían significativamente del comportamiento normal. Aprenderás técnicas estadísticas, basadas en ML y deep learning para detectar Anomalies en time series.
 
 ## Objective
 
-Detectar transacciones fraudulentas, fallas de servidores o comportamientos anómalos en datos temporales.
+Detectar transacciones fraudulentas, fallas de servidores o comportamientos anómalos en Data temporales.
 
 ______________________________________________________________________
 
@@ -29,7 +29,7 @@ sns.set_style('whitegrid')
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Generar datos con anomalías
+## 📥 Paso 2: Generar Data con Anomalies
 
 ```python
 # Serie temporal normal
@@ -87,7 +87,7 @@ Anomalías inyectadas: 18 (4.93%)
 
 ______________________________________________________________________
 
-## 📊 Paso 3: Visualizar datos
+## 📊 Paso 3: Visualizar Data
 
 ```python
 plt.figure(figsize=(16, 6))
@@ -193,7 +193,7 @@ ______________________________________________________________________
 
 ## 🤖 Técnica 2: Isolation Forest (ML)
 
-### 2.1 Feature engineering para series temporales
+### 2.1 Feature engineering para time series
 
 ```python
 # Crear features:
@@ -363,7 +363,7 @@ ______________________________________________________________________
 
 ## 🧠 Técnica 4: LSTM Autoencoder (Deep Learning)
 
-### 4.1 Preparar datos para LSTM
+### 4.1 Preparar Data para LSTM
 
 ```python
 import torch
@@ -487,7 +487,7 @@ Epoch [50/50], Loss: 0.003456
 ✅ Entrenamiento completado
 ```
 
-### 4.4 Detección de anomalías con reconstruction error
+### 4.4 Detección de Anomalies con reconstruction error
 
 ```python
 # Predecir (reconstruir)
@@ -592,62 +592,62 @@ ______________________________________________________________________
 
 ### ✅ Comparación de métodos
 
-| Método               | Precision | Recall | F1-Score | Ventajas                                                 | Desventajas                                             |
+| Método               | Precision | recall | f1-Score | Ventajas                                                 | Desventajas                                             |
 | -------------------- | --------- | ------ | -------- | -------------------------------------------------------- | ------------------------------------------------------- |
 | **Z-Score**          | 0.88      | 0.83   | 0.85     | Simple, rápido                                           | Asume distribución normal, no captura contexto temporal |
 | **IQR**              | 0.49      | 0.94   | 0.64     | Robusto a outliers                                       | Muchos falsos positivos                                 |
 | **Isolation Forest** | 0.50      | 0.94   | 0.65     | No asume distribución, maneja multi-dimensional          | Requiere feature engineering                            |
-| **LSTM Autoencoder** | 0.75      | 0.89   | 0.81     | Captura patrones temporales, detecta anomalías complejas | Lento, requiere datos                                   |
+| **LSTM Autoencoder** | 0.75      | 0.89   | 0.81     | Captura patrones temporales, detecta Anomalies complejas | Lento, requiere Data                                   |
 
 ### 🎯 Cuándo usar cada método
 
 **Z-Score / IQR:**
 
 - ✅ Baseline rápido
-- ✅ Anomalías point (valores extremos)
+- ✅ Anomalies point (valores extremos)
 - ✅ Series estacionarias
 
 **Isolation Forest:**
 
-- ✅ Anomalías complejas (multi-dimensional)
-- ✅ No asume distribución de datos
+- ✅ Anomalies complejas (multi-dimensional)
+- ✅ No asume distribución de Data
 - ✅ Datasets medianos-grandes
 
 **LSTM Autoencoder:**
 
-- ✅ Anomalías contextuales (dependen de secuencia)
+- ✅ Anomalies contextuales (dependen de secuencia)
 - ✅ Patrones temporales complejos
 - ✅ Datasets muy grandes (>10k puntos)
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
-### ✅ Tipos de anomalías
+### ✅ Types de Anomalies
 
 1. **Point Anomalies:**
 
    - Valores individuales extremos
-   - Ejemplo: Temperatura de 100°C en invierno
+   - Example: Temperatura de 100°C en invierno
    - **Detectar con:** Z-Score,IQR
 
 1. **Contextual Anomalies:**
 
    - Valores anómalos según contexto
-   - Ejemplo: Tráfico bajo a las 3 PM (normal a las 3 AM)
+   - Example: Tráfico bajo a las 3 PM (normal a las 3 AM)
    - **Detectar con:** LSTM, Prophet residuals
 
 1. **Collective Anomalies:**
 
    - Secuencia de valores anómalos
-   - Ejemplo: Caída sostenida de 24 horas
+   - Example: Caída sostenida de 24 horas
    - **Detectar con:** LSTM, Change Point Detection
 
 ### ✅ Desafíos
 
-1. **Class imbalance:** Anomalías son raras (~1-5%)
+1. **Class imbalance:** Anomalies son raras (~1-5%)
 
-   - **Solución:** Usar métricas apropiadas (Precision, Recall, F1), no solo Accuracy
+   - **Solución:** Usar Metrics apropiadas (Precision, recall, f1), no solo accuracy
 
 1. **Definir threshold:**
 
@@ -658,7 +658,7 @@ ______________________________________________________________________
 1. **Falsos positivos:**
 
    - IQR genera muchos FP (alta sensibilidad)
-   - **Solución:** Ensemble de métodos, validación humana
+   - **Solución:** Ensemble de métodos, Validation humana
 
 ### 💡 Mejoras adicionales
 
@@ -671,17 +671,17 @@ df['anomaly_ensemble'] = (
 ).astype(int)
 ```
 
-1. **Seasonal Hybrid ESD (S-H-ESD):** Detecta anomalías considerando estacionalidad
-1. **Prophet:** Usar residuals como anomalías
+1. **Seasonal Hybrid ESD (S-H-ESD):** Detecta Anomalies considerando Seasonality
+1. **Prophet:** Usar residuals como Anomalies
 1. **Transformer Autoencoder:** Más poderoso que LSTM
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ Usar Z-Score en series no estacionarias
-- ❌ No considerar estacionalidad
+- ❌ No considerar Seasonality
 - ❌ Threshold fijo para todas las series
 - ❌ No validar detecciones (muchos FP)
-- ❌ Entrenar LSTM con anomalías (contamina el modelo)
+- ❌ Entrenar LSTM con Anomalies (contamina el Model)
 
 ______________________________________________________________________
 
@@ -730,15 +730,15 @@ anomaly_results = anomaly_detection_pipeline(df, 'value', methods=['zscore', 'is
 print(anomaly_results.sum())
 ```
 
-### 📌 Checklist detección de anomalías
+### 📌 Checklist detección de Anomalies
 
-- ✅ Entender tipos de anomalías (point, contextual, collective)
-- ✅ Visualizar datos antes de modelar
-- ✅ Considerar estacionalidad y tendencia
+- ✅ Entender Types de Anomalies (point, contextual, collective)
+- ✅ Visualizar Data antes de modelar
+- ✅ Considerar Seasonality y Trend
 - ✅ Probar múltiples métodos (baseline estadístico + ML)
 - ✅ Feature engineering para métodos ML
 - ✅ Tuning de threshold (validar con domain expert)
-- ✅ Evaluar con Precision/Recall/F1 (no Accuracy)
+- ✅ Evaluar con Precision/recall/f1 (no accuracy)
 - ✅ Visualizar detecciones para sanity check
 - ✅ Implementar alerting en producción
-- ✅ Feedback loop para mejorar modelos
+- ✅ Feedback loop para mejorar Models

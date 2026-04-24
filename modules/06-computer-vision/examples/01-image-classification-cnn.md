@@ -1,12 +1,12 @@
-# Ejemplo 01 — Clasificación de Imágenes con CNN (CIFAR-10)
+# Example 01 — Classification de Images con CNN (CIFAR-10)
 
 ## Contexto
 
-Aprenderás a construir una **Convolutional Neural Network (CNN)** desde cero para clasificar imágenes. Las CNNs son el estándar para visión por computadora gracias a su capacidad de detectar patrones espaciales (bordes, texturas, formas).
+Aprenderás a construir una **Convolutional Neural Network (CNN)** desde cero para clasificar Images. Las CNNs son el estándar para visión por computadora gracias a su capacidad de detectar patrones espaciales (bordes, texturas, formas).
 
 ## Objective
 
-Clasificar imágenes de CIFAR-10 (10 clases: aviones, autos, pájaros, gatos, etc.) usando una CNN custom.
+Clasificar Images de CIFAR-10 (10 clases: aviones, autos, pájaros, gatos, etc.) usando una CNN custom.
 
 ______________________________________________________________________
 
@@ -68,7 +68,7 @@ Train: 50000 imágenes
 Test: 10000 imágenes
 ```
 
-### 2.2 Visualizar ejemplos
+### 2.2 Visualizar Examples
 
 ```python
 # Función para desnormalizar
@@ -217,10 +217,10 @@ Total de parámetros: 1,439,946
 **¿Por qué esta arquitectura?**
 
 - **Conv layers:** Detectan features (bordes, texturas, formas)
-- **BatchNorm:** Normaliza activaciones → entrenamiento más estable
+- **BatchNorm:** Normaliza activaciones → Training más estable
 - **MaxPool:** Reduce dimensionalidad, invarianza a traslaciones
 - **Dropout:** Previene overfitting
-- **FC layers:** Combinan features para clasificación final
+- **FC layers:** Combinan features para Classification final
 
 ______________________________________________________________________
 
@@ -236,7 +236,7 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0
 
 ______________________________________________________________________
 
-## 🏋️ Paso 5: Entrenamiento
+## 🏋️ Paso 5: Training
 
 ```python
 def train_epoch(model, loader, criterion, optimizer, device):
@@ -364,9 +364,9 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🔍 Paso 7: Predicción y matriz de confusión
+## 🔍 Paso 7: Prediction y Confusion matrix
 
-### 7.1 Predicciones en test set
+### 7.1 Predictions en test set
 
 ```python
 # Obtener predicciones para todo el test set
@@ -387,7 +387,7 @@ all_preds = np.array(all_preds)
 all_labels = np.array(all_labels)
 ```
 
-### 7.2 Matriz de confusión
+### 7.2 Confusion matrix
 
 ```python
 from sklearn.metrics import confusion_matrix, classification_report
@@ -432,14 +432,14 @@ print(classification_report(all_labels, all_preds, target_names=classes))
 weighted avg       0.79      0.79      0.79     10000
 ```
 
-**Análisis:**
+**Analysis:**
 
 - Gato y perro: Peor performance (se parecen visualmente)
 - Auto, camión, avión: Mejor performance (formas distintivas)
 
 ______________________________________________________________________
 
-## 🎨 Paso 8: Visualizar predicciones incorrectas
+## 🎨 Paso 8: Visualizar Predictions incorrectas
 
 ```python
 # Encontrar predicciones incorrectas
@@ -470,11 +470,11 @@ ______________________________________________________________________
 
 ## 📝 Resumen ejecutivo
 
-### ✅ Resultados
+### ✅ Results
 
-- **Test Accuracy:** 79.34%
-- **Train Accuracy:** 88.12%
-- **Overfitting gap:** ~9% (aceptable con data augmentation)
+- **Test accuracy:** 79.34%
+- **Train accuracy:** 88.12%
+- **overfitting gap:** ~9% (aceptable con data augmentation)
 - **Parámetros:** 1.44M
 
 ### 🏗️ Arquitectura CNN
@@ -507,12 +507,12 @@ FC(10) → Logits
 
 1. **Batch Normalization:**
 
-   - Normaliza activaciones entre capas
-   - **Efecto:** Entrenamiento más estable y rápido
+   - Normaliza activaciones entre Layers
+   - **Efecto:** Training más estable y rápido
 
 1. **Dropout (0.5):**
 
-   - Desactiva neuronas aleatoriamente
+   - Desactiva Neurons aleatoriamente
    - **Efecto:** Previene overfitting
 
 1. **Learning Rate Scheduling:**
@@ -527,15 +527,15 @@ FC(10) → Logits
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
 ### ✅ Componentes de CNNs
 
 **Convolutional Layer:**
 
 - **Parámetros:** `(kernel_size × kernel_size × in_channels + 1) × out_channels`
-- **Ejemplo:** Conv2d(3, 32, kernel_size=3) → (3×3×3 + 1) × 32 = 896 parámetros
-- **Función:** Detectar features locales (bordes, texturas)
+- **Example:** Conv2d(3, 32, kernel_size=3) → (3×3×3 + 1) × 32 = 896 parámetros
+- **Function:** Detectar features locales (bordes, texturas)
 
 **MaxPooling:**
 
@@ -544,8 +544,8 @@ ______________________________________________________________________
 
 **Batch Normalization:**
 
-- **Ventajas:** Acelera entrenamiento, permite LR más altos, reduce overfitting leve
-- **Ubicación:** Antes o después de activación (experimentar)
+- **Ventajas:** Acelera Training, permite LR más altos, reduce overfitting leve
+- **Ubicación:** Antes o después de Activation (experimentar)
 
 **Dropout:**
 
@@ -565,7 +565,7 @@ ______________________________________________________________________
 
 1. **Transfer Learning:**
 
-   - Usar modelo preentrenado (ResNet50, EfficientNet)
+   - Usar Model preentrenado (ResNet50, EfficientNet)
    - Fine-tuning en CIFAR-10
 
 1. **Mixup / CutMix:**
@@ -577,17 +577,17 @@ ______________________________________________________________________
    - SGD con momentum
    - AdamW
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ **Padding incorrecto:** Perder información en bordes
 - ❌ **Demasiados MaxPools:** Reducir dimensión demasiado rápido
-- ❌ **No usar BN:** Entrenamiento inestable
-- ❌ **Dropout en últimas capas conv:** Puede dañar features espaciales
+- ❌ **No usar BN:** Training inestable
+- ❌ **Dropout en últimas Layers conv:** Puede dañar features espaciales
 - ❌ **LR muy alto:** Diverge (especialmente sin BN)
 
 ______________________________________________________________________
 
-## 🔧 Guardar y cargar modelo
+## 🔧 Guardar y cargar Model
 
 ```python
 # Guardar
@@ -609,12 +609,12 @@ print(f"Modelo cargado. Test Acc: {checkpoint['test_acc']:.2f}%")
 ### 📌 Checklist CNN
 
 - ✅ Data augmentation (train only)
-- ✅ Normalización de píxeles (ImageNet stats o custom)
-- ✅ Batch Normalization entre capas
+- ✅ Normalization de Pixels (ImageNet stats o custom)
+- ✅ Batch Normalization entre Layers
 - ✅ Dropout en FC layers
 - ✅ Learning rate scheduling
 - ✅ Weight decay (L2 reg)
-- ✅ Validación en cada época
+- ✅ Validation en cada época
 - ✅ Guardar checkpoints
-- ✅ Visualizar predicciones incorrectas
-- ✅ Matriz de confusión para análisis por clase
+- ✅ Visualizar Predictions incorrectas
+- ✅ Confusion matrix para Analysis por clase

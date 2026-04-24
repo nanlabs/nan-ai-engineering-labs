@@ -1,12 +1,12 @@
-# Ejemplo 01 — Detección de Bias y Métricas de Fairness
+# Example 01 — Detección de Bias y Metrics de Fairness
 
 ## Contexto
 
-Los modelos ML pueden perpetuar o amplificar sesgos presentes en datos de entrenamiento, resultando en decisiones discriminatorias.
+Los Models ML pueden perpetuar o amplificar sesgos presentes en Data de Training, resultando en decisiones discriminatorias.
 
 ## Objective
 
-Detectar y medir bias en modelo de aprobación de crédito usando métricas de fairness.
+Detectar y medir bias en Model de aprobación de crédito usando Metrics de fairness.
 
 ______________________________________________________________________
 
@@ -26,7 +26,7 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📚 Generar datos sintéticos
+## 📚 Generar Data sintéticos
 
 ```python
 # Simulación de solicitudes de crédito
@@ -91,7 +91,7 @@ F       Group_A    1           125
 
 ______________________________________________________________________
 
-## 🤖 Entrenar modelo
+## 🤖 Entrenar Model
 
 ```python
 # Features (excluir protected attributes para training)
@@ -131,7 +131,7 @@ Accuracy: 0.8867
 
 ______________________________________________________________________
 
-## ⚖️ Métricas de Fairness
+## ⚖️ Metrics de Fairness
 
 ### 1. Demographic Parity (Statistical Parity)
 
@@ -300,7 +300,7 @@ Disparidad: 0.0667 (ideal < 0.1)
 
 ______________________________________________________________________
 
-## 📊 Visualización de Bias
+## 📊 Visualization de Bias
 
 ```python
 # Crear DataFrame con resultados
@@ -337,7 +337,7 @@ plt.savefig('bias_approval_rates.png', dpi=150)
 plt.show()
 ```
 
-### Matriz de confusión por grupo
+### Confusion matrix por grupo
 
 ```python
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -452,12 +452,12 @@ ______________________________________________________________________
 
 ## 📝 Resumen
 
-### ✅ Métricas de Fairness
+### ✅ Metrics de Fairness
 
-| Métrica                | Definición                              | Cuándo usar                                       |
+| Metric                | Definición                              | Cuándo usar                                       |
 | ---------------------- | --------------------------------------- | ------------------------------------------------- |
 | **Demographic Parity** | P(Ŷ=1\|A=a) igual para todos los grupos | Decisiones que no afectan proporción de población |
-| **Equalized Odds**     | TPR y FPR iguales entre grupos          | Errores (FP y FN) tienen mismo costo              |
+| **Equalized Odds**     | TPR y FPR iguales entre grupos          | Errors (FP y FN) tienen mismo costo              |
 | **Equal Opportunity**  | Solo TPR igual entre grupos             | FP menos grave que FN (ej: screening médico)      |
 
 ### 🎯 Trade-offs
@@ -467,19 +467,19 @@ Fairness ↑ ⟷ Accuracy ↓
 ```
 
 - Mitigar bias puede reducir accuracy general
-- Importante: definir qué métrica de fairness es prioritaria
+- Importante: definir qué Metric de fairness es prioritaria
 - No existe "universal fairness" - depende del contexto
 
-### 💡 Mejores prácticas
+### 💡 Mejores Practices
 
 - ✅ Identificar protected attributes (género, etnia, edad)
 - ✅ Medir ANTES de deployment
-- ✅ Evaluar múltiples métricas de fairness
+- ✅ Evaluar múltiples Metrics de fairness
 - ✅ Documentar trade-offs (accuracy vs fairness)
 - ✅ Re-evaluar periódicamente (drift de fairness)
 - ✅ Auditorías externas cuando posible
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ Remover protected attributes sin más (proxy variables persisten)
 - ❌ Solo medir accuracy (ignora disparidades por grupo)
@@ -510,10 +510,10 @@ Fairness ↑ ⟷ Accuracy ↓
 - ✅ Protected attributes identificados
 - ✅ Demographic Parity evaluado
 - ✅ Equalized Odds evaluado
-- ✅ Visualización de disparidades
+- ✅ Visualization de disparidades
 - ✅ Trade-off accuracy/fairness documentado
 - ✅ Técnica de mitigación aplicada
-- ✅ Validación en datos históricos
+- ✅ Validation en Data históricos
 - ✅ Plan de monitoreo continuo
 
 ### ⚠️ Legal y ético

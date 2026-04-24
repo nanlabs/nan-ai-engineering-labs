@@ -1,12 +1,12 @@
-# Ejemplo 01 — Pronóstico de Series Temporales con ARIMA y Prophet
+# Example 01 — Forecast de time series con ARIMA y Prophet
 
 ## Contexto
 
-Las series temporales son datos ordenados en el tiempo (ventas, temperatura, tráfico web). Aprenderás a hacer pronósticos usando **ARIMA** (estadístico clásico) y **Prophet** (desarrollado por Facebook).
+Las time series son Data ordenados en el tiempo (ventas, temperatura, tráfico web). Aprenderás a hacer Forecasts usando **ARIMA** (estadístico clásico) y **Prophet** (desarrollado por Facebook).
 
 ## Objective
 
-Pronosticar ventas futuras usando datos históricos.
+Pronosticar ventas futuras usando Data históricos.
 
 ______________________________________________________________________
 
@@ -31,7 +31,7 @@ sns.set_style('whitegrid')
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Generar datos de ejemplo (ventas diarias)
+## 📥 Paso 2: Generar Data de Example (ventas diarias)
 
 ```python
 # Generar serie temporal sintética
@@ -87,7 +87,7 @@ max      215.678901
 
 ______________________________________________________________________
 
-## 📊 Paso 3: Exploración y visualización
+## 📊 Paso 3: Exploration y Visualization
 
 ### 3.1 Plot de la serie
 
@@ -133,8 +133,8 @@ plt.show()
 
 **Interpretación:**
 
-- **Tendencia:** Crecimiento lineal claro
-- **Estacionalidad:** Patrón anual (picos cada ~365 días)
+- **Trend:** Crecimiento lineal claro
+- **Seasonality:** Patrón anual (picos cada ~365 días)
 - **Residuos:** Ruido aleatorio (idealmente sin patrón)
 
 ______________________________________________________________________
@@ -247,7 +247,7 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🏋️ Paso 6: Entrenar modelo ARIMA
+## 🏋️ Paso 6: Entrenar Model ARIMA
 
 ### 6.1 Split train/test
 
@@ -287,7 +287,7 @@ ma.L1         -0.8912      0.023    -38.745      0.000
 ...
 ```
 
-### 6.3 Pronóstico
+### 6.3 Forecast
 
 ```python
 # Pronosticar 90 días
@@ -310,7 +310,7 @@ MAE:  12.34
 RMSE: 15.67
 ```
 
-### 6.4 Visualizar predicciones
+### 6.4 Visualizar Predictions
 
 ```python
 plt.figure(figsize=(14, 6))
@@ -335,9 +335,9 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🔮 Paso 7: Prophet (más robusto para estacionalidad)
+## 🔮 Paso 7: Prophet (más robusto para Seasonality)
 
-### 7.1 Preparar datos para Prophet
+### 7.1 Preparar Data para Prophet
 
 ```python
 # Prophet espera columnas 'ds' (date) y 'y' (value)
@@ -366,7 +366,7 @@ model_prophet.fit(train_prophet)
 print("✅ Modelo Prophet entrenado")
 ```
 
-### 7.3 Pronóstico
+### 7.3 Forecast
 
 ```python
 # Crear dataframe para fechas futuras
@@ -410,7 +410,7 @@ plt.show()
 
 ______________________________________________________________________
 
-## 📊 Paso 8: Comparar modelos
+## 📊 Paso 8: Comparar Models
 
 ```python
 # Tabla comparativa
@@ -480,14 +480,14 @@ ______________________________________________________________________
 
 ## 📝 Resumen ejecutivo
 
-### ✅ Resultados
+### ✅ Results
 
-| Modelo           | MAE      | RMSE      | Ventajas                                                     |
+| Model           | MAE      | RMSE      | Ventajas                                                     |
 | ---------------- | -------- | --------- | ------------------------------------------------------------ |
 | **ARIMA(1,1,1)** | 12.34    | 15.67     | Simple, interpretable                                        |
-| **Prophet**      | **8.12** | **10.45** | Maneja múltiples estacionalidades, robusto a datos faltantes |
+| **Prophet**      | **8.12** | **10.45** | Maneja múltiples estacionalidades, robusto a Data faltantes |
 
-### 🎯 Pipeline de pronóstico
+### 🎯 Pipeline de Forecast
 
 ```
 Serie temporal cruda
@@ -511,7 +511,7 @@ Pronosticar futuro
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons aprendidas
 
 ### ✅ ARIMA
 
@@ -519,7 +519,7 @@ ______________________________________________________________________
 
 - **AR (AutoRegressive):** Usa valores pasados (p lags)
 - **I (Integrated):** Diferenciación para hacer serie estacionaria (d veces)
-- **MA (Moving Average):** Usa errores pasados (q lags)
+- **MA (Moving Average):** Usa Errors pasados (q lags)
 
 **Parámetros:**
 
@@ -530,8 +530,8 @@ ______________________________________________________________________
 **Cuándo usar:**
 
 - Serie estacionaria (o puede hacerse estacionaria)
-- Estacionalidad simple
-- Pocos datos faltantes
+- Seasonality simple
+- Pocos Data faltantes
 
 **Limitaciones:**
 
@@ -544,7 +544,7 @@ ______________________________________________________________________
 **Ventajas:**
 
 - ✅ Maneja múltiples estacionalidades (anual, mensual, semanal)
-- ✅ Robusto a datos faltantes y outliers
+- ✅ Robusto a Data faltantes y outliers
 - ✅ Intervalos de confianza automáticos
 - ✅ Fácil agregar regressors externos (holidays, eventos)
 
@@ -560,27 +560,27 @@ h(t): efectos de holidays
 **Parámetros importantes:**
 
 - `yearly_seasonality`: True/False
-- `changepoint_prior_scale`: Flexibilidad de tendencia (0.001-0.5)
-- `seasonality_prior_scale`: Fuerza de estacionalidad
+- `changepoint_prior_scale`: Flexibilidad de Trend (0.001-0.5)
+- `seasonality_prior_scale`: Fuerza de Seasonality
 
 **Cuándo usar:**
 
 - Series con tendencias no lineales
 - Múltiples estacionalidades
-- Datos faltantes frecuentes
+- Data faltantes frecuentes
 - Necesitas intervalos de confianza
 
 ### 💡 Mejoras adicionales
 
-1. **SARIMA:** ARIMA con estacionalidad explícita (p, d, q)(P, D, Q, s)
+1. **SARIMA:** ARIMA con Seasonality explícita (p, d, q)(P, D, Q, s)
 1. **LSTM/GRU:** Deep learning para series no lineales
 1. **XGBoost:** Con features de lag, rolling stats, fecha
 1. **Ensemble:** Combinar ARIMA + Prophet + ML
 
-### 🚫 Errores comunes
+### 🚫 Errors comunes
 
 - ❌ No verificar estacionariedad antes de ARIMA
-- ❌ Sobreajustar parámetros (usar grid search con validación cruzada)
+- ❌ Sobreajustar parámetros (usar grid search con Validation cruzada)
 - ❌ No considerar eventos externos (holidays, promociones)
 - ❌ Pronosticar muy lejos en el futuro (incertidumbre crece)
 
@@ -616,15 +616,15 @@ future_sales = forecast_pipeline(df, 'sales', forecast_days=90)
 print(future_sales.head())
 ```
 
-### 📌 Checklist de series temporales
+### 📌 Checklist de time series
 
-- ✅ Visualizar serie (tendencia, estacionalidad)
+- ✅ Visualizar serie (Trend, Seasonality)
 - ✅ Descomponer en componentes
 - ✅ Verificar estacionariedad (ADF test)
 - ✅ Diferenciar si es necesario
 - ✅ Identificar parámetros (ACF, PACF)
 - ✅ Split train/test temporal (NO random!)
-- ✅ Entrenar múltiples modelos
+- ✅ Entrenar múltiples Models
 - ✅ Evaluar con MAE/RMSE en test set
-- ✅ Visualizar predicciones vs reales
+- ✅ Visualizar Predictions vs reales
 - ✅ Reportar intervalos de confianza
