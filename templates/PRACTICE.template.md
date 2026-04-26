@@ -1,11 +1,11 @@
-# Práctica {{N}}
+# Practice {{N}}
 
-## Enunciado
+## Statement
 
-## Objetivo técnico
+## Technical objective
 
 ## Pasos sugeridos
 
-## Criterios de validación
+## Validation Criteria
 
-## Reflexión final
+## Final reflection

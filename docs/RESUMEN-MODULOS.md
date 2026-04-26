@@ -1,103 +1,103 @@
-# Resumen de módulos — Training AI
+# Module Summary — Training AI
 
-Este documento centraliza qué se aprende en cada módulo del recorrido vigente (`modules/`) y qué resultado deberías alcanzar para considerarte en nivel avanzado al finalizar.
+This document centralizes what is learned in each Module of the current course (`modules/`) and what Result you should achieve to consider yourself at an advanced level upon completion.
 
-## Estado actual (2026-03-05)
+## Status actual (2026-03-05)
 
-- Módulos creados: 12/12.
-- Estado reportado por módulo: `En progreso`.
-- Nivel reportado por módulo: `L1`.
-- Mini-proyectos validados: 0/12.
-- Evaluaciones finales aprobadas: 0/12.
+- Modules created: 12/12.
+- Status reported by Module: `In progress`.
+- Level reported by Module: `L1`.
+- Validated mini-projects: 0/12.
+- Final evaluations approved: 0/12.
 
-## Resumen por módulo
+## Summary by Module
 
-### 01) Programación y matemática para ML
+### 01) Programming and math for ML
 
-- **Vas a aprender:** Python para datos (`NumPy`, `Pandas`, `Matplotlib`), álgebra lineal, cálculo y probabilidad aplicada.
-- **Aplicación práctica:** implementación de operaciones matemáticas y regresión lineal desde cero.
-- **Nivel avanzado al cerrar:** justificás decisiones numéricas, controlás reproducibilidad y explicás trade-offs técnicos.
+- **You will learn:** Python for Data (`NumPy`, `Pandas`, `Matplotlib`), linear algebra, calculation and applied probability.
+- **Application Practice:** implementation of math operations and linear regression from zero.
+- **Advanced level upon closing:** you justify decisions numerically, you control reproducibility and you explain trade-offs technicians.
 
 ### 02) Data collection, cleaning & visualization
 
-- **Vas a aprender:** ingesta, perfilado, limpieza de nulos/duplicados, tratamiento de outliers y EDA visual.
-- **Aplicación práctica:** pipeline de calidad de datos con criterios claros de transformación.
-- **Nivel avanzado al cerrar:** defendés decisiones de calidad con evidencia y visualizaciones accionables.
+- **You will learn:** ingestion, profiling, cleaning of nulls/duplicates, treatment of outliers and visual EDA.
+- **Application Practice:** Data quality pipeline with clear transformation criteria.
+- **Advanced level upon closing:** you defend quality decisions with evidence and actionable visualizations.
 
 ### 03) Machine learning fundamentals
 
-- **Vas a aprender:** supervisado/no supervisado, baseline, split correcto, métricas, validación cruzada y tuning inicial.
-- **Aplicación práctica:** comparación de modelos de regresión/clasificación con evaluación consistente.
-- **Nivel avanzado al cerrar:** evitás leakage, elegís métricas por impacto de negocio y comparás modelos con criterio.
+- **You will learn:** supervised/unsupervised, baseline, correct split, Metrics, Cross Validation and initial tuning.
+- **Application Practice:** comparison of Regression/Classification Models with consistent Evaluation.
+- **Advanced level upon closing:** you avoid leakage, you choose Metrics for business impact and you compare Models with criteria.
 
 ### 04) Deep learning basics
 
-- **Vas a aprender:** redes neuronales, forward/backprop, entrenamiento, regularización y control de overfitting.
-- **Aplicación práctica:** MLP funcional con monitoreo de curvas y ajustes de hiperparámetros.
-- **Nivel avanzado al cerrar:** diagnosticás fallas de entrenamiento y optimizás sin perder trazabilidad.
+- **You will learn:** neural networks, forward/backprop, Training, Regularization and overfitting control.
+- **Application Practice:** Functional MLP with curve monitoring and Hyperparameters adjustments.
+- **Advanced level upon closing:** you diagnose Training failures and you optimize without losing traceability.
 
 ### 05) NLP & large language models
 
-- **Vas a aprender:** pipeline NLP (limpieza, tokenización), TF-IDF, embeddings, prompting básico y evaluación de salidas.
-- **Aplicación práctica:** clasificación de texto + similitud semántica + evaluación de calidad de respuestas.
-- **Nivel avanzado al cerrar:** medís alucinaciones/limitaciones y proponés mejoras concretas de calidad.
+- **You will learn:** NLP pipeline (Cleaning, Tokenization), TF-IDF, embeddings, basic prompting and output evaluation.
+- **Application Practice:** Text classification + similarity semantics + Quality evaluation of responses.
+- **Advanced level upon closing:** measures hallucinations/limitations and you propose specific quality improvements.
 
 ### 06) Computer vision
 
-- **Vas a aprender:** representación de imágenes, preprocesamiento, CNNs, augmentación y análisis de errores.
-- **Aplicación práctica:** clasificador de imágenes con iteraciones de mejora.
-- **Nivel avanzado al cerrar:** explicás errores por clase y definís mejoras de datos/modelo.
+- **You will learn:** Image representation, preprocessing, CNNs, augmentation and Error Analysis.
+- **Application Practice:** Images Classifier with improvement iterations.
+- **Level advanced when closing:** you explain Errors by clause, class and you define improvements of Data/Model.
 
 ### 07) Time series & anomaly detection
 
-- **Vas a aprender:** estructura temporal, forecasting baseline, backtesting y detección de anomalías.
-- **Aplicación práctica:** modelo temporal con evaluación cronológica correcta.
-- **Nivel avanzado al cerrar:** evitás fuga temporal y calibrás umbrales de anomalía con impacto operativo.
+- **You will learn:** Temporal structure, baseline forecasting, backtesting and Anomaly detection.
+- **Application Practice:** Temporal model with correct chronological Evaluation.
+- **Advanced level when closing:** you avoid temporary leakage and you calibrate Anomaly thresholds with operational impact.
 
 ### 08) Recommender systems
 
-- **Vas a aprender:** baselines por popularidad, filtrado colaborativo user/item-based, ranking y cold-start.
-- **Aplicación práctica:** sistema de recomendación evaluado con métricas de ranking.
-- **Nivel avanzado al cerrar:** comparás estrategias y proponés mitigación para sparse/cold-start.
+- **You will learn:** baselines by popularity, user/item-based collaborative filtering, ranking and cold-start.
+- **Application Practice:** recommendation system evaluated with ranking metrics.
+- **Advanced level at closing:** you compare strategies and you propose mitigation for sparse/cold-start.
 
 ### 09) Generative AI & prompt engineering
 
-- **Vas a aprender:** diseño de prompts, zero/few-shot, iteración, guardrails básicos y evaluación de respuestas.
-- **Aplicación práctica:** flujo de prompting con criterios de calidad y seguridad.
-- **Nivel avanzado al cerrar:** diseñás prompts robustos, medibles y alineados a objetivo de negocio.
+- **You will learn:** prompt design, zero/few-shot, iteration, guardrails basic and evaluation of responses.
+- **Application Practice:** prompting flow with quality and security criteria.
+- **Advanced level upon closing:** you design prompts that are robust, measurable and aligned to business objectives.
 
 ### 10) Ethics, bias & explainability
 
-- **Vas a aprender:** mapeo de riesgos, detección de sesgos, fairness y explicabilidad local/global.
-- **Aplicación práctica:** plan de mitigación de sesgos con métricas y comunicación clara.
-- **Nivel avanzado al cerrar:** justificás decisiones responsables y límites del modelo ante stakeholders.
+- **You will learn:** risk mapping, bias detection, fairness and local/global explainability.
+- **Application Practice:** bias mitigation plan with Metrics and clear communication.
+- **Advanced level upon closing:** you justify responsible decisions and limits of the Model to stakeholders.
 
 ### 11) Data privacy & security
 
-- **Vas a aprender:** clasificación de datos, controles de acceso, anonimización y respuesta a incidentes.
-- **Aplicación práctica:** checklist de seguridad en pipeline de IA.
-- **Nivel avanzado al cerrar:** integrás privacidad/seguridad desde diseño y no como parche final.
+- **You will learn:** Data classification, controls, access controllers, anonymization and response to incidents.
+- **Application Practice:** security checklist in AI pipeline.
+- **Advanced level at closing:** integrate privacy/security from design and not as a final patch.
 
 ### 12) MLOps & AI in production
 
-- **Vas a aprender:** versionado, serving, monitoreo, drift, alertas, rollout y rollback.
-- **Aplicación práctica:** flujo mínimo de producción con observabilidad.
-- **Nivel avanzado al cerrar:** operás modelos con criterios de confiabilidad, respuesta a incidentes y mejora continua.
+- **You will learn:** versioning, serving, monitoring, drift, alerts, rollout and rollback.
+- **Application Practice:** minimum production flow with observability.
+- **Advanced level upon closing:** you operate Models with reliability criteria, response to incidents and continuous improvement.
 
-## Qué falta para asegurar nivel avanzado al terminar
+## What is needed to ensure an advanced level upon completion?
 
-- Pasar de `L1` a `L4` en cada módulo con evidencia en `notes/`.
-- Validar 12 mini-proyectos con resultados reproducibles.
-- Aprobar 12 evaluaciones (>= 70/100) y registrar puntajes.
-- Cerrar cada `STATUS.md` con bloqueos, decisiones y lecciones aprendidas.
-- Construir portfolio final (3-4 proyectos fuertes transversales).
+- Go from `L1` to `L4` in each Module with evidence in `notes/`.
+- Validate 12 mini-projects with reproducible Results.
+- Pass 12 assessments (>= 70/100) and record scores.
+- Close each `STATUS.md` with locks, decisions and Lessons learned.
+- Build final portfolio (3-4 strong transversal projects).
 
-## Regla de avance recomendada
+## Recommended advance rule
 
-No pasar de módulo hasta cumplir:
+Do not move from Module until you complete:
 
-1. Teoría resumida.
-1. Prácticas completas.
-1. Mini-proyecto validado.
-1. Evaluación aprobada.
-1. Lecciones aprendidas documentadas.
+1. Summary theory.
+1. Complete practices.
+1. Validated mini-project.
+1. Evaluation approved.
+1. Documented lessons learned.

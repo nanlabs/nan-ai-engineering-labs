@@ -2,9 +2,9 @@
 
 ## Practices
 
-- Practica 1: Placeholder breve
-- Practica 2: Placeholder breve
+- Practice 1: Evaluate caption quality across two vision-language models.
+- Practice 2: Build a mini multimodal assistant for image Q&A with guardrails.
 
 ## Approval criteria
 
-Se aprueba al completar las practicas y justificar decisiones tecnicas.
+Practices are fully approved and technical decisions justified.

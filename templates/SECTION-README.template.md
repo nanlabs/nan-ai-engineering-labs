@@ -2,19 +2,19 @@
 
 ## Objective
 
-Definir el objetivo concreto de esta seccion para el modulo.
+Defines the specific Objective of this section for the module.
 
-## Contenido
+## Content
 
 - Item 1
 - Item 2
 - Item 3
 
-## Criterio de completitud
+## Completeness criterion
 
-- Resultado verificable 1.
-- Resultado verificable 2.
+- Result verificable 1.
+- Result verificable 2.
 
 ## Next steps
 
-Indicar que seccion sigue en el flujo de aprendizaje.
+Indicate which section is next in the Learning flow.

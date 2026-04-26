@@ -2,27 +2,27 @@
 
 ## Project
 
-Auditoría responsable de un modelo de clasificación.
+Responsible audit of a Classification Model.
 
 ## Objective
 
-Evaluar sesgo, explicabilidad y riesgos del modelo, proponiendo mejoras concretas.
+Evaluate bias, explainability and risks of the Model, proposing concrete improvements.
 
 ## Scope
 
-- Analizar dataset y grupos sensibles.
-- Medir fairness mínima.
-- Explicar predicciones representativas.
-- Proponer mitigaciones priorizadas.
+- Analyze dataset and sensitive groups.
+- Measure minimum fairness.
+- Explain Predictions representatives.
+- Propose mitigaciones priorizadas.
 
 ## Deliverables
 
-- Informe técnico corto.
-- Métricas de fairness y ejemplos de explicación.
-- Plan de acción de mitigación.
+- Short technical report.
+- Fairness metrics and explanation examples.
+- Mitigation action plan.
 
 ## Acceptance criteria
 
-- Hallazgos sustentados en datos.
-- Mitigaciones realistas y accionables.
-- Limitaciones bien documentadas.
+- Findings supported by Data.
+- Realistic and actionable mitigations.
+- Limitations bien documented.

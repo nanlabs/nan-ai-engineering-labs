@@ -1,17 +1,17 @@
-# Práctica 03 — User-based collaborative filtering
+# Practice 03 — User-based collaborative filtering
 
 ## Objective
 
-Recomendar según usuarios con gustos similares.
+Recommend according to users with similar tastes.
 
-## Enunciado
+## Statement
 
-1. Calcular similitud entre usuarios.
-1. Seleccionar vecinos más cercanos.
-1. Recomendar ítems no consumidos.
-1. Comparar resultados con item-based.
+1. Calculate similarity entre users.
+1. Select nearest neighbors.
+1. Recommend unconsumed items.
+1. Compare Results with item-based.
 
-## Validación
+## Validation
 
-- Vecinos correctamente seleccionados.
-- Comparación entre enfoques documentada.
+- Vecinos correctly seleccionados.
+- Comparison between approaches documented.

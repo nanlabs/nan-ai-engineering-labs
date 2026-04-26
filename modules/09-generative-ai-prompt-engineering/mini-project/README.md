@@ -2,27 +2,27 @@
 
 ## Project
 
-Asistente generativo para redacción/resumen con control de salida.
+Generative assistant for writing/summarizing with output control.
 
 ## Objective
 
-Construir un flujo de prompting iterativo con evaluación explícita de calidad y seguridad.
+Build an iterative prompting flow with explicit quality and security evaluation.
 
 ## Scope
 
-- Definir casos de uso.
-- Diseñar prompts iniciales y mejorados.
-- Agregar guardrails básicos.
-- Evaluar resultados con checklist.
+- Defines Usage cases.
+- Design initial and improved prompts.
+- Add basic guardrails.
+- Evaluate Results with checklist.
 
 ## Deliverables
 
-- Colección de prompts versionados.
-- Tabla de evaluación de respuestas.
-- Conclusión con recomendaciones de uso.
+- Collection of versioned prompts.
+- Response evaluation table.
+- Conclusion with Usage recommendations.
 
 ## Acceptance criteria
 
-- Flujo reproducible de evaluación.
+- Evaluation reproducible flow.
 - Mejoras medibles entre iteraciones.
-- Riesgos documentados y mitigados.
+- Documented and mitigated risks.

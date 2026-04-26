@@ -2,208 +2,208 @@
 
 ## Why this module matters
 
-Machine Learning es la base de los sistemas de IA modernos. Entender los fundamentos te permite elegir el Algorithm correcto, evaluar Results de forma crítica y diagnosticar Problems en producción. Este Module construye la intuición necesaria para trabajar con Models supervisados y no supervisados.
+Machine Learning is the basis of modern AI systems. Understanding the fundamentals allows you to choose the right algorithm, evaluate results critically, and diagnose problems in production. This Module builds the intuition necessary to work with supervised and unsupervised Models.
 
 ______________________________________________________________________
 
-## 1. ¿Qué es Machine Learning?
+## 1. What is Machine Learning?
 
-Machine Learning (ML) es el campo de la IA que permite a los sistemas aprender patrones a partir de Data para hacer Predictions o tomar decisiones **sin ser explícitamente programados**.
+Machine Learning (ML) is the field of AI that allows systems to learn patterns from Data to make Predictions or make decisions **without being explicitly programmed**.
 
-### Diferencia clave con programación tradicional
+### Key difference with traditional programming
 
-- **Programación tradicional:** humano define reglas explícitas (if/else).
-- **Machine Learning:** el sistema aprende reglas a partir de Examples.
+- **Traditional programming:** human defines explicit rules (if/else).
+- **Machine Learning:** the system learns rules from Examples.
 
 ______________________________________________________________________
 
-## 2. Types de Machine Learning
+## 2. Types of Machine Learning
 
-### Learning Supervisado
+### Supervised Learning
 
-**Definición:** Tienes Data con etiquetas conocidas (`y`). El Model aprende la relación entre entradas (`X`) y salidas (`y`).
+**Definition:** You have Data with known tags (`and`). The Model learns the relationship between inputs (`X`) and outputs (`y`).
 
-**Subtipos:**
+**Subtypes:**
 
-- **Regresión:** predecir valores continuos (precio de casa, temperatura).
-  - Algorithms: Regresión Lineal, Regresión Polinomial, Random Forest Regressor.
-- **Classification:** predecir clases discretas (spam/no spam, gato/perro).
-  - Algorithms: Regresión Logística, Decision Trees, SVM, Random Forest, gradient Boosting.
+- **Regression:** predict continuous values ​​(house price, temperature).
+- Algorithms: Linear Regression, Polynomial Regression, Random Forest Regressor.
+- **Classification:** predict discrete classes (spam/non-spam, cat/dog).
+- Algorithms: Logistic Regression, Decision Trees, SVM, Random Forest, gradient Boosting.
 
-### Learning No Supervisado
+### Unsupervised Learning
 
-**Definición:** No hay etiquetas (`y`). El Model encuentra patrones o Structure oculta en los Data.
+**Definition:** There are no tags (`and`). The Model finds hidden patterns or Structure in the Data.
 
-**Subtipos:**
+**Subtypes:**
 
-- **Clustering:** agrupar Data similares (segmentación de clientes).
+- **Clustering:** group similar data (customer segmentation).
   - Algorithms: K-Means, DBSCAN, Hierarchical Clustering.
-- **Reducción de dimensionalidad:** comprimir features manteniendo información.
+- **Dimensionality reduction:** compress features while maintaining information.
   - Algorithms: PCA, t-SNE, UMAP.
 
-### Learning por Refuerzo (Introduction)
+### Reinforcement Learning (Introduction)
 
-El agente aprende a tomar decisiones mediante Testing y error, recibiendo recompensas o penalizaciones.
+The agent learns to make decisions through Test and error, receiving rewards or penalties.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Machine Learning Crash Course - Google](https://www.youtube.com/watch?v=nKW8Ndu7Mjw) - 40 min
-1. [StatQuest: Machine Learning Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF) - serie completa
-1. [ML Course - Andrew Ng (Coursera)](https://www.coursera.org/learn/machine-learning) - curso completo certificable
+1. [StatQuest: Machine Learning Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF) - series complete
+1. [ML Course - Andrew Ng (Coursera)](https://www.coursera.org/learn/machine-learning) - certifiable complete cursor
 
 ______________________________________________________________________
 
-## 3. Pipeline típico de ML
+## 3. Typical ML Pipeline
 
-### Paso 1: Definir el Problem
+### Step 1: Define the Problem
 
-- ¿Qué quiero predecir? (target/Objective).
-- ¿Es regresión o Classification?
-- ¿Qué Metric de éxito usar?
+- What do I want to predict? (target/Objective).
+- Is it regression or Classification?
+- What Success Metric do you use?
 
-### Paso 2: Recolectar y explorar Data
+### Step 2: Collect and explore data
 
 - EDA (Exploratory Data Analysis).
-- Identificar calidad de Data, outliers, distribuciones.
+- Identify Data quality, outliers, distributions.
 
-### Paso 3: Preparar Data
+### Step 3: Prepare Data
 
-- Cleaning: nulos, duplicados, outliers.
-- Feature engineering: crear nuevas features.
-- Encoding: convertir categóricas a numéricas.
-- Scaling: normalizar o estandarizar.
+- Cleaning: nulls, duplicates, outliers.
+- Feature engineering: create new features.
+- Encoding: convert categorical to numeric.
+- Scaling: normalize or standardize.
 
-### Paso 4: Dividir Data
+### Step 4: Split Data
 
 ```python
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
 
-**Importante:** **NUNCA** usar Data de test durante Training o tuning.
+**Important:** **NEVER** use Test Data during Training or tuning.
 
-### Paso 5: Entrenar Model baseline
+### Paso 5: Train Model baseline
 
-Empezar con el Model más simple posible para establecer un punto de referencia.
+Start with the simplest Model possible to establish a reference point.
 
-### Paso 6: Evaluar con Metrics correctas
+### Step 6: Evaluate yourself with correct Metrics
 
-Elegir Metric según el Problem y costo de Errors.
+Choose Metric according to the Problem and cost of Errors.
 
-### Paso 7: Ajustar y mejorar
+### Step 7: Adjust and improve
 
-- Probar otros Algorithms.
-- Ajustar Hyperparameters.
-- Validation cruzada.
-- Feature engineering adicional.
+- Try other Algorithms.
+- Adjust Hyperparameters.
+- Cross validation.
+- Additional feature engineering.
 
 ### Paso 8: Validation final
 
-Evaluar en test set **una sola vez** al final.
+Evaluate yourself on test set **just once** at the end.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [ML Workflow Explained - Krish Naik](https://www.youtube.com/watch?v=fiz1ORTBGpY) - 25 min
 1. [Train/Test Split - StatQuest](https://www.youtube.com/watch?v=fSytzGwwBVw) - 8 min
 
 ______________________________________________________________________
 
-## 4. Metrics de Evaluation
+## 4. Evaluation Metrics
 
-### Para Problems de Regresión
+### For Regression Problems
 
-- **MAE (Mean Absolute error):** promedio del error absoluto. Fácil de interpretar.
-- **MSE (Mean Squared error):** penaliza Errors grandes más fuertemente.
-- **RMSE (Root Mean Squared error):** raíz de MSE, en mismas unidades que `y`.
-- **R² (R-squared):** % de varianza explicada por el Model (0-1, más alto mejor).
+- **MAE (Mean Absolute error):** average of the absolute error. Easy to interpret.
+- **MSE (Mean Squared error):** penalizes large errors more strongly.
+- **RMSE (Root Mean Squared error):** root of MSE, in the same units as `y`.
+- **R² (R-squared):** % of variance explained by the Model (0-1, higher is better).
 
-### Para Problems de Classification
+### For Classification Problems
 
-- **accuracy:** % de Predictions correctas. **Cuidado con datasets desbalanceados.**
-- **Precision:** de los que predije como positivos, ¿cuántos lo son realmente?
-- **recall (Sensitivity):** de los realmente positivos, ¿cuántos detecté?
-- **f1-Score:** media armónica de precision y recall.
-- **auc-ROC:** área bajo la ROC curve. Mide capacidad de discriminación del Model.
+- **accuracy:** % of correct Predictions. **Be careful with unbalanced datasets.**
+- **Precision:** Of those I predicted as positive, how many are really positive?
+- **recall (Sensitivity):** of the really positive ones, how many did I detect?
+- **f1-Score:** harmonic mean of precision and recall.
+- **auc-ROC:** area under the ROC curve. Measures the discrimination capacity of the Model.
 
-### Cómo elegir Metric
+### How to choose Metric
 
-- **Regresión:** RMSE si outliers importan, MAE si querés robustez.
-- **Classification balanceada:** accuracy puede bastar.
-- **Classification desbalanceada:** usar f1, precision/recall según contexto.
-  - Example: detección de fraude → priorizar recall (no perder fraudes).
-  - Example: Filter de spam → balance entre precision y recall.
+- **Regression:** RMSE if outliers matter, MAE if you want robustness.
+- **Classification balanced:** accuracy can suffice.
+- **Unbalanced classification:** use f1, precision/recall according to context.
+- Example: fraud detection → prioritize recall (not lose frauds).
+  - Example: Spam filter → balance between precision and recall.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Regression Metrics - StatQuest](https://www.youtube.com/watch?v=lgZ-s4XNPcs) - 10 min
 1. [Classification Metrics - StatQuest](https://www.youtube.com/watch?v=4jRBRDbJemM) - 15 min
 1. [Confusion Matrix Explained - Krish Naik](https://www.youtube.com/watch?v=wpp3VfzgNcI) - 12 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Scikit-learn Metrics Guide](https://scikit-learn.org/stable/modules/model_evaluation.html)
 - [Google ML Crash Course - Classification](https://developers.google.com/machine-learning/crash-course/classification)
 
 ______________________________________________________________________
 
-## 5. Concepts críticos
+## 5. Critical concepts
 
-### overfitting (sobreajuste)
+### overfitting
 
-**Síntoma:** El Model aprende demasiado bien el training set, incluyendo ruido y detalles irrelevantes. Performance alta en train, baja en test.
+**Symptom:** The Model learns the training set too well, including noise and irrelevant details. High performance in train, low in test.
 
-**Causas:**
+**Causes:**
 
-- Model demasiado complejo para la cantidad de Data.
-- Entrenar por demasiadas iteraciones.
-- No usar Regularization.
+- Model too complex for the amount of Data.
+- Train for too many iterations.
+- No use Regularization.
 
-**Soluciones:**
+**Solutions:**
 
-- Conseguir más Data.
-- Simplificar el Model (menos features, menos profundidad).
+- Get more Data.
+- Simplify the Model (less features, less depth).
 - Regularization (L1, L2).
 - Early stopping.
 - Cross-validation.
 
-### underfitting (subajuste)
+### underfitting
 
-**Síntoma:** El Model es demasiado simple y no captura patrones relevantes. Performance baja en train y test.
+**Symptom:** The Model is too simple and does not capture relevant patterns. Low performance in train and test.
 
-**Causas:**
+**Causes:**
 
-- Model demasiado simple.
-- Features insuficientes o poco informativas.
+- Model too simple.
+- Insufficient or uninformative features.
 
-**Soluciones:**
+**Solutions:**
 
-- Usar Model más complejo.
-- Agregar más features.
-- Reducir Regularization.
+- Use more complex Model.
+- Add more features.
+- Reduce Regularization.
 
 ### Bias-Variance Tradeoff
 
-- **Bias alto:** underfitting (Model muy simple).
-- **Variance alta:** overfitting (Model muy sensible a Data de Training).
-- **Objective:** encontrar balance óptimo.
+- **High bias:** underfitting (Very simple Model).
+- **High variance:** overfitting (Model very sensitive to Training Data).
+- **Objective:** find optimal balance.
 
 ### Data Leakage
 
-**Definición:** Usar información del futuro o del test set durante Training.
+**Definition:** Use information from the future or the test set during Training.
 
-**Examples comunes:**
+**Examples common:**
 
-- Normalizar antes de hacer train/test split.
-- Usar features que incluyen el target indirectamente.
-- Entrenar con Data posteriores al momento de Prediction.
+- Normalize before doing train/test split.
+- Use features that include the target indirectly.
+- Train with Data after the Prediction moment.
 
-**Prevención:**
+**Prevention:**
 
-- Siempre dividir Data PRIMERO.
-- Aplicar transformaciones solo en train, luego aplicar al test.
-- Revisar features que tengan correlación perfecta con el target.
+- Always split Data FIRST.
+- Apply transformations only on train, then apply to test.
+- Review features that have perfect correlation with the target.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Overfitting and Underfitting - StatQuest](https://www.youtube.com/watch?v=EuBBz3bI-aA) - 14 min
 1. [Bias-Variance Tradeoff - Krish Naik](https://www.youtube.com/watch?v=EuBBz3bI-aA) - 20 min
@@ -211,74 +211,74 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 6. Algorithms fundamentales
+## 6. Fundamental algorithms
 
-### Regresión Lineal
+### Linear Regression
 
-- Model más simple. Asume relación lineal entre `X` e `y`.
-- Interpretable y rápido.
+- Simpler model. Assume linear relationship between `X` and `y`.
+- Interpretable and fast.
 
-### Regresión Logística
+### Logistic Regression
 
-- Classification binaria.
-- Salida: probabilidad (0-1).
+- Binary classification.
+- Output: probability (0-1).
 
 ### Decision Trees
 
-- Splits sucesivos basados en features.
-- Fácil de interpretar.
-- Propenso a overfitting.
+- Successive splits based on features.
+- Easy to interpret.
+- Prone to overfitting.
 
 ### Random Forest
 
-- Ensemble de múltiples árboles.
-- Reduce overfitting.
-- Alta performance sin mucho tuning.
+- Ensemble of multiple trees.
+- Reduces overfitting.
+- High performance without much tuning.
 
 ### gradient Boosting (XGBoost, LightGBM)
 
-- Construye árboles secuenciales que corrigen Errors previos.
-- Estado del arte en Problems tabulares.
+- Build sequential trees that correct previous errors.
+- Status of the art in tabular Problems.
 
 ### K-Nearest Neighbors (KNN)
 
-- Classification/regresión basada en vecinos más cercanos.
-- Simple pero costoso computacionalmente.
+- Classification/regression based on nearest neighbors.
+- Simple but computationally expensive.
 
 ### K-Means Clustering
 
-- Clustering no supervisado.
-- Agrupa Data en `k` clusters.
+- Unsupervised clustering.
+- Groups Data into `k` clusters.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Decision Trees - StatQuest](https://www.youtube.com/watch?v=7VeUPuFGJHk) - 20 min
 1. [Random Forest - StatQuest](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) - 10 min
 1. [Gradient Boosting - StatQuest](https://www.youtube.com/watch?v=3CC4N4z3GJc) - 15 min
 1. [K-Means Clustering - StatQuest](https://www.youtube.com/watch?v=4b5d3muPQmA) - 9 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Scikit-learn Algorithm Cheatsheet](https://scikit-learn.org/stable/tutorial/machine_learning_map/)
 - [Towards Data Science - ML Algorithms](https://towardsdatascience.com/a-tour-of-machine-learning-algorithms-466b8bf75c0a)
 
 ______________________________________________________________________
 
-## 7. Validation Cruzada y Tuning
+## 7. Cross Validation and Tuning
 
 ### Cross-Validation (K-Fold)
 
-Dividir training set en `k` partes (folds). Entrenar `k` veces, cada vez usando una parte diferente como Validation.
+Divide training set into `k` parts (folds). Train `k` times, each time using a different part like Validation.
 
-**Ventaja:** Mejor estimación de performance. Reduce varianza.
+**Advantage:** Better performance estimation. Reduces variance.
 
 ### Hyperparameter Tuning
 
-**Grid Search:** probar todas las combinaciones de Hyperparameters definidas.
-**Random Search:** probar combinaciones aleatorias (más eficiente).
-**Bayesian Optimization:** búsqueda inteligente guiada por Results previos.
+**Grid Search:** test all the defined Hyperparameters combinations.
+**Random Search:** try random combinations (more efficient).
+**Bayesian Optimization:** intelligent search guided by previous Results.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Cross Validation - StatQuest](https://www.youtube.com/watch?v=fSytzGwwBVw) - 6 min
 1. [Hyperparameter Tuning - Krish Naik](https://www.youtube.com/watch?v=gfUT7iUt0yM) - 25 min
@@ -287,15 +287,15 @@ ______________________________________________________________________
 
 ## 8. Buenas Practices
 
-- ✅ Empezar con baseline simple antes de complejizar.
-- ✅ Validar con cross-validation antes de tocar test set.
-- ✅ Documentar decisiones (por qué elegiste un Model, qué Metrics importan).
-- ✅ Usar pipelines de scikit-learn para reproducibilidad.
-- ✅ Monitorear tanto Metrics de Training como Validation.
-- ✅ No optimizar Hyperparameters mirando test set.
-- ✅ Probar múltiples Models antes de decidir.
+- ✅ Start with a simple baseline before making it more complex.
+- ✅ Validate yourself with cross-validation before playing test set.
+- ✅ Document decisions (why you chose a Model, what Metrics matter).
+- ✅ Use scikit-learn pipelines for reproducibility.
+- ✅ Monitor both Training and Validation Metrics.
+- ✅ Do not optimize Hyperparameters by looking at test set.
+- ✅ Try multiple Models before deciding.
 
-📚 **Resources generales:**
+📚 **General resources:**
 
 - [Hands-On ML with Scikit-Learn (Book)](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/user_guide.html)
@@ -305,15 +305,15 @@ ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente Module, deberías poder:
+Before moving to the next Module, you should be able to:
 
-- ✅ Diferenciar regresión vs Classification y elegir según Problem.
-- ✅ Construir un pipeline completo desde Data crudos hasta Prediction.
-- ✅ Seleccionar Metrics apropiadas según impacto de negocio.
-- ✅ Detectar overfitting/underfitting en gráficas de Learning.
-- ✅ Prevenir data leakage aplicando transformaciones correctamente.
-- ✅ Usar cross-validation para validar Models de forma robusta.
-- ✅ Comparar múltiples Algorithms y justificar tu elección final.
-- ✅ Interpretar Results y comunicarlos a stakeholders no técnicos.
+- ✅ Differentiate regression vs Classification and choose according to Problem.
+- ✅ Build a complete pipeline from Raw Data to Prediction.
+- ✅ Select appropriate Metrics according to business impact.
+- ✅ Detect overfitting/underfitting in Learning graphs.
+- ✅ Prevent data leakage by applying transformations correctly.
+- ✅ Use cross-validation to validate Models in a robust way.
+- ✅ Compare multiple Algorithms and justify your final choice.
+- ✅ Interpret Results and communicate them to non-technical stakeholders.
 
-Si respondiste "sí" a todas, estás listo para deep learning.
+If you answered "yes" to all, you're ready for deep learning.

@@ -1,12 +1,12 @@
-# Example 02 — Matrix Factorization con SVD (Singular Value Decomposition)
+# Example 02 — Matrix Factorization with SVD (Singular Value Decomposition)
 
-## Contexto
+## Context
 
-Matrix Factorization descompone la matriz user-item en matrices de menor dimensión para capturar factores latentes (géneros, actores favoritos, etc.). Más eficiente que collaborative filtering clásico.
+Matrix Factorization decomposes the user-item matrix into lower-dimensional matrices to capture latent factors (genres, favorite actors, etc.). More efficient than classic collaborative filtering.
 
 ## Objective
 
-Construir sistema de recomendación usando SVD (usado por Netflix Prize winners).
+Build recommendation system using SVD (used by Netflix Prize winners).
 
 ______________________________________________________________________
 
@@ -24,10 +24,10 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📦 Generar Data
+## 📦 Generate Data
 
 ```python
-# Simular ratings
+# Similar ratings
 n_users, n_movies = 500, 200
 ratings_data = []
 
@@ -47,42 +47,42 @@ print(f"Sparsity: {100*(1 - len(df)/(n_users*n_movies)):.2f}%")
 
 ______________________________________________________________________
 
-## 🏗️ Matrix Factorization con SVD
+## 🏗️ Matrix Factorization with SVD
 
-### Crear matriz user-item
+### Create matrix user-item
 
 ```python
 user_item_matrix = df.pivot_table(index='user_id', columns='movie_id', values='rating').fillna(0)
 
-print(f"Matriz shape: {user_item_matrix.shape}")  # (500, 200)
+print(f"Matrix shape: {user_item_matrix.shape}")  # (500, 200)
 ```
 
-### Aplicar SVD
+### Apply SVD
 
 ```python
 # SVD: R ≈ U × Σ × V^T
-# R: matriz original (m×n)
+# R: matrix original (m×n)
 # U: user factors (m×k)
-# Σ: valores singulares (k)
+# Σ: values singulares (k)
 # V^T: item factors (k×n)
-# k: número de factores latentes
+# k: number de factors latentes
 
-k = 20  # Factores latentes (hiperparámetro)
+k = 20  # Factors latentes (hyperparameter)
 
-# Centrar datos (restar media de cada usuario)
+# Centrar data (restar media de each user)
 user_ratings_mean = user_item_matrix.mean(axis=1)
 matrix_centered = user_item_matrix.sub(user_ratings_mean, axis=0)
 
 # SVD (truncada)
 U, sigma, Vt = svds(matrix_centered.values, k=k)
 
-# Convertir sigma a matriz diagonal
+# Convert sigma a matrix diagonal
 sigma_diag = np.diag(sigma)
 
-# Reconstruir matriz predicha
+# Reconstruir matrix predicha
 predictions_centered = np.dot(np.dot(U, sigma_diag), Vt)
 
-# Añadir media de vuelta
+# Add media de vuelta
 predictions = predictions_centered + user_ratings_mean.values.reshape(-1, 1)
 
 predictions_df = pd.DataFrame(predictions,
@@ -90,33 +90,33 @@ predictions_df = pd.DataFrame(predictions,
                               columns=user_item_matrix.columns)
 
 print(f"\nMatriz predicha shape: {predictions_df.shape}")
-print(f"Ejemplo de predicción para user 0, movie 10: {predictions_df.loc[0, 10]:.2f}")
+print(f"Example de prediction para user 0, movie 10: {predictions_df.loc[0, 10]:.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Matriz predicha shape: (500, 200)
-Ejemplo de predicción para user 0, movie 10: 3.45
+Matrix predicha shape: (500, 200)
+Example de prediction para user 0, movie 10: 3.45
 ```
 
 ______________________________________________________________________
 
-## 🎯 Function de recomendación
+## 🎯 Recommendation function
 
 ```python
 def recommend_movies_svd(user_id, predictions_df, user_item_matrix, top_n=5):
     """
-    Recomendar películas usando predicciones de SVD
+    Recommend movies using predictions de SVD
     """
-    # Ratings predichos para el usuario
+    # Ratings predichos para el user
     user_predictions = predictions_df.loc[user_id]
 
-    # Películas ya vistas
+    # Movies ya vistas
     user_ratings = user_item_matrix.loc[user_id]
     watched_movies = user_ratings[user_ratings > 0].index
 
-    # Filtrar películas no vistas
+    # Filtrar movies no vistas
     unwatched_predictions = user_predictions.drop(watched_movies)
 
     # Top N
@@ -124,10 +124,10 @@ def recommend_movies_svd(user_id, predictions_df, user_item_matrix, top_n=5):
 
     return list(zip(top_recommendations.index, top_recommendations.values))
 
-# Recomendar para user 0
+# Recommend para user 0
 recommendations = recommend_movies_svd(0, predictions_df, user_item_matrix, top_n=5)
 
-print("\n=== Recomendaciones SVD ===\n")
+print("\n=== Recommendations SVD ===\n")
 for movie_id, predicted_rating in recommendations:
     print(f"Movie ID: {movie_id}, Predicted Rating: {predicted_rating:.2f}")
 ```
@@ -143,15 +143,15 @@ from sklearn.model_selection import train_test_split
 
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 
-# Matriz de train
+# Matrix de train
 train_matrix = train_df.pivot_table(index='user_id', columns='movie_id', values='rating').fillna(0)
 
-# Reindex para tener mismas dimensiones que la original
+# Reindex para tener mismas dimensions que la original
 train_matrix = train_matrix.reindex(index=user_item_matrix.index,
                                       columns=user_item_matrix.columns,
                                       fill_value=0)
 
-# Aplicar SVD en train
+# Apply SVD en train
 train_mean = train_matrix.mean(axis=1)
 train_centered = train_matrix.sub(train_mean, axis=0)
 
@@ -166,10 +166,10 @@ predictions_train_df = pd.DataFrame(predictions_train,
                                      columns=train_matrix.columns)
 ```
 
-### Calcular Metrics
+### Calculate Metrics
 
 ```python
-# Obtener predicciones para test set
+# Obtener predictions para test set
 test_predictions = []
 test_actuals = []
 
@@ -182,19 +182,19 @@ for _, row in test_df.iterrows():
         test_predictions.append(pred)
         test_actuals.append(row['rating'])
 
-# Métricas
+# Metrics
 mae = mean_absolute_error(test_actuals, test_predictions)
 rmse = np.sqrt(mean_squared_error(test_actuals, test_predictions))
 
-print(f"\n=== Evaluación en Test Set ===\n")
+print(f"\n=== Evaluation en Test Set ===\n")
 print(f"MAE:  {mae:.3f}")
 print(f"RMSE: {rmse:.3f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Evaluación en Test Set ===
+=== Evaluation en Test Set ===
 
 MAE:  0.756
 RMSE: 0.987
@@ -202,55 +202,55 @@ RMSE: 0.987
 
 ______________________________________________________________________
 
-## 🔍 Analysis de factores latentes
+## 🔍 Analysis of latent factors
 
-### Visualizar factores
+### Visualize factors
 
 ```python
-# U contiene factores de usuarios
-# Cada usuario se representa como vector de k dimensiones
+# U contiene factors de users
+# Cada user se represents como vector de k dimensions
 
-# Ver primer usuario
+# Ver primer user
 user_0_factors = U[0]
 print(f"User 0 latent factors:\n{user_0_factors}")
 
-# Visualizar distribución de un factor
+# Visualize distribution de un factor
 plt.figure(figsize=(10, 5))
 plt.hist(U[:, 0], bins=30, alpha=0.7, label='Factor 1')
 plt.hist(U[:, 1], bins=30, alpha=0.7, label='Factor 2')
 plt.xlabel('Factor Value')
 plt.ylabel('Frequency')
-plt.title('Distribución de Factores Latentes')
+plt.title('Distribution de Factors Latentes')
 plt.legend()
 plt.show()
 ```
 
-### Usuarios similares en espacio latente
+### Similar users in latent space
 
 ```python
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Similitud entre usuarios en espacio de factores latentes
+# Similarity entre users en espacio de factors latentes
 user_similarity_latent = cosine_similarity(U)
 
 user_id_target = 0
 similar_users_idx = user_similarity_latent[user_id_target].argsort()[-6:-1][::-1]
 
-print(f"\nUsuarios más similares a User {user_id_target}:")
+print(f"\nUsuarios más similar a User {user_id_target}:")
 for idx in similar_users_idx:
     print(f"User {idx}: Similarity = {user_similarity_latent[user_id_target, idx]:.3f}")
 ```
 
 ______________________________________________________________________
 
-## 📈 Tuning: Número óptimo de factores (k)
+## 📈 Tuning: Optimal number of factors (k)
 
 ```python
 k_values = [5, 10, 20, 30, 50, 100]
 rmse_values = []
 
 for k in k_values:
-    # SVD con k factores
+    # SVD con k factors
     U_k, sigma_k, Vt_k = svds(train_centered.values, k=k)
     sigma_diag_k = np.diag(sigma_k)
 
@@ -259,7 +259,7 @@ for k in k_values:
                                      index=train_matrix.index,
                                      columns=train_matrix.columns)
 
-    # Evaluar
+    # Evaluate
     preds = []
     actuals = []
     for _, row in test_df.iterrows():
@@ -274,9 +274,9 @@ for k in k_values:
 # Plot
 plt.figure(figsize=(10, 6))
 plt.plot(k_values, rmse_values, marker='o', linewidth=2)
-plt.xlabel('Número de Factores Latentes (k)')
+plt.xlabel('Number de Factors Latentes (k)')
 plt.ylabel('RMSE')
-plt.title('RMSE vs Número de Factores')
+plt.title('RMSE vs Number de Factors')
 plt.grid(alpha=0.3)
 plt.show()
 
@@ -285,53 +285,53 @@ print(f"\nMejor k: {k_values[np.argmin(rmse_values)]} (RMSE = {min(rmse_values):
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
 ### ✅ Matrix Factorization vs Collaborative Filtering
 
-| Aspecto                       | Collaborative Filtering   | Matrix Factorization (SVD) |
-| ----------------------------- | ------------------------- | -------------------------- |
-| **Complejidad computacional** | O(n²) usuarios            | O(k × n) factores          |
-| **Escalabilidad**             | Pobre (n usuarios grande) | Excelente                  |
-| **Sparsity**                  | Sensible                  | Maneja bien                |
-| **Interpretabilidad**         | Alta (similitud directa)  | Media (factores latentes)  |
-| **accuracy**                  | Buena                     | **Mejor**                  |
+| Appearance | Collaborative Filtering | Matrix Factorization (SVD) |
+| -------------------------- | ------------------------- | -------------------------- |
+| **Computational complexity** | O(n²) users | O(k × n) factors |
+| **Scalability** | Poor (large n users) | Excellent |
+| **Sparsity** | Sensitive | Drive well |
+| **Interpretability** | High (direct similarity) | Average (latent factors) |
+| **accuracy** | Good | **Best** |
 
-### 🎯 Ventajas de SVD
+### 🎯 Advantages of SVD
 
-1. **Reducción de dimensionalidad:** 500 usuarios × 200 películas → 500 × 20 + 20 × 200 = 14,000 parámetros (vs 100,000 original)
-1. **Captura patrones latentes:** Géneros, actores, décadas automáticamente
-1. **Maneja sparsity:** Fill NaN implícitamente
-1. **Escalable:** Puede actualizar factores incrementalmente
+1. **Dimensionality reduction:** 500 users × 200 movies → 500 × 20 + 20 × 200 = 14,000 parameters (vs 100,000 original)
+1. **Captures latent patterns:** Genres, actors, decades automatically
+1. **Handles sparsity:** Fill NaN implicitly
+1. **Escalable:** Puede actualizar factors incrementalmente
 
-### 💡 Alternativas y mejoras
+### 💡 Alternatives and improvements
 
 1. **ALS (Alternating Least Squares):**
 
-   - Optimiza U y V iterativamente
-   - Más usado en producción (Spark MLlib)
+   - Optimize U and V iteratively
+- Most used in production (Spark MLlib)
 
 1. **Neural Matrix Factorization:**
 
-   - Reemplaza producto punto U × V con Neural network
+   - Replace product point U × V with Neural network
    - Captura relaciones no lineales
 
 1. **Factorization Machines:**
 
-   - Generaliza MF para incluir features adicionales
-   - Útil para contextual recommendations
+   - Generalize MF to include additional features
+- Useful for contextual recommendations
 
-### 🚫 Limitaciones
+### 🚫 Limitations
 
-- ❌ Cold start: Nuevos usuarios/items sin factores
+- ❌ Cold start: Nuevos users/items sin factors
 - ❌ Popularidad bias: Tiende a recomendar items populares
-- ❌ No considera contexto temporal
+- ❌ No considera context temporal
 
 ### 📌 Checklist SVD
 
-- ✅ Centrar matriz (restar media por usuario)
-- ✅ Elegir k apropiado (5-50 típicamente)
-- ✅ Evaluar con cross-validation
-- ✅ Regularizar para prevenir overfitting (en variantes ALS)
-- ✅ Actualizar Model periódicamente (nuevos Data)
-- ✅ Combinar con content-based para cold start
+- ✅ Center matrix (subtract average per user)
+- ✅ Choose appropriate k (5-50 typically)
+- ✅ Evaluate yourself with cross-validation
+- ✅ Regularize to prevent overfitting (in ALS variants)
+- ✅ Update Model periodically (new Data)
+- ✅ Combiner with content-based for cold start

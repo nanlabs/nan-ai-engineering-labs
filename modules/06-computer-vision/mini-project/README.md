@@ -2,27 +2,27 @@
 
 ## Project
 
-Clasificador visual de categorías (dataset pequeño de imágenes).
+Visual category classifier (small Images dataset).
 
 ## Objective
 
-Construir un clasificador de imágenes con baseline y una mejora técnica validada.
+Build an Images Classifier with a baseline and a validated improvement technique.
 
 ## Scope
 
-- Preparación y limpieza de imágenes.
-- Entrenamiento de CNN base.
-- Aplicar una mejora (augmentación o ajuste de arquitectura).
-- Comparar resultados y errores por clase.
+- Preparation and Cleaning of Images.
+- Base CNN training.
+- Apply an improvement (augmentation or architecture adjustment).
+- Compare Results and Errors by clause, class.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Métricas principales y matriz de confusión.
-- Recomendaciones de mejora futura.
+- Metrics principles and Confusion matrix.
+- Recommendations for future improvement.
 
 ## Acceptance criteria
 
-- Pipeline funcional de punta a punta.
-- Métricas interpretadas correctamente.
-- Errores relevantes identificados y discutidos.
+- End-to-end functional pipeline.
+- Metrics interpreted correctly.
+- Relevant errors identified and discussed.

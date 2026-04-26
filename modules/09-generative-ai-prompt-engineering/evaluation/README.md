@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Claridad y estructura de prompts.
-- Calidad de implementación de guardrails.
-- Capacidad de evaluar respuestas de forma consistente.
-- Comunicación de mejoras y límites.
+- Clarity and Structure of prompts.
+- Quality of guardrails implementation.
+- Ability to assess responses consistently.
+- Communication of improvements and limits.
 
 ## Checklist final
 
 - [ ] Prompt base bien definido.
-- [ ] Variantes few-shot implementadas.
-- [ ] Iteraciones con mejora documentada.
+- [ ] Variants few-shot implementadas.
+- [ ] Iterations with improvement documented.
 - [ ] Guardrails aplicados.
-- [ ] Evaluación de calidad completa.
-- [ ] Conclusión técnica accionable.
+- [ ] Quality evaluation complete.
+- [ ] Actionable technical conclusion.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

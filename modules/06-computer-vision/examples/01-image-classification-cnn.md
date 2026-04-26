@@ -1,16 +1,16 @@
-# Example 01 — Classification de Images con CNN (CIFAR-10)
+# Example 01 — Image Classification with CNN (CIFAR-10)
 
-## Contexto
+## Context
 
-Aprenderás a construir una **Convolutional Neural Network (CNN)** desde cero para clasificar Images. Las CNNs son el estándar para visión por computadora gracias a su capacidad de detectar patrones espaciales (bordes, texturas, formas).
+You will learn how to build a **Convolutional Neural Network (CNN)** from scratch to classify Images. CNNs are the standard for computer vision thanks to their ability to detect spatial patterns (edges, textures, shapes).
 
 ## Objective
 
-Clasificar Images de CIFAR-10 (10 clases: aviones, autos, pájaros, gatos, etc.) usando una CNN custom.
+Classify Images from CIFAR-10 (10 classes: planes, cars, birds, cats, etc.) using a custom CNN.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Setup e importaciones
+## 🚀 Step 1: Setup and imports
 
 ```python
 import torch
@@ -29,9 +29,9 @@ torch.manual_seed(42)
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Cargar CIFAR-10
+## 📥 Step 2: Load CIFAR-10
 
-### 2.1 Descargar dataset
+### 2.1 Download dataset
 
 ```python
 # Data augmentation para train
@@ -54,30 +54,30 @@ transform_test = transforms.Compose([
 train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
 test_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
 
-print(f"Train: {len(train_dataset)} imágenes")
-print(f"Test: {len(test_dataset)} imágenes")
+print(f"Train: {len(train_dataset)} images")
+print(f"Test: {len(test_dataset)} images")
 
-# Clases
-classes = ('avión', 'auto', 'pájaro', 'gato', 'ciervo', 'perro', 'rana', 'caballo', 'barco', 'camión')
+# Cases, Clashes, Classes
+classes = ('plane', 'auto', 'bird', 'gato', 'ciervo', 'perro', 'rana', 'caballo', 'barco', 'truck')
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Train: 50000 imágenes
-Test: 10000 imágenes
+Train: 50000 images
+Test: 10000 images
 ```
 
-### 2.2 Visualizar Examples
+### 2.2 Visualize Examples
 
 ```python
-# Función para desnormalizar
+# Function para desnormalizar
 def denormalize(tensor):
     mean = torch.tensor([0.4914, 0.4822, 0.4465]).view(3, 1, 1)
     std = torch.tensor([0.2470, 0.2435, 0.2616]).view(3, 1, 1)
     return tensor * std + mean
 
-# Visualizar grid
+# Visualize grid
 fig, axes = plt.subplots(2, 5, figsize=(12, 5))
 axes = axes.ravel()
 
@@ -111,9 +111,9 @@ print(f"Batches en test: {len(test_loader)}")
 
 ______________________________________________________________________
 
-## 🏗️ Paso 3: Arquitectura de CNN
+## 🏗️ Step 3: CNN Architecture
 
-### 3.1 Diseño de la red
+### 3.1 Network design
 
 ```python
 class SimpleCNN(nn.Module):
@@ -154,7 +154,7 @@ class SimpleCNN(nn.Module):
         self.fc2 = nn.Linear(256, 128)
         self.fc3 = nn.Linear(128, num_classes)
 
-        # REGULARIZACIÓN
+        # REGULARIZATION
         self.dropout = nn.Dropout(0.5)
         self.relu = nn.ReLU()
 
@@ -195,12 +195,12 @@ class SimpleCNN(nn.Module):
 model = SimpleCNN().to(device)
 print(model)
 
-# Contar parámetros
+# Contar parameters
 total_params = sum(p.numel() for p in model.parameters())
-print(f"\nTotal de parámetros: {total_params:,}")
+print(f"\nTotal de parameters: {total_params:,}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 SimpleCNN(
@@ -211,26 +211,26 @@ SimpleCNN(
   (fc3): Linear(in_features=128, out_features=10)
 )
 
-Total de parámetros: 1,439,946
+Total de parameters: 1,439,946
 ```
 
-**¿Por qué esta arquitectura?**
+**Why this architecture?**
 
-- **Conv layers:** Detectan features (bordes, texturas, formas)
-- **BatchNorm:** Normaliza activaciones → Training más estable
-- **MaxPool:** Reduce dimensionalidad, invarianza a traslaciones
-- **Dropout:** Previene overfitting
-- **FC layers:** Combinan features para Classification final
+- **Conv layers:** Detect features (edges, textures, shapes)
+- **BatchNorm:** Normalizes activations → More stable training
+- **MaxPool:** Reduces dimensionality, translation invariance
+- **Dropout:** Prevents overfitting
+- **FC layers:** Combine features for final Classification
 
 ______________________________________________________________________
 
-## 🔧 Paso 4: Loss function y optimizador
+## 🔧 Step 4: Loss function and optimizer
 
 ```python
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)  # L2 regularization
 
-# Learning rate scheduler (opcional: reducir LR cuando plateau)
+# Learning rate scheduler (opcional: reducir LR when plateau)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, verbose=True)
 ```
 
@@ -257,7 +257,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
         loss.backward()
         optimizer.step()
 
-        # Métricas
+        # Metrics
         running_loss += loss.item()
         _, predicted = torch.max(outputs, 1)
         total += labels.size(0)
@@ -289,12 +289,12 @@ def evaluate(model, loader, criterion, device):
     epoch_acc = 100 * correct / total
     return epoch_loss, epoch_acc
 
-# Loop de entrenamiento
+# Loop de training
 num_epochs = 25
 train_losses, train_accs = [], []
 test_losses, test_accs = [], []
 
-print("=== ENTRENAMIENTO ===\n")
+print("=== TRAINING ===\n")
 
 for epoch in range(num_epochs):
     train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
@@ -312,25 +312,25 @@ for epoch in range(num_epochs):
           f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.2f}% | "
           f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.2f}%")
 
-print("\n=== ENTRENAMIENTO COMPLETADO ===")
+print("\n=== TRAINING COMPLETADO ===")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-=== ENTRENAMIENTO ===
+=== TRAINING ===
 
 Epoch [1/25] | Train Loss: 1.5234, Train Acc: 44.32% | Test Loss: 1.2145, Test Acc: 55.67%
 Epoch [2/25] | Train Loss: 1.1234, Train Acc: 59.84% | Test Loss: 1.0213, Test Acc: 63.21%
 ...
 Epoch [25/25] | Train Loss: 0.3421, Train Acc: 88.12% | Test Loss: 0.5678, Test Acc: 79.34%
 
-=== ENTRENAMIENTO COMPLETADO ===
+=== TRAINING COMPLETADO ===
 ```
 
 ______________________________________________________________________
 
-## 📊 Paso 6: Visualizar curvas
+## 📊 Paso 6: Visualize curves
 
 ```python
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
@@ -357,19 +357,19 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Observaciones:**
+**Observations:**
 
-- Train acc (~88%) > Test acc (~79%) → overfitting moderado
-- Data augmentation + Dropout mitigan overfitting
+- Train acc (~88%) > Test acc (~79%) → moderate overfitting
+- Data augmentation + Dropout mitigates overfitting
 
 ______________________________________________________________________
 
-## 🔍 Paso 7: Prediction y Confusion matrix
+## 🔍 Step 7: Prediction and Confusion matrix
 
-### 7.1 Predictions en test set
+### 7.1 Predictions in test set
 
 ```python
-# Obtener predicciones para todo el test set
+# Obtener predictions para todo el test set
 model.eval()
 all_preds = []
 all_labels = []
@@ -409,23 +409,23 @@ print("\n=== CLASSIFICATION REPORT ===\n")
 print(classification_report(all_labels, all_preds, target_names=classes))
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 === CLASSIFICATION REPORT ===
 
               precision    recall  f1-score   support
 
-       avión       0.82      0.84      0.83      1000
+       plane       0.82      0.84      0.83      1000
         auto       0.88      0.91      0.89      1000
-      pájaro       0.71      0.67      0.69      1000
+      bird       0.71      0.67      0.69      1000
         gato       0.65      0.62      0.63      1000
       ciervo       0.78      0.77      0.77      1000
        perro       0.72      0.69      0.70      1000
         rana       0.83      0.90      0.86      1000
      caballo       0.84      0.82      0.83      1000
        barco       0.87      0.89      0.88      1000
-      camión       0.85      0.88      0.86      1000
+      truck       0.85      0.88      0.86      1000
 
     accuracy                           0.79     10000
    macro avg       0.79      0.80      0.79     10000
@@ -434,24 +434,24 @@ weighted avg       0.79      0.79      0.79     10000
 
 **Analysis:**
 
-- Gato y perro: Peor performance (se parecen visualmente)
-- Auto, camión, avión: Mejor performance (formas distintivas)
+- Cat and dog: Worst performance (they look similar visually)
+- Car, truck, plane: Better performance (distinctive shapes)
 
 ______________________________________________________________________
 
-## 🎨 Paso 8: Visualizar Predictions incorrectas
+## 🎨 Step 8: Visualize Incorrect Predictions
 
 ```python
-# Encontrar predicciones incorrectas
+# Encontrar predictions incorrectas
 incorrect_indices = np.where(all_preds != all_labels)[0]
-print(f"Total de errores: {len(incorrect_indices)} de {len(all_labels)}")
+print(f"Total de errors: {len(incorrect_indices)} de {len(all_labels)}")
 
-# Visualizar 10 errores
+# Visualize 10 errors
 fig, axes = plt.subplots(2, 5, figsize=(15, 6))
 axes = axes.ravel()
 
 for i, idx in enumerate(incorrect_indices[:10]):
-    # Obtener imagen del dataset
+    # Obtener image del dataset
     image, true_label = test_dataset[idx]
     image_denorm = denormalize(image).permute(1, 2, 0).numpy().clip(0, 1)
 
@@ -468,16 +468,16 @@ plt.show()
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝 Executive summary
 
 ### ✅ Results
 
 - **Test accuracy:** 79.34%
 - **Train accuracy:** 88.12%
-- **overfitting gap:** ~9% (aceptable con data augmentation)
-- **Parámetros:** 1.44M
+- **overfitting gap:** ~9% (acceptable with data augmentation)
+- **Parameters:** 1.44M
 
-### 🏗️ Arquitectura CNN
+### 🏗️ CNN Architecture
 
 ```
 Input (3×32×32)
@@ -497,100 +497,100 @@ FC(128) + ReLU + Dropout(0.5)
 FC(10) → Logits
 ```
 
-### 🎯 Técnicas aplicadas
+### 🎯 Applied techniques
 
 1. **Data Augmentation:**
 
    - RandomHorizontalFlip
-   - RandomCrop con padding
-   - **Efecto:** Reduce overfitting ~5-7%
+   - RandomCrop with padding
+   - **Effect:** Reduces overfitting ~5-7%
 
 1. **Batch Normalization:**
 
-   - Normaliza activaciones entre Layers
-   - **Efecto:** Training más estable y rápido
+   - Normalize activations between Layers
+- **Effect:** More stable and faster training
 
 1. **Dropout (0.5):**
 
-   - Desactiva Neurons aleatoriamente
-   - **Efecto:** Previene overfitting
+   - Disable Neurons randomly
+   - **Effect:** Prevents overfitting
 
 1. **Learning Rate Scheduling:**
 
-   - Reduce LR cuando test loss estanca
-   - **Efecto:** Mejora convergencia final
+   - Reduces LR when test loss watertight
+   - **Effect:** Improved final convergence
 
 1. **L2 Regularization (weight_decay=5e-4):**
 
-   - Penaliza pesos grandes
-   - **Efecto:** Generalización mejorada
+   - Large pesos penalized
+- **Effect:** Improved generalization
 
 ______________________________________________________________________
 
-## 🎓 Lessons aprendidas
+## 🎓 Lessons learned
 
-### ✅ Componentes de CNNs
+### ✅ CNN components
 
 **Convolutional Layer:**
 
-- **Parámetros:** `(kernel_size × kernel_size × in_channels + 1) × out_channels`
-- **Example:** Conv2d(3, 32, kernel_size=3) → (3×3×3 + 1) × 32 = 896 parámetros
-- **Function:** Detectar features locales (bordes, texturas)
+- **Parameters:** `(kernel_size × kernel_size × in_channels + 1) × out_channels`
+- **Example:** Conv2d(3, 32, kernel_size=3) → (3×3×3 + 1) × 32 = 896 parameters
+- **Function:** Detect local features (edges, textures)
 
 **MaxPooling:**
 
-- **¿Por qué?** Reduce dimensionalidad, añade invarianza espacial
-- **Trade-off:** Pierde información de ubicación exacta
+- **Why?** Reduce dimensionality, add spatial invariance
+- **Trade-off:** Loses exact location information
 
 **Batch Normalization:**
 
-- **Ventajas:** Acelera Training, permite LR más altos, reduce overfitting leve
-- **Ubicación:** Antes o después de Activation (experimentar)
+- **Advantages:** Accelerates Training, allows higher LR, reduces slight overfitting
+- **Location:** Before or after Activation (experiment)
 
 **Dropout:**
 
-- **En CNNs:** Típicamente en FC layers, no en Conv layers
-- **Alternativa:** DropBlock para Conv layers
+- **In CNNs:** Typically in FC layers, not in Conv layers
+- **Alternative:** DropBlock for Conv layers
 
-### 💡 Mejoras posibles
+### 💡 Possible improvements
 
-1. **Arquitectura más profunda:**
+1. **Deeper Architecture:**
 
-   - Agregar más bloques Conv
-   - Usar residual connections (ResNet)
+- Add more Conv blocks
+   - Use residual connections (ResNet)
 
-1. **Data augmentation avanzada:**
+1. **Advanced data augmentation:**
 
    - ColorJitter, RandomRotation, Cutout
 
 1. **Transfer Learning:**
 
-   - Usar Model preentrenado (ResNet50, EfficientNet)
-   - Fine-tuning en CIFAR-10
+   - Use pre-trained Model (ResNet50, EfficientNet)
+   - Fine-tuning on CIFAR-10
 
 1. **Mixup / CutMix:**
 
-   - Técnicas de augmentation a nivel de batch
+- Augmentation techniques at batch level
 
-1. **Optimizador avanzado:**
+1. **Advanced Optimizer:**
 
-   - SGD con momentum
+   - SGD with momentum
    - AdamW
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ **Padding incorrecto:** Perder información en bordes
-- ❌ **Demasiados MaxPools:** Reducir dimensión demasiado rápido
-- ❌ **No usar BN:** Training inestable
-- ❌ **Dropout en últimas Layers conv:** Puede dañar features espaciales
-- ❌ **LR muy alto:** Diverge (especialmente sin BN)
+- ❌ **Incorrect padding:** Losing information on edges
+- ❌ **Too many MaxPools:** Reduce size too fast
+- ❌ **Do not use BN:** Unstable training
+- ❌ **Dropout in last Layers conv:** May damage spatial features
+- ❌ **LR very high:** Diverges (especially without BN)
 
 ______________________________________________________________________
 
-## 🔧 Guardar y cargar Model
+## 🔧 Save and load Model
 
 ```python
-# Guardar
+# Save
 torch.save({
     'epoch': num_epochs,
     'model_state_dict': model.state_dict(),
@@ -599,22 +599,22 @@ torch.save({
     'test_acc': test_accs[-1]
 }, 'cifar10_cnn.pth')
 
-# Cargar
+# Load
 checkpoint = torch.load('cifar10_cnn.pth')
 model.load_state_dict(checkpoint['model_state_dict'])
 optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-print(f"Modelo cargado. Test Acc: {checkpoint['test_acc']:.2f}%")
+print(f"Model cargado. Test Acc: {checkpoint['test_acc']:.2f}%")
 ```
 
 ### 📌 Checklist CNN
 
 - ✅ Data augmentation (train only)
-- ✅ Normalization de Pixels (ImageNet stats o custom)
+- ✅ Pixel Normalization (ImageNet stats or custom)
 - ✅ Batch Normalization entre Layers
-- ✅ Dropout en FC layers
+- ✅ Dropout in FC layers
 - ✅ Learning rate scheduling
 - ✅ Weight decay (L2 reg)
-- ✅ Validation en cada época
-- ✅ Guardar checkpoints
-- ✅ Visualizar Predictions incorrectas
-- ✅ Confusion matrix para Analysis por clase
+- ✅ Validation in each era
+- ✅ Save checkpoints
+- ✅ Visualize incorrect Predictions
+- ✅ Confusion matrix for Analysis by clause, class

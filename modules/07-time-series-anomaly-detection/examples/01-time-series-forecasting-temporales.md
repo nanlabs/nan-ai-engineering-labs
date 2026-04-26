@@ -1,16 +1,16 @@
-# Example 01 — Forecast de time series con ARIMA y Prophet
+# Example 01 — Time series forecast with ARIMA and Prophet
 
-## Contexto
+## Context
 
-Las time series son Data ordenados en el tiempo (ventas, temperatura, tráfico web). Aprenderás a hacer Forecasts usando **ARIMA** (estadístico clásico) y **Prophet** (desarrollado por Facebook).
+Time series are data ordered in time (sales, temperature, web traffic). You will learn how to make Forecasts using **ARIMA** (classical statistics) and **Prophet** (developed by Facebook).
 
 ## Objective
 
-Pronosticar ventas futuras usando Data históricos.
+Forecast future sales using historical data.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Setup e importaciones
+## 🚀 Step 1: Setup and imports
 
 ```python
 import pandas as pd
@@ -31,24 +31,24 @@ sns.set_style('whitegrid')
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Generar Data de Example (ventas diarias)
+## 📥 Step 2: Generate Data from Example (daily sales)
 
 ```python
-# Generar serie temporal sintética
+# Generate series temporal synthetic
 np.random.seed(42)
 date_range = pd.date_range(start='2022-01-01', end='2023-12-31', freq='D')
 
-# Componentes:
-# 1. Tendencia creciente
+# Components:
+# 1. Trend creciente
 trend = np.linspace(100, 200, len(date_range))
 
-# 2. Estacionalidad anual (picos en verano)
-seasonality = 30 * np.sin(2 * np.pi * np.arange(len(date_range)) / 365)
+# 2. Seasonality annual (picos en verano)
+seasonality = 30 * np.sin(2 * np.pi * np.arrange(len(date_range)) / 365)
 
 # 3. Ruido aleatorio
 noise = np.random.normal(0, 10, len(date_range))
 
-# Serie temporal completa
+# Time series complete
 sales = trend + seasonality + noise
 
 # DataFrame
@@ -59,15 +59,15 @@ df = pd.DataFrame({
 
 df.set_index('date', inplace=True)
 
-print(f"Datos: {len(df)} observaciones")
+print(f"Data: {len(df)} observaciones")
 print(f"\n{df.head()}")
 print(f"\n{df.describe()}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Datos: 730 observaciones
+Data: 730 observaciones
 
             sales
 date
@@ -87,40 +87,40 @@ max      215.678901
 
 ______________________________________________________________________
 
-## 📊 Paso 3: Exploration y Visualization
+## 📊 Step 3: Exploration and Visualization
 
-### 3.1 Plot de la serie
+### 3.1 Series plot
 
 ```python
 plt.figure(figsize=(14, 6))
 plt.plot(df.index, df['sales'], linewidth=1.5)
-plt.title('Serie Temporal de Ventas Diarias', fontsize=16)
+plt.title('Series Temporal de Ventas Diarias', fontsize=16)
 plt.xlabel('Fecha')
 plt.ylabel('Ventas')
 plt.grid(alpha=0.3)
 plt.show()
 ```
 
-### 3.2 Descomposición de la serie
+### 3.2 Series decomposition
 
 ```python
-# Descomponer en: tendencia + estacionalidad + residuos
+# Descomponer en: trend + seasonality + residuos
 decomposition = seasonal_decompose(df['sales'], model='additive', period=365)
 
 fig, axes = plt.subplots(4, 1, figsize=(14, 10))
 
-# Serie original
+# Series original
 axes[0].plot(df.index, df['sales'], color='blue')
 axes[0].set_ylabel('Original')
-axes[0].set_title('Descomposición de Serie Temporal')
+axes[0].set_title('Decomposition de Series Temporal')
 
-# Tendencia
+# Trend
 axes[1].plot(decomposition.trend, color='green')
-axes[1].set_ylabel('Tendencia')
+axes[1].set_ylabel('Trend')
 
-# Estacionalidad
+# Seasonality
 axes[2].plot(decomposition.seasonal, color='orange')
-axes[2].set_ylabel('Estacionalidad')
+axes[2].set_ylabel('Seasonality')
 
 # Residuos
 axes[3].plot(decomposition.resid, color='red')
@@ -131,23 +131,23 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Interpretación:**
+**Interpretation:**
 
-- **Trend:** Crecimiento lineal claro
-- **Seasonality:** Patrón anual (picos cada ~365 días)
-- **Residuos:** Ruido aleatorio (idealmente sin patrón)
+- **Trend:** Clear linear growth
+- **Seasonality:** Annual pattern (peaks each ~365 days)
+- **Waste:** Random noise (ideally without pattern)
 
 ______________________________________________________________________
 
-## 🔍 Paso 4: Verificar estacionariedad (crítico para ARIMA)
+## 🔍 Step 4: Check stationarity (critical for ARIMA)
 
-### 4.1 Test de Dickey-Fuller
+### 4.1 Dickey-Fuller test
 
 ```python
 def adf_test(series, title=''):
     """
     Test de Dickey-Fuller Aumentado (ADF)
-    H0: Serie NO es estacionaria (tiene raíz unitaria)
+    H0: Series NO es estacionaria (tiene root unitaria)
     """
     result = adfuller(series.dropna())
 
@@ -159,46 +159,46 @@ def adf_test(series, title=''):
         print(f'  {key}: {value:.4f}')
 
     if result[1] <= 0.05:
-        print("✅ Serie ES estacionaria (rechazar H0)")
+        print("✅ Series ES estacionaria (rechazar H0)")
     else:
-        print("❌ Serie NO es estacionaria (no rechazar H0)")
+        print("❌ Series NO es estacionaria (no rechazar H0)")
     print()
 
-# Test en serie original
-adf_test(df['sales'], 'Serie Original')
+# Test en series original
+adf_test(df['sales'], 'Series Original')
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== ADF Test: Serie Original ===
+=== ADF Test: Series Original ===
 ADF Statistic: -2.1234
 p-value: 0.2345
 Critical Values:
   1%: -3.4321
   5%: -2.8623
   10%: -2.5671
-❌ Serie NO es estacionaria (no rechazar H0)  👈 Tiene tendencia
+❌ Series NO es estacionaria (no rechazar H0)  👈 Tiene trend
 ```
 
-### 4.2 Diferenciación para hacerla estacionaria
+### 4.2 Differentiation to make it stationary
 
 ```python
 # Primera diferencia: y_t - y_{t-1}
 df['sales_diff'] = df['sales'].diff()
 
-# Test ADF en serie diferenciada
-adf_test(df['sales_diff'].dropna(), 'Serie Diferenciada')
+# Test ADF en series diferenciada
+adf_test(df['sales_diff'].dropna(), 'Series Diferenciada')
 
-# Visualizar
+# Visualize
 fig, axes = plt.subplots(2, 1, figsize=(14, 8))
 
 axes[0].plot(df['sales'], color='blue')
-axes[0].set_title('Serie Original (NO estacionaria)')
+axes[0].set_title('Series Original (NO estacionaria)')
 axes[0].set_ylabel('Ventas')
 
 axes[1].plot(df['sales_diff'], color='green')
-axes[1].set_title('Serie Diferenciada (Estacionaria)')
+axes[1].set_title('Series Diferenciada (Estacionaria)')
 axes[1].set_ylabel('Diferencia')
 axes[1].set_xlabel('Fecha')
 
@@ -206,21 +206,21 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== ADF Test: Serie Diferenciada ===
+=== ADF Test: Series Diferenciada ===
 ADF Statistic: -15.6789
 p-value: 0.0000
 ...
-✅ Serie ES estacionaria (rechazar H0)  👈 Ahora es estacionaria
+✅ Series ES estacionaria (rechazar H0)  👈 Ahora es estacionaria
 ```
 
 ______________________________________________________________________
 
-## 📈 Paso 5: Identificar parámetros ARIMA (p, d, q)
+## 📈 Step 5: Identify ARIMA parameters (p, d, q)
 
-### 5.1 ACF y PACF plots
+### 5.1 ACF and PACF plots
 
 ```python
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
@@ -237,22 +237,22 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Interpretación:**
+**Interpretation:**
 
-- **p (AR term):** Lags significativos en PACF → p=1 o p=2
-- **d (Differencing):** Ya usamos d=1 para hacer serie estacionaria
-- **q (MA term):** Lags significativos en ACF → q=1
+- **p (AR term):** Significant lags in PACF → p=1 or p=2
+- **d (Differencing):** We already use d=1 to make a stationary series
+- **q (MA term):** Significant lags in ACF → q=1
 
-**Parámetros elegidos:** ARIMA(1, 1, 1)
+**Chosen parameters:** ARIMA(1, 1, 1)
 
 ______________________________________________________________________
 
-## 🏋️ Paso 6: Entrenar Model ARIMA
+## 🏋️ Paso 6: Train Model ARIMA
 
 ### 6.1 Split train/test
 
 ```python
-# Últimos 90 días para test
+# Latest 90 days para test
 train_size = len(df) - 90
 train = df['sales'][:train_size]
 test = df['sales'][train_size:]
@@ -261,7 +261,7 @@ print(f"Train: {len(train)} observaciones")
 print(f"Test: {len(test)} observaciones")
 ```
 
-### 6.2 Entrenar ARIMA
+### 6.2 Train ARIMA
 
 ```python
 # ARIMA(p=1, d=1, q=1)
@@ -271,7 +271,7 @@ fitted_arima = model_arima.fit()
 print(fitted_arima.summary())
 ```
 
-**Salida:**
+**Output:**
 
 ```
                                SARIMAX Results
@@ -290,10 +290,10 @@ ma.L1         -0.8912      0.023    -38.745      0.000
 ### 6.3 Forecast
 
 ```python
-# Pronosticar 90 días
+# Pronosticar 90 days
 forecast_arima = fitted_arima.forecast(steps=90)
 
-# Calcular métricas
+# Calculate metrics
 mae_arima = mean_absolute_error(test, forecast_arima)
 rmse_arima = np.sqrt(mean_squared_error(test, forecast_arima))
 
@@ -302,7 +302,7 @@ print(f"MAE:  {mae_arima:.2f}")
 print(f"RMSE: {rmse_arima:.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === ARIMA Performance ===
@@ -310,22 +310,22 @@ MAE:  12.34
 RMSE: 15.67
 ```
 
-### 6.4 Visualizar Predictions
+### 6.4 Visualize Predictions
 
 ```python
 plt.figure(figsize=(14, 6))
 
-# Serie completa
-plt.plot(df.index, df['sales'], label='Datos Reales', color='blue', linewidth=1.5)
+# Series complete
+plt.plot(df.index, df['sales'], label='Data Reales', color='blue', linewidth=1.5)
 
-# Predicciones ARIMA
+# Predictions ARIMA
 forecast_index = test.index
-plt.plot(forecast_index, forecast_arima, label='Pronóstico ARIMA', color='red', linewidth=2)
+plt.plot(forecast_index, forecast_arima, label='Forecast ARIMA', color='red', linewidth=2)
 
-# Área de test
+# Area de test
 plt.axvline(x=train.index[-1], color='gray', linestyle='--', label='Train/Test Split')
 
-plt.title('Pronóstico con ARIMA(1,1,1)', fontsize=16)
+plt.title('Forecast con ARIMA(1,1,1)', fontsize=16)
 plt.xlabel('Fecha')
 plt.ylabel('Ventas')
 plt.legend()
@@ -335,12 +335,12 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🔮 Paso 7: Prophet (más robusto para Seasonality)
+## 🔮 Step 7: Prophet (more robust for Seasonality)
 
-### 7.1 Preparar Data para Prophet
+### 7.1 Prepare Data for Prophet
 
 ```python
-# Prophet espera columnas 'ds' (date) y 'y' (value)
+# Prophet espera columns 'ds' (date) y 'y' (value)
 df_prophet = df.reset_index().rename(columns={'date': 'ds', 'sales': 'y'})
 
 train_prophet = df_prophet[:train_size]
@@ -349,45 +349,45 @@ test_prophet = df_prophet[train_size:]
 print(f"\n{train_prophet.head()}")
 ```
 
-### 7.2 Entrenar Prophet
+### 7.2 Train Prophet
 
 ```python
-# Crear modelo Prophet
+# Create model Prophet
 model_prophet = Prophet(
-    yearly_seasonality=True,   # Detectar estacionalidad anual
-    weekly_seasonality=True,   # Detectar estacionalidad semanal
+    yearly_seasonality=True,   # Detect seasonality annual
+    weekly_seasonality=True,   # Detect seasonality semanal
     daily_seasonality=False,
-    changepoint_prior_scale=0.05  # Flexibilidad de tendencia
+    changepoint_prior_scale=0.05  # Flexibilidad de trend
 )
 
-# Entrenar
+# Train
 model_prophet.fit(train_prophet)
 
-print("✅ Modelo Prophet entrenado")
+print("✅ Model Prophet trained")
 ```
 
 ### 7.3 Forecast
 
 ```python
-# Crear dataframe para fechas futuras
+# Create dataframe para fechas future
 future = model_prophet.make_future_dataframe(periods=90, freq='D')
 
 # Pronosticar
 forecast_prophet = model_prophet.predict(future)
 
-# Extraer solo predicciones de test set
+# Extraer solo predictions de test set
 forecast_prophet_test = forecast_prophet.tail(90)
 
-# Métricas
-mae_prophet = mean_absolute_error(test, forecast_prophet_test['yhat'])
-rmse_prophet = np.sqrt(mean_squared_error(test, forecast_prophet_test['yhat']))
+# Metrics
+mae_prophet = mean_absolute_error(test, forecast_prophet_test['that'])
+rmse_prophet = np.sqrt(mean_squared_error(test, forecast_prophet_test['that']))
 
 print(f"\n=== Prophet Performance ===")
 print(f"MAE:  {mae_prophet:.2f}")
 print(f"RMSE: {rmse_prophet:.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Prophet Performance ===
@@ -395,44 +395,44 @@ MAE:  8.12  👈 Mejor que ARIMA
 RMSE: 10.45
 ```
 
-### 7.4 Visualizar Prophet
+### 7.4 Visualize Prophet
 
 ```python
-# Plot automático de Prophet
+# Plot automatic de Prophet
 fig = model_prophet.plot(forecast)
-plt.title('Pronóstico con Prophet')
+plt.title('Forecast con Prophet')
 plt.show()
 
-# Componentes (tendencia + estacionalidad)
+# Components (trend + seasonality)
 fig_components = model_prophet.plot_components(forecast)
 plt.show()
 ```
 
 ______________________________________________________________________
 
-## 📊 Paso 8: Comparar Models
+## 📊 Paso 8: Compare Models
 
 ```python
 # Tabla comparativa
 comparison = pd.DataFrame({
-    'Modelo': ['ARIMA(1,1,1)', 'Prophet'],
+    'Model': ['ARIMA(1,1,1)', 'Prophet'],
     'MAE': [mae_arima, mae_prophet],
     'RMSE': [rmse_arima, rmse_prophet]
 })
 
-print("\n=== COMPARACIÓN DE MODELOS ===")
+print("\n=== COMPARISON DE MODELOS ===")
 print(comparison.to_string(index=False))
 
-# Gráfica comparativa
+# Graph comparativa
 plt.figure(figsize=(14, 6))
 
-plt.plot(df.index, df['sales'], label='Datos Reales', color='blue', alpha=0.7)
+plt.plot(df.index, df['sales'], label='Data Reales', color='blue', alpha=0.7)
 plt.plot(test.index, forecast_arima, label=f'ARIMA (MAE={mae_arima:.2f})', color='red', linewidth=2)
-plt.plot(test.index, forecast_prophet_test['yhat'], label=f'Prophet (MAE={mae_prophet:.2f})', color='green', linewidth=2)
+plt.plot(test.index, forecast_prophet_test['that'], label=f'Prophet (MAE={mae_prophet:.2f})', color='green', linewidth=2)
 
 plt.axvline(x=train.index[-1], color='gray', linestyle='--', label='Train/Test Split')
 
-plt.title('Comparación: ARIMA vs Prophet', fontsize=16)
+plt.title('Comparison: ARIMA vs Prophet', fontsize=16)
 plt.xlabel('Fecha')
 plt.ylabel('Ventas')
 plt.legend()
@@ -440,25 +440,25 @@ plt.grid(alpha=0.3)
 plt.show()
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== COMPARACIÓN DE MODELOS ===
-        Modelo    MAE   RMSE
+=== COMPARISON DE MODELOS ===
+        Model    MAE   RMSE
   ARIMA(1,1,1)  12.34  15.67
        Prophet   8.12  10.45  👈 Ganador
 ```
 
 ______________________________________________________________________
 
-## 🔍 Paso 9: Intervalos de confianza (Prophet)
+## 🔍 Step 9: Confidence Intervals (Prophet)
 
 ```python
 plt.figure(figsize=(14, 6))
 
-# Pronóstico con intervalos de confianza
-plt.plot(df.index, df['sales'], label='Datos Reales', color='blue')
-plt.plot(forecast_prophet['ds'], forecast_prophet['yhat'], label='Pronóstico Prophet', color='green', linewidth=2)
+# Forecast con intervals de confianza
+plt.plot(df.index, df['sales'], label='Data Reales', color='blue')
+plt.plot(forecast_prophet['ds'], forecast_prophet['that'], label='Forecast Prophet', color='green', linewidth=2)
 
 # Intervalo de confianza (80%)
 plt.fill_between(forecast_prophet['ds'],
@@ -468,7 +468,7 @@ plt.fill_between(forecast_prophet['ds'],
 
 plt.axvline(x=train.index[-1], color='gray', linestyle='--')
 
-plt.title('Pronóstico con Intervalos de Confianza', fontsize=16)
+plt.title('Forecast con Intervals de Confianza', fontsize=16)
 plt.xlabel('Fecha')
 plt.ylabel('Ventas')
 plt.legend()
@@ -478,126 +478,126 @@ plt.show()
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝Executive summary
 
 ### ✅ Results
 
-| Model            | MAE      | RMSE      | Ventajas                                                    |
+| Model | MAE | RMSE | Advantages |
 | ---------------- | -------- | --------- | ----------------------------------------------------------- |
-| **ARIMA(1,1,1)** | 12.34    | 15.67     | Simple, interpretable                                       |
-| **Prophet**      | **8.12** | **10.45** | Maneja múltiples estacionalidades, robusto a Data faltantes |
+| **ARIMA(1,1,1)** | 12.34 | 15.67 | Simple, interpretable |
+| **Prophet** | **8.12** | **10.45** | Handles multiple seasonalities, robust to missing data |
 
-### 🎯 Pipeline de Forecast
+### 🎯 Forecast Pipeline
 
 ```
-Serie temporal cruda
+Time series cruda
   ↓
-EDA (plots, estadísticas)
+EDA (plots, statistics)
   ↓
-Descomposición (tendencia, estacionalidad, residuos)
+Decomposition (trend, seasonality, residuos)
   ↓
 Test de estacionariedad (ADF)
   ↓
-Diferenciación (si no es estacionaria)
+Differentiation (si no es estacionaria)
   ↓
-Identificar parámetros (ACF, PACF)
+Identify parameters (ACF, PACF)
   ↓
-Entrenar modelo (ARIMA o Prophet)
+Train model (ARIMA o Prophet)
   ↓
-Evaluar en test set (MAE, RMSE)
+Evaluate en test set (MAE, RMSE)
   ↓
 Pronosticar futuro
 ```
 
 ______________________________________________________________________
 
-## 🎓 Lessons aprendidas
+## 🎓 Lessons learned
 
 ### ✅ ARIMA
 
-**Componentes:**
+**Components:**
 
-- **AR (AutoRegressive):** Usa valores pasados (p lags)
-- **I (Integrated):** Diferenciación para hacer serie estacionaria (d veces)
-- **MA (Moving Average):** Usa Errors pasados (q lags)
+- **AR (AutoRegressive):** Use passed values ​​(p lags)
+- **I (Integrated):** Differentiation to make a stationary series (d times)
+- **MA (Moving Average):** Uses past errors (q lags)
 
-**Parámetros:**
+**Parameters:**
 
-- **p:** Número de lags AR (mira PACF)
-- **d:** Orden de diferenciación (d=1 típicamente suficiente)
-- **q:** Número de lags MA (mira ACF)
+- **p:** Number of AR lags (see PACF)
+- **d:** Order of differentiation (d=1 typically sufficient)
+- **q:** Number of MA lags (see ACF)
 
-**Cuándo usar:**
+**When use:**
 
-- Serie estacionaria (o puede hacerse estacionaria)
+- Stationary series (or can be made stationary)
 - Seasonality simple
-- Pocos Data faltantes
+- Few missing data
 
-**Limitaciones:**
+**Limitations:**
 
-- ❌ Asume linealidad
+- ❌ Assume linearity
 - ❌ Sensible a outliers
-- ❌ Difícil con múltiples estacionalidades
+- ❌Difficult with multiple seasonalities
 
 ### ✅ Prophet
 
-**Ventajas:**
+**Advantages:**
 
-- ✅ Maneja múltiples estacionalidades (anual, mensual, semanal)
-- ✅ Robusto a Data faltantes y outliers
-- ✅ Intervalos de confianza automáticos
-- ✅ Fácil agregar regressors externos (holidays, eventos)
+- ✅ Handles multiple seasonalities (annual, monthly, weekly)
+- ✅ Robust to missing data and outliers
+- ✅ Automatic confidence intervals
+- ✅ Easy to add external regressors (holidays, events)
 
-**Componentes:**
+**Components:**
 
 ```python
-g(t): tendencia (piecewise linear o logistic)
-s(t): estacionalidad (Fourier series)
+g(t): trend (piecewise linear o logistic)
+s(t): seasonality (Fourier series)
 h(t): efectos de holidays
 ε_t: error
 ```
 
-**Parámetros importantes:**
+**Important parameters:**
 
 - `yearly_seasonality`: True/False
-- `changepoint_prior_scale`: Flexibilidad de Trend (0.001-0.5)
-- `seasonality_prior_scale`: Fuerza de Seasonality
+- `changepoint_prior_scale`: Trend Flexibility (0.001-0.5)
+- `seasonality_prior_scale`: Strength of Seasonality
 
-**Cuándo usar:**
+**When use:**
 
-- Series con tendencias no lineales
-- Múltiples estacionalidades
-- Data faltantes frecuentes
-- Necesitas intervalos de confianza
+- Series with non-linear trends
+- Multiple seasonalities
+- Frequent missing data
+- You need confidence intervals
 
-### 💡 Mejoras adicionales
+### 💡Additional improvements
 
-1. **SARIMA:** ARIMA con Seasonality explícita (p, d, q)(P, D, Q, s)
-1. **LSTM/GRU:** Deep learning para series no lineales
-1. **XGBoost:** Con features de lag, rolling stats, fecha
-1. **Ensemble:** Combinar ARIMA + Prophet + ML
+1. **SARIMA:** ARIMA with explicit Seasonality (p, d, q)(P, D, Q, s)
+1. **LSTM/GRU:** Deep learning for non-linear series
+1. **XGBoost:** With lag, rolling stats, date features
+1. **Ensemble:** Combine ARIMA + Prophet + ML
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ No verificar estacionariedad antes de ARIMA
-- ❌ Sobreajustar parámetros (usar grid search con Validation cruzada)
-- ❌ No considerar eventos externos (holidays, promociones)
-- ❌ Pronosticar muy lejos en el futuro (incertidumbre crece)
+- ❌ Do not verify stationarity before ARIMA
+- ❌ Overfit parameters (use grid search with Cross Validation)
+- ❌ Do not consider external events (holidays, promotions)
+- ❌ Predict very far into the future (uncertainty grows)
 
 ______________________________________________________________________
 
-## 🔧 Código de producción
+## 🔧 Production code
 
 ```python
-# Pipeline completo
+# Pipeline complete
 def forecast_pipeline(df, target_col, forecast_days=30):
     """
-    Pipeline de pronóstico con ARIMA y Prophet
+    Pipeline de forecast con ARIMA y Prophet
     """
-    # Preparar datos
+    # Preparar data
     df_prophet = df.reset_index().rename(columns={'date': 'ds', target_col: 'y'})
 
-    # Entrenar Prophet
+    # Train Prophet
     model = Prophet(
         yearly_seasonality=True,
         weekly_seasonality=True,
@@ -609,22 +609,22 @@ def forecast_pipeline(df, target_col, forecast_days=30):
     future = model.make_future_dataframe(periods=forecast_days, freq='D')
     forecast = model.predict(future)
 
-    return forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(forecast_days)
+    return forecast[['ds', 'that', 'yhat_lower', 'yhat_upper']].tail(forecast_days)
 
-# Usar
+# Wear
 future_sales = forecast_pipeline(df, 'sales', forecast_days=90)
 print(future_sales.head())
 ```
 
-### 📌 Checklist de time series
+### 📌 Time series checklist
 
-- ✅ Visualizar serie (Trend, Seasonality)
-- ✅ Descomponer en componentes
-- ✅ Verificar estacionariedad (ADF test)
-- ✅ Diferenciar si es necesario
-- ✅ Identificar parámetros (ACF, PACF)
+- ✅ Visualize series (Trend, Seasonality)
+- ✅ Break down into components
+- ✅ Verify stationarity (ADF test)
+- ✅ Differentiate if necessary
+- ✅ Identify parameters (ACF, PACF)
 - ✅ Split train/test temporal (NO random!)
-- ✅ Entrenar múltiples Models
-- ✅ Evaluar con MAE/RMSE en test set
-- ✅ Visualizar Predictions vs reales
-- ✅ Reportar intervalos de confianza
+- ✅ Train multiple Models
+- ✅ Evaluate yourself with MAE/RMSE in test set
+- ✅ Visualize Predictions vs real
+- ✅ Report confidence intervals

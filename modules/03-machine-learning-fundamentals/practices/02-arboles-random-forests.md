@@ -1,17 +1,17 @@
-# Práctica 02 — Árboles de Decisión y Random Forests
+# Practice 02 — Decision Trees and Random Forests
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Entrenar árboles de decisión y entender splits
-- Implementar Random Forest y ensemble methods
-- Comparar modelos y entender trade-offs
-- Optimizar hiperparámetros con Grid Search
+- Train decision trees and understand splits
+- Implement Random Forest and ensemble methods
+- Compare Models and understand trade-offs
+- Optimize Hyperparameters with Grid Search
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Árbol de Decisión Básico
+### Exercise 1.1: Basic Decision Tree
 
 ```python
 import numpy as np
@@ -32,22 +32,22 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# Entrenar con diferentes profundidades
+# Train con different profundidades
 depths = [2, 3, 5, None]
 
 fig, axes = plt.subplots(2, 2, figsize=(20, 16))
 axes = axes.flatten()
 
 for idx, depth in enumerate(depths):
-    # Entrenar
+    # Train
     tree = DecisionTreeClassifier(max_depth=depth, random_state=42)
     tree.fit(X_train, y_train)
 
-    # Evaluar
+    # Evaluate
     y_pred = tree.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
 
-    # Visualizar árbol
+    # Visualize tree
     plot_tree(tree, feature_names=iris.feature_names,
               class_names=iris.target_names, filled=True, ax=axes[idx])
     axes[idx].set_title(f'Decision Tree (depth={depth}) - Accuracy: {acc:.4f}')
@@ -56,13 +56,13 @@ plt.tight_layout()
 plt.savefig('decision_trees_depths.png', dpi=150, bbox_inches='tight')
 plt.show()
 
-print("✅ Árboles de decisión entrenados con diferentes profundidades")
+print("✅ Trees de decision trained con different profundidades")
 ```
 
-**✅ Solución - Feature Importance:**
+**✅ Solution - Feature Importance:**
 
 ```python
-# Entrenar árbol final
+# Train tree final
 tree_final = DecisionTreeClassifier(max_depth=3, random_state=42)
 tree_final.fit(X_train, y_train)
 
@@ -75,7 +75,7 @@ importances = pd.DataFrame({
 print("\n=== Feature Importance ===")
 print(importances)
 
-# Visualizar
+# Visualize
 plt.figure(figsize=(10, 6))
 plt.barh(importances['feature'], importances['importance'], color='steelblue', alpha=0.7)
 plt.xlabel('Importance')
@@ -86,12 +86,12 @@ plt.savefig('tree_feature_importance.png', dpi=150)
 plt.show()
 ```
 
-### Ejercicio 1.2: Random Forest
+### Exercise 1.2: Random Forest
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
 
-# Entrenar Random Forest con diferentes n_estimators
+# Train Random Forest con different n_estimators
 n_estimators_list = [10, 50, 100, 200]
 
 results = []
@@ -100,7 +100,7 @@ for n_est in n_estimators_list:
     rf = RandomForestClassifier(n_estimators=n_est, random_state=42)
     rf.fit(X_train, y_train)
 
-    # Evaluar
+    # Evaluate
     train_acc = rf.score(X_train, y_train)
     test_acc = rf.score(X_test, y_test)
 
@@ -112,7 +112,7 @@ for n_est in n_estimators_list:
 
     print(f"n_estimators={n_est:3d} | Train: {train_acc:.4f} | Test: {test_acc:.4f}")
 
-# Visualizar learning curves
+# Visualize learning curves
 results_df = pd.DataFrame(results)
 
 plt.figure(figsize=(10, 6))
@@ -129,7 +129,7 @@ plt.savefig('random_forest_learning_curve.png', dpi=150)
 plt.show()
 ```
 
-### Ejercicio 1.3: Comparación de Modelos
+### Exercise 1.3: Comparison of Models
 
 ```python
 from sklearn.svm import SVC
@@ -137,7 +137,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 
-# Entrenar múltiples modelos
+# Train multiple models
 models = {
     'Decision Tree': DecisionTreeClassifier(max_depth=3, random_state=42),
     'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
@@ -150,10 +150,10 @@ models = {
 comparison = []
 
 for name, model in models.items():
-    # Entrenar
+    # Train
     model.fit(X_train, y_train)
 
-    # Evaluar
+    # Evaluate
     train_acc = model.score(X_train, y_train)
     test_acc = model.score(X_test, y_test)
 
@@ -169,11 +169,11 @@ comparison_df = pd.DataFrame(comparison).sort_values('Test Accuracy', ascending=
 print("\n=== Model Comparison ===")
 print(comparison_df.to_string(index=False))
 
-# Visualizar
+# Visualize
 fig, axes = plt.subplots(1, 2, figsize=(16, 6))
 
 # Accuracy comparison
-x = np.arange(len(comparison_df))
+x = np.arrange(len(comparison_df))
 width = 0.35
 
 axes[0].bar(x - width/2, comparison_df['Train Accuracy'], width,
@@ -203,12 +203,12 @@ plt.savefig('model_comparison.png', dpi=150, bbox_inches='tight')
 plt.show()
 ```
 
-### Ejercicio 1.4: Hyperparameter Tuning con Grid Search
+### Exercise 1.4: Hyperparameter Tuning with Grid Search
 
 ```python
 from sklearn.model_selection import GridSearchCV
 
-# Definir grid de hiperparámetros
+# Define grid de hyperparameters
 param_grid = {
     'n_estimators': [50, 100, 200],
     'max_depth': [3, 5, 7, None],
@@ -223,19 +223,19 @@ grid_search = GridSearchCV(
     n_jobs=-1, verbose=1
 )
 
-print("\n=== Grid Search en ejecución ===")
+print("\n=== Grid Search en execution ===")
 grid_search.fit(X_train, y_train)
 
 print("\n=== Best Parameters ===")
 print(grid_search.best_params_)
 print(f"\nBest CV Score: {grid_search.best_score_:.4f}")
 
-# Evaluar mejor modelo
+# Evaluate better model
 best_model = grid_search.best_estimator_
 test_score = best_model.score(X_test, y_test)
 print(f"Test Score: {test_score:.4f}")
 
-# Analizar resultados del grid search
+# Analizar results del grid search
 results_df = pd.DataFrame(grid_search.cv_results_)
 
 # Top 10 configuraciones
@@ -250,45 +250,45 @@ print(top_configs.to_string(index=False))
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Visualización de Decision Boundaries
+### Exercise 2.1: Visualization of Decision Boundaries
 
-**Enunciado:**
-Usa solo 2 features (petal length y petal width) y visualiza:
+**Statement:**
+Use only 2 features (petal length and petal width) and visualize:
 
-1. Decision boundary para Decision Tree (depth=3)
-1. Decision boundary para Random Forest (n_estimators=100)
-1. Grafica puntos de train/test con colores por clase
-1. Compara cómo difieren los boundaries
+1. Decision boundary for Decision Tree (depth=3)
+1. Decision boundary for Random Forest (n_estimators=100)
+1. Plot train/test points with colors by clause, class
+1. Compare how boundaries differ
 
-### Ejercicio 2.2: Feature Engineering para Árboles
+### Exercise 2.2: Feature Engineering for Trees
 
-**Enunciado:**
-Crea nuevas features derivadas:
+**Statement:**
+Create nuevas features derivadas:
 
 - Ratios entre features (ej: sepal_length / sepal_width)
 - Interacciones (ej: feature1 * feature2)
-- Categorías binned (ej: size groups: small/medium/large)
+- Binned categories (e.g. size groups: small/medium/large)
 
-Compara performance con y sin feature engineering.
+Compare performance with and without feature engineering.
 
-### Ejercicio 2.3: Out-of-Bag (OOB) Score
+### Exercise 2.3: Out-of-Bag (OOB) Score
 
-**Enunciado:**
-Random Forest usa bootstrap samples. Cada árbol no ve ~37% de datos (OOB).
-Entrena RandomForest con `oob_score=True` y compara:
+**Statement:**
+Random Forest uses bootstrap samples. Each tree does not see ~37% of Data (OOB).
+Train RandomForest with `oob_score=True` and compare:
 
 - OOB Score
 - Train Score
 - Test Score
 
-¿Cuál es un mejor estimado del test performance?
+What is a best estimate of the test performance?
 
-### Ejercicio 2.4: Ensemble Voting Classifier
+### Exercise 2.4: Ensemble Voting Classifier
 
-**Enunciado:**
-Crea un `VotingClassifier` (sklearn) que combine:
+**Statement:**
+Create a `VotingClassifier` (sklearn) that combines:
 
 - Decision Tree
 - Random Forest
@@ -296,37 +296,37 @@ Crea un `VotingClassifier` (sklearn) que combine:
 - Logistic Regression
 
 Usa voting='soft' (promedia probabilidades).
-Compara accuracy del ensemble vs modelos individuales.
+Compare accuracy of the ensemble vs individual Models.
 
-### Ejercicio 2.5: Análisis de Árboles Individuales
+### Exercise 2.5: Analysis of Individual Trees
 
-**Enunciado:**
-Extrae 3 árboles del Random Forest entrenado:
+**Statement:**
+Extract 3 trees from the trained Random Forest:
 
 ```python
 trees = rf.estimators_[:3]
 ```
 
-Visualiza cada árbol con `plot_tree`.
-Analiza: ¿usan las mismas features en la raíz?
-¿Diferentes estructuras debido a randomness?
+Display each tree with `plot_tree`.
+Analyze: do they use the same features in the root?
+Different Structures due to randomness?
 
 ______________________________________________________________________
 
-## ✅ Checklist de Competencias
+## ✅ Skills Checklist
 
-- [ ] Entrenar y visualizar árboles de decisión
-- [ ] Interpretar splits y feature importance
-- [ ] Entrenar Random Forest con n_estimators apropiado
-- [ ] Comparar múltiples algoritmos de ML
-- [ ] Detectar overfitting (train vs test gap)
-- [ ] Aplicar Grid Search para tuning de hiperparámetros
-- [ ] Usar cross-validation para evaluación robusta
+- [ ] Train and visualize decision trees
+- [ ] Interpret splits and feature importance
+- [ ] Train Random Forest with appropriate n_estimators
+- [ ] Compare multiple ML Algorithms
+- [ ] Detect overfitting (train vs test gap)
+- [ ] Apply Grid Search for Hyperparameters tuning
+- [ ] Wear cross-validation for robust Evaluation
 - [ ] Entender trade-off bias-variance
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [StatQuest: Decision Trees](https://www.youtube.com/watch?v=7VeUPuFGJHk)
 - [StatQuest: Random Forests](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ)

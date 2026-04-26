@@ -1,17 +1,17 @@
-# Practice 04 — Validation cruzada y tuning
+# Practice 04 — Cross validation and tuning
 
 ## Objective
 
-Mejorar el baseline con Validation cruzada e Hyperparameters.
+Improve the baseline with Cross Validation and Hyperparameters.
 
-## Enunciado
+## Statement
 
-1. Aplicar `KFold` o `StratifiedKFold`.
-1. Usar `GridSearchCV` con grilla pequeña.
-1. Comparar score vs baseline.
-1. Registrar riesgo de overfitting.
+1. Apply `KFold` o `StratifiedKFold`.
+1. Use `GridSearchCV` with small grid.
+1. Compare score vs baseline.
+1. Register risk of overfitting.
 
 ## Validation
 
-- Se usa Validation cruzada correctamente.
+- Se usa Validation cruzada correctly.
 - Mejora cuantificada respecto al baseline.

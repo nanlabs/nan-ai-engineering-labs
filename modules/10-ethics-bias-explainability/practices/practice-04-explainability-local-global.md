@@ -1,17 +1,17 @@
-# Práctica 04 — Explicabilidad local y global
+# Practice 04 — Local and global explainability
 
 ## Objective
 
-Explicar cómo decide un modelo en general y en casos puntuales.
+Explain how a Model decides in general and in specific cases.
 
-## Enunciado
+## Statement
 
-1. Aplicar explicación global de modelo.
-1. Seleccionar 3 predicciones y explicar localmente.
-1. Comparar explicación técnica vs entendible para negocio.
-1. Registrar limitaciones.
+1. Apply global explanation of Model.
+1. Select 3 Predictions and explain locally.
+1. Compare technical vs understandable explanation for business.
+1. Registrar limitations.
 
-## Validación
+## Validation
 
 - Explicaciones consistentes.
-- Limitaciones correctamente descritas.
+- Limitations correctly descritas.

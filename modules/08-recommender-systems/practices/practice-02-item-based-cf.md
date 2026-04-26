@@ -1,17 +1,17 @@
-# Práctica 02 — Item-based collaborative filtering
+# Practice 02 — Item-based collaborative filtering
 
 ## Objective
 
-Recomendar ítems por similitud entre productos.
+Recommend items due to similarity between products.
 
-## Enunciado
+## Statement
 
-1. Construir matriz usuario-ítem.
-1. Calcular similitud entre ítems.
-1. Generar recomendaciones top-N.
-1. Comparar con baseline de popularidad.
+1. Build user-item matrix.
+1. Calculate similarity between items.
+1. Generate recomendaciones top-N.
+1. Compare with popularity baseline.
 
-## Validación
+## Validation
 
-- Similitud correctamente calculada.
-- Mejora o diferencia claramente documentada.
+- Similarity correctly calculada.
+- Mejora o diferencia claramente documented.

@@ -2,27 +2,27 @@
 
 ## Project
 
-Evaluación de privacidad y seguridad de un pipeline de IA.
+Privacy and security evaluation of an AI pipeline.
 
 ## Objective
 
-Identificar riesgos críticos y proponer controles técnicos y operativos mínimos.
+Identify critical risks and propose minimum technical and operational controls.
 
 ## Scope
 
-- Clasificación de datos.
-- Mapeo de amenazas principales.
-- Diseño de controles.
-- Priorización de mitigaciones.
+- Data Classification.
+- Main threat mapping.
+- Control design.
+- Prioritization of mitigations.
 
 ## Deliverables
 
-- Informe de riesgos.
-- Matriz de controles propuestos.
-- Plan de implementación por prioridad.
+- Risk report.
+- Matrix of controls, proposed controllers.
+- Implementation plan by priority.
 
 ## Acceptance criteria
 
-- Riesgos claramente identificados.
-- Controles aplicables en contexto real.
-- Plan con prioridades y responsables sugeridos.
+- Risks claramente identificados.
+- Controls, Controllers applicable in real context.
+- Plan with priorities and suggested responsible parties.

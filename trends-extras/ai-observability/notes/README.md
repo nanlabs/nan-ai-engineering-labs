@@ -1,5 +1,5 @@
-# AI Observability — Monitoring de LLM Applications
+# AI Observability — Monitoring of LLM Applications
 
 ## How to use this folder
 
-Documenta aprendizajes, dudas, decisiones y referencias utiles del modulo.
+Document learnings, questions, decisions and References useful of the module.

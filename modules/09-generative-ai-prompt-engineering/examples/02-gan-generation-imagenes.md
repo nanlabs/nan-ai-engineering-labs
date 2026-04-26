@@ -1,12 +1,12 @@
-# Example 02 — GAN para Generación de Images
+# Example 02 — GAN for Image Generation
 
-## Contexto
+## Context
 
-Las GANs (Generative Adversarial Networks) usan 2 neural networks que compiten: **Generator** crea Images falsas, **Discriminator** intenta distinguir reales de falsas.
+GANs (Generative Adversarial Networks) use 2 competing neural networks: **Generator** creates fake Images, **Discriminator** tries to distinguish real from fake.
 
 ## Objective
 
-Entrenar GAN para generar dígitos sintéticos (MNIST) desde ruido aleatorio.
+Train GAN to generate synthetic digits (MNIST) from random noise.
 
 ______________________________________________________________________
 
@@ -25,9 +25,9 @@ import matplotlib.pyplot as plt
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Usando dispositivo: {device}")
 
-# Hiperparámetros
-latent_dim = 100      # Dimensión del ruido z
-image_size = 28*28    # MNIST: 28x28 = 784 píxeles
+# Hyperparameters
+latent_dim = 100      # Dimension del noise z
+image_size = 28*28    # MNIST: 28x28 = 784 pixels
 batch_size = 128
 num_epochs = 50
 lr = 0.0002
@@ -35,7 +35,7 @@ lr = 0.0002
 
 ______________________________________________________________________
 
-## 📚 Cargar Data
+## 📚 Load Data
 
 ```python
 # Transformaciones
@@ -58,20 +58,20 @@ dataloader = DataLoader(
     shuffle=True
 )
 
-print(f"Total imágenes: {len(train_dataset)}")
-print(f"Batches por época: {len(dataloader)}")
+print(f"Total images: {len(train_dataset)}")
+print(f"Batches por time: {len(dataloader)}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Total imágenes: 60000
-Batches por época: 469
+Total images: 60000
+Batches por time: 469
 ```
 
 ______________________________________________________________________
 
-## 🏗️ Arquitectura GAN
+## 🏗️ GAN Architecture
 
 ### Generator
 
@@ -80,7 +80,7 @@ class Generator(nn.Module):
     def __init__(self, latent_dim=100, img_size=784):
         super(Generator, self).__init__()
 
-        # z (100) → 256 → 512 → 784 (imagen)
+        # z (100) → 256 → 512 → 784 (image)
         self.model = nn.Sequential(
             nn.Linear(latent_dim, 256),
             nn.LeakyReLU(0.2),
@@ -95,7 +95,7 @@ class Generator(nn.Module):
             nn.BatchNorm1d(1024),
 
             nn.Linear(1024, img_size),
-            nn.Tanh()  # Salida en [-1, 1]
+            nn.Tanh()  # Output en [-1, 1]
         )
 
     def forward(self, z):
@@ -106,13 +106,13 @@ generator = Generator(latent_dim, image_size).to(device)
 
 # Param count
 g_params = sum(p.numel() for p in generator.parameters())
-print(f"Generator parámetros: {g_params:,}")
+print(f"Generator parameters: {g_params:,}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Generator parámetros: 1,493,256
+Generator parameters: 1,493,256
 ```
 
 ### Discriminator
@@ -122,7 +122,7 @@ class Discriminator(nn.Module):
     def __init__(self, img_size=784):
         super(Discriminator, self).__init__()
 
-        # Imagen (784) → 512 → 256 → 1 (real/fake)
+        # Image (784) → 512 → 256 → 1 (real/fake)
         self.model = nn.Sequential(
             nn.Linear(img_size, 512),
             nn.LeakyReLU(0.2),
@@ -143,18 +143,18 @@ class Discriminator(nn.Module):
 discriminator = Discriminator(image_size).to(device)
 
 d_params = sum(p.numel() for p in discriminator.parameters())
-print(f"Discriminator parámetros: {d_params:,}")
+print(f"Discriminator parameters: {d_params:,}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Discriminator parámetros: 533,505
+Discriminator parameters: 533,505
 ```
 
 ______________________________________________________________________
 
-## 🎯 Loss y optimizadores
+## 🎯 Loss and optimizers
 
 ```python
 # Loss: Binary Cross Entropy
@@ -172,11 +172,11 @@ ______________________________________________________________________
 ## 🔄 Training Loop
 
 ```python
-# Historia de pérdidas
+# Historia de losses
 g_losses = []
 d_losses = []
 
-# Fixed noise para visualización
+# Fixed noise para visualization
 fixed_noise = torch.randn(64, latent_dim, device=device)
 
 for epoch in range(num_epochs):
@@ -194,11 +194,11 @@ for epoch in range(num_epochs):
         # =====================
         optimizer_D.zero_grad()
 
-        # Loss con imágenes reales
+        # Loss con images real
         real_output = discriminator(real_imgs)
         d_loss_real = criterion(real_output, real_labels)
 
-        # Loss con imágenes falsas
+        # Loss con images falsas
         z = torch.randn(batch_size, latent_dim, device=device)
         fake_imgs = generator(z)
         fake_output = discriminator(fake_imgs.detach())  # No gradientes al G
@@ -214,14 +214,14 @@ for epoch in range(num_epochs):
         # ==================
         optimizer_G.zero_grad()
 
-        # Generator intenta engañar al Discriminator
+        # Generator intenta cheat al Discriminator
         fake_output = discriminator(fake_imgs)
         g_loss = criterion(fake_output, real_labels)  # Queremos que D diga "real"
 
         g_loss.backward()
         optimizer_G.step()
 
-    # Guardar pérdidas
+    # Save losses
     g_losses.append(g_loss.item())
     d_losses.append(d_loss.item())
 
@@ -230,10 +230,10 @@ for epoch in range(num_epochs):
         print(f"Epoch [{epoch+1}/{num_epochs}] | "
               f"D Loss: {d_loss.item():.4f} | G Loss: {g_loss.item():.4f}")
 
-print("\nEntrenamiento completado")
+print("\nEntrenamiento completed")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Epoch [10/50] | D Loss: 0.8234 | G Loss: 1.4521
@@ -247,15 +247,15 @@ ______________________________________________________________________
 
 ## 📊 Visualization
 
-### Evolución de pérdidas
+### Evolution of losses
 
 ```python
 plt.figure(figsize=(10, 5))
 plt.plot(g_losses, label='Generator Loss', alpha=0.7)
 plt.plot(d_losses, label='Discriminator Loss', alpha=0.7)
-plt.xlabel('Época')
+plt.xlabel('Time')
 plt.ylabel('Loss')
-plt.title('Evolución de pérdidas GAN')
+plt.title('Evolution de losses GAN')
 plt.legend()
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
@@ -263,42 +263,42 @@ plt.savefig('gan_losses.png', dpi=150)
 plt.show()
 ```
 
-### Images generadas
+### Images generated
 
 ```python
-# Generar con fixed noise
+# Generate con fixed noise
 generator.eval()
 with torch.no_grad():
     fake_imgs = generator(fixed_noise)
     fake_imgs = fake_imgs.view(-1, 1, 28, 28).cpu()
 
-# Visualizar
+# Visualize
 fig, axes = plt.subplots(8, 8, figsize=(12, 12))
 for i, ax in enumerate(axes.flat):
     ax.imshow(fake_imgs[i].squeeze(), cmap='gray')
     ax.axis('off')
 
-plt.suptitle('Dígitos Generados por GAN', fontsize=16)
+plt.suptitle('Digits Generados por GAN', fontsize=16)
 plt.tight_layout()
 plt.savefig('generated_digits.png', dpi=150)
 plt.show()
 
-print("Imágenes generadas guardadas")
+print("Images generadas guardadas")
 ```
 
 ______________________________________________________________________
 
-## 🔄 Modos de falla de GANs
+## 🔄 GAN failure modes
 
 ### 1. Mode Collapse
 
 ```python
-# Si Generator genera siempre el mismo dígito
-# Solución: Feature Matching o Minibatch Discrimination
+# Si Generator genera siempre el same digit
+# Solution: Feature Matching o Minibatch Discrimination
 
 def check_mode_collapse(generator, n_samples=1000):
     """
-    Detecta si el generator solo produce pocas variantes
+    Detecta si el generator solo produce pocas variants
     """
     generator.eval()
     generated = []
@@ -311,12 +311,12 @@ def check_mode_collapse(generator, n_samples=1000):
 
     generated = torch.cat(generated, dim=0)
 
-    # Calcular varianza promedio
+    # Calculate variance average
     variance = generated.var(dim=0).mean().item()
 
-    print(f"Varianza promedio de outputs: {variance:.4f}")
+    print(f"Varianza average de outputs: {variance:.4f}")
     if variance < 0.01:
-        print("⚠️ Posible Mode Collapse detectado")
+        print("⚠️ Possible Mode Collapse detectado")
     else:
         print("✅ Variedad adecuada")
 
@@ -329,7 +329,7 @@ variance = check_mode_collapse(generator)
 
 ```python
 # Si D es muy bueno, G no aprende (gradientes → 0)
-# Solución: Wasserstein GAN (WGAN), usar Least Squares GAN
+# Solution: Wasserstein GAN (WGAN), use Least Squares GAN
 
 # Monitorear gradientes durante training
 def monitor_gradients():
@@ -342,7 +342,7 @@ def monitor_gradients():
 
 ______________________________________________________________________
 
-## 💡 Mejoras avanzadas
+## 💡 Advanced improvements
 
 ### DCGAN (Deep Convolutional GAN)
 
@@ -362,13 +362,13 @@ class DCGenerator(nn.Module):
         )
 
     def forward(self, z):
-        # Implementación completa requiere ConvTranspose2d
+        # Implementation complete requires ConvTranspose2d
         pass
 
 # DCGAN usa:
 # - ConvTranspose2d en Generator
 # - Conv2d + stride en Discriminator
-# - BatchNorm (excepto primera capa D y última G)
+# - BatchNorm (excepto primera layer D y last G)
 # - ReLU en G, LeakyReLU en D
 ```
 
@@ -379,13 +379,13 @@ class ConditionalGenerator(nn.Module):
     def __init__(self, latent_dim=100, num_classes=10):
         super(ConditionalGenerator, self).__init__()
 
-        # z + label embedding → imagen
+        # z + label embedding → image
         self.label_emb = nn.Embedding(num_classes, latent_dim)
 
         self.model = nn.Sequential(
             nn.Linear(latent_dim * 2, 256),  # z + label
             nn.LeakyReLU(0.2),
-            # ... resto de capas
+            # ... resto de layers
         )
 
     def forward(self, z, labels):
@@ -394,60 +394,60 @@ class ConditionalGenerator(nn.Module):
         gen_input = torch.cat([z, label_input], dim=1)
         return self.model(gen_input)
 
-# Uso: generar dígito específico
+# Usage: generar digit specific
 # z = torch.randn(1, 100)
-# label = torch.tensor([7])  # Generar un "7"
+# label = torch.tensor([7])  # Generate un "7"
 # img = cond_generator(z, label)
 ```
 
 ______________________________________________________________________
 
-## 📈 Metrics de Evaluation
+## 📈Evaluation Metrics
 
 ### Inception Score (IS)
 
 ```python
-# Mide calidad y diversidad
-# IS alto = imágenes de calidad y diversas
-# Requiere modelo Inception preentrenado
+# Measure quality y diversidad
+# IS alto = images de quality y diversas
+# Require model Inception preentrenado
 
 def inception_score(images, n_splits=10):
     """
     IS = exp(E[KL(p(y|x) || p(y))])
     """
-    # Implementación requiere InceptionV3
+    # Implementation requires InceptionV3
     # from torchvision.models import inception_v3
     pass
 ```
 
-### Fréchet Inception Distance (FID)
+### Frechet Inception Distance (FID)
 
 ```python
-# Compara distribución de imágenes reales vs generadas
-# FID bajo = mejor (más parecidas distribuciones)
+# Compara distribution de images real vs generadas
+# FID low = better (más parecidas distributions)
 
 def frechet_inception_distance(real_images, fake_images):
     """
     FID = ||μ_r - μ_f||² + Tr(Σ_r + Σ_f - 2√(Σ_r Σ_f))
     """
-    # Requiere features de Inception
+    # Require features de Inception
     # μ = media, Σ = covarianza
     pass
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
-### ✅ Componentes GAN
+### ✅ Components GAN
 
 ```
-Generator: z (ruido) → imagen sintética
-Discriminator: imagen → probabilidad real/fake
+Generator: z (noise) → image synthetic
+Discriminator: image → probability real/fake
 
 Training alternado:
-1. D aprende a distinguir reales vs falsas
-2. G aprende a engañar a D
+1. D aprende a distinguir real vs falsas
+2. G aprende a cheat a D
 ```
 
 ### 🎯 Losses
@@ -464,46 +464,46 @@ L_D = -[log(D(x_real)) + log(1 - D(G(z)))]
 L_G = -log(D(G(z)))
 ```
 
-### 💡 Mejores Practices
+### 💡 Best Practices
 
-- ✅ Usar LeakyReLU en Discriminator (evita dying ReLUs)
-- ✅ BatchNorm en ambas redes (estabiliza training)
-- ✅ Label smoothing (real=0.9 en vez de 1.0)
-- ✅ Adam optimizer con β1=0.5 (momentum bajo)
-- ✅ Entrenar D más veces que G si D es débil
-- ✅ Monitorear ambas losses (deben converger sin dominar)
+- ✅ Use LeakyReLU in Discriminator (avoid dying ReLUs)
+- ✅ BatchNorm on both networks (stabilizes training)
+- ✅ Label smoothing (real=0.9 instead of 1.0)
+- ✅ Adam optimizer with β1=0.5 (momentum low)
+- ✅ Train D more times than G if D is weak
+- ✅ Monitor both losses (they must converge without dominating)
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ D muy fuerte → G no aprende (gradientes desaparecen)
-- ❌ G muy fuerte → D siempre falla (mode collapse)
-- ❌ LR muy alto → oscilaciones, no converge
-- ❌ No usar BatchNorm → inestabilidad
-- ❌ Olvidar `.detach()` en fake_imgs para D → gradientes incorrectos
+- ❌ D very strong → G does not learn (gradients disappear)
+- ❌ G very strong → D always fails (mode collapse)
+- ❌ LR very high → oscillations, does not converge
+- ❌ Don't use BatchNorm → instability
+- ❌ Forget `.detach()` in fake_imgs for D → wrong gradients
 
 ### 🔧 Troubleshooting
 
-| Problem             | Síntoma                       | Solución                               |
-| ------------------- | ----------------------------- | -------------------------------------- |
-| Mode Collapse       | G genera siempre igual        | Unrolled GAN, Minibatch Discrimination |
-| Vanishing Gradients | G Loss no baja                | Wasserstein GAN, Least Squares GAN     |
-| Oscilaciones        | Losses suben/bajan mucho      | Reducir LR, label smoothing            |
-| Images borrosas     | G Loss baja pero mala calidad | Usar Progressive GAN, StyleGAN         |
+| Problem | Symptom | Solution |
+| ------------------- | -------------------------- | -------------------------------------- |
+| Mode Collapse | G always generates the same | Unrolled GAN, Minibatch Discrimination |
+| Vanishing Gradients | G Loss does not go down | Wasserstein GAN, Least Squares GAN |
+| Oscillations | Losses go up/down a lot | Reduce LR, label smoothing |
+| Blurred Images | Low G Loss but poor quality | Use Progressive GAN, StyleGAN |
 
 ### 📌 Checklist GAN
 
-- ✅ Arquitectura balanceada (G y D similares capacidad)
-- ✅ Learning rate adecuado (0.0002 típico)
-- ✅ BatchNorm en Layers intermedias
-- ✅ LeakyReLU en Discriminator
-- ✅ Ruido latente suficiente (100-200 dim)
-- ✅ Monitorear losses (no divergen)
-- ✅ Validation visual periódica
-- ✅ Evaluar diversidad (IS, FID)
+- ✅ Balanced architecture (G and D similar capacity)
+- ✅ Adequate learning rate (0.0002 typical)
+- ✅ BatchNorm in intermediate layers
+- ✅ LeakyReLU in Discriminator
+- ✅ Sufficient latent noise (100-200 dim)
+- ✅ Monitor losses (they do not diverge)
+- ✅ Periodic visual validation
+- ✅ Evaluate diversity (IS, FID)
 
 ### 🚀 Next steps
 
-- Implementar DCGAN con convoluciones
-- Conditional GAN para control de generación
-- StyleGAN para alta resolución
-- Aplicaciones: super-resolution, image-to-image translation (pix2pix)
+- Implement DCGAN with convolutions
+- Conditional GAN ​​for generation control
+- StyleGAN for high resolution
+- Applications: super-resolution, image-to-image translation (pix2pix)

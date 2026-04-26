@@ -1,17 +1,17 @@
-# Práctica 01 — Versionado y reproducibilidad
+# Practice 01 — Versioning and reproducibility
 
 ## Objective
 
-Asegurar trazabilidad de datos, código y modelo.
+Ensure traceability of Data, code and Model.
 
-## Enunciado
+## Statement
 
-1. Definir versión de dataset, código y modelo.
-1. Registrar parámetros de entrenamiento.
-1. Guardar artefactos con metadatos.
-1. Repetir corrida y verificar consistencia.
+1. Define version of dataset, code and Model.
+1. Register Training parameters.
+1. Save artifacts with metadata.
+1. Repeat run and check consistency.
 
-## Validación
+## Validation
 
-- Trazabilidad completa documentada.
-- Reproducción posible con mismos resultados esperados.
+- Trazabilidad complete documented.
+- Reproduction possible with the same expected results.

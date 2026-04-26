@@ -17,7 +17,7 @@ Prompt engineering (zero-shot, few-shot, CoT)
 Function calling, tool use, and agents
 Fine-tuning (LoRA, PEFT) and instruction tuning
 Retrieval-Augmented Generation (RAG)
-Embedding models and vector databases (FAISS, Weaviate, Qdrant)
+embedding models and vector databases (FAISS, Weaviate, Qdrant)
 Document chunking and hybrid search
 RAG pipelines with LangChain and LlamaIndex
 Multilingual & Multimodal NLP

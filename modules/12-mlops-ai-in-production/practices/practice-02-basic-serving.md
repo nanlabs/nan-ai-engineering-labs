@@ -1,17 +1,17 @@
-# Práctica 02 — Serving básico
+# Practice 02 — Serving basic
 
 ## Objective
 
-Exponer un modelo para inferencia.
+Expose a Model for inference.
 
-## Enunciado
+## Statement
 
-1. Cargar modelo entrenado.
-1. Crear endpoint simple o proceso batch.
-1. Definir contrato de entrada/salida.
-1. Probar casos válidos y errores.
+1. Load Model trained.
+1. Create endpoint simple o process batch.
+1. Defines input/output contract.
+1. Test valid cases and Errors.
 
-## Validación
+## Validation
 
-- Servicio responde correctamente.
-- Contrato y validaciones definidos.
+- Servicio respond, response, responds, responded, responder correctly.
+- Contract and validations defined.

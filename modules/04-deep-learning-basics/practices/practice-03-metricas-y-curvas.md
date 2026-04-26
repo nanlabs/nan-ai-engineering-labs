@@ -1,17 +1,17 @@
-# Practice 03 — Metrics y curvas
+# Practice 03 — Metrics and curves
 
 ## Objective
 
-Interpretar el comportamiento de Training del Model.
+Interpret the Training behavior of the Model.
 
-## Enunciado
+## Statement
 
-1. Guardar loss y accuracy por época.
-1. Graficar curvas train/validation.
-1. Identificar señales de underfitting u overfitting.
-1. Proponer un ajuste.
+1. Save loss and accuracy by epoch.
+1. Graficar curves train/validation.
+1. Identify signs of underfitting or overfitting.
+1. Propose an adjustment.
 
 ## Validation
 
-- Curvas correctamente graficadas.
-- Diagnóstico razonable.
+- Curvas correctly graficadas.
+- Reasonable diagnosis.

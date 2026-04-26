@@ -1,13 +1,13 @@
-# Mini-proyecto — {{TEMA}}
+# Mini-project — {{Topic}}
 
-## Problema
+## Problem
 
 ## Alcance MVP
 
 ## Deliverables
 
-- Código.
-- Métricas.
-- README técnico.
+- Code.
+- Metrics.
+- Technical README.
 
 ## Acceptance criteria

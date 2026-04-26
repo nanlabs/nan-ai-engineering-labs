@@ -4,7 +4,7 @@
 
 - Theory: 25%
 - Practices: 40%
-- Mini-proyecto: 35%
+- Mini-project: 35%
 
 ## Rubric (1 to 5)
 
@@ -16,11 +16,11 @@
 ## Final evaluation (checklist)
 
 - [ ] I explain the difference between vector and matrix with example.
-- [ ] Implemento producto punto y lo interpreto.
-- [ ] Calculo media/varianza y describo su utilidad.
-- [ ] Implemento gradiente descendente simple.
+- [ ] I implement product point and I interpret it.
+- [ ] I calculate mean/variance and I describe its utility.
+- [ ] I implement gradient descent simple.
 - [ ] I train and evaluate a linear regression.
-- [ ] Documento decisiones y limitaciones.
+- [ ] I document decisions and limitations.
 
 ## Approval criteria
 

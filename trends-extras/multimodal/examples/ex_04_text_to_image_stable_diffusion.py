@@ -31,16 +31,16 @@ class MockStableDiffusionDemo:
         height: int = 512
     ) -> dict:
         """
-        Genera imagen desde texto.
+        Genera image desde text.
 
         Args:
             prompt: Description of the desired image
-            negative_prompt: Lo que NO quieres en la imagen
+            negative_prompt: Lo que NO quieres en la image
             num_inference_steps: More steps = better quality (but slower)
             guidance_scale: How strictly to follow the prompt (7-15 typical)
             width, height: Dimensions (multiples of 64)
         """
-        print(f"🎨 Generando imagen...")
+        print(f"🎨 Generando image...")
         print(f"📝 Prompt: {prompt}")
 
         if negative_prompt:
@@ -55,7 +55,7 @@ class MockStableDiffusionDemo:
         # 3. Iteratively denoise (num_inference_steps veces)
         # 4. Decode latents → RGB image
 
-        print(f"✅ Imagen generada (mock): output_{hash(prompt) % 1000}.png\n")
+        print(f"✅ Image generada (mock): output_{hash(prompt) % 1000}.png\n")
 
         return {
             "image_path": f"output_{hash(prompt) % 1000}.png",
@@ -77,10 +77,10 @@ REAL_SD_CODE = """
 from diffusers import StableDiffusionPipeline
 import torch
 
-# 1. Load model (requiere ~5GB VRAM)
+# 1. Load model (require ~5GB VRAM)
 pipe = StableDiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-2-1",
-    torch_dtype=torch.float16  # Usar FP16 para ahorrar memoria
+    torch_dtype=torch.float16  # Wear FP16 para ahorrar memoria
 )
 pipe = pipe.to("cuda")  # GPU (o "cpu" pero MUY lento)
 
@@ -145,7 +145,7 @@ def demo_negative_prompts():
         negative_prompt="blurry, distorted, ugly, low quality, cartoon"
     )
 
-    print("💡 Negative prompts mejoran la calidad evitando defectos comunes")
+    print("💡 Negative prompts mejoran la calidad evitando defects comunes")
 
 
 def demo_style_variations():
@@ -238,7 +238,7 @@ def demo_prompting_techniques():
     print("  ❌ Bad:  'a dog'")
     print("  ✅ Good: 'a golden retriever puppy playing in autumn leaves'\n")
 
-    print("2️⃣ Calidad descriptors:")
+    print("2️⃣ Quality descriptors:")
     print("  ✅ highly detailed, 4K, professional photography")
     print("  ✅ trending on artstation, award winning")
     print("  ✅ cinematic lighting, dramatic composition\n")
@@ -300,16 +300,16 @@ if __name__ == "__main__":
     print("✅ Content Creation: Arte para blogs, marketing")
     print("✅ Game Development: Concept art, textures")
     print("✅ Product Design: Visualise ideas quickly")
-    print("✅ Education: Ilustrar conceptos")
+    print("✅ Education: Ilustrar concepts")
     print("✅ Entertainment: Crear personajes, escenas")
 
     print("\n⚠️  CONSIDERACIONES:")
-    print("  • Requiere GPU potente (>6GB VRAM)")
+    print("  • Require GPU potente (>6GB VRAM)")
     print("  • Copyright: Model trained on internet images")
     print("  • Content policy: Do not generate illegal/harmful content")
     print("  • Watermarking: Some versions add a watermark")
 
-    print("\n📚 Modelos:")
+    print("\n📚 Models:")
     print("  • stabilityai/stable-diffusion-2-1 (latest open)")
     print("  • runwayml/stable-diffusion-v1-5 (popular)")
     print("  • stabilityai/stable-diffusion-xl-base-1.0 (SDXL, mejor calidad)")

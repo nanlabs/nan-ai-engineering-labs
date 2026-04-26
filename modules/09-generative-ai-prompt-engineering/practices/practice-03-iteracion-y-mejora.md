@@ -1,17 +1,17 @@
-# Práctica 03 — Iteración y mejora
+# Practice 03 — Iteration and improvement
 
 ## Objective
 
-Aplicar ciclo de mejora de prompts basado en errores reales.
+Apply prompt improvement cycle based on real errors.
 
-## Enunciado
+## Statement
 
-1. Detectar fallos recurrentes.
-1. Ajustar prompt con restricciones.
-1. Re-ejecutar casos.
-1. Medir mejora cualitativa.
+1. Detect fallos recurrentes.
+1. Adjust prompt with restrictions.
+1. Re-executer cases.
+1. Measure improvement cualitativa.
 
-## Validación
+## Validation
 
-- Cambios de prompt trazables.
-- Mejora explicada con evidencia.
+- Traceable prompt changes.
+- Improvement explained with evidence.

@@ -1,17 +1,17 @@
-# Práctica 02 — Variational Autoencoders y Diffusion
+# Practice 02 — Variational Autoencoders and Diffusion
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar VAE
+- Implement VAE
 - Entender reparametrization trick
 - Explorar latent space
-- Introducción a diffusion models
+- Introduction a diffusion models
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: VAE Básico
+### Exercise 1.1: Basic VAE
 
 ```python
 import torch
@@ -70,69 +70,69 @@ print(model)
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Latent Space Interpolation
+### Exercise 2.1: Latent Space Interpolation
 
-**Enunciado:**
-Interpola entre dos imágenes:
+**Statement:**
+Interpola entre dos Images:
 
 - Encode ambas a latent vectors
 - Interpola linealmente
 - Decode interpolaciones
-- Visualiza transición suave
+- Visualize smooth transition
 
-### Ejercicio 2.2: β-VAE
+### Exercise 2.2: β-VAE
 
-**Enunciado:**
-Implementa β-VAE para disentanglement:
+**Statement:**
+Implement β-VAE for disentanglement:
 
 ```python
 loss = BCE + beta * KLD
 ```
 
-Varía beta (1, 4, 10) y compara.
+Vary beta (1, 4, 10) and compare.
 
-### Ejercicio 2.3: Conditional VAE
+### Exercise 2.3: Conditional VAE
 
-**Enunciado:**
+**Statement:**
 Genera condicionalmente:
 
-- Concatena label con input/latent
-- Controla generación por clase
-- Visualiza latent space por clase
+- Concatenate label with input/latent
+- Control generation by class
+- Visualize latent space by clause, class
 
-### Ejercicio 2.4: Diffusion Model Básico
+### Exercise 2.4: Basic Diffusion Model
 
-**Enunciado:**
-Implementa forward diffusion:
+**Statement:**
+Implement forward diffusion:
 
-- Añade ruido gaussiano progresivamente
-- T pasos hasta ruido puro
-- Visualiza proceso
+- Add Gaussian noise progressively
+- T steps hasta noise puro
+- Visualize process
 
-### Ejercicio 2.5: Denoising
+### Exercise 2.5: Denoising
 
-**Enunciado:**
-Entrena denoiser simple:
+**Statement:**
+Train denoiser simple:
 
-- U-Net que predice ruido
-- Entrena en múltiples timesteps
+- U-Net predicting noise
+- Train in multiple timesteps
 - Sampling iterativo
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Implementar VAE con reparameterization
+- [ ] Implement VAE with reparameterization
 - [ ] VAE loss (BCE + KLD)
 - [ ] Latent space exploration
-- [ ] β-VAE para disentanglement
+- [ ] β-VAE for disentanglement
 - [ ] Diffusion basics
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [VAE Tutorial](https://arxiv.org/abs/1906.02691)
 - [Diffusion Models Explained](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)

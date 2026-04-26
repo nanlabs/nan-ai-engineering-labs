@@ -14,7 +14,7 @@ Find similar users and suggest items.
 
 ## Example 4 — Evaluation at K
 
-Compute Precision@K and Recall@K on a test set.
+Compute Precision@K and recall@K on a test set.
 
 ## Rules
 

@@ -35,10 +35,12 @@ ENGLISH_INDICATORS = [
 def count_language_indicators(text: str) -> tuple[int, int]:
     """Count Spanish and English language indicators in text."""
     spanish_count = sum(
-        len(re.findall(pattern, text, re.IGNORECASE)) for pattern in SPANISH_INDICATORS
+        len(re.findall(pattern, text, re.IGNORECASE))
+        for pattern in SPANISH_INDICATORS
     )
     english_count = sum(
-        len(re.findall(pattern, text, re.IGNORECASE)) for pattern in ENGLISH_INDICATORS
+        len(re.findall(pattern, text, re.IGNORECASE))
+        for pattern in ENGLISH_INDICATORS
     )
     return spanish_count, english_count
 
@@ -102,7 +104,8 @@ def audit_all_modules() -> dict[str, list[tuple[str, str, str]]]:
                 language = detect_language(file_path)
                 file_type = "Python" if file_path.suffix == ".py" else "Markdown"
 
-                results[module_name].append((str(relative_path), file_type, language))
+                results[module_name].append(
+                    (str(relative_path), file_type, language))
             except Exception as e:
                 print(f"Error processing {file_path}: {e}")
 
@@ -135,10 +138,14 @@ def generate_report(results: dict[str, list[tuple[str, str, str]]]) -> str:
 
     report.append("\n## Summary Statistics\n")
     report.append(f"- **Total files**: {total_files}")
-    report.append(f"- **English**: {total_english} ({100*total_english/total_files:.1f}%)")
-    report.append(f"- **Spanish**: {total_spanish} ({100*total_spanish/total_files:.1f}%)")
-    report.append(f"- **Mixed**: {total_mixed} ({100*total_mixed/total_files:.1f}%)")
-    report.append(f"- **Unknown**: {total_unknown} ({100*total_unknown/total_files:.1f}%)\n")
+    report.append(
+        f"- **English**: {total_english} ({100*total_english/total_files:.1f}%)")
+    report.append(
+        f"- **Spanish**: {total_spanish} ({100*total_spanish/total_files:.1f}%)")
+    report.append(
+        f"- **Mixed**: {total_mixed} ({100*total_mixed/total_files:.1f}%)")
+    report.append(
+        f"- **Unknown**: {total_unknown} ({100*total_unknown/total_files:.1f}%)\n")
 
     # Detailed module breakdown
     report.append("## Module Breakdown\n")
@@ -148,13 +155,14 @@ def generate_report(results: dict[str, list[tuple[str, str, str]]]) -> str:
 
         # Count by language
         eng_count = sum(1 for _, _, lang in module_files if lang == "English")
-        spa_count = sum(1 for _, _, lang in module_files if lang == "Spanish")
         mix_count = sum(1 for _, _, lang in module_files if lang == "Mixed")
-        unk_count = sum(1 for _, _, lang in module_files if lang == "Unknown")
-
+        eng_or_mix_count = (
+            eng_count + mix_count if eng_count or mix_count else 0
+        )
         report.append(f"### {module_name}\n")
         report.append(
-            f"**Status**: {eng_count} English | {spa_count} Spanish | {mix_count} Mixed | {unk_count} Unknown\n"
+            f"**Status**: {eng_or_mix_count}/{len(module_files)} "
+            "files English or Mixed"
         )
         report.append("\n| File | Type | Language |\n")
         report.append("|------|------|----------|\n")
@@ -188,6 +196,9 @@ def generate_report(results: dict[str, list[tuple[str, str, str]]]) -> str:
 
 
 def main():
+    """
+    Run the audit and generate report.
+    """
     print("Auditing English conversion status...")
     results = audit_all_modules()
     report = generate_report(results)

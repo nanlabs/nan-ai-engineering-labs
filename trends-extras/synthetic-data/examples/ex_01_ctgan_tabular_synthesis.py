@@ -74,7 +74,7 @@ def create_sample_dataset() -> pd.DataFrame:
 
 def train_ctgan(real_data: pd.DataFrame) -> CTGAN:
     """
-    Entrena CTGAN en datos reales.
+    Entrena CTGAN en data reales.
 
     CTGAN uses GANs to generate synthetic data:
     - Generator: Creates synthetic data
@@ -265,7 +265,7 @@ def validate_categorical_distributions(real_data: pd.DataFrame, synthetic_data: 
 
 def generate_quality_report(real_data: pd.DataFrame, synthetic_data: pd.DataFrame):
     """
-    Genera reporte automatic de calidad con SDV.
+    Genera report automatic de calidad con SDV.
     """
     print("\n" + "="*70)
     print("QUALITY REPORT (SDV Evaluation)")

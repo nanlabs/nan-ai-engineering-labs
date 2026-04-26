@@ -9,17 +9,17 @@ Learn to design recommendation systems that help personalize experiences and inc
 - Understand recommendation approaches (popularity-based, content-based, collaborative filtering)
 - Implement user-based and item-based CF from scratch with NumPy
 - Apply matrix factorization (SVD, ALS) for scalability
-- Construir hybrid recommenders (CF + content-based weighted)
+- Build hybrid recommenders (CF + content-based weighted)
 - Manage cold start problem with strategies
 - Evaluate with RMSE/MAE and diversity metrics (coverage, novelty, serendipity)
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (CF, content-based, matrix factorization, evaluation)
+- **theory/**: fundamentals (CF, content-based, matrix factorization, evaluation)
 - **examples/**: guided examples with NumPy, Surprise
-- **practices/**: ejercicios hands-on
+- **practices/**: Exercises hands-on
   - 01: Collaborative Filtering (user-based, item-based, SVD, ALS, cold start)
-  - 02: Content-Based y Hybrid (TF-IDF, neural CF, A/B testing, serendipity)
+  - 02: Content-Based and Hybrid (TF-IDF, neural CF, A/B testing, serendipity)
 - **mini-project/**: complete recommendation system with evaluation
 - **evaluation/**: checklist and rubric
 - **notes/**: experiments with different approaches
@@ -33,12 +33,12 @@ Learn to design recommendation systems that help personalize experiences and inc
 
 ## Migration
 
-- Fuente base original: folders/Recommender Systems
+- Fountain base original: folders/Recommender Systems
 
 ## Plan recomendado (4 semanas)
 
-- Semana 1: fundamentos y baseline simple.
-- Semana 2: modelos colaborativos.
+- Week 1: fundamentals and simple baseline.
+- Week 2: Models colaborativos.
 - Week 3: evaluation and ranking improvements.
 - Week 4: mini-project + final evaluation.
 
@@ -47,9 +47,9 @@ Learn to design recommendation systems that help personalize experiences and inc
 - 2 solved and validated practices
 - Mini-project with evaluated recommendations (RMSE, diversity metrics)
 - Final evaluation approved (>=70/100)
-- Demostrar: CF implementation, matrix factorization, hybrid systems, cold start handling
+- Demonstrate: CF implementation, matrix factorization, hybrid systems, cold start handling
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -57,7 +57,7 @@ Learn to design recommendation systems that help personalize experiences and inc
 - [Microsoft Recommenders](https://github.com/microsoft/recommenders)
 - [LightFM](https://github.com/lyst/lightfm)
 
-**Tutoriales:**
+**Tutorials:**
 
 - [RecSys Papers Collection](https://github.com/hongleizhang/RSPapers)
 - [Deep Learning for RecSys](https://deeplearning.neuromatch.io/)

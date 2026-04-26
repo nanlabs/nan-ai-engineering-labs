@@ -1,78 +1,78 @@
-# Resumen y evaluación — trends-extras
+# Summary and Evaluation — trends-extras
 
-Este documento evalúa el estado actual de los extras y define cómo usarlos para acelerar tu nivel avanzado sin perder foco del plan principal.
+This document evaluates the current state of the extras and defines how to use them to accelerate your advanced level without losing focus of the main plan.
 
-## Estado actual (2026-03-05)
+## Status actual (2026-03-05)
 
-- Temas extra disponibles: 6.
-- Carpetas con contenido real profundo: 0/6.
-- Estado de madurez actual: `inicial` (plantilla).
-- Conclusión: **sirven como extensión estratégica**, pero hoy no reemplazan módulos core ni demuestran dominio avanzado por sí solos.
+- Topics extra disponibles: 6.
+- Folders with real deep Content: 0/6.
+- Current maturity status: `initial` (template).
+- Conclusion: **they serve as a strategic extension**, but today they do not replace core Modules nor demonstrate advanced mastery on their own.
 
-## Evaluación por extra
+## Evaluation by extra
 
 ### 1) agents
 
-- Valor: alto para automatización de flujos y productividad técnica.
-- Estado actual: básico (objetivo + checklist mínimo).
-- Qué agregar para que cuente: 1 caso real con agente que resuelva tarea end-to-end y medición de calidad/tiempo.
+- Value: high for flow automation and technical productivity.
+- Status actual: basic (Objective + checklist minimum).
+- What to add to make it count: 1 real case with an agent that solves end-to-end task and quality/time measurement.
 
 ### 2) ai-observability
 
-- Valor: crítico para producción.
-- Estado actual: básico.
-- Qué agregar para que cuente: dashboard mínimo (latencia, errores, calidad), alertas y análisis de incidente.
+- Value: critical for production.
+- Status actual: basic.
+- What to add to make it count: minimum dashboard (latency, Errors, quality), alerts and incident analysis.
 
 ### 3) guardrails
 
-- Valor: crítico para seguridad y confiabilidad en GenAI.
-- Estado actual: básico.
-- Qué agregar para que cuente: política de entradas/salidas, pruebas adversariales y tasa de bloqueo/falsos positivos.
+- Value: critical for security and reliability in GenAI.
+- Status actual: basic.
+- What to add to make it count: input/output policy, adversarial testing and blocking rate/false positives.
 
 ### 4) llm-evals
 
-- Valor: crítico para mejorar prompts y sistemas LLM con evidencia.
-- Estado actual: básico.
-- Qué agregar para que cuente: set de evaluación reproducible, métricas y comparación entre versiones.
+- Value: critical to improve LLM prompts and systems with evidence.
+- Status actual: basic.
+- What to add to make it count: reproducible Evaluation set, Metrics and comparison between versions.
 
 ### 5) multimodal
 
-- Valor: alto según producto/industria.
-- Estado actual: básico.
-- Qué agregar para que cuente: pipeline mínimo texto+imagen/audio y evaluación de errores por modalidad.
+- Valor: alto according to product/industria.
+- Status actual: basic.
+- What to add to make it count: pipeline minimum text+Image/audio and Error Evaluation by modality.
 
 ### 6) synthetic-data
 
-- Valor: alto para privacidad, escasez de datos y robustez.
-- Estado actual: básico.
-- Qué agregar para que cuente: generación controlada + validación de utilidad + chequeo de riesgo de privacidad.
+- Value: high for privacy, data scarcity and robustness.
+- Status actual: basic.
+- What to add to make it count: controlled generation + utility validation + privacy risk check.
 
-## ¿Es lo mismo que módulos core?
+## Is this the same as Modules core?
 
-No. Deben tratarse como **aceleradores avanzados**:
+No. Deben tratarse como **aceleradores advanceds**:
 
-- Los módulos core construyen base técnica completa.
-- Los extras agregan criterio moderno y ventaja competitiva.
-- Recomendación: 80% tiempo en core, 20% en extras.
+- Core Modules build complete base technique.
+- Extras add modern judgment and competitive advantage.
+- Recommendation: 80% time in core, 20% in extras.
 
-## Qué faltaría agregar (mínimo recomendado)
+## What would be missing to add (recommended minimum)
 
-1. `STATUS.md` global en `trends-extras/` con progreso por extra.
-1. 1 mini-proyecto transversal de extras (por ejemplo: LLM app con guardrails + evals + observabilidad).
-1. Rubrica simple para extras (impacto real, reproducibilidad, seguridad, comunicación).
-1. Evidencia en `notes/` o bitácora: decisiones, fallos y mejoras.
+1. Global `STATUS.md` in `trends-extras/` with progress for extra.
+1. 1 Mini-project transversal of extras (for Example: LLM app with guardrails + evals + observability).
+1. Simple rubric for extras (real impact, reproducibility, security, communication).
+1. Evidence in `notes/` or log: decisions, failures and improvements.
 
-## Criterio para considerar “extra completado”
+## Criterion to consider “extra completed”
 
-- Se cumplió lectura técnica con síntesis propia.
-- Se ejecutó experimento reproducible.
-- Se documentó impacto real y límites.
-- Se registró siguiente iteración concreta.
+- Technical reading with own synthesis was completed.
+- Reproducible experiment was executed.
+- Real impact and limits were documented.
+- Next concrete iteration was registered.
 
-## Sugerencia de implementación por fases
+## Phased implementation suggestion
 
-- Fase 1 (cuando cierres módulos 1-6): `llm-evals` + `guardrails`.
-- Fase 2 (cuando cierres módulos 7-9): `agents` + `multimodal`.
-- Fase 3 (cuando cierres módulos 10-12): `ai-observability` + `synthetic-data`.
+- Phase 1 (when cierres Modules 1-6): `llm-evals` + `guardrails`.
+- Phase 2 (when cierres Modules 7-9): `agents` + `multimodal`.
+- Phase 3 (when cierres Modules 10-12): `ai-observability` + `synthetic-data`.
 
-Con esta secuencia, los extras potencian el plan principal en el momento correcto y te acercan al nivel avanzado con evidencia práctica.
+With this sequence, the extras enhance the main plan at the right time and bring you closer to the advanced level with Practical evidence.

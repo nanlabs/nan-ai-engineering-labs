@@ -1,22 +1,22 @@
-# Practice 04 — outliers y calidad de Data
+# Practice 04 — data outliers and quality
 
 ## Objective
 
-Detectar outliers y decidir tratamiento según contexto de negocio.
+Detect outliers and decide treatment according to business context.
 
-## Enunciado
+## Statement
 
-1. Detectar outliers con IQR o z-score.
-1. Visualizar outliers con boxplot.
-1. Definir estrategia: eliminar, capar o conservar.
-1. Medir impacto de la decisión en estadísticas principales.
+1. Detect outliers with IQR or z-score.
+1. Visualize outliers with boxplot.
+1. Define estrategia: eliminar, capar o conservar.
+1. Measure impact of the decision in main statistics.
 
 ## Entregable
 
-Notebook con comparación antes/después.
+Notebook with before/after comparison.
 
 ## Validation
 
-- Método de detección explicado.
-- Decisión argumentada.
+- Detection method explained.
+- Reasoned decision.
 - Impacto cuantificado.

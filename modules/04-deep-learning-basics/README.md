@@ -1,15 +1,15 @@
 # Deep Learning Basics
 
-## 🎯 Objective del Module
+## 🎯 Objective of the Module
 
 Understand the fundamentals of deep learning to build, train and evaluate simple neural networks with technical criteria.
 
 ## 💡 What are you going to achieve
 
 - Understanding artificial neurons, layers and activation functions (ReLU, Sigmoid, Tanh)
-- Entrenar neural networks con PyTorch (nn.Module, optimizers, loss functions)
+- Train neural networks with PyTorch (nn.Module, optimizers, loss functions)
 - Build CNNs for Image Classification (Conv2d, MaxPool, depth architectures)
-- Identificar overfitting y aplicar Regularization (Dropout, BatchNorm, L2)
+- Identify overfitting and apply Regularization (Dropout, BatchNorm, L2)
 - Use pre-trained Models with transfer learning (ResNet, VGG)
 - Evaluate with Learning curves and test accuracy
 
@@ -18,11 +18,11 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 - **theory/**: theoretical foundations (backpropagation, architectures, Regularization)
 - **examples/**: Guided examples with PyTorch
 - **practices/**: Exercises hands-on
-  - 01: neural networks con PyTorch (nn.Module, training loop, optimizers comparison, early stopping)
-  - 02: CNNs y Transfer Learning (arquitecturas convolucionales, data augmentation, fine-tuning, Grad-CAM)
+  - 01: neural networks with PyTorch (nn.Module, training loop, optimizers comparison, early stopping)
+  - 02: CNNs and Transfer Learning (convolutional architectures, data augmentation, fine-tuning, Grad-CAM)
 - **mini-project/**: Complete Image Classifier
 - **evaluation/**: checklist and rubric
-- **notes/**: arquitecturas experimentadas y Results
+- **notes/**: Experienced architectures and Results
 
 ## Level path (L1-L4)
 
@@ -33,18 +33,18 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 
 ## Migration
 
-- Fuente base original: folders/Deep Learning Basics
+- Fountain base original: folders/Deep Learning Basics
 
 ## Plan recomendado (4 semanas)
 
 - Week 1: Basic concepts of neural networks.
 - Week 2: MLP Training for Classification.
 - Week 3: Hyperparameters adjustment and overfitting control.
-- Semana 4: Mini-project + Evaluation final.
+- Week 4: Mini-project + Evaluation final.
 
 ## ✅ Module criteria completed
 
-- 2 Practices resueltas y validadas
+- 2 Practices solved and validated
 - Mini-project running with >90% accuracy
 - Evaluation final aprobada (>=70/100)
 - Demonstrate: construction of architectures, training loops, Regularization, transfer learning
@@ -56,7 +56,7 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 - [PyTorch Tutorials](https://pytorch.org/tutorials/)
 - [Deep Learning with PyTorch Book](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf) (free PDF)
 
-**Cursos:**
+**Cursors, Cursor:**
 
 - [CS231n: CNNs for Visual Recognition](http://cs231n.stanford.edu/)
 - [Fast.ai - Practical Deep Learning](https://course.fast.ai/)

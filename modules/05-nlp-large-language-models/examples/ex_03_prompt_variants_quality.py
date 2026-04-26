@@ -10,7 +10,7 @@ from __future__ import annotations
 def score_prompt(prompt: str) -> int:
     """Score prompt quality using simple heuristic checks."""
     score = 0
-    if "contexto" in prompt.lower():
+    if "context" in prompt.lower():
         score += 1
     if "formato" in prompt.lower() or "json" in prompt.lower():
         score += 1
@@ -24,11 +24,11 @@ def score_prompt(prompt: str) -> int:
 def main() -> None:
     """Compare weak vs strong prompts for the same task."""
     prompts = {
-        "weak": "Resume este texto.",
-        "medium": "Con este contexto de producto, resume el texto en 3 bullets.",
+        "weak": "Resume este text.",
+        "medium": "Con este context de production, resume el text en 3 bullets.",
         "strong": (
-            "Con el contexto de onboarding de usuarios, resume el texto en formato JSON, "
-            "incluye 3 bullets, una accion sugerida y restricciones de no inventar datos."
+            "Con el context de onboarding de users, resume el text en formato JSON, "
+            "incluye 3 bullets, una accion sugerida y restricciones de no inventar data."
         ),
     }
 

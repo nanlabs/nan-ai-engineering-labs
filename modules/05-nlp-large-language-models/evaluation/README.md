@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de pipeline NLP y conceptos LLM.
-- Correctitud en implementación de prácticas.
-- Calidad de evaluación de salidas.
-- Capacidad de explicar limitaciones y mejoras.
+- Understanding of NLP pipeline and LLM Concepts.
+- Correctness in implementation of Practices.
+- Output Evaluation Quality.
+- Ability to explain limitations and improvements.
 
 ## Checklist final
 
-- [ ] Limpieza y tokenización correctas.
-- [ ] Baseline TF-IDF entrenado y evaluado.
-- [ ] Similitud semántica con embeddings implementada.
-- [ ] Prompt iterado con mejora de resultados.
-- [ ] Evaluación de alucinaciones documentada.
-- [ ] Conclusión final con siguientes pasos.
+- [ ] Cleaning and Tokenization correct.
+- [ ] Baseline TF-IDF trained and evaluated.
+- [ ] Semantic similarity with embeddings implemented.
+- [ ] Prompt iterated with Results improvement.
+- [ ] Evaluation of hallucinations documented.
+- [ ] Final conclusion with next steps.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

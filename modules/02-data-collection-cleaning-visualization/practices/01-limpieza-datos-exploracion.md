@@ -1,17 +1,17 @@
-# Práctica 01 — Limpieza de Datos y Exploración Inicial
+# Practice 01 — Data Cleaning and Initial Exploration
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Detectar y manejar valores faltantes
-- Identificar y tratar outliers
-- Realizar transformaciones de datos
-- Crear visualizaciones exploratorias
+- Detect and handle missing values
+- Identify and treat outliers
+- Perform data transformations
+- Create exploratory visualizations
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Part 1: Guided Exercises
 
-### Ejercicio 1.1: Cargar y explorar dataset
+### Exercise 1.1: Load and explore dataset
 
 ```python
 import pandas as pd
@@ -37,7 +37,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Inyectar problemas de calidad
+# Inyectar problems de quality
 # 1. Valores faltantes
 missing_indices = np.random.choice(df.index, size=30, replace=False)
 df.loc[missing_indices[:10], 'customer_age'] = np.nan
@@ -48,19 +48,19 @@ df.loc[missing_indices[20:30], 'payment_method'] = np.nan
 outlier_indices = np.random.choice(df.index, size=10, replace=False)
 df.loc[outlier_indices, 'product_price'] = np.random.uniform(1000, 5000, 10)
 
-# 3. Datos inconsistentes
+# 3. Data inconsistentes
 df.loc[np.random.choice(df.index, 5), 'quantity'] = -1  # Cantidad negativa (error)
 
-print("=== Información del Dataset ===")
+print("=== Information del Dataset ===")
 print(df.info())
-print("\n=== Primeras filas ===")
+print("\n=== Primeras rows ===")
 print(df.head())
 ```
 
-**✅ Solución - Análisis inicial:**
+**✅ Solution - Initial Analysis:**
 
 ```python
-# Análisis de valores faltantes
+# Analysis de values faltantes
 print("\n=== Valores Faltantes ===")
 missing_summary = pd.DataFrame({
     'columna': df.columns,
@@ -69,29 +69,29 @@ missing_summary = pd.DataFrame({
 })
 print(missing_summary[missing_summary['missing_count'] > 0])
 
-# Análisis de duplicados
+# Analysis de duplicates
 print(f"\nDuplicados: {df.duplicated().sum()}")
 
-# Estadísticas descriptivas
-print("\n=== Estadísticas Descriptivas ===")
+# Statistics descriptive
+print("\n=== Statistics Descriptivas ===")
 print(df.describe())
 ```
 
-### Ejercicio 1.2: Manejar valores faltantes
+### Exercise 1.2: Handle missing values
 
 ```python
-# Estrategias de imputación
+# Estrategias de imputation
 
-# 1. Imputación por media (variables numéricas continuas)
+# 1. Imputation por media (variables numerical continuas)
 df['customer_age_imputed'] = df['customer_age'].fillna(df['customer_age'].median())
 
-# 2. Imputación por mediana (variables con outliers)
+# 2. Imputation por median (variables con outliers)
 df['shipping_cost_imputed'] = df['shipping_cost'].fillna(df['shipping_cost'].median())
 
-# 3. Imputación por moda (variables categóricas)
+# 3. Imputation por moda (variables categorical)
 df['payment_method_imputed'] = df['payment_method'].fillna(df['payment_method'].mode()[0])
 
-# Comparar antes y después
+# Compare antes y after
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 # Customer age
@@ -99,7 +99,7 @@ axes[0].hist(df['customer_age'].dropna(), bins=20, alpha=0.5, label='Original', 
 axes[0].hist(df['customer_age_imputed'], bins=20, alpha=0.5, label='Imputado', color='red')
 axes[0].set_xlabel('Customer Age')
 axes[0].set_ylabel('Frecuencia')
-axes[0].set_title('Distribución de Edad (antes vs después)')
+axes[0].set_title('Distribution de Edad (antes vs after)')
 axes[0].legend()
 
 # Shipping cost
@@ -107,7 +107,7 @@ axes[1].hist(df['shipping_cost'].dropna(), bins=20, alpha=0.5, label='Original',
 axes[1].hist(df['shipping_cost_imputed'], bins=20, alpha=0.5, label='Imputado', color='red')
 axes[1].set_xlabel('Shipping Cost')
 axes[1].set_ylabel('Frecuencia')
-axes[1].set_title('Distribución de Costo de Envío')
+axes[1].set_title('Distribution de Costo de Shipment')
 axes[1].legend()
 
 plt.tight_layout()
@@ -117,12 +117,12 @@ plt.show()
 print("✅ Valores faltantes imputados")
 ```
 
-### Ejercicio 1.3: Detectar y manejar outliers
+### Exercise 1.3: Detect and manage outliers
 
 ```python
 def detect_outliers_iqr(data, column, multiplier=1.5):
     """
-    Detecta outliers usando método IQR
+    Detecta outliers using method IQR
     """
     Q1 = data[column].quantile(0.25)
     Q3 = data[column].quantile(0.75)
@@ -135,17 +135,17 @@ def detect_outliers_iqr(data, column, multiplier=1.5):
 
     return outliers, lower_bound, upper_bound
 
-# Detectar outliers en product_price
+# Detect outliers en product_price
 outliers, lower, upper = detect_outliers_iqr(df, 'product_price')
 
 print(f"\n=== Outliers en Product Price ===")
-print(f"Límite inferior: ${lower:.2f}")
-print(f"Límite superior: ${upper:.2f}")
-print(f"Outliers detectados: {len(outliers)}")
+print(f"Limit inferior: ${lower:.2f}")
+print(f"Limit superior: ${upper:.2f}")
+print(f"Outliers detected: {len(outliers)}")
 print(f"\nEjemplos de outliers:")
 print(outliers[['order_id', 'product_price']].head())
 
-# Visualización con boxplot
+# Visualization con boxplot
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 # Boxplot antes
@@ -154,106 +154,106 @@ axes[0].set_ylabel('Product Price')
 axes[0].set_title('Antes de remover outliers')
 axes[0].grid(True, alpha=0.3)
 
-# Tratamiento: Winsorización (cap en upper bound)
+# Tratamiento: Winsorization (cap en upper bound)
 df['product_price_clean'] = df['product_price'].clip(upper=upper)
 
-# Boxplot después
+# Boxplot after
 axes[1].boxplot(df['product_price_clean'])
 axes[1].set_ylabel('Product Price')
-axes[1].set_title('Después de winsorización')
+axes[1].set_title('After de winsorization')
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.savefig('outliers_treatment.png', dpi=150)
 plt.show()
 
-print("✅ Outliers tratados con winsorización")
+print("✅ Outliers tratados con winsorization")
 ```
 
-### Ejercicio 1.4: Validar y corregir inconsistencias
+### Exercise 1.4: Validate and correct inconsistencies
 
 ```python
-# Detectar cantidades negativas
+# Detect cantidades negativas
 invalid_qty = df[df['quantity'] < 0]
 
-print(f"\n=== Valores Inválidos en Quantity ===")
+print(f"\n=== Valores Invalids en Quantity ===")
 print(f"Registros con cantidad negativa: {len(invalid_qty)}")
 
-# Corrección: remover registros inválidos
+# Correction: remover registros invalids
 df_clean = df[df['quantity'] > 0].copy()
 
 print(f"Registros removidos: {len(df) - len(df_clean)}")
-print(f"Dataset limpio: {len(df_clean)} registros")
+print(f"Dataset clean: {len(df_clean)} registros")
 
-# Calcular campo derivado
+# Calculate campo derivado
 df_clean['total_price'] = (
     df_clean['product_price_clean'] * df_clean['quantity'] *
     (1 - df_clean['discount_pct']) + df_clean['shipping_cost_imputed']
 )
 
-print(f"\n✅ Dataset limpio:")
+print(f"\n✅ Dataset clean:")
 print(df_clean.head())
 print(f"\nTotal price range: ${df_clean['total_price'].min():.2f} - ${df_clean['total_price'].max():.2f}")
 ```
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Part 2: Suggested Exercises
 
-### Ejercicio 2.1: Pipeline de Limpieza Completo
+### Exercise 2.1: Complete Cleaning Pipeline
 
-**Enunciado:**
-Crea una función `clean_sales_data(df)` que:
+**Statement:**
+Create a Function `clean_sales_data(df)` that:
 
-1. Detecte e impute valores faltantes (estrategia apropiada por tipo de dato)
-1. Identifique outliers en todas las columnas numéricas
-1. Valide que no haya valores negativos en price/quantity
-1. Retorne un DataFrame limpio y un reporte de calidad
+1. Detected, Detect, Detects and impute missing values ​​(appropriate strategy per data type)
+1. Identify outliers in all numerical columns
+1. Validate that there are no negative values ​​in price/quantity
+1. Return a clean DataFrame and a quality report
 
-**Validación esperada:**
+**Validation expected:**
 
 ```python
 def clean_sales_data(df):
-    # Tu código aquí
+    # Tu code here
     pass
 
 # Test
 df_cleaned, quality_report = clean_sales_data(df)
 
-assert df_cleaned.isnull().sum().sum() == 0, "Hay valores faltantes sin tratar"
+assert df_cleaned.isnull().sum().sum() == 0, "Hay values faltantes sin tratar"
 assert (df_cleaned['quantity'] < 0).sum() == 0, "Hay cantidades negativas"
-assert quality_report['rows_removed'] >= 0, "Reporte inválido"
+assert quality_report['rows_removed'] >= 0, "Reporte invalid"
 
 print("✅ Tests pasados")
 ```
 
-### Ejercicio 2.2: Análisis Exploratorio Multi-variable
+### Exercise 2.2: Multi-variable Exploratory Analysis
 
-**Enunciado:**
-Genera un reporte exploratorio que incluya:
+**Statement:**
+Generate an exploratory report that includes:
 
-1. Distribución de ventas por región
-1. Correlación entre precio, cantidad y descuento
-1. Total de ventas por método de pago
-1. Análisis de tendencia de edad vs precio promedio
+1. Distribution of sales by region
+1. Correlation between price, quantity and discount
+1. Total sales by payment method
+1. Trend analysis of age vs price average
 
-**Validación esperada:**
+**Validation expected:**
 
-- 4 visualizaciones (histogramas, scatter plots, barplots)
-- Reporte con insights principales
-- Correlaciones calculadas correctamente
+- 4 visualizations (histograms, scatter plots, barplots)
+- Report with insights principles
+- Correlations calculated correctly
 
-### Ejercicio 2.3: Feature Engineering
+### Exercise 2.3: Feature Engineering
 
-**Enunciado:**
-Crea nuevas features útiles para análisis:
+**Statement:**
+Create new useful features for Analysis:
 
 1. `price_per_unit` = product_price / quantity
 1. `is_high_value` = total_price > 75th percentile
-1. `age_group` = bins de edad (18-30, 31-45, 46-60, 61+)
-1. `discount_category` = sin descuento / bajo / medio / alto
+1. `age_group` = age bins (18-30, 31-45, 46-60, 61+)
+1. `discount_category` = no discount / low / medium / high
 
-**Validación esperada:**
+**Validation expected:**
 
 ```python
 assert 'price_per_unit' in df_engineered.columns
@@ -262,56 +262,56 @@ assert df_engineered['is_high_value'].dtype == bool
 assert df_engineered['age_group'].nunique() == 4
 ```
 
-### Ejercicio 2.4: Detección de Anomalías
+### Exercise 2.4: Anomaly Detection
 
-**Enunciado:**
-Implementa un detector de pedidos anómalos usando:
+**Statement:**
+Implement a failed order detector using:
 
-1. Z-score para detectar precios extremos
-1. Reglas de negocio (ej: descuento > 50% con precio > $300)
-1. Valores imposibles (shipping_cost > product_price)
+1. Z-score to detect extreme prices
+1. Business rules (e.g. discount > 50% with price > $300)
+1. Impossible values ​​(shipping_cost > product_price)
 
-Marca registros con `is_anomalous` flag.
+Mark records with `is_anomalous` flag.
 
-### Ejercicio 2.5: Visualización de Calidad de Datos
+### Exercise 2.5: Data Quality Visualization
 
-**Enunciado:**
-Crea un dashboard de calidad con:
+**Statement:**
+Create a quality dashboard with:
 
-1. Heatmap de valores faltantes por columna
-1. Distribución de outliers detectados
-1. Matriz de correlación
-1. Distribución de variables categóricas
+1. Heatmap of missing values ​​per column
+1. Distribution of outliers detected
+1. Correlation Matrix
+1. Distribution of categorical variables
 
-Guarda como `data_quality_dashboard.png`.
-
-______________________________________________________________________
-
-## ✅ Checklist de Competencias
-
-Después de completar esta práctica, deberías poder:
-
-- [ ] Detectar valores faltantes y aplicar estrategias de imputación
-- [ ] Identificar outliers con métodos estadísticos (IQR, Z-score)
-- [ ] Aplicar transformaciones de datos (winsorización, clipping)
-- [ ] Validar integridad de datos (rangos válidos, consistencia)
-- [ ] Crear visualizaciones exploratorias efectivas
-- [ ] Implementar pipelines de limpieza reproducibles
-- [ ] Generar reportes de calidad de datos
-- [ ] Calcular features derivadas
+Save as `data_quality_dashboard.png`.
 
 ______________________________________________________________________
 
-## 📚 Recursos Adicionales
+## ✅ Skills Checklist
 
-**Librerías útiles:**
+After completing this Practice, you should be able to:
 
-- `pandas-profiling`: EDA automático
-- `missingno`: Visualización de missing data
-- `PyOD`: Detección de outliers
-- `Great Expectations`: Validación de datos
+- [ ] Detect missing values ​​and apply imputation strategies
+- [ ] Identify outliers with statistical methods (IQR, Z-score)
+- [ ] Apply Data transformations (winsorization, clipping)
+- [ ] Validate Data integrity (valid ranges, consistency)
+- [ ] Create effective exploratory visualizations
+- [ ] Implement reproducible Cleaning pipelines
+- [ ] Generate Data quality reporters
+- [ ] Calculate derived features
 
-**Lecturas:**
+______________________________________________________________________
 
-- [Tidy Data por Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.pdf)
+## 📚 Additional Resources
+
+**Useful libraries:**
+
+- `pandas-profiling`: automatic EDA
+- `missingno`: Display of missing data
+- `PyOD`: Outlier detection
+- `Great Expectations`: Data Validation
+
+**Readings:**
+
+- [Tidy Data by Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.pdf)
 - [Data Cleaning Tutorial - Kaggle](https://www.kaggle.com/learn/data-cleaning)

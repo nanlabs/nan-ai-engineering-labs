@@ -2,28 +2,28 @@
 
 ## Project
 
-Predicción de churn (o problema equivalente) con modelos clásicos.
+Churn prediction (or equivalent Problem) with classic Models.
 
 ## Objective
 
-Construir un flujo completo de ML: baseline, mejora, comparación y recomendación final.
+Build a complete ML flow: baseline, improvement, comparison and final recommendation.
 
 ## Scope
 
-- Dataset tabular limpio.
+- Dataset tabular clean.
 - Baseline inicial.
-- Al menos 1 mejora con tuning.
-- Evaluación con métricas relevantes.
-- Conclusiones técnicas y de negocio.
+- At least 1 improvement with tuning.
+- Evaluation with relevant Metrics.
+- Technical and business conclusions.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Tabla comparativa de modelos.
-- Recomendación final argumentada.
+- Comparative table of Models.
+- Final reasoned recommendation.
 
 ## Acceptance criteria
 
-- Pipeline de entrenamiento completo.
-- Métricas correctamente interpretadas.
-- Riesgos y limitaciones explícitos.
+- Complete Training Pipeline.
+- Metrics correctly interpretadas.
+- Explicit risks and limitations.

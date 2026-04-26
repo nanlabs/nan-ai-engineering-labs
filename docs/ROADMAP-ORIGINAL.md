@@ -1,6 +1,6 @@
-# Roadmap original (fuente histórica)
+# Roadmap original (fuente historical)
 
-Este archivo conserva el contenido original del roadmap.
+This file preserves the original Content of the roadmap.
 AI & Machine Learning Engineer Roadmap
 
 If you're passionate about solving complex problems with intelligent systems, data-driven models, and modern AI tooling, this roadmap is for you!

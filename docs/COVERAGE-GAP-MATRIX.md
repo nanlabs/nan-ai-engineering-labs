@@ -1,79 +1,69 @@
-# Coverage Gap Matrix (Phase 1)
+# Coverage Gap Matrix (Current Snapshot)
 
 ## Objective
 
-Establish an objective topic-subtopic-module coverage matrix and prioritize P0/P1/P2 gaps to guide plan execution.
+Provide an up-to-date coverage map for core modules and trends-extras, and define the remaining priorities after structural completion.
 
-## Method and evidence
+## Current Evidence
 
-Primary curriculum sources:
+Source of truth:
 
-- `docs/init-path/content/*.md` (12 core topics).
-- `docs/LEARNING-PATH.md` (official study sequence).
+- `scripts/validate_learning_labs.py --strict-core`
+- `scripts/audit_english_conversion.py`
 
-Technical snapshot (2026-04-23):
+Latest snapshot:
 
-- Core modules with executable Python examples: 0 across 12/12 modules.
-- Core modules with Markdown examples: 3 per module.
-- Placeholders in core (`Pendiente de completar este apartado.`): 121.
-- Placeholders in extras: 36.
-- Python examples per extra:
-  - `agents`: 3
-  - `ai-observability`: 4
-  - `guardrails`: 3
-  - `llm-evals`: 4
-  - `multimodal`: 4
-  - `synthetic-data`: 3
+- Core modules scanned: 12
+- Extra units scanned: 6
+- Missing required paths: 0
+- Heading gaps: 0
+- Placeholder markers in trends-extras README files: 0
+- Language distribution: 266 English, 0 Spanish, 8 Mixed (274 total files)
 
-## Topic -> Module -> Status matrix
+## Topic to Module Status
 
-| Topic (init-path)                         | Target module                                       | Current status | Priority | Main action                                                             |
-| ----------------------------------------- | --------------------------------------------------- | -------------- | -------- | ----------------------------------------------------------------------- |
-| Programming & Math for ML                 | `modules/01-programming-math-for-ml`                | Partial        | P0       | Migrate key examples to executable `.py` files with expected output     |
-| Data Collection, Cleaning & Visualization | `modules/02-data-collection-cleaning-visualization` | Partial        | P0       | Add executable cleaning examples plus reproducible EDA                  |
-| Machine Learning Fundamentals             | `modules/03-machine-learning-fundamentals`          | Partial        | P0       | Add regression/classification baselines with metrics and comparison     |
-| Deep Learning Basics                      | `modules/04-deep-learning-basics`                   | Partial        | P0       | Add minimal reproducible training (MLP/CNN) with overfit checks         |
-| NLP & Large Language Models               | `modules/05-nlp-large-language-models`              | Partial        | P0       | Add executable NLP/LLM pipeline (prompting plus minimal eval)           |
-| Computer Vision                           | `modules/06-computer-vision`                        | Partial        | P0       | Add executable CV examples with inference and basic validation          |
-| Time Series & Anomaly Detection           | `modules/07-time-series-anomaly-detection`          | Partial        | P0       | Add forecast plus anomaly detection with temporal metrics               |
-| Recommender Systems                       | `modules/08-recommender-systems`                    | Partial        | P0       | Add collaborative-filtering baselines with reproducible ranking metrics |
-| Generative AI & Prompt Engineering        | `modules/09-generative-ai-prompt-engineering`       | Partial        | P0       | Add prompting examples and quality evaluation by scenario               |
-| Ethics, Bias & Explainability             | `modules/10-ethics-bias-explainability`             | Partial        | P1       | Add guided fairness and SHAP/LIME-style examples                        |
-| Data Privacy & Security                   | `modules/11-data-privacy-security`                  | Partial        | P1       | Add redaction, anonymization, and minimal control examples              |
-| MLOps & AI in Production                  | `modules/12-mlops-ai-in-production`                 | Partial        | P0       | Add executable serving, monitoring, and rollback examples               |
+| Topic | Module Path | Status | Priority | Next Action |
+| --- | --- | --- | --- | --- |
+| Programming & Math for ML | `modules/01-programming-math-for-ml` | Complete | P2 | Optional pedagogical refinements |
+| Data Collection, Cleaning & Visualization | `modules/02-data-collection-cleaning-visualization` | Complete | P2 | Optional dataset expansion |
+| Machine Learning Fundamentals | `modules/03-machine-learning-fundamentals` | Complete | P2 | Optional metric/report depth |
+| Deep Learning Basics | `modules/04-deep-learning-basics` | Complete | P2 | Optional additional diagnostics |
+| NLP & Large Language Models | `modules/05-nlp-large-language-models` | Complete | P1 | Resolve remaining mixed-language example files |
+| Computer Vision | `modules/06-computer-vision` | Complete | P2 | Optional benchmark extensions |
+| Time Series & Anomaly Detection | `modules/07-time-series-anomaly-detection` | Complete | P1 | Resolve remaining mixed-language example file |
+| Recommender Systems | `modules/08-recommender-systems` | Complete | P1 | Resolve remaining mixed-language example file |
+| Generative AI & Prompt Engineering | `modules/09-generative-ai-prompt-engineering` | Complete | P1 | Resolve remaining mixed-language example file |
+| Ethics, Bias & Explainability | `modules/10-ethics-bias-explainability` | Complete | P2 | Optional practice depth improvements |
+| Data Privacy & Security | `modules/11-data-privacy-security` | Complete | P1 | Resolve remaining mixed-language example files |
+| MLOps & AI in Production | `modules/12-mlops-ai-in-production` | Complete | P2 | Optional production runbook expansion |
 
-## Prioritized cross-cutting gaps
+## Trends-Extras Status
 
-### P0 (blocking executable learning)
+| Unit | Status | Priority | Next Action |
+| --- | --- | --- | --- |
+| `trends-extras/agents` | Complete | P2 | Optional additional example density |
+| `trends-extras/ai-observability` | Complete | P2 | Optional monitoring case studies |
+| `trends-extras/guardrails` | Complete | P2 | Optional red-team scenario expansion |
+| `trends-extras/llm-evals` | Complete | P2 | Optional benchmark automation depth |
+| `trends-extras/multimodal` | Complete | P2 | Optional model comparison matrix |
+| `trends-extras/synthetic-data` | Complete | P2 | Optional utility/privacy benchmark pack |
 
-1. Core modules without executable `.py` scripts in `examples/` (12/12 modules).
-1. High volume of placeholders in core modules (121).
-1. Missing explicit expected output for most core examples.
+## Remaining Gaps
 
-### P1 (high impact, not immediately blocking)
+### P1 (recommended next)
 
-1. Extras below the density target (4-6): `agents`, `guardrails`, and `synthetic-data` have 3.
-1. Residual placeholders in extras (36).
-1. Narrative misalignment: documents claiming 100% completion versus evidence of partial executable coverage.
+1. Convert the remaining 8 mixed-language files to fully English content.
+2. Standardize wording and naming in mixed legacy filenames where needed.
 
-### P2 (advanced coverage expansion)
+### P2 (optional quality expansion)
 
-1. Applied RL for product use cases.
-1. Introductory causal ML.
-1. Introductory graph ML.
-1. Advanced evals and systematic red-teaming.
-1. Inference optimization (quantization/distillation/serving).
+1. Add deeper advanced examples in selected modules.
+2. Add stronger expected-output rubrics for all practice paths.
+3. Add CI-level checks for language purity if strict English-only is required.
 
-## Recommended initial backlog (execution order)
+## Exit Criteria
 
-1. Complete the P0 placeholders in modules 03 and 05 (pilot).
-1. Publish 6-8 executable examples in module 03.
-1. Publish 6-8 executable examples in module 05.
-1. Define an expected-output and common-errors rubric for every new example.
-1. Scale the pattern across core waves A/B/C.
+This matrix can be considered fully closed when:
 
-## Phase-1 exit criteria
-
-1. Matrix published and versioned (this document).
-1. P0/P1/P2 gaps agreed upon.
-1. Execution pilot defined (M03 and M05).
+1. Mixed files count reaches zero.
+2. Optional CI checks are in place for ongoing enforcement.

@@ -1,17 +1,17 @@
-# Práctica 03 — CNN de clasificación
+# Practice 03 — Classification CNN
 
 ## Objective
 
-Entrenar una CNN pequeña para clasificar imágenes.
+Train a small CNN to classify Images.
 
-## Enunciado
+## Statement
 
-1. Definir arquitectura CNN mínima.
-1. Entrenar por épocas controladas.
-1. Reportar accuracy y loss.
-1. Guardar modelo entrenado.
+1. Define minimal CNN architecture.
+1. Train by controlled periods.
+1. Report accuracy and loss.
+1. Save Model entrenado.
 
-## Validación
+## Validation
 
-- Entrenamiento finaliza sin errores.
-- Métricas reportadas correctamente.
+- Training finaliza sin Errors.
+- Metrics reported correctly.

@@ -1,36 +1,36 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
-## 🎯 Objetivo
+## 🎯 Objective
 
-Generar datos sintéticos de alta calidad para ML: desde tabular (GANs) hasta texto (augmentation/LLMs) manteniendo privacidad y balance.
+Generate high quality synthetic data for ML: from tabular (GANs) to text (augmentation/LLMs) maintaining privacy and balance.
 
-## 💡 Qué aprenderás
+## 💡 What will you learn
 
-- GANs para generar datos tabulares (CTGAN, TabGAN)
+- GANs to generate tabular data (CTGAN, TabGAN)
 - Text augmentation (back-translation, paraphrasing, EDA)
-- Privacidad con Differential Privacy
-- Validar calidad de datos sintéticos (statistical tests, ML utility)
-- Detectar bias en datos generados
-- Synthetic data para edge cases y testing
+- Privacy with Differential Privacy
+- Validate quality of synthetic data (statistical tests, ML utility)
+- Detect bias in generated data
+- Synthetic data for edge cases and testing
 
-## 📂 Contenido
+## 📂 Content
 
 ### Examples
 
-- **ex_01_ctgan_tabular.py**: CTGAN para generar clientes sintéticos
-- **ex_02_text_augmentation.py**: Aumentar dataset de texto con NLP
-- **ex_03_validate_quality.py**: Comparar distribuciones real vs sintético
-- **ex_04_differential_privacy.py**: Añadir ruido con garantías DP
+- **ex_01_ctgan_tabular.py**: CTGAN to generate synthetic clients
+- **ex_02_text_augmentation.py**: Augment text dataset with NLP
+- **ex_03_validate_quality.py**: Compare real vs synthetic distributions
+- **ex_04_differential_privacy.py**: Add noise with DP guarantees
 
-## 🔑 Conceptos Clave
+## 🔑 Concepts Clave
 
 ### Why Synthetic Data?
 
-**1. Privacy**: Compartir datos sin exponer información real
-**2. Data Scarcity**: Aumentar dataset pequeño para training
-**3. Balancing**: Oversample clases minoritarias
-**4. Testing**: Generar edge cases para QA
-**5. Simulation**: Crear escenarios "what-if"
+**1. Privacy**: Share data without exposing real information
+**2. Data Scarcity**: Increase small dataset for training
+**3. Balancing**: Oversample minority classes
+**4. Testing**: Generate edge cases for QA
+**5. Simulation**: Create "what-if" scenarios
 
 ### Synthetic Data Pipeline
 
@@ -58,7 +58,7 @@ Generar datos sintéticos de alta calidad para ML: desde tabular (GANs) hasta te
 
 ## 🧬 CTGAN for Tabular Data
 
-**CTGAN (Conditional Tabular GAN)**: GAN especializado en datos tabulares con categorical + continuous features.
+**CTGAN (Conditional Tabular GAN)**: GAN specialized in tabular data with categorical + continuous features.
 
 ```python
 from sdv.tabular import CTGAN
@@ -78,20 +78,20 @@ model.fit(real_data)
 # Generate synthetic customers
 synthetic_data = model.sample(num_rows=1000)
 
-# synthetic_data tiene mismas distribuciones pero no son clientes reales
+# synthetic_data tiene mismas distributions but no son clients real
 ```
 
-**Ventajas**:
+**Advantages**:
 
-- Maneja categorical + continuous
-- Preserva correlaciones entre features
-- No requiere feature engineering
+- Handles categorical + continuous
+- Preserve correlations between features
+- No requires feature engineering
 
-**Limitaciones**:
+**Limitations**:
 
-- Entrenamiento lento (horas para datasets grandes)
-- Puede generar outliers imposibles (edad = 150 años)
-- No garantiza privacidad (puede memorizar datos)
+- Slow training (hours for large datasets)
+- Can generate impossible outliers (age = 150 years)
+- Does not guarantee privacy (can memorize Data)
 
 ## 📝 Text Augmentation Techniques
 
@@ -124,40 +124,40 @@ augmented = aug.augment("The product is good")
 
 ```python
 prompt = """
-Parafrasea el siguiente texto manteniendo el significado:
+Parafrasea el next text manteniendo el significado:
 
-Original: "El servicio al cliente fue excelente y rápido."
+Original: "El servicio al client, clientele fue excelente y fast."
 
-Paráfrasis:
+Paraphrase:
 """
 
-# LLM genera: "La atención al cliente fue muy buena y eficiente."
+# LLM genera: "La attention al client, clientele fue muy buena y eficiente."
 ```
 
 ## 🔒 Differential Privacy
 
-**Problema**: Synthetic data puede leak información real.
+**Problem**: Synthetic data can leak information real.
 
-**Solución**: Añadir ruido calibrado con garantías matemáticas.
+**Solution**: Add noise calibrated with mathematical guarantees.
 
 ```python
 import numpy as np
 
 def add_laplace_noise(value, sensitivity, epsilon):
     """
-    epsilon: privacy budget (más bajo = más privacidad)
-    sensitivity: máximo cambio posible en el agregado
+    epsilon: privacy budget (más low = más privacy)
+    sensitivity: maximum cambio possible en el agregado
     """
     scale = sensitivity / epsilon
     noise = np.random.laplace(0, scale)
     return value + noise
 
-# Ejemplo: promedio de salarios
+# Example: average de salarios
 real_avg_salary = 75000
 epsilon = 1.0  # Privacy budget
 private_avg_salary = add_laplace_noise(real_avg_salary, 10000, epsilon)
 
-# private_avg_salary ≈ 75000 pero con ruido
+# private_avg_salary ≈ 75000 but con noise
 ```
 
 ## 📊 Validating Quality
@@ -202,109 +202,119 @@ utility = score_syn / score_real
 
 ## 🛠️ Tools & Libraries
 
-| Tool           | Type   | Use Case                        | Ease       | Privacy           |
-| -------------- | ------ | ------------------------------- | ---------- | ----------------- |
-| **SDV**        | Python | Tabular GANs (CTGAN)            | ⭐⭐⭐     | ⚠️ No DP          |
-| **Gretel**     | API    | Tabular + text + time series    | ⭐⭐⭐⭐   | ✅ DP opcional    |
-| **NLPaug**     | Python | Text augmentation               | ⭐⭐⭐⭐⭐ | N/A               |
-| **SmartNoise** | Python | Differential Privacy            | ⭐⭐       | ✅ DP garantizado |
-| **Faker**      | Python | Fake data simple (not ML-based) | ⭐⭐⭐⭐⭐ | ✅ No real data   |
+| Tools | Type | Use Case | Ease | Privacy |
+| -------------- | ------ | ---------------------------- | ---------- | ----------------- |
+| **SDV** | Python | Tabular GANs (CTGAN) | ⭐⭐⭐ | ⚠️No DP |
+| **Gretel** | API | Tabular + text + time series | ⭐⭐⭐⭐ | ✅ DP optional |
+| **NLPaug** | Python | Text augmentation | ⭐⭐⭐⭐⭐ | N/A |
+| **SmartNoise** | Python | Differential Privacy | ⭐⭐ | ✅ DP guaranteed |
+| **Faker** | Python | Simple fake data (not ML-based) | ⭐⭐⭐⭐⭐ | ✅ Not real data |
 
-## 🧪 Ejercicio Rápido
+## 🧪 Quick Exercise
 
 1. **Setup**: `pip install sdv pandas scikit-learn`
 1. **Load dataset**: Usa Titanic o Iris
 1. **Train CTGAN**: `model.fit(real_data)`
-1. **Generate**: 1000 registros sintéticos
+1. **Generate**: 1000 synthetic records
 1. **Validate**: KS test + ML utility test
-1. **Privacy**: Añade Differential Privacy noise
-1. **Compare**: Visualiza distribuciones real vs sintético
+1. **Privacy**: Add Differential Privacy noise
+1. **Compare**: Visualize real vs synthetic distributions
 
-## 📚 Recursos Curados
+## 📚 Curated Resources
 
 **Libraries:**
 
 - [SDV (Synthetic Data Vault)](https://github.com/sdv-dev/SDV) - CTGAN, TabGAN
 - [NLPaug](https://github.com/makcedward/nlpaug) - Text augmentation
-- [Gretel.ai](https://gretel.ai/) - Commercial tool con DP
+- [Gretel.ai](https://gretel.ai/) - Commercial tool with DP
 - [SmartNoise](https://github.com/opendp/smartnoise-sdk) - Microsoft DP library
 
 **Papers:**
 
-- [CTGAN (2019)](https://arxiv.org/abs/1907.00503) - Modelando datos tabulares con GANs
+- [CTGAN (2019)](https://arxiv.org/abs/1907.00503) - Modeling tabular data with GANs
 - [Differential Privacy (2006)](https://www.microsoft.com/en-us/research/publication/calibrating-noise-to-sensitivity-in-private-data-analysis/) - Dwork et al.
-- [TabGAN](https://arxiv.org/abs/2102.08468) - Otra arquitectura para tabular
+- [TabGAN](https://arxiv.org/abs/2102.08468) - Another architecture to tabulate
 
 **Tutorials:**
 
 - [SDV Quick Start](https://sdv.dev/SDV/getting_started/index.html)
 - [Differential Privacy Explained](https://desfontain.es/privacy/)
 
-## ✅ Checklist de Aprendizaje
+## ✅ Learning Checklist
 
-- [ ] Entrenar CTGAN en dataset tabular
-- [ ] Generar 1000+ registros sintéticos
-- [ ] Validar con KS test (p > 0.05)
+- [ ] Train CTGAN in tabular dataset
+- [ ] Generate 1000+ synthetic records
+- [ ] Validate with KS test (p > 0.05)
 - [ ] ML utility test (score_syn/score_real > 0.9)
-- [ ] Text augmentation con back-translation
-- [ ] Añadir Differential Privacy noise
-- [ ] Detectar bias en datos sintéticos (protected attributes)
-- [ ] Privacy audit con membership inference
+- [ ] Text augmentation with back-translation
+- [ ] Add Differential Privacy noise
+- [ ] Detect bias in synthetic data (protected attributes)
+- [ ] Privacy audit with membership inference
 
-## 🎯 Impacto Real
+## 🎯 Real Impact
 
-- **Healthcare**: Compartir datos médicos sintéticos para research sin violar HIPAA
-- **Finance**: Generar transacciones sintéticas para fraud detection training
-- **Testing**: Crear edge cases (edades extremas, ingresos negativos) para QA
-- **Data Marketplaces**: Vender datasets sintéticos sin privacy concerns
-- **Balancing**: Oversample clases minoritarias (fraude, enfermedades raras)
+- **Healthcare**: Share synthetic medical data for research without violating HIPAA
+- **Finance**: Generate synthetic transactions for fraud detection training
+- **Testing**: Create edge cases (extreme ages, negative income) for QA
+- **Data Marketplaces**: Sell synthetic datasets without privacy concerns
+- **Balancing**: Oversample minority classes (fraud, rare diseases)
 
 ## 🚨 Common Pitfalls
 
-**Over-fitting**: GAN memoriza datos reales
+**Over-fitting**: GAN memorizes real data
 
-- **Solución**: Early stopping, validation set, privacy audits
+- **Solution**: Early stopping, validation set, privacy audits
 
-**Unrealistic outliers**: Generar valores imposibles
+**Unrealistic outliers**: Generate impossible values
 
-- **Solución**: Post-processing constraints (edad > 0)
+- **Solution**: Post-processing constraints (age > 0)
 
-**Bias amplification**: Sesgo en real data se amplifica en synthetic
+**Bias amplification**: Bias in real data is amplified in synthetic
 
-- **Solución**: Fairness constraints durante training
+- **Solution**: Fairness constraints durante training
 
-**Mode collapse**: GAN genera poca diversidad
+**Mode collapse**: GAN generates little diversity
 
-- **Solución**: Usar CTGAN (menos propenso), increase epochs
+- **Solution**: Use CTGAN (less prone), increase epochs
 
-## 🚀 Próximos Pasos
+## 🚀 Next Steps
 
-Combina con:
+Combines with:
 
-- **data-privacy-security** para DP avanzado
-- **ethics-bias-explainability** para detectar bias en synthetic data
-- **machine-learning-fundamentals** para usar synthetic data en training
+- **data-privacy-security** for advanced DP
+- **ethics-bias-explainability** to detect bias in synthetic data
+- **machine-learning-fundamentals** to use synthetic data in training
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Learn to generate, validate, and use synthetic datasets responsibly to improve model development while preserving privacy and data utility.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+- Generate tabular and text synthetic data with modern approaches.
+- Measure utility and distribution similarity against source data.
+- Evaluate privacy risk and leakage exposure.
+- Integrate synthetic data into ML experimentation workflows.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+- `README.md`: generation methods, risks, and quality criteria.
+- `examples/`: CTGAN, text augmentation, and privacy-preserving synthesis.
+- `practices/`: utility/privacy experiments and dataset comparisons.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+- L1: Generate baseline synthetic samples.
+- L2: Tune generation parameters and compare quality.
+- L3: Evaluate privacy and bias side effects.
+- L4: Build a reproducible synthetic-data experiment pipeline.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Begin with one baseline generator and utility metrics, then add privacy checks and bias analysis. Scale to multiple generators only after baseline reproducibility is achieved.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+- You can generate synthetic data with reproducible settings.
+- You can present utility and privacy metrics in a concise report.
+- You can justify when synthetic data improves or harms model quality.

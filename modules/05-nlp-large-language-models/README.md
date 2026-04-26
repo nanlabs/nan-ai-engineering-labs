@@ -8,21 +8,21 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 
 - Understand tokenization (word/subword), embeddings (Word2Vec, GloVe, transformers) and NLP pipelines
 - Build classic NLP models (BoW, TF-IDF, sentiment analysis, topic modeling)
-- Usar Hugging Face Transformers (BERT, GPT, pipelines pre-entrenados)
-- Aplicar prompt engineering (zero-shot, few-shot, chain-of-thought)
+- Wear Hugging Face Transformers (BERT, GPT, pipelines pre-trained)
+- Apply prompt engineering (zero-shot, few-shot, chain-of-thought)
 - Fine-tuning of pre-trained models with LoRA
 - Design a basic mini RAG flow with retrieval + generation
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
 - **theory/**: fundamentals (tokenization, embeddings, transformers, LLMs)
 - **examples/**: guided examples with NLTK, Gensim, Hugging Face
-- **practices/**: ejercicios hands-on
-  - 01: Text Processing and Embeddings (cleaning, TF-IDF, Word2Vec, classification)
-  - 02: Fine-Tuning y Prompting (Hugging Face, few-shot, CoT, RAG básico)
+- **practices/**: Exercises hands-on
+  - 01: Text Processing and embeddings (cleaning, TF-IDF, Word2Vec, classification)
+  - 02: Fine-Tuning and Prompting (Hugging Face, few-shot, CoT, RAG basic)
 - **mini-project/**: chatbot or Q&A system with LLM
 - **evaluation/**: checklist and rubric
-- **notes/**: prompts efectivos y experimentos
+- **notes/**: effective prompts and experiments
 
 ## Level path (L1-L4)
 
@@ -33,7 +33,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 
 ## Migration
 
-- Fuente base original: folders/NLP & Large Language Models
+- Fountain base original: folders/NLP & Large Language Models
 
 ## Plan recomendado (4 semanas)
 
@@ -49,7 +49,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 - Final evaluation approved (>=70/100)
 - Demonstrate: text preprocessing, embeddings, use of transformers, prompt engineering
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -57,7 +57,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 - [NLTK Book](https://www.nltk.org/book/)
 - [Gensim](https://radimrehurek.com/gensim/)
 
-**Cursos:**
+**Cursors, Cursor:**
 
 - [Hugging Face NLP Course](https://huggingface.co/learn/nlp-course/chapter1/1)
 - [CS224n: NLP with Deep Learning](http://web.stanford.edu/class/cs224n/)

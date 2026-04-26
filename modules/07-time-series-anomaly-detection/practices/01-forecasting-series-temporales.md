@@ -1,17 +1,17 @@
-# Práctica 01 — Forecasting de Series Temporales
+# Practice 01 — Time series forecasting
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Descomponer series temporales
-- Implementar modelos ARIMA y Prophet
-- Validar forecasts con métricas
-- Detectar estacionalidad
+- Descomponer time series
+- Implement Models ARIMA and Prophet
+- Validate forecasts with Metrics
+- Detect Seasonality
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Análisis Exploratorio
+### Exercise 1.1: Analysis Exploratorio
 
 ```python
 import pandas as pd
@@ -19,16 +19,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-# Simular serie temporal
+# Similar series temporal
 dates = pd.date_range('2020-01-01', periods=365, freq='D')
 trend = np.linspace(100, 200, 365)
-seasonal = 10 * np.sin(2 * np.pi * np.arange(365) / 365)
+seasonal = 10 * np.sin(2 * np.pi * np.arrange(365) / 365)
 noise = np.random.normal(0, 5, 365)
 values = trend + seasonal + noise
 
 ts = pd.Series(values, index=dates)
 
-# Descomposición
+# Decomposition
 decomposition = seasonal_decompose(ts, model='additive', period=30)
 
 fig, axes = plt.subplots(4, 1, figsize=(12, 8))
@@ -42,67 +42,67 @@ plt.savefig('decomposition.png')
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: ARIMA Manual
+### Exercise 2.1: ARIMA Manual
 
-**Enunciado:**
+**Statement:**
 
-1. Aplica ADF test para estacionariedad
-1. Diferencia serie si no estacionaria
-1. Determina (p,d,q) con ACF/PACF
-1. Entrena ARIMA manualmente
-1. Forecast 30 días
+1. Apply ADF test for stationarity
+1. Diferencia series si no estacionaria
+1. Determine (p,d,q) with ACF/PACF
+1. Train ARIMA manualmente
+1. Forecast 30 days
 
-### Ejercicio 2.2: Prophet con Holidays
+### Exercise 2.2: Prophet with Holidays
 
-**Enunciado:**
+**Statement:**
 Usa Facebook Prophet:
 
-- Añade holidays personalizados
-- Modela cambios de tendencia
-- Evalúa forecast con MAE
+- Add custom holidays
+- Model trend changes
+- Evaluate forecast with MAE
 
-### Ejercicio 2.3: LSTM para Forecasting
+### Exercise 2.3: LSTM for Forecasting
 
-**Enunciado:**
-Implementa LSTM en PyTorch:
+**Statement:**
+Implement LSTM in PyTorch:
 
 - Ventanas deslizantes (window=30)
-- Predict siguiente valor
-- Compara con ARIMA
+- Predict next valor
+- Compare with ARIMA
 
-### Ejercicio 2.4: Cross-Validation Temporal
+### Exercise 2.4: Cross-Validation Temporal
 
-**Enunciado:**
-Implementa time series CV:
+**Statement:**
+Implement time series CV:
 
 - Training set creciente
 - Test set fijo
 - Rolling window validation
 
-### Ejercicio 2.5: Multi-Step Forecast
+### Exercise 2.5: Multi-Step Forecast
 
-**Enunciado:**
-Forecast múltiples pasos:
+**Statement:**
+Forecast multiple steps:
 
 - Direct multi-step
 - Recursive one-step
-- Compara ambos approaches
+- Compare ambos approaches
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Descomponer series temporales
-- [ ] Test de estacionariedad
-- [ ] ARIMA y Prophet
+- [ ] Descomponer time series
+- [ ] Stationarity test
+- [ ] ARIMA and Prophet
 - [ ] Cross-validation temporal
 - [ ] Multi-step forecasting
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [statsmodels TSA](https://www.statsmodels.org/stable/tsa.html)
 - [Prophet Docs](https://facebook.github.io/prophet/)

@@ -6,10 +6,10 @@
 - `practice-02-item-based-cf.md`
 - `practice-03-user-based-cf.md`
 - `practice-04-evaluacion-ranking.md`
-- `practice-05-cold-start-y-mejora.md`
+- `practice-05-cold-start-and-improvement.md`
 
 ## Approval criteria
 
-- Resolver 4/5 prácticas como mínimo.
-- Reportar métricas @K y análisis de resultados.
-- Documentar riesgos de sesgo y cold start.
+- Resolver 4/5 Practices como minimum.
+- Report Metrics @K and Analysis of Results.
+- Document risks of bias and cold start.

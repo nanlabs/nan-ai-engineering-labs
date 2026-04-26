@@ -2,27 +2,27 @@
 
 ## Project
 
-Monitoreo temporal de demanda/fallas con forecasting y alertas de anomalía.
+Temporary monitoring of demand/failures with forecasting and Anomaly alerts.
 
 ## Objective
 
-Crear un flujo completo que prediga valores futuros y detecte eventos anómalos relevantes.
+Create a complete flow that predicts future values ​​and detects relevant anomalous events.
 
 ## Scope
 
-- Serie temporal limpia y consistente.
-- Baseline de forecasting + mejora.
-- Detección de anomalías con criterio explícito.
-- Reporte de alertas y análisis de falsos positivos.
+- Clean and consistent time series.
+- Forecasting baseline + improvement.
+- Detection of Anomalies with explicit criteria.
+- Report of alerts and analysis of false positives.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Métricas de pronóstico y detección.
-- Recomendaciones de operación.
+- Forecast and detection metrics.
+- Operation recommendations.
 
 ## Acceptance criteria
 
-- Forecasting funcional y evaluado.
-- Anomalías detectadas y justificadas.
-- Limitaciones del enfoque documentadas.
+- Functional and evaluated forecasting.
+- Anomalies detected and justified.
+- Limitations of the approach documented.

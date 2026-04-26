@@ -13,7 +13,7 @@ Build a simple and complete project to demonstrate mastery of mathematical and p
 - Small dataset (real or synthetic).
 - Minimal Cleaning and Exploratory Analysis.
 - Linear regression training.
-- Evaluation con MSE y MAE.
+- Evaluation with MSE and MAE.
 - Interpretation of Results.
 
 ## Deliverables
@@ -25,6 +25,6 @@ Build a simple and complete project to demonstrate mastery of mathematical and p
 ## Acceptance criteria
 
 - Runs from start to finish without Errors.
-- Metrics calculadas e interpretadas correctamente.
+- Metrics calculadas e interpretadas correctly.
 - Explain at least 3 technical decisions made.
-- Incluye mejoras futuras propuestas.
+- Incluye improvements futuras propuestas.

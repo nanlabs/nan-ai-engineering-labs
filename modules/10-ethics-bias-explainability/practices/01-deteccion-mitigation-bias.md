@@ -1,17 +1,17 @@
-# Práctica 01 — Detección y Mitigación de Bias
+# Practice 01 — Bias Detection and Mitigation
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Detectar bias en datasets
-- Medir disparate impact
-- Implementar debiasing techniques
-- Evaluar fairness metrics
+- Detect bias in datasets
+- Measure disparate impact
+- Implement debiasing techniques
+- Evaluate fairness metrics
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Análisis de Bias
+### Exercise 1.1: Bias Analysis
 
 ```python
 import pandas as pd
@@ -52,48 +52,48 @@ print(f"80% rule violated: {di < 0.8}")
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Reweighting
+### Exercise 2.1: Reweighting
 
-**Enunciado:**
-Implementa reweighting en entrenamiento:
+**Statement:**
+Implement reweighting in Training:
 
-- Calcula sample weights por grupo
-- Entrena con `class_weight='balanced'`
-- Compara fairness antes/después
+- Calculate sample weights per group
+- Train with `class_weight='balanced'`
+- Compare fairness antes/after
 
-### Ejercicio 2.2: Threshold Optimization
+### Exercise 2.2: Threshold Optimization
 
-**Enunciado:**
-Ajusta thresholds por grupo:
+**Statement:**
+Adjust thresholds per group:
 
-- Busca threshold que equaliza TPR
+- Look for threshold that equalizes TPR
 - O equaliza FPR
-- Analiza trade-off con accuracy
+- Analyze trade-off with accuracy
 
-### Ejercicio 2.3: Adversarial Debiasing
+### Exercise 2.3: Adversarial Debiasing
 
-**Enunciado:**
-Entrena modelo que:
+**Statement:**
+Train Model that:
 
-- Predice target correctamente
-- Adversary no puede predecir sensitive attribute
+- Predice target correctly
+- Adversary no can predecir sensitive attribute
 - Loss combinado
 
-### Ejercicio 2.4: Counterfactual Fairness
+### Exercise 2.4: Counterfactual Fairness
 
-**Enunciado:**
+**Statement:**
 Genera counterfactuals:
 
-- Cambia género manteniendo features
-- Compara predictions
-- Mide cambio promedio
+- Change gender while maintaining features
+- Compare predictions
+- Measure cambio average
 
-### Ejercicio 2.5: Fairness Metrics Dashboard
+### Exercise 2.5: Fairness Metrics Dashboard
 
-**Enunciado:**
-Visualiza múltiples métricas:
+**Statement:**
+Visualize multiple Metrics:
 
 - Demographic parity
 - Equalized odds
@@ -104,15 +104,15 @@ ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Detectar bias en datos
-- [ ] Calcular disparate impact
-- [ ] Reweighting y resampling
+- [ ] Detect bias in Data
+- [ ] Calculate disparate impact
+- [ ] Reweighting and resampling
 - [ ] Threshold optimization
 - [ ] Adversarial debiasing
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [Fairlearn](https://fairlearn.org/)
 - [AI Fairness 360](https://aif360.mybluemix.net/)

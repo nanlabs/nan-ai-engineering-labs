@@ -1,17 +1,17 @@
-# Práctica 01 — Regresión Lineal y Logística
+# Practice 01 — Linear and Logistic Regression
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar regresión lineal desde cero y con sklearn
-- Entrenar modelo de regresión logística
-- Evaluar modelos con métricas apropiadas
-- Interpretar coeficientes y hacer predicciones
+- Implement linear regression from zero and with sklearn
+- Logistic regression train model
+- Evaluate Models with appropriate Metrics
+- Interpret coefficients and make predictions
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Regresión Lineal Simple
+### Exercise 1.1: Simple Linear Regression
 
 ```python
 import numpy as np
@@ -21,19 +21,19 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Dataset: predicción de precios de casas
+# Dataset: prediction de precios de casas
 np.random.seed(42)
 n = 200
 
-# Feature: tamaño en m²
+# Feature: size en m²
 size = np.random.uniform(50, 250, n)
 
-# Target: precio (relación lineal + ruido)
+# Target: price (relationship lineal + noise)
 price = 50000 + size * 1500 + np.random.normal(0, 20000, n)
 
 df = pd.DataFrame({'size_m2': size, 'price': price})
 
-# Visualización
+# Visualization
 plt.figure(figsize=(10, 6))
 plt.scatter(df['size_m2'], df['price'], alpha=0.6, color='steelblue')
 plt.xlabel('Size (m²)')
@@ -47,7 +47,7 @@ print("Dataset creado:", df.shape)
 print(df.head())
 ```
 
-**✅ Solución - Entrenar modelo:**
+**✅ Solution - Train Model:**
 
 ```python
 # Split
@@ -58,19 +58,19 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# Entrenar
+# Train
 model = LinearRegression()
 model.fit(X_train, y_train)
 
 # Coeficientes
-print(f"\n=== Modelo Entrenado ===")
+print(f"\n=== Model Entrenado ===")
 print(f"Intercept (β₀): ${model.intercept_:,.2f}")
 print(f"Coefficient (β₁): ${model.coef_[0]:,.2f} per m²")
 
-# Predicción
+# Prediction
 y_pred = model.predict(X_test)
 
-# Evaluación
+# Evaluation
 mse = mean_squared_error(y_test, y_pred)
 rmse = np.sqrt(mse)
 r2 = r2_score(y_test, y_pred)
@@ -80,10 +80,10 @@ print(f"MSE: ${mse:,.2f}")
 print(f"RMSE: ${rmse:,.2f}")
 print(f"R²: {r2:.4f}")
 
-# Visualizar predicciones
+# Visualize predictions
 plt.figure(figsize=(10, 6))
 plt.scatter(X_test, y_test, alpha=0.6, label='Real', color='steelblue')
-plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicción')
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='Prediction')
 plt.xlabel('Size (m²)')
 plt.ylabel('Price ($)')
 plt.title('Linear Regression: Predictions vs Real')
@@ -93,15 +93,15 @@ plt.savefig('linear_regression_fit.png', dpi=150)
 plt.show()
 ```
 
-### Ejercicio 1.2: Regresión Múltiple
+### Exercise 1.2: Multiple Regression
 
 ```python
-# Agregar más features
+# Add más features
 df['bedrooms'] = np.random.randint(1, 6, n)
 df['age_years'] = np.random.randint(0, 50, n)
 df['distance_center_km'] = np.random.uniform(1, 30, n)
 
-# Recalcular precio con múltiples factores
+# Recalcular price con multiple factors
 df['price'] = (
     50000 +
     df['size_m2'] * 1500 +
@@ -111,7 +111,7 @@ df['price'] = (
     np.random.normal(0, 20000, n)
 )
 
-# Entrenar modelo múltiple
+# Train model multiple
 feature_cols = ['size_m2', 'bedrooms', 'age_years', 'distance_center_km']
 X = df[feature_cols]
 y = df['price']
@@ -124,7 +124,7 @@ model_multi = LinearRegression()
 model_multi.fit(X_train, y_train)
 
 # Coeficientes
-print("\n=== Regresión Múltiple ===")
+print("\n=== Regression Multiple ===")
 for feature, coef in zip(feature_cols, model_multi.coef_):
     print(f"{feature}: ${coef:,.2f}")
 print(f"Intercept: ${model_multi.intercept_:,.2f}")
@@ -137,7 +137,7 @@ rmse_multi = np.sqrt(mean_squared_error(y_test, y_pred_multi))
 print(f"\nR²: {r2_multi:.4f}")
 print(f"RMSE: ${rmse_multi:,.2f}")
 
-# Gráfico de predicciones vs reales
+# Graphic de predictions vs real
 plt.figure(figsize=(10, 6))
 plt.scatter(y_test, y_pred_multi, alpha=0.6, color='steelblue')
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()],
@@ -151,13 +151,13 @@ plt.savefig('multiple_regression_predictions.png', dpi=150)
 plt.show()
 ```
 
-### Ejercicio 1.3: Regresión Logística (Clasificación Binaria)
+### Exercise 1.3: Logistic Regression (Binary Classification)
 
 ```python
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
-# Dataset: aprobación de crédito
+# Dataset: approval de credit
 np.random.seed(42)
 n = 500
 
@@ -168,7 +168,7 @@ df_credit = pd.DataFrame({
     'age': np.random.randint(18, 70, n)
 })
 
-# Target: aprobación basada en reglas
+# Target: approval basada en reglas
 df_credit['approved'] = (
     (df_credit['income'] > 40000) &
     (df_credit['credit_score'] > 600) &
@@ -187,15 +187,15 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# Entrenar
+# Train
 log_model = LogisticRegression(random_state=42)
 log_model.fit(X_train, y_train)
 
-# Predicciones
+# Predictions
 y_pred = log_model.predict(X_test)
 y_proba = log_model.predict_proba(X_test)[:, 1]
 
-# Evaluación
+# Evaluation
 acc = accuracy_score(y_test, y_pred)
 cm = confusion_matrix(y_test, y_pred)
 
@@ -206,7 +206,7 @@ print(cm)
 print(f"\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
-# Visualizar coeficientes
+# Visualize coeficientes
 plt.figure(figsize=(10, 6))
 features = X.columns
 coefs = log_model.coef_[0]
@@ -221,87 +221,87 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Regresión Lineal desde Cero
+### Exercise 2.1: Linear Regression from Zero
 
-**Enunciado:**
-Implementa regresión lineal sin sklearn usando gradient descent:
+**Statement:**
+Implement regression lineal sin sklearn using gradient descent:
 
 ```python
 def linear_regression_gd(X, y, learning_rate=0.01, epochs=1000):
     """
-    Implementa regresión lineal con gradient descent
+    Implement regression lineal con gradient descent
 
     Returns:
         weights, bias, loss_history
     """
-    # Tu código aquí
+    # Tu code here
     pass
 ```
 
-Valida que los coeficientes sean similares a sklearn.
+Validates that the coefficients are similar to sklearn.
 
-### Ejercicio 2.2: Regularización (Ridge y Lasso)
+### Exercise 2.2: Regularization (Ridge and Lasso)
 
-**Enunciado:**
-Compara modelos con regularización:
+**Statement:**
+Compare Models with Regularization:
 
-1. Linear Regression (sin regularización)
+1. Linear Regression (sin Regularization)
 1. Ridge (L2 regularization)
 1. Lasso (L1 regularization)
 
-Usa `Ridge` y `Lasso` de sklearn con diferentes valores de `alpha`.
-Visualiza cómo cambian los coeficientes.
+Use sklearn's `Ridge` and `Lasso` with different values ​​of `alpha`.
+Visualize how the coefficients change.
 
-### Ejercicio 2.3: Polynomial Regression
+### Exercise 2.3: Polynomial Regression
 
-**Enunciado:**
-Ajusta regresión polinomial de grados 1, 2, 3, 5:
+**Statement:**
+Fit polynomial regression of degrees 1, 2, 3, 5:
 
-- Usa `PolynomialFeatures` de sklearn
-- Compara RMSE y R² en test set
-- Visualiza overfitting en grado 5
+- Use sklearn's `PolynomialFeatures`
+- Compare RMSE and R² in test set
+- Visualize overfitting in grade 5
 
-### Ejercicio 2.4: Threshold Tuning en Logistic Regression
+### Exercise 2.4: Threshold Tuning in Logistic Regression
 
-**Enunciado:**
-Por defecto, threshold = 0.5 para clasificación.
-Varía threshold de 0.1 a 0.9 y grafica:
+**Statement:**
+By default, threshold = 0.5 for Classification.
+Vary threshold from 0.1 to 0.9 and graph:
 
 - Precision vs Threshold
-- Recall vs Threshold
-- F1-Score vs Threshold
+- recall vs Threshold
+- f1-Score vs Threshold
 
-Encuentra threshold óptimo para maximizar F1.
+Find optimal threshold to maximize f1.
 
-### Ejercicio 2.5: ROC Curve y AUC
+### Exercise 2.5: ROC Curve and auc
 
-**Enunciado:**
-Genera ROC curve para modelo logístico:
+**Statement:**
+Generate ROC curve for logistic Model:
 
-1. Calcula TPR y FPR para diferentes thresholds
+1. Calculate TPR and FPR for different thresholds
 1. Grafica ROC curve
-1. Calcula AUC (área bajo la curva)
-1. Compara con `roc_curve` y `roc_auc_score` de sklearn
+1. Calculate auc (area under the curve)
+1. Compare with sklearn's `roc_curve` and `roc_auc_score`
 
 ______________________________________________________________________
 
-## ✅ Checklist de Competencias
+## ✅ Skills Checklist
 
-- [ ] Entrenar regresión lineal simple y múltiple
-- [ ] Interpretar coeficientes (β₀, β₁, ...)
-- [ ] Evaluar con MSE, RMSE, R²
-- [ ] Detectar overfitting comparando train vs test
-- [ ] Implementar regresión logística para clasificación
-- [ ] Calcular métricas: accuracy, precision, recall, F1
-- [ ] Interpretar confusion matrix
-- [ ] Ajustar threshold de clasificación
-- [ ] Aplicar regularización (Ridge, Lasso)
+- [ ] Simple and multiple linear train regression
+- [ ] Interpret coeficientes (β₀, β₁, ...)
+- [ ] Evaluate with MSE, RMSE, R²
+- [ ] Detect overfitting comparando train vs test
+- [ ] Implement logistic regression for Classification
+- [ ] Calculate Metrics: accuracy, precision, recall, f1
+- [ ] Interpret confusion matrix
+- [ ] Adjust Classification threshold
+- [ ] Apply Regularization (Ridge, Lasso)
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [StatQuest: Linear Regression](https://www.youtube.com/watch?v=nk2CQITm_eo)
 - [StatQuest: Logistic Regression](https://www.youtube.com/watch?v=yIYKR4sgzI8)

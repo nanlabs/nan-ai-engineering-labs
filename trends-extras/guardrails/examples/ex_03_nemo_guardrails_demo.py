@@ -146,7 +146,7 @@ define bot remove pii from output
 # ============================================================================
 
 """
-# Uso real de NeMo Guardrails:
+# Usage real de NeMo Guardrails:
 
 from nemoguardrails import RailsConfig, LLMRails
 

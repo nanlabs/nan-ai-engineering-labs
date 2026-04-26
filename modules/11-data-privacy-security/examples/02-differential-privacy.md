@@ -1,12 +1,12 @@
-# Example 02 — Differential Privacy en la Practice
+# Example 02 — Differential Privacy in Practice
 
-## Contexto
+## Context
 
-**Differential Privacy (DP)** garantiza que la presencia/ausencia de un individuo en el dataset no cambia significativamente las estadísticas publicadas.
+**Differential Privacy (DP)** guarantees that the presence/absence of an individual in the dataset does not significantly change the published statistics.
 
 ## Objective
 
-Implementar mecanismos de Differential Privacy para consultas estadísticas sobre Data sensibles.
+Implement Differential Privacy mechanisms for statistical queries about sensitive Data.
 
 ______________________________________________________________________
 
@@ -27,7 +27,7 @@ ______________________________________________________________________
 ## 📚 Dataset sensible
 
 ```python
-# Simulación: salarios de empleados
+# Simulation: salarios de empleados
 n_employees = 500
 
 data = {
@@ -43,12 +43,12 @@ df = pd.DataFrame(data)
 print("=== Dataset de Salarios (SENSIBLE) ===")
 print(df.head(10))
 print(f"\nTotal empleados: {len(df)}")
-print(f"\nEstadísticas reales:")
-print(f"Salario promedio: ${df['salary'].mean():,.2f}")
+print(f"\nEstadísticas real:")
+print(f"Salario average: ${df['salary'].mean():,.2f}")
 print(f"Salario mediano: ${df['salary'].median():,.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Dataset de Salarios (SENSIBLE) ===
@@ -60,8 +60,8 @@ print(f"Salario mediano: ${df['salary'].median():,.2f}")
 
 Total empleados: 500
 
-Estadísticas reales:
-Salario promedio: $75,234.67
+Statistics real:
+Salario average: $75,234.67
 Salario mediano: $74,123.45
 ```
 
@@ -69,7 +69,7 @@ ______________________________________________________________________
 
 ## 🔐 Differential Privacy: Concepts
 
-### Definición formal
+### Formal definition
 
 ```
 Mecanismo M satisface ε-differential privacy si:
@@ -78,35 +78,35 @@ P(M(D) ∈ S) ≤ e^ε × P(M(D') ∈ S)
 
 Donde:
 - D y D' difieren en exactamente 1 registro
-- ε (epsilon) = privacy budget (más bajo = más privacidad)
-- S = cualquier posible output
+- ε (epsilon) = privacy budget (más low = más privacy)
+- S = cualquier possible output
 ```
 
 ### Privacy budget (ε)
 
 ```python
-# Visualizar trade-off ε
+# Visualize trade-off ε
 epsilons = [0.01, 0.1, 0.5, 1.0, 2.0, 5.0]
 privacy_levels = ['Muy alta', 'Alta', 'Media-Alta', 'Media', 'Media-Baja', 'Baja']
 
 print("\n=== Privacy Budget (ε) ===")
-print(f"{'ε':<10} {'Privacidad':<15} {'Utilidad':<10} {'Uso'}")
+print(f"{'ε':<10} {'Privacidad':<15} {'Utilidad':<10} {'Usage'}")
 print("-" * 70)
 for eps, level in zip(epsilons, privacy_levels):
     utility = 'Baja' if eps < 0.5 else 'Media' if eps < 2 else 'Alta'
-    use_case = 'Médico' if eps < 0.5 else 'Financiero' if eps < 2 else 'Marketing'
+    use_case = 'Doctor' if eps < 0.5 else 'Financiero' if eps < 2 else 'Marketing'
     print(f"{eps:<10.2f} {level:<15} {utility:<10} {use_case}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Privacy Budget (ε) ===
-ε          Privacidad      Utilidad   Uso
+ε          Privacidad      Utilidad   Usage
 ----------------------------------------------------------------------
-0.01       Muy alta        Baja       Médico
-0.10       Alta            Baja       Médico
-0.50       Media-Alta      Media      Médico
+0.01       Muy alta        Baja       Doctor
+0.10       Alta            Baja       Doctor
+0.50       Media-Alta      Media      Doctor
 1.00       Media           Media      Financiero
 2.00       Media-Baja      Alta       Financiero
 5.00       Baja            Alta       Marketing
@@ -116,32 +116,32 @@ ______________________________________________________________________
 
 ## 🎲 Laplace Mechanism
 
-### Para consultas numéricas (conteos, sumas, promedios)
+### For numerical queries (counts, sums, averages)
 
 ```python
 def laplace_mechanism(true_value, sensitivity, epsilon):
     """
-    Añade ruido Laplaciano calibrado por sensitivity y epsilon
+    Duck noise Laplaciano calibrado por sensitivity y epsilon
 
     Args:
         true_value: valor real de la consulta
-        sensitivity: máximo cambio por añadir/remover 1 registro
+        sensitivity: maximum cambio por add/remover 1 registro
         epsilon: privacy budget
 
     Returns:
-        Valor con ruido que satisface ε-DP
+        Valor con noise que satisface ε-DP
     """
     scale = sensitivity / epsilon
     noise = np.random.laplace(0, scale)
 
     return true_value + noise
 
-# Ejemplo: salario promedio
+# Example: salario average
 true_avg = df['salary'].mean()
 
-# Sensitivity del promedio:
+# Sensitivity del average:
 # Si agregamos 1 persona con salario max (200k) o min (30k)
-# Cambio máximo = max(|200k - true_avg|, |true_avg - 30k|) / n
+# Cambio maximum = max(|200k - true_avg|, |true_avg - 30k|) / n
 max_salary = 200000
 min_salary = 30000
 n = len(df)
@@ -151,18 +151,18 @@ print(f"\n=== Laplace Mechanism - Salario Promedio ===")
 print(f"Valor real: ${true_avg:,.2f}")
 print(f"Sensitivity: ${sensitivity_avg:.2f}")
 
-# Diferentes valores de epsilon
+# Diferentes values de epsilon
 for eps in [0.1, 0.5, 1.0, 2.0]:
     noisy_avg = laplace_mechanism(true_avg, sensitivity_avg, eps)
     error = abs(noisy_avg - true_avg)
     error_pct = error / true_avg * 100
 
     print(f"\nε = {eps:.1f}:")
-    print(f"  Valor con ruido: ${noisy_avg:,.2f}")
+    print(f"  Valor con noise: ${noisy_avg:,.2f}")
     print(f"  Error: ${error:,.2f} ({error_pct:.2f}%)")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Laplace Mechanism - Salario Promedio ===
@@ -170,26 +170,26 @@ Valor real: $75,234.67
 Sensitivity: $249.53
 
 ε = 0.1:
-  Valor con ruido: $76,845.23
+  Valor con noise: $76,845.23
   Error: $1,610.56 (2.14%)
 
 ε = 0.5:
-  Valor con ruido: $75,687.34
+  Valor con noise: $75,687.34
   Error: $452.67 (0.60%)
 
 ε = 1.0:
-  Valor con ruido: $75,456.12
+  Valor con noise: $75,456.12
   Error: $221.45 (0.29%)
 
 ε = 2.0:
-  Valor con ruido: $75,312.89
+  Valor con noise: $75,312.89
   Error: $78.22 (0.10%)
 ```
 
-### Visualization del ruido
+### Noise visualization
 
 ```python
-# Simular múltiples releases con ruido
+# Similar multiple releases con noise
 n_releases = 1000
 epsilon = 1.0
 
@@ -204,22 +204,22 @@ fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 # Histogram
 axes[0].hist(noisy_values, bins=50, alpha=0.7, color='steelblue', edgecolor='black')
 axes[0].axvline(true_avg, color='red', linestyle='--', linewidth=2, label='Valor real')
-axes[0].set_xlabel('Salario promedio')
+axes[0].set_xlabel('Salario average')
 axes[0].set_ylabel('Frecuencia')
-axes[0].set_title(f'Distribución del ruido (ε={epsilon})')
+axes[0].set_title(f'Distribution del noise (ε={epsilon})')
 axes[0].legend()
 axes[0].grid(True, alpha=0.3)
 
-# Comparar múltiples epsilons
+# Compare multiple epsilons
 epsilons = [0.1, 0.5, 1.0, 2.0, 5.0]
 for eps in epsilons:
     values = [laplace_mechanism(true_avg, sensitivity_avg, eps) for _ in range(1000)]
     axes[1].hist(values, bins=30, alpha=0.4, label=f'ε={eps}')
 
 axes[1].axvline(true_avg, color='red', linestyle='--', linewidth=2, label='Real')
-axes[1].set_xlabel('Salario promedio')
+axes[1].set_xlabel('Salario average')
 axes[1].set_ylabel('Frecuencia')
-axes[1].set_title('Impacto de ε en ruido')
+axes[1].set_title('Impacto de ε en noise')
 axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
@@ -227,14 +227,14 @@ plt.tight_layout()
 plt.savefig('differential_privacy_laplace.png', dpi=150)
 plt.show()
 
-print(f"\nDesviación estándar del ruido (ε={epsilon}): ${np.std(noisy_values):,.2f}")
+print(f"\nDesviación standard del noise (ε={epsilon}): ${np.std(noisy_values):,.2f}")
 ```
 
 ______________________________________________________________________
 
 ## 🎲 Gaussian Mechanism
 
-### Para consultas con composición
+### For queries with composition
 
 ```python
 def gaussian_mechanism(true_value, sensitivity, epsilon, delta=1e-5):
@@ -242,7 +242,7 @@ def gaussian_mechanism(true_value, sensitivity, epsilon, delta=1e-5):
     Gaussian mechanism para (ε, δ)-differential privacy
 
     Args:
-        delta: probabilidad de falla de privacidad (típicamente 1/n²)
+        delta: probability de falla de privacy (typically 1/n²)
     """
     # Calibrar sigma basado en epsilon y delta
     sigma = sensitivity * np.sqrt(2 * np.log(1.25 / delta)) / epsilon
@@ -250,11 +250,11 @@ def gaussian_mechanism(true_value, sensitivity, epsilon, delta=1e-5):
 
     return true_value + noise
 
-# Ejemplo: mediana
+# Example: median
 true_median = df['salary'].median()
 
-# Sensitivity de mediana: en el peor caso, agregar 1 persona puede mover mediana
-# hasta la mitad del rango
+# Sensitivity de median: en el peor caso, agregar 1 persona can mover median
+# hasta la mitad del range
 sensitivity_median = (max_salary - min_salary) / 2
 
 print(f"\n=== Gaussian Mechanism - Salario Mediano ===")
@@ -266,27 +266,27 @@ for eps in [0.5, 1.0, 2.0]:
     error = abs(noisy_median - true_median)
 
     print(f"\nε = {eps:.1f}, δ = 1e-5:")
-    print(f"  Valor con ruido: ${noisy_median:,.2f}")
+    print(f"  Valor con noise: ${noisy_median:,.2f}")
     print(f"  Error: ${error:,.2f}")
 ```
 
 ______________________________________________________________________
 
-## 📊 Query sobre histogramas
+## 📊 Query about histograms
 
 ```python
 def dp_histogram(data, bins, epsilon):
     """
     Histograma que satisface differential privacy
 
-    Sensitivity de histograma = 1 (un individuo puede estar en max 1 bin)
+    Sensitivity de histograma = 1 (un individuo can estar en max 1 bin)
     """
     # Contar verdaderos
     counts, bin_edges = np.histogram(data, bins=bins)
 
-    # Añadir ruido Laplaciano a cada bin
+    # Add noise Laplaciano a each bin
     sensitivity = 1  # Cada persona en 1 bin
-    epsilon_per_bin = epsilon / len(counts)  # Composición paralela
+    epsilon_per_bin = epsilon / len(counts)  # Composition paralela
 
     noisy_counts = [
         max(0, count + np.random.laplace(0, sensitivity / epsilon_per_bin))
@@ -295,14 +295,14 @@ def dp_histogram(data, bins, epsilon):
 
     return noisy_counts, bin_edges
 
-# Ejemplo: distribución de salarios por rangos
+# Example: distribution de salarios por rangos
 bins = [30000, 50000, 70000, 90000, 110000, 130000, 150000, 200000]
 epsilon = 1.0
 
 true_counts, bin_edges = np.histogram(df['salary'], bins=bins)
 noisy_counts, _ = dp_histogram(df['salary'], bins=bins, epsilon=epsilon)
 
-# Comparación
+# Comparison
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 # Real
@@ -314,7 +314,7 @@ axes[0].set_xticks(range(len(true_counts)))
 axes[0].set_xticklabels([f"${b/1000:.0f}k" for b in bin_edges[:-1]], rotation=45)
 axes[0].grid(True, alpha=0.3, axis='y')
 
-# Con ruido DP
+# Con noise DP
 axes[1].bar(range(len(noisy_counts)), noisy_counts, alpha=0.7, color='coral')
 axes[1].set_xlabel('Rango salarial')
 axes[1].set_ylabel('Frecuencia')
@@ -327,16 +327,16 @@ plt.tight_layout()
 plt.savefig('dp_histogram.png', dpi=150)
 plt.show()
 
-# Métricas de error
+# Metrics de error
 total_error = sum(abs(t - n) for t, n in zip(true_counts, noisy_counts))
 print(f"\n=== Histograma con DP ===")
 print(f"Error total (suma de diferencias): {total_error:.0f}")
-print(f"Error promedio por bin: {total_error / len(true_counts):.2f}")
+print(f"Error average por bin: {total_error / len(true_counts):.2f}")
 ```
 
 ______________________________________________________________________
 
-## 🔄 Composición de queries
+## 🔄 Query composition
 
 ### Sequential Composition
 
@@ -371,19 +371,19 @@ class DPBudgetTracker:
         self.queries.append({'query': query_name, 'epsilon': epsilon})
         print(f"Query: {query_name} | ε used: {epsilon:.2f} | Remaining: {self.total_epsilon - self.spent_epsilon:.2f}")
 
-# Ejemplo: múltiples queries
+# Example: multiple queries
 budget = DPBudgetTracker(total_epsilon=2.0)
 
 print("\n=== Privacy Budget Tracking ===")
 print(f"Total budget: ε = {budget.total_epsilon}\n")
 
 try:
-    # Query 1: promedio
+    # Query 1: average
     eps1 = 0.5
-    budget.spend(eps1, "Salario promedio")
+    budget.spend(eps1, "Salario average")
     avg_noisy = laplace_mechanism(df['salary'].mean(), sensitivity_avg, eps1)
 
-    # Query 2: mediana
+    # Query 2: median
     eps2 = 0.5
     budget.spend(eps2, "Salario mediano")
     median_noisy = gaussian_mechanism(df['salary'].median(), sensitivity_median, eps2)
@@ -392,9 +392,9 @@ try:
     eps3 = 0.5
     budget.spend(eps3, "Conteo por departamento")
 
-    # Query 4: EXCEDE budget
+    # Query 4: EXCEED budget
     eps4 = 1.0
-    budget.spend(eps4, "Percentil 95")
+    budget.spend(eps4, "Percentile 95")
 
 except ValueError as e:
     print(f"\n⚠️ Error: {e}")
@@ -402,13 +402,13 @@ except ValueError as e:
 print(f"\nTotal privacy loss: ε = {budget.spent_epsilon:.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Privacy Budget Tracking ===
 Total budget: ε = 2.0
 
-Query: Salario promedio | ε used: 0.50 | Remaining: 1.50
+Query: Salario average | ε used: 0.50 | Remaining: 1.50
 Query: Salario mediano | ε used: 0.50 | Remaining: 1.00
 Query: Conteo por departamento | ε used: 0.50 | Remaining: 0.50
 
@@ -422,7 +422,7 @@ Total privacy loss: ε = 1.50
 ```python
 def advanced_composition_bound(k, epsilon_per_query, delta):
     """
-    Teorema de Composición Avanzada:
+    Teorema de Composition Avanzada:
     k queries con ε individual resultan en ε_total menor que suma simple
 
     ε_total ≈ √(2k log(1/δ)) × ε + k × ε × (e^ε - 1)
@@ -432,7 +432,7 @@ def advanced_composition_bound(k, epsilon_per_query, delta):
 
     return term1 + term2
 
-# Comparar composiciones
+# Compare composiciones
 k_queries = 10
 eps_per_query = 0.1
 delta = 1e-5
@@ -440,26 +440,26 @@ delta = 1e-5
 simple_composition = k_queries * eps_per_query
 advanced = advanced_composition_bound(k_queries, eps_per_query, delta)
 
-print(f"\n=== Composición de {k_queries} queries (ε={eps_per_query} cada una) ===")
-print(f"Composición simple: ε_total = {simple_composition:.2f}")
-print(f"Composición avanzada: ε_total = {advanced:.2f}")
-print(f"Mejora: {(simple_composition - advanced) / simple_composition * 100:.1f}%")
+print(f"\n=== Composition de {k_queries} queries (ε={eps_per_query} each una) ===")
+print(f"Composition simple: ε_total = {simple_composition:.2f}")
+print(f"Composition avanzada: ε_total = {advanced:.2f}")
+print(f"Improvement: {(simple_composition - advanced) / simple_composition * 100:.1f}%")
 ```
 
 ______________________________________________________________________
 
-## 💡 Casos de Usage reales
+## 💡 Real Usage Cases
 
-### 1. Reporte de salarios por departamento
+### 1. Salary report by department
 
 ```python
 def dp_mean_by_group(df, group_col, value_col, epsilon):
     """
-    Calcula promedio por grupo con DP
+    Calculate average por group con DP
     """
     groups = df.groupby(group_col)[value_col]
 
-    # Epsilon por grupo (parallel composition)
+    # Epsilon por group (parallel composition)
     n_groups = df[group_col].nunique()
     eps_per_group = epsilon / n_groups
 
@@ -480,7 +480,7 @@ def dp_mean_by_group(df, group_col, value_col, epsilon):
 
     return results
 
-# Aplicar
+# Apply
 epsilon = 1.0
 dept_salaries = dp_mean_by_group(df, 'department', 'salary', epsilon)
 
@@ -488,8 +488,8 @@ print(f"\n=== Salarios Promedio por Departamento (ε={epsilon}) ===")
 for dept, data in dept_salaries.items():
     print(f"{dept}: ${data['mean_noisy']:,.2f} (n={data['count']})")
 
-# Comparar con real
-print("\n=== Comparación con valores reales ===")
+# Compare con real
+print("\n=== Comparison con values real ===")
 for dept in df['department'].unique():
     real = df[df['department'] == dept]['salary'].mean()
     noisy = dept_salaries[dept]['mean_noisy']
@@ -497,17 +497,17 @@ for dept in df['department'].unique():
     print(f"{dept}: Real=${real:,.2f}, DP=${noisy:,.2f}, Error=${error:,.2f}")
 ```
 
-### 2. Detección de outliers con DP
+### 2. Outlier detection with DP
 
 ```python
 def dp_outlier_detection(data, epsilon, threshold_percentile=95):
     """
-    Detecta si hay outliers extremos sin revelar valores exactos
+    Detecta si hay outliers extremos sin revelar values exactos
     """
-    # Calcular threshold con DP
+    # Calculate threshold con DP
     true_threshold = np.percentile(data, threshold_percentile)
 
-    # Sensitivity del percentil
+    # Sensitivity del percentile
     sensitivity = (data.max() - data.min()) / len(data)
 
     noisy_threshold = laplace_mechanism(true_threshold, sensitivity, epsilon)
@@ -525,75 +525,75 @@ def dp_outlier_detection(data, epsilon, threshold_percentile=95):
 
 result = dp_outlier_detection(df['salary'], epsilon=0.5)
 
-print(f"\n=== Detección de Outliers con DP ===")
+print(f"\n=== Detection de Outliers con DP ===")
 print(f"Threshold (P95): ${result['threshold']:,.2f}")
-print(f"Número de outliers: {result['outlier_count']}")
+print(f"Number de outliers: {result['outlier_count']}")
 print(f"Porcentaje: {result['outlier_percentage']:.2f}%")
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
-### ✅ Mecanismos de DP
+### ✅ PD mechanisms
 
-| Mecanismo               | Distribución     | Usage                              | DP Guarantee |
+| Mechanism | Distribution | Usage | DP Guarantee |
 | ----------------------- | ---------------- | ---------------------------------- | ------------ |
-| **Laplace**             | Laplace(0, Δf/ε) | Queries numéricas (conteos, sumas) | ε-DP         |
-| **Gaussian**            | Normal(0, σ²)    | Queries con composición            | (ε, δ)-DP    |
-| **Exponential**         | Exponencial      | Selección (argmax)                 | ε-DP         |
-| **Randomized Response** | Bernoulli        | Data categóricos                   | ε-DP         |
+| **Laplace** | Laplace(0, Δf/ε) | Numerical queries (counts, sums) | ε-DP |
+| **Gaussian** | Normal(0, σ²) | Queries with composition | (ε, δ)-DP |
+| **Exponential** | Exponential | Selection (argmax) | ε-DP |
+| **Randomized Response** | Bernoulli | Categorical data | ε-DP |
 
-### 🎯 Parámetros clave
+### 🎯 Key parameters
 
 **Epsilon (ε):**
 
-- 0.01 - 0.1: Privacidad muy alta (Data médicos)
-- 0.1 - 1.0: Privacidad alta (Data financieros)
-- 1.0 - 3.0: Privacidad media (Data corporativos)
-- > 3.0: Privacidad baja (Data públicos anonimizados)
+- 0.01 - 0.1: Very high privacy (Medical data)
+- 0.1 - 1.0: High privacy (financial data)
+- 1.0 - 3.0: Medium privacy (Data corporations)
+- > 3.0: Low privacy (anonymized public data)
 
 **Delta (δ):**
 
-- Típicamente: 1/n² o 1e-5
-- Representa probabilidad de "falla catastrófica"
+- Typically: 1/n² or 1e-5
+- Represents probability of "catastrophic failure"
 
 **Sensitivity (Δf):**
 
-- Máximo cambio en output al añadir/remover 1 registro
+- Maximum change in output when adding/removing 1 record
 - Count: Δf = 1
 - Sum: Δf = max_value
 - Mean: Δf = range / n
 
-### 💡 Mejores Practices
+### 💡 Best Practices
 
-- ✅ Pre-calcular sensitivity (no estimarla de los Data)
-- ✅ Usar parallel composition cuando sea posible
-- ✅ Trackear privacy budget cuidadosamente
-- ✅ Post-procesar para garantías (ej: no negativos en conteos)
-- ✅ Documentar todos los parámetros (ε, δ, sensitivity)
-- ✅ Considerar utility-privacy trade-off por stakeholder
+- ✅ Pre-calculate sensitivity (do not estimate it from the Data)
+- ✅ Use parallel composition when possible
+- ✅ Track privacy budget carefully
+- ✅ Post-process for guarantees (ex: no negatives in counts)
+- ✅ Document all parameters (ε, δ, sensitivity)
+- ✅ Consider utility-privacy trade-off per stakeholder
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ Calcular sensitivity desde los Data (privacy leak)
-- ❌ Olvidar composición (múltiples queries agotan budget)
-- ❌ Elegir ε arbitrariamente sin justificación
-- ❌ Publicar tanto DP como Data originales
-- ❌ No considerar side information del atacante
+- ❌ Calculate sensitivity from Data (privacy leak)
+- ❌ Forget composition (multiple queries exhaust budget)
+- ❌ Choosing ε arbitrarily without justification
+- ❌ Publish both DP and Data originals
+- ❌ Do not consider attacker side information
 
 ### 📌 Checklist DP
 
-- ✅ Privacy budget (ε) seleccionado y justificado
-- ✅ Sensitivity calculada teóricamente
-- ✅ Mecanismo apropiado (Laplace/Gaussian)
-- ✅ Budget tracker implementado
-- ✅ Composición considerada (simple/avanzada)
-- ✅ Post-processing aplicado (clipping, rounding)
-- ✅ Trade-off accuracy/privacy evaluado
-- ✅ Documentación completa de parámetros
+- ✅ Privacy budget (ε) selected and justified
+- ✅ Sensitivity calculated theoretically
+- ✅ Appropriate mechanism (Laplace/Gaussian)
+- ✅ Budget tracker implemented
+- ✅ Considered composition (simple/advanced)
+- ✅ Post-processing applied (clipping, rounding)
+- ✅ Trade-off accuracy/privacy evaluated
+- ✅ Complete parameter documentation
 
-### 🚀 Librerías en producción
+### 🚀 Libraries in production
 
 ```python
 # Google Differential Privacy
@@ -605,16 +605,16 @@ ______________________________________________________________________
 # IBM Diffprivlib
 # pip install diffprivlib
 
-# Ejemplo con diffprivlib:
+# Example con diffprivlib:
 # from diffprivlib.models import LogisticRegression
 # clf = LogisticRegression(epsilon=1.0)
 # clf.fit(X, y)
 ```
 
-### 🌐 Casos de Usage reales
+### 🌐 Real Usage Cases
 
-- **US Census 2020:** ε ≈ 19.6 para proteger Data censales
-- **Google RAPPOR:** Chrome usage statistics con local DP
-- **Apple:** Keyboard suggestions con ε = 2-6
-- **Microsoft:** Telemetry con ε-DP
+- **US Census 2020:** ε ≈ 19.6 to protect census data
+- **Google RAPPOR:** Chrome usage statistics with local DP
+- **Apple:** Keyboard suggestions with ε = 2-6
+- **Microsoft:** Telemetry with ε-DP
 - **Uber/Lyft:** Aggregate trip statistics

@@ -1,10 +1,10 @@
-# AI Observability — Monitoring de LLM Applications
+# AI Observability — Monitoring of LLM Applications
 
 ## Why this module matters
 
-Este modulo aporta bases practicas para aplicar los conceptos en contexto real.
+This module provides practical bases for applying the Concepts in real context.
 
 ## Final comprehension checklist
 
-- [ ] Explico los conceptos principales con mis palabras
-- [ ] Relaciono teoria con casos de uso reales
+- [ ] I explain the Concepts principles with my words
+- [ ] I relate theory with real Usage cases

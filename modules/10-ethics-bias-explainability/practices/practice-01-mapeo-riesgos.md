@@ -1,17 +1,17 @@
-# Práctica 01 — Mapeo de riesgos
+# Practice 01 — Risk mapping
 
 ## Objective
 
-Identificar riesgos éticos de un caso de IA.
+Identify ethical risks of an AI case.
 
-## Enunciado
+## Statement
 
-1. Definir contexto y usuarios impactados.
-1. Listar riesgos potenciales.
-1. Priorizar por impacto y probabilidad.
-1. Proponer controles iniciales.
+1. Defines context and impacted users.
+1. Listar risks potenciales.
+1. Prioritize by impact and probability.
+1. Propose controls, controllers initial.
 
-## Validación
+## Validation
 
-- Mapa de riesgos claro y priorizado.
-- Controles propuestos con criterio.
+- Clear and prioritized risk map.
+- Controls, Controllers proposed with criteria.

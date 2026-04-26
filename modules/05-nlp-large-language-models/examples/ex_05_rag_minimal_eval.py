@@ -23,7 +23,7 @@ def retrieve_context(query: str, docs: list[str]) -> str:
 
 def generate_answer(query: str, context: str) -> str:
     """Generate deterministic answer from selected context."""
-    return f"Pregunta: {query} | Respuesta basada en: {context}"
+    return f"Pregunta: {query} | Answer basada en: {context}"
 
 
 def exact_match(expected: str, predicted: str) -> int:
@@ -34,12 +34,12 @@ def exact_match(expected: str, predicted: str) -> int:
 def main() -> None:
     """Run a tiny eval set with exact-match style scoring."""
     docs = [
-        "RAG usa recuperacion de contexto para mejorar respuestas.",
+        "RAG usa recuperacion de context para mejorar responses.",
         "Prompt engineering define formato, tono y restricciones.",
-        "Embeddings permiten busqueda semantica de similitud.",
+        "Embeddings permiten busqueda semantica de similarity.",
     ]
     eval_set = [
-        ("Como mejora RAG las respuestas", "recuperacion de contexto"),
+        ("Como mejora RAG las responses", "recuperacion de context"),
         ("Para que sirven los embeddings", "busqueda semantica"),
     ]
 

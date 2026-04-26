@@ -1,17 +1,17 @@
-# Práctica 01 — Clasificación de datos
+# Practice 01 — Data Classification
 
 ## Objective
 
-Etiquetar datos según sensibilidad y riesgo.
+Label Data according to sensitivity and risk.
 
-## Enunciado
+## Statement
 
-1. Revisar columnas de un dataset.
-1. Clasificar cada columna por nivel de sensibilidad.
-1. Justificar clasificación.
-1. Proponer manejo por nivel.
+1. Review columns of a dataset.
+1. Sort each column by sensitivity level.
+1. Justificar Classification.
+1. Propose management by level.
 
-## Validación
+## Validation
 
-- Clasificación completa.
-- Criterios coherentes y explícitos.
+- Classification complete.
+- Coherent and explicit criteria.

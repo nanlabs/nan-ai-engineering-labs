@@ -1,17 +1,17 @@
-# Práctica 04 — Prompting básico
+# Practice 04 — Prompting basic
 
 ## Objective
 
-Diseñar prompts claros para obtener respuestas útiles de un LLM.
+Design clear prompts to obtain useful responses from an LLM.
 
-## Enunciado
+## Statement
 
-1. Definir tarea textual (resumen, clasificación o extracción).
+1. Defines textual task (summary, Classification or extraction).
 1. Escribir prompt inicial.
-1. Iterar prompt con mejoras.
-1. Comparar calidad de salidas.
+1. Iterate prompt with improvements.
+1. Compare quality of outputs.
 
-## Validación
+## Validation
 
-- Iteraciones documentadas.
-- Mejora observable en resultados.
+- Iteraciones documenteds.
+- Observable improvement in Results.

@@ -1,17 +1,17 @@
-# Práctica 02 — Fine-Tuning y Prompting con LLMs
+# Practice 02 — Fine-Tuning and Prompting with LLMs
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Usar transformers pre-entrenados
-- Aplicar prompt engineering
-- Fine-tuning de modelos pequeños
-- Evaluar outputs de LLMs
+- Wear transformers pre-trained
+- Apply prompt engineering
+- Fine-tuning of small models
+- Evaluate outputs of LLMs
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Hugging Face Transformers
+### Exercise 1.1: Hugging Face Transformers
 
 ```python
 from transformers import pipeline
@@ -31,7 +31,7 @@ for text in texts:
     print(f"Sentiment: {result['label']} ({result['score']:.4f})\\n")
 ```
 
-**✅ Solución - Text Generation:**
+**✅ Solution - Text Generation:**
 
 ```python
 # Text generation
@@ -47,12 +47,12 @@ for i, output in enumerate(outputs, 1):
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Few-Shot Prompting
+### Exercise 2.1: Few-Shot Prompting
 
-**Enunciado:**
-Crea prompts con 3 ejemplos para clasificación:
+**Statement:**
+Create prompts with 3 Examples for Classification:
 
 ```
 Classify: "Great product!" → Positive
@@ -61,38 +61,38 @@ Classify: "It's fine" → Neutral
 Classify: "[NEW_TEXT]" → ?
 ```
 
-### Ejercicio 2.2: Chain-of-Thought
+### Exercise 2.2: Chain-of-Thought
 
-**Enunciado:**
-Implementa CoT prompting:
+**Statement:**
+Implement CoT prompting:
 
-- Pide al modelo razonar paso a paso
-- Compara con respuesta directa
+- Pide al Model razonar paso a paso
+- Compare with direct response
 
-### Ejercicio 2.3: Fine-Tuning con LoRA
+### Exercise 2.3: Fine-Tuning with LoRA
 
-**Enunciado:**
-Fine-tune un modelo pequeño (DistilBERT) con LoRA:
+**Statement:**
+Fine-tune a small Model (DistilBERT) with LoRA:
 
-1. Carga modelo base
+1. Carga Model base
 1. Agrega adaptadores LoRA
-1. Entrena en dataset custom
-1. Evalúa mejora
+1. Train in custom dataset
+1. Evaluate improvement
 
-### Ejercicio 2.4: RAGpipeline
+### Exercise 2.4: RAGpipeline
 
-**Enunciado:**
-Implementa pipeline RAG simple:
+**Statement:**
+Implement pipeline RAG simple:
 
-1. Vectoriza documentos con embeddings
-1. Retrieve top-k documentos relevantes
-1. Construye prompt con contexto
-1. Genera respuesta con LLM
+1. Vectorize documents with embeddings
+1. Retrieve top-k documents relevant
+1. Build prompt with context
+1. Generate response with LLM
 
-### Ejercicio 2.5: Prompt Templating
+### Exercise 2.5: Prompt Templating
 
-**Enunciado:**
-Crea sistema de templates reutilizables:
+**Statement:**
+Create reusable template system:
 
 ```python
 templates = {
@@ -106,15 +106,15 @@ ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Usar pipelines de Hugging Face
-- [ ] Aplicar prompt engineering (zero-shot, few-shot, CoT)
-- [ ] Fine-tuning de modelos pre-entrenados
-- [ ] Implementar RAG básico
-- [ ] Evaluar calidad de outputs (BLEU, ROUGE)
+- [ ] Wear Hugging Face pipelines
+- [ ] Apply prompt engineering (zero-shot, few-shot, CoT)
+- [ ] Fine-tuning of pre-trained Models
+- [ ] Implement RAG basic
+- [ ] Evaluate quality of outputs (BLEU, ROUGE)
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [Hugging Face Course](https://huggingface.co/learn/nlp-course/chapter1/1)
 - [Prompt Engineering Guide](https://www.promptingguide.ai/)

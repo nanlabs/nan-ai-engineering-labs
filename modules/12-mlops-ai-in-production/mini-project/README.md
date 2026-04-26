@@ -2,27 +2,27 @@
 
 ## Project
 
-Despliegue y operación simplificada de un modelo de ML.
+Deployment and simplified operation of an ML Model.
 
 ## Objective
 
-Implementar flujo mínimo de entrenamiento, serving, monitoreo y actualización controlada.
+Implement minimum flow of Training, serving, monitoring and controlled updating.
 
 ## Scope
 
-- Entrenamiento reproducible.
-- Publicación de modelo.
-- Métricas de serving y calidad.
-- Simulación de drift + plan de respuesta.
+- Training reproducible.
+- Model publication.
+- Serving and quality metrics.
+- Drift simulation + response plan.
 
 ## Deliverables
 
 - Pipeline documentado.
-- Endpoint o proceso batch operativo.
-- Runbook de operación básica.
+- Endpoint o process batch operativo.
+- Basic operation runbook.
 
 ## Acceptance criteria
 
 - Flujo end-to-end demostrable.
-- Monitoreo mínimo funcional.
-- Estrategia de rollback definida.
+- Monitoreo minimum functional.
+- Defined rollback strategy.

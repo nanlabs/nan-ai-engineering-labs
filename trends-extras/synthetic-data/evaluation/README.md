@@ -1,21 +1,21 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
 ## Weighting
 
-- Teoria: 30%
-- Practica: 40%
-- Proyecto: 30%
+- Theory: 30%
+- Practice: 40%
+- Project: 30%
 
 ## Rubric
 
-- Comprension conceptual
-- Calidad tecnica
-- Comunicacion de resultados
+- Compression conceptual
+- Quality technique
+- Communication of Results
 
 ## Final evaluation
 
-Integrar resultados de teoria, practicas y mini proyecto.
+Integrate results of theory, practices and mini project.
 
 ## Approval criteria
 
-Se aprueba con cumplimiento integral y calidad suficiente en entregables.
+It is approved with comprehensive compliance and quality enough in deliverables.

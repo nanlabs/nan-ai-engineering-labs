@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 25%
-- Prácticas: 35%
-- Mini-proyecto: 40%
+- Theory: 25%
+- Practices: 35%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de privacidad y seguridad aplicada.
-- Calidad del análisis de amenazas.
-- Solidez de controles propuestos.
-- Claridad de plan de mitigación.
+- Understanding of privacy and security applied.
+- Threat Analysis Quality.
+- Solidity of controls, proposed controllers.
+- Clarity of mitigation plan.
 
 ## Checklist final
 
-- [ ] Datos clasificados por sensibilidad.
-- [ ] Riesgos principales identificados.
-- [ ] Controles mínimos definidos.
-- [ ] Matriz de accesos propuesta.
-- [ ] Plan de incidente elaborado.
-- [ ] Recomendaciones finales claras.
+- [ ] Data classified by sensitivity.
+- [ ] Risks principles identificados.
+- [ ] Defined minimum controls.
+- [ ] Proposed access matrix.
+- [ ] Incident plan prepared.
+- [ ] Recommendations finales claras.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

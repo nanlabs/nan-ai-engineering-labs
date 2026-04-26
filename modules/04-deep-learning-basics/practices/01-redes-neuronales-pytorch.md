@@ -1,17 +1,17 @@
-# Práctica 01 — Construcción y Entrenamiento de Redes Neuronales
+# Practice 01 — Construction and Training of neural networks
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Construir redes neuronales con PyTorch desde cero
-- Implementar forward pass y backpropagation
-- Entrenar modelos con diferentes optimizadores
-- Evaluar y validar performance
+- Build neural networks with PyTorch from scratch
+- Implement forward pass and backpropagation
+- Train Models with different optimizers
+- Evaluate and validate performance
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Red Neuronal Simple con PyTorch
+### Exercise 1.1: Simple Neural network with PyTorch
 
 ```python
 import torch
@@ -29,13 +29,13 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# Convertir a tensors
+# Convert a tensors
 X_train = torch.FloatTensor(X_train)
 y_train = torch.FloatTensor(y_train).unsqueeze(1)
 X_test = torch.FloatTensor(X_test)
 y_test = torch.FloatTensor(y_test).unsqueeze(1)
 
-# Definir arquitectura
+# Define architecture
 class SimpleNN(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super(SimpleNN, self).__init__()
@@ -51,18 +51,18 @@ class SimpleNN(nn.Module):
         x = self.sigmoid(x)
         return x
 
-# Instanciar modelo
+# Instanciar model
 model = SimpleNN(input_size=20, hidden_size=64, output_size=1)
 
 print("=== Arquitectura ===")
 print(model)
 
-# Contar parámetros
+# Contar parameters
 total_params = sum(p.numel() for p in model.parameters())
-print(f"\nTotal parámetros: {total_params:,}")
+print(f"\nTotal parameters: {total_params:,}")
 ```
 
-**✅ Solución - Training Loop:**
+**✅ Solution - Training Loop:**
 
 ```python
 # Loss y optimizador
@@ -97,7 +97,7 @@ for epoch in range(epochs):
     if (epoch + 1) % 10 == 0:
         print(f"Epoch [{epoch+1}/{epochs}] | Train Loss: {loss.item():.4f} | Test Loss: {test_loss.item():.4f}")
 
-# Visualizar pérdidas
+# Visualize losses
 plt.figure(figsize=(10, 6))
 plt.plot(train_losses, label='Train Loss', alpha=0.7)
 plt.plot(test_losses, label='Test Loss', alpha=0.7)
@@ -119,65 +119,65 @@ with torch.no_grad():
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Optimizadores Comparison
+### Exercise 2.1: Optimizadores Comparison
 
-**Enunciado:**
-Compara 3 optimizadores: SGD, Adam, RMSprop
+**Statement:**
+Compare 3 optimizadores: SGD, Adam, RMSprop
 
-- Entrena mismo modelo con cada uno
+- Train same Model with each one
 - Grafica learning curves
-- Compara velocidad de convergencia
+- Compare convergence speed
 
-### Ejercicio 2.2: Learning Rate Scheduling
+### Exercise 2.2: Learning Rate Scheduling
 
-**Enunciado:**
-Implementa `torch.optim.lr_scheduler.ReduceLROnPlateau`:
+**Statement:**
+Implement `torch.optim.lr_scheduler.ReduceLROnPlateau`:
 
-- Reduce LR cuando loss se estanca
-- Visualiza cómo cambia LR durante training
+- Reduce LR when loss se estanca
+- Visualize how LR changes during training
 
-### Ejercicio 2.3: Early Stopping
+### Exercise 2.3: Early Stopping
 
-**Enunciado:**
-Implementa early stopping:
+**Statement:**
+Implement early stopping:
 
-- Detén training si val loss no mejora por N épocas
-- Guarda mejor modelo
-- Restaura pesos del mejor checkpoint
+- Stop training if val loss no improvement for N epochs
+- Guarda better Model
+- Restores better checkpoint weights
 
-### Ejercicio 2.4: Batch Normalization
+### Exercise 2.4: Batch Normalization
 
-**Enunciado:**
-Agrega `nn.BatchNorm1d` después de cada capa hidden.
-Compara:
+**Statement:**
+Add `nn.BatchNorm1d` after each Layer hidden.
+Compare:
 
-- Convergencia con vs sin BatchNorm
-- Estabilidad del gradiente
+- Convergence with vs without BatchNorm
+- Gradient stability
 
-### Ejercicio 2.5: Dropout para Regularización
+### Exercise 2.5: Dropout for Regularization
 
-**Enunciado:**
-Agrega `nn.Dropout(p=0.5)` después de ReLU.
-Compara overfitting con vs sin Dropout.
+**Statement:**
+Add `nn.Dropout(p=0.5)` after ReLU.
+Compare overfitting with vs without Dropout.
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Construir arquitecturas con `nn.Module`
-- [ ] Implementar forward pass
-- [ ] Configurar loss functions y optimizers
-- [ ] Implementar training loop completo
+- [ ] Build architectures with `nn.Module`
+- [ ] Implement forward pass
+- [ ] Configure functions and optimizers
+- [ ] Implement training loop complete
 - [ ] Monitorear train/val losses
-- [ ] Aplicar early stopping
-- [ ] Usar learning rate scheduling
-- [ ] Implementar regularización (Dropout, L2)
+- [ ] Apply early stopping
+- [ ] Wear learning rate scheduling
+- [ ] Implement Regularization (Dropout, L2)
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [PyTorch Tutorials](https://pytorch.org/tutorials/)
 - [Deep Learning with PyTorch Book](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf)

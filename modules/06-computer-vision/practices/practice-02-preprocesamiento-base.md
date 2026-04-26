@@ -1,17 +1,17 @@
-# Práctica 02 — Preprocesamiento base
+# Practice 02 — Preprocesamiento base
 
 ## Objective
 
-Preparar imágenes para entrenamiento de un modelo.
+Prepare Images for Training a Model.
 
-## Enunciado
+## Statement
 
-1. Redimensionar imágenes a tamaño uniforme.
-1. Normalizar valores de píxeles.
-1. Crear split train/validation/test.
-1. Guardar pipeline de preprocesamiento.
+1. Resize Images to uniform size.
+1. Normalize Pixel values.
+1. Create split train/validation/test.
+1. Save preprocessing pipeline.
 
-## Validación
+## Validation
 
 - Pipeline reproducible.
-- Splits sin contaminación entre conjuntos.
+- Splits without contamination between sets.

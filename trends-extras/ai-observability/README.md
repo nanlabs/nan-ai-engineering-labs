@@ -1,31 +1,31 @@
-# AI Observability — Monitoring de LLM Applications
+# AI Observability — Monitoring of LLM Applications
 
-## 🎯 Objetivo
+## 🎯 Objective
 
-Implementar observability completa para aplicaciones con LLMs: tracing, logging de prompts/completions, latency monitoring, cost tracking, y error analysis.
+Implement complete observability for applications with LLMs: tracing, prompt/completion logging, latency monitoring, cost tracking, and error analysis.
 
-## 💡 Qué aprenderás
+## 💡 What will you learn
 
-- Distributed tracing para LLM calls (LangSmith, Weights & Biases)
+- Distributed tracing for LLM calls (LangSmith, Weights & Biases)
 - Logging estructurado (prompts, completions, metadata)
-- Latency y performance monitoring
+- Latency and performance monitoring
 - Cost tracking (tokens, API calls, $ per request)
-- Error analysis y debugging
+- error analysis and debugging
 - A/B testing in production
 - User feedback collection (thumbs up/down, corrections)
 
-## 📂 Contenido
+## 📂 Content
 
 ### Examples
 
-- **ex_01_basic_logging.py**: Logging de prompts/completions con metadata
-- **ex_02_langsmith_tracing.py**: Tracing distribuido con LangSmith
-- **ex_03_cost_tracking.py**: Calcular costos por request/user/día
-- **ex_04_metrics_dashboard.py**: Dashboard con Prometheus + Grafana
+- **ex_01_basic_logging.py**: Logging prompts/completions with metadata
+- **ex_02_langsmith_tracing.py**: Distributed tracing with LangSmith
+- **ex_03_cost_tracking.py**: Calculate costs per request/user/day
+- **ex_04_metrics_dashboard.py**: Dashboard with Prometheus + Grafana
 
-## 🔑 Conceptos Clave
+## 🔑 Concepts Clave
 
-### Observability Pillars para LLMs
+### Observability Pillars for LLMs
 
 ```
 ┌──────────────────────────────────────┐
@@ -45,20 +45,20 @@ Implementar observability completa para aplicaciones con LLMs: tracing, logging 
 **Performance:**
 
 - Latency (p50, p95, p99)
-- Tokens per second
+- tokens per second
 - Time to first token (TTFT)
 - Requests per minute
 
 **Cost:**
 
-- Tokens used (prompt + completion)
+- tokens used (prompt + completion)
 - Cost per request ($ per 1K tokens)
 - Daily/monthly spend by user/endpoint
 
 **Quality:**
 
 - User feedback rate (👍/👎)
-- Error rate (API failures, timeouts)
+- error rate (API failures, timeouts)
 - Hallucination detection score
 - Response length distribution
 
@@ -86,7 +86,7 @@ def rag_pipeline(user_query: str):
     response = generate_response(user_query, context)
     return response
 
-# En LangSmith dashboard verás:
+# En LangSmith dashboard you will see:
 # rag_pipeline (2.3s)
 #   ├─ retrieval (0.8s)
 #   └─ generation (1.5s)
@@ -98,7 +98,7 @@ def rag_pipeline(user_query: str):
 import tiktoken
 
 def calculate_cost(prompt: str, completion: str, model: str = "gpt-4"):
-    # Pricing (ejemplo)
+    # Pricing (example)
     pricing = {
         "gpt-4": {"prompt": 0.03, "completion": 0.06},  # $ per 1K tokens
         "gpt-3.5-turbo": {"prompt": 0.0015, "completion": 0.002}
@@ -159,23 +159,23 @@ def log_llm_call(
 
 ## 🛠️ Tools Comparison
 
-| Tool                 | Type                | Pros                       | Cons              | Price |
+| Tools | Type | Pros | Cons | Price |
 | -------------------- | ------------------- | -------------------------- | ----------------- | ----- |
-| **LangSmith**        | Tracing             | LangChain native, powerful | Tied to LangChain | $$    |
-| **Weights & Biases** | Experiment tracking | Great for ML               | Learning curve    | $$$   |
-| **Helicone**         | Proxy logger        | Easy setup                 | Limited features  | $     |
-| **Custom Logging**   | DIY                 | Full control               | More work         | Free  |
-| **OpenTelemetry**    | Standard            | Vendor agnostic            | Setup complex     | Free  |
+| **LangSmith** | Tracing | LangChain native, powerful | Tied to LangChain | $$ |
+| **Weights & Biases** | Experiment tracking | Great for ML | Learning curve | $$$ |
+| **Helicone** | Proxy logger | Easy setup | Limited features | $ |
+| **Custom Logging** | DIY | Full control | More work | Free |
+| **OpenTelemetry** | Standard | Vendor agnostic | Setup complex | Free |
 
-## 🧪 Ejercicio Rápido
+## 🧪 Quick Exercise
 
 1. **Setup**: `pip install langsmith opentelemetry`
-1. **Log LLM calls**: Implementa wrapper que loggea cada llamada
-1. **Track costs**: Calcula gasto total de 100 requests
-1. **Visualize**: Crea gráfico de latency vs tokens
+1. **Log LLM calls**: Implement wrapper that logs each call
+1. **Track costs**: Calculate total cost of 100 requests
+1. **Visualize**: Create latency vs tokens graph
 1. **Alert**: Setup alerta si cost/day > $100
 
-## 📚 Recursos Curados
+## 📚 Resources Curados
 
 **Plataformas:**
 
@@ -199,67 +199,77 @@ def log_llm_call(
 
 - [LLM Observability Best Practices](https://www.langchain.com/blog/observability)
 
-## ✅ Checklist de Aprendizaje
+## ✅ Learning Checklist
 
 - [ ] Log structured prompts/completions
 - [ ] Implement distributed tracing (LangSmith o OpenTelemetry)
-- [ ] Track tokens y costs por request
+- [ ] Track tokens and costs per request
 - [ ] Monitor latency metrics (p50/p95/p99)
-- [ ] Error tracking y alerting
+- [ ] error tracking and alerting
 - [ ] User feedback collection (thumbs up/down)
-- [ ] A/B testing con feature flags
-- [ ] Cost dashboards por usuario/endpoint/día
+- [ ] A/B testing with feature flags
+- [ ] Cost dashboards per user/endpoint/day
 
 ## 🎯 Impacto Real
 
-- **Cost Control**: Detectar "runaway costs" antes de que sea tarde
-- **Performance**: Identificar bottlenecks (retrieval lento, LLM slow)
-- **Quality**: Correlacionar user feedback con prompt versions
-- **Debugging**: Reproducir issues con logs completos
-- **Compliance**: Auditoría de prompts/outputs para regulaciones
+- **Cost Control**: Detect "runaway costs" before it's too late
+- **Performance**: Identify bottlenecks (retrieval lento, LLM slow)
+- **Quality**: Correlate user feedback with prompt versions
+- **Debugging**: Reproduce issues with complete logs
+- **Compliance**: Audit of prompts/outputs for regulations
 
 ## 🚨 Common Pitfalls
 
 **Privacy**: Loggear PII sin consent
 
-- **Solución**: Redactar PII antes de logging
+- **Solution**: Redact PII before logging
 
 **Volume**: Logs masivos impactan performance
 
-- **Solución**: Sampling, async logging
+- **Solution**: Sampling, async logging
 
 **Cost**: Tracing tools pueden ser caros
 
-- **Solución**: Start con open source, upgrade si necesario
+- **Solution**: Start with open source, upgrade if necessary
 
-## 🚀 Próximos Pasos
+## 🚀 Next Steps
 
-Combina con:
+Combine with:
 
-- **llm-evals** para correlacionar metrics con quality
-- **agents** para tracear pasos de agentes autónomos
-- **guardrails** para loggear intentos bloqueados
+- **llm-evals** to correlate metrics with quality
+- **agents** to trace autonomous agent steps
+- **guardrails** to log blocked attempts
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Learn to instrument, monitor, and troubleshoot LLM-powered systems in production using actionable metrics, traces, and cost signals.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+- Configure structured logs and useful operational metadata.
+- Add tracing for multi-step LLM pipelines.
+- Track token usage and cost budgets.
+- Define alerting thresholds for reliability and quality risks.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+- `README.md`: observability principles, pitfalls, and deployment guidance.
+- `examples/`: logging, tracing, cost tracking, and dashboard code.
+- `practices/`: hands-on monitoring design and incident response drills.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+- L1: Enable baseline logging and request metadata.
+- L2: Add traces and correlation IDs across components.
+- L3: Define metrics and alerts for latency, errors, and drift.
+- L4: Build an observability runbook for production incidents.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Start by instrumenting one critical user flow, then expand coverage to traces and cost controls. After baseline visibility is stable, add alerts and on-call playbooks.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+- You can diagnose failures from logs and traces.
+- You can report latency, error rate, and cost for a full workflow.
+- You can justify alert thresholds and escalation rules.

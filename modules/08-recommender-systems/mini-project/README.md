@@ -2,27 +2,27 @@
 
 ## Project
 
-Motor de recomendaciones para catálogo pequeño (películas, cursos o productos).
+Recommendation engine for small catalog (movies, courses or products).
 
 ## Objective
 
-Implementar y comparar dos enfoques de recomendación con métricas offline.
+Implement and compare two recommendation approaches with offline Metrics.
 
 ## Scope
 
-- Baseline por popularidad.
-- Modelo colaborativo (item o user based).
-- Evaluación @K.
-- Análisis de casos de cold start.
+- Baseline by popularity.
+- Model colaborativo (item o user based).
+- Evaluation @K.
+- Analysis of cold start cases.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Tabla comparativa de modelos.
-- Recomendación final del enfoque a usar.
+- Comparative table of Models.
+- Final recommendation of the approach to use.
 
 ## Acceptance criteria
 
-- Recomendaciones generadas para usuarios reales.
-- Métricas correctamente calculadas.
-- Decisión técnica argumentada.
+- Recommendations generated for real users.
+- Metrics correctly calculated.
+- Argued technical decision.

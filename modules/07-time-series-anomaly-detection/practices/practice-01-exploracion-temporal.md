@@ -1,17 +1,17 @@
-# Práctica 01 — Exploración temporal
+# Practice 01 — Exploration temporal
 
 ## Objective
 
-Entender comportamiento general de una serie temporal.
+Understand general behavior of a Time series.
 
-## Enunciado
+## Statement
 
-1. Cargar serie con timestamp.
-1. Graficar evolución temporal.
-1. Identificar tendencia y estacionalidad visual.
-1. Reportar posibles problemas de calidad.
+1. Load series with timestamp.
+1. Graph temporal evolution.
+1. Identify Trend and Visual Seasonality.
+1. Report possible quality problems.
 
-## Validación
+## Validation
 
-- Serie correctamente indexada por tiempo.
-- Hallazgos iniciales documentados.
+- Series correctly indexed by time.
+- Hallazgos initial documentados.

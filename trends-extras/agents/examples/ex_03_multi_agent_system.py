@@ -155,11 +155,11 @@ class CoordinatorAgent(Agent):
                 )
                 agent.receive_message(message)
 
-                # Procesar y guardar resultado
+                # Procesar y guardar result
                 result = agent.process_task(subtask)
                 results[subtask] = result
 
-                # Recibir respuesta
+                # Recibir response
                 response = agent.send_message(
                     recipient=self.name,
                     content=result[:100] + "...",
@@ -206,20 +206,20 @@ if __name__ == "__main__":
     print("🤖 MULTI-AGENT SYSTEM DEMO")
     print("=" * 60)
 
-    # Crear equipo de agentes
+    # Crear equipo de agents
     team = {
         "researcher": ResearcherAgent("Alice", AgentRole.RESEARCHER, "information gathering"),
         "analyst": AnalystAgent("Bob", AgentRole.ANALYST, "data analysis"),
         "writer": WriterAgent("Carol", AgentRole.WRITER, "synthesis and writing"),
     }
 
-    # Crear coordinador
+    # Crear coordinator
     coordinator = CoordinatorAgent("Director", team)
 
     # Complex task requiring collaboration
     task = "Create report on AI Agents: what they are, available frameworks, and use cases"
 
-    # Ejecutar
+    # Execute
     final_report = coordinator.process_task(task)
 
     print("\n\n" + "=" * 60)

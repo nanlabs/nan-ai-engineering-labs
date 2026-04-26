@@ -1,17 +1,17 @@
-# Práctica 04 — Evaluación de ranking
+# Practice 04 — Ranking evaluation
 
 ## Objective
 
-Medir calidad de recomendaciones con métricas @K.
+Measure quality of recommendations with Metrics @K.
 
-## Enunciado
+## Statement
 
-1. Definir split de evaluación.
-1. Calcular Precision@K y Recall@K.
-1. Evaluar cobertura de recomendaciones.
-1. Identificar casos de mal rendimiento.
+1. Defines split of Evaluation.
+1. Calculate Precision@K and recall@K.
+1. Evaluate coverage of recommendations.
+1. Identify cases of poor performance.
 
-## Validación
+## Validation
 
-- Métricas @K correctas.
-- Hallazgos accionables registrados.
+- Metrics @K correctas.
+- Hallazgos actionable registrados.

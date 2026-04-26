@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión conceptual de tipos de aprendizaje.
-- Correcta elección y uso de métricas.
-- Calidad del proceso de comparación de modelos.
-- Claridad de conclusiones y trade-offs.
+- Conceptual understanding of Types of Learning.
+- Correct choice and Usage of Metrics.
+- Quality of the Models comparison process.
+- Clarity of Conclusions and trade-offs.
 
 ## Checklist final
 
-- [ ] Identifica tipo de problema correctamente.
-- [ ] Entrena baseline reproducible.
-- [ ] Usa métricas adecuadas.
-- [ ] Aplica validación/tuning básico.
-- [ ] Compara modelos con criterio.
-- [ ] Recomienda modelo final con argumentos.
+- [ ] Identifies Type of Problem correctly.
+- [ ] Train baseline reproducible.
+- [ ] Usa Metrics adecuadas.
+- [ ] Aplica Validation/tuning basic.
+- [ ] Compare Models with criteria.
+- [ ] Recommends final Model with arguments.
 
 ## Approval criteria
 
-- Puntaje final mínimo: 70/100.
+- Score final minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

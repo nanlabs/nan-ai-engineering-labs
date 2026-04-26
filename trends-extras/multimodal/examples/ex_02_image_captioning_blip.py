@@ -21,17 +21,17 @@ class MockBLIPDemo:
 
     def __init__(self):
         print("🔄 Mock BLIP model loaded (conceptual demo)")
-        print("Para uso real: usar BlipForConditionalGeneration\n")
+        print("For actual usage: use BlipForConditionalGeneration\n")
 
     def generate_caption(self, image_path: str, conditional_text: str = None) -> str:
         """
-        Genera caption para la imagen.
+        Genera caption para la image.
 
         Args:
-            image_path: Ruta a la imagen
-            conditional_text: Texto condicional (opcional) como "A photo of"
+            image_path: Path to the image
+            conditional_text: Conditional text (optional) like "A photo of"
         """
-        print(f"📸 Imagen: {image_path}")
+        print(f"📸 Image: {image_path}")
 
         if conditional_text:
             print(f"💬 Conditional: {conditional_text}")
@@ -81,11 +81,11 @@ print(f"Conditional caption: {caption}")
 
 
 # ============================================================================
-# EJEMPLOS DE USO
+# EXAMPLES OF USE
 # ============================================================================
 
 def demo_unconditional():
-    """Caption sin contexto."""
+    """Caption without context."""
     print("="*70)
     print("DEMO 1: Unconditional Captioning")
     print("="*70)
@@ -105,14 +105,14 @@ def demo_unconditional():
 
 
 def demo_conditional():
-    """Caption con contexto."""
+    """Caption with context."""
     print("\n" + "="*70)
     print("DEMO 2: Conditional Captioning")
     print("="*70)
 
     blip = MockBLIPDemo()
 
-    # Mismo imagen, diferentes contextos
+    # Same image, different contexts
     image = "landscape.jpg"
 
     contexts = [
@@ -127,14 +127,14 @@ def demo_conditional():
 
 
 def demo_comparison():
-    """Comparar BLIP vs humano."""
+    """Compare BLIP vs human."""
     print("\n" + "="*70)
     print("DEMO 3: BLIP vs Human Captions")
     print("="*70)
 
     image = "beach_sunset.jpg"
 
-    print(f"📸 Imagen: {image}\n")
+    print(f"📸 Image: {image}\n")
 
     # Human caption
     human_caption = "A breathtaking sunset over the ocean with orange and purple hues"
@@ -149,7 +149,7 @@ def demo_comparison():
 
 
 def demo_multilingual():
-    """BLIP multilingüe (con prompt)."""
+    """Multilingual BLIP (with prompt)."""
     print("\n" + "="*70)
     print("DEMO 4: Multilingual Captioning (via prompting)")
     print("="*70)
@@ -166,7 +166,7 @@ def demo_multilingual():
     print("🇪🇸 Spanish:")
     blip.generate_caption(image, conditional_text="A photograph of")
 
-    print("💡 Usa conditional text para guiar el idioma")
+    print("💡 Use conditional text to guide the language")
 
 
 # ============================================================================
@@ -190,7 +190,7 @@ def demo_quality_metrics():
 
     # Metrics (simplified)
     def calculate_bleu_1(reference, candidate):
-        """BLEU-1 simplificado (unigram overlap)."""
+        """BLEU-1 simplified (unigram overlap)."""
         ref_words = set(reference.lower().split())
         cand_words = set(candidate.lower().split())
         overlap = len(ref_words & cand_words)
@@ -199,7 +199,7 @@ def demo_quality_metrics():
     bleu_1 = calculate_bleu_1(ground_truth, generated)
 
     print(f"📊 BLEU-1 Score: {bleu_1:.2f}")
-    print(f"💡 BLEU-1 > 0.5 es aceptable para captioning")
+    print(f"💡 BLEU-1 > 0.5 es acceptable para captioning")
 
 
 if __name__ == "__main__":
@@ -215,13 +215,13 @@ if __name__ == "__main__":
     print("\n" + "="*70)
     print("💡 USE CASES:")
     print("="*70)
-    print("✅ Accessibility: Alt text para visualmente impedidos")
-    print("✅ E-commerce: Auto-tag productos")
-    print("✅ Social Media: Sugerir captions para posts")
-    print("✅ Content Moderation: Detectar contenido inapropiado")
+    print("✅ Accessibility: Alt text for the visually impaired")
+    print("✅ E-commerce: Auto-tag products")
+    print("✅ Social Media: Suggest captions for posts")
+    print("✅ Content Moderation: Detect inappropriate content")
     print("✅ Search: Index images by content")
 
-    print("\n📚 Modelo: Salesforce/blip-image-captioning-base")
+    print("\n📚 Model: Salesforce/blip-image-captioning-base")
     print("📄 Paper: https://arxiv.org/abs/2201.12086")
 
     print("\n" + "="*70)

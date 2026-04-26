@@ -43,9 +43,9 @@ class MockVQADemo:
 
     def answer_question(self, image_path: str, question: str) -> str:
         """
-        Responde pregunta sobre la imagen.
+        Respond, Response, Responds, Responded, Responder pregunta sobre la image.
         """
-        print(f"📸 Imagen: {image_path}")
+        print(f"📸 Image: {image_path}")
         print(f"❓ Pregunta: {question}")
 
         # Get image knowledge
@@ -91,7 +91,7 @@ class MockVQADemo:
         else:
             answer = "I cannot determine that from the image"
 
-        print(f"✅ Respuesta: {answer}\n")
+        print(f"✅ Answer: {answer}\n")
         return answer
 
 
@@ -216,7 +216,7 @@ def demo_yes_no_questions():
     print("="*70 + "\n")
 
     # In production, VQA can answer yes/no
-    print("📸 Imagen: dog_park.jpg\n")
+    print("📸 Image: dog_park.jpg\n")
 
     questions_and_answers = [
         ("Is there a dog in the image?", "yes"),
@@ -293,13 +293,13 @@ if __name__ == "__main__":
     print("💡 USE CASES:")
     print("="*70)
     print("✅ Accessibility: Answer questions about images")
-    print("✅ E-commerce: 'Is this shirt blue?' sin tags manuales")
+    print("✅ E-commerce: 'Is this shirt blue?' sin tags manuals")
     print("✅ Content Moderation: 'Is there violence in this image?'")
     print("✅ Education: Interactive visual learning")
     print("✅ Healthcare: 'How many tumors are visible?'")
     print("✅ Robotics: Visual understanding para robots")
 
-    print("\n📚 Modelo: Salesforce/blip-vqa-base")
+    print("\n📚 Model: Salesforce/blip-vqa-base")
     print("📄 Paper: https://arxiv.org/abs/2201.12086")
     print("📊 Dataset: VQAv2 (>1M questions on 200K images)")
 

@@ -1,10 +1,10 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
 ## Practices
 
-- Practica 1: Placeholder breve
-- Practica 2: Placeholder breve
+- Practice 1: Train a baseline model with and without synthetic augmentation.
+- Practice 2: Produce a utility vs privacy trade-off report for one dataset.
 
 ## Approval criteria
 
-Se aprueba al completar las practicas y justificar decisiones tecnicas.
+Practices are fully approved and technical decisions justified.

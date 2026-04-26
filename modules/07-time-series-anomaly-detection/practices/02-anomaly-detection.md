@@ -1,24 +1,24 @@
-# Práctica 02 — Detección de Anomalías
+# Practice 02 — Anomaly Detection
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar algoritmos de detección
-- Identificar outliers temporales
-- Evaluar con precision/recall
-- Aplicar en producción
+- Implement detection algorithms
+- Identify outliers temporales
+- Evaluate yourself with precision/recall
+- Apply in production
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Statistical Methods
+### Exercise 1.1: Statistical Methods
 
 ```python
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 
-# Datos con anomalías
+# Data con anomalies
 np.random.seed(42)
 normal = np.random.normal(100, 10, 950)
 anomalies = np.random.uniform(150, 200, 50)
@@ -29,64 +29,64 @@ np.random.shuffle(data)
 z_scores = (data - data.mean()) / data.std()
 anomalies_z = np.abs(z_scores) > 3
 
-print(f"Anomalías detectadas (Z-score): {anomalies_z.sum()}")
+print(f"Anomalies detectadas (Z-score): {anomalies_z.sum()}")
 
 # Isolation Forest
 iso_forest = IsolationForest(contamination=0.05, random_state=42)
 predictions = iso_forest.fit_predict(data.reshape(-1, 1))
 anomalies_iso = predictions == -1
 
-print(f"Anomalías detectadas (IsoForest): {anomalies_iso.sum()}")
+print(f"Anomalies detectadas (IsoForest): {anomalies_iso.sum()}")
 ```
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: LSTM Autoencoder
+### Exercise 2.1: LSTM Autoencoder
 
-**Enunciado:**
-Implementa autoencoder para anomalías:
+**Statement:**
+Implement autoencoder for Anomalies:
 
-- Encoder comprime serie temporal
+- Encoder comprime Time series
 - Decoder reconstruye
-- Threshold en reconstruction error
+- Threshold on reconstruction error
 
-### Ejercicio 2.2: Sliding Window
+### Exercise 2.2: Sliding Window
 
-**Enunciado:**
-Detecta anomalías contextuales:
+**Statement:**
+Detect Anomalies contextuales:
 
-- Ventana deslizante de 24 horas
-- Compara con ventanas históricas
-- Flag si desviación > 3σ
+- 24 hour sliding window
+- Compare with historical windows
+- Flag if deviation > 3σ
 
-### Ejercicio 2.3: Ensemble Detector
+### Exercise 2.3: Ensemble Detector
 
-**Enunciado:**
-Combina múltiples detectores:
+**Statement:**
+Combine multiple detectores:
 
 - Z-score + IQR + IsolationForest + LSTM
-- Voting: mayoría marca como anomalía
-- Compara con detectores individuales
+- Voting: majority marks as Anomaly
+- Compare with individual detectors
 
-### Ejercicio 2.4: Real-Time Detection
+### Exercise 2.4: Real-Time Detection
 
-**Enunciado:**
-Sistema de streaming:
+**Statement:**
+Streaming system:
 
-- Procesa datos punto por punto
+- Process Data point by point
 - Actualiza detectores incrementalmente
 - Latencia < 100ms
 
-### Ejercicio 2.5: Anomaly Explanation
+### Exercise 2.5: Anomaly Explanation
 
-**Enunciado:**
-Explica por qué es anomalía:
+**Statement:**
+Explain why it is Anomaly:
 
 - Feature importance
-- Comparación con distribución normal
-- Contextual info (qué features están off)
+- Comparison with normal distribution
+- Contextual info (what features are off)
 
 ______________________________________________________________________
 
@@ -100,7 +100,7 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [PyOD Library](https://github.com/yzhao062/pyod)
 - [Anomaly Detection Papers](https://paperswithcode.com/task/anomaly-detection)

@@ -1,29 +1,29 @@
-# Práctica 02 — Object Detection y Segmentation
+# Practice 02 — Object Detection and Segmentation
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar object detection con YOLO
-- Aplicar instance segmentation
-- Evaluar con mAP e IoU
-- Deploy en tiempo real
+- Implement object detection with YOLO
+- Apply instance segmentation
+- Evaluate yourself with mAP and IoU
+- Deploy in real time
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: YOLOv5 Pre-entrenado
+### Exercise 1.1: YOLOv5 Pre-trained
 
 ```python
 import torch
 
-# Cargar YOLOv5
+# Load YOLOv5
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 
 # Inferencia
 img = 'path/to/image.jpg'
 results = model(img)
 
-# Mostrar resultados
+# Mostrar results
 results.show()
 results.print()
 
@@ -34,66 +34,66 @@ print(detections)
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Custom Object Detector
+### Exercise 2.1: Custom Object Detector
 
-**Enunciado:**
-Fine-tune YOLO en dataset custom:
+**Statement:**
+Fine-tune YOLO on custom dataset:
 
-- Anota imágenes con bounding boxes
-- Entrena YOLOv5
-- Evalúa mAP@0.5 y mAP@0.5:0.95
+- Annotate Images with bounding boxes
+- Train YOLOv5
+- Evaluates mAP@0.5 and mAP@0.5:0.95
 
-### Ejercicio 2.2: Instance Segmentation con Mask R-CNN
+### Exercise 2.2: Instance Segmentation with Mask R-CNN
 
-**Enunciado:**
-Usa Mask R-CNN pre-entrenado:
+**Statement:**
+Usa Mask R-CNN pre-trained:
 
-- Detecta y segmenta instancias
-- Dibuja máscaras por objeto
-- Calcula IoU
+- Detect and segment instances
+- Draw masks per object
+- Calculate IoU
 
-### Ejercicio 2.3: Real-Time Detection
+### Exercise 2.3: Real-Time Detection
 
-**Enunciado:**
+**Statement:**
 Procesa video frame-by-frame:
 
-- Detecta objetos en cada frame
+- Detect objects in each frame
 - Dibuja bounding boxes
-- Calcula FPS (frames per second)
+- Calculate FPS (frames per second)
 
-### Ejercicio 2.4: Non-Maximum Suppression
+### Exercise 2.4: Non-Maximum Suppression
 
-**Enunciado:**
-Implementa NMS desde cero:
+**Statement:**
+Implement NMS from cero:
 
 - Filtra bounding boxes overlapping
 - Usa IoU threshold (0.5)
-- Mantiene solo detecciones con mayor confidence
+- Maintains only detections with greater confidence
 
-### Ejercicio 2.5: Object Tracking
+### Exercise 2.5: Object Tracking
 
-**Enunciado:**
-Implementa tracker simple:
+**Statement:**
+Implement tracker simple:
 
-- Asigna IDs a objetos detectados
+- Asigna IDs a objetos detected
 - Trackea movimiento entre frames
-- Visualiza trayectorias
+- Visualize trayectorias
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Usar modelos de object detection (YOLO, Faster R-CNN)
-- [ ] Implementar instance segmentation
-- [ ] Calcular mAP e IoU
-- [ ] Procesar video en tiempo real
-- [ ] Implementar NMS y tracking
+- [ ] Wear Models of object detection (YOLO, Faster R-CNN)
+- [ ] Implement instance segmentation
+- [ ] Calculate mAP e IoU
+- [ ] Process video in real time
+- [ ] Implement NMS and tracking
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5)
 - [Detectron2](https://github.com/facebookresearch/detectron2)

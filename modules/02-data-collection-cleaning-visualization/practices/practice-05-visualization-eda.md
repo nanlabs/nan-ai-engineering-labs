@@ -1,22 +1,22 @@
-# Practice 05 — Visualization y EDA
+# Practice 05 — Visualization and EDA
 
 ## Objective
 
-Responder preguntas de Analysis con visualizaciones claras.
+Answer Analysis questions with clear visualizations.
 
-## Enunciado
+## Statement
 
-1. Definir 3 preguntas de negocio sobre el dataset.
-1. Crear 3 gráficos apropiados (histograma, scatter, boxplot o similar).
-1. Interpretar Results en lenguaje simple.
-1. Proponer 2 hipótesis para modelado futuro.
+1. Define 3 business questions about the dataset.
+1. Create 3 appropriate graphs (histogram, scatter, boxplot or similar).
+1. Interpret Results in simple language.
+1. Propose 2 hypotheses for future modeling.
 
 ## Entregable
 
-Notebook EDA con visualizaciones y Conclusions.
+EDA Notebook with visualizations and Conclusions.
 
 ## Validation
 
-- Cada gráfico responde una pregunta concreta.
-- Interpretación correcta y accionable.
-- Hipótesis razonables para siguiente Module.
+- Each graph answers a specific question.
+- Correct and actionable interpretation.
+- Reasonable assumptions for next Module.

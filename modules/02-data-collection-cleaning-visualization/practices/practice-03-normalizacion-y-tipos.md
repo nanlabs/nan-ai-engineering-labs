@@ -1,22 +1,22 @@
-# Práctica 03 — Normalización y tipos de datos
+# Practice 03 — Normalization and Types of Data
 
 ## Objective
 
-Estandarizar tipos, formatos y categorías para evitar errores de modelado.
+Standardize Types, formats and categories to avoid modeling errors.
 
-## Enunciado
+## Statement
 
-1. Corregir tipos (`int`, `float`, `datetime`, `category`).
-1. Unificar formato de fechas y texto.
-1. Estandarizar categorías equivalentes.
-1. Validar consistencia del dataset resultante.
+1. Corregir Types (`int`, `float`, `datetime`, `category`).
+1. Unify date and text format.
+1. Standardize equivalent categories.
+1. Validate consistency of the resulting dataset.
 
 ## Entregable
 
-Dataset limpio + resumen de transformaciones.
+Clean dataset + summary of transformations.
 
-## Validación
+## Validation
 
-- No hay columnas con tipo incorrecto.
-- Categorías inconsistentes resueltas.
-- Fechas parseadas correctamente.
+- There are no columns with incorrect Type.
+- Inconsistent categories resolved.
+- Fechas parseadas correctly.

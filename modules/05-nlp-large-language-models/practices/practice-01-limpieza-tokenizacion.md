@@ -1,17 +1,17 @@
-# Práctica 01 — Limpieza y tokenización
+# Practice 01 — Cleaning and Tokenization
 
 ## Objective
 
-Preparar texto crudo para modelado.
+Prepare raw text for modeling.
 
-## Enunciado
+## Statement
 
-1. Cargar dataset textual.
-1. Limpiar caracteres/ruido.
-1. Tokenizar texto.
-1. Mostrar estadísticas de tokens.
+1. Load dataset textual.
+1. Limpiar caracteres/noise.
+1. Tokenizar text.
+1. Show token statistics.
 
-## Validación
+## Validation
 
-- Pipeline de limpieza funcional.
-- Tokenización correcta.
+- Functional Cleaning Pipeline.
+- Tokenization correcta.

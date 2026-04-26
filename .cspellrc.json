@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-tech-dict",
+      "path": "./.cspell_custom_dict.txt"
+    }
+  ],
+  "dictionaries": ["custom-tech-dict"],
+  "ignoreRegExpList": [
+    "^\\s*```[\\s\\S]*?```",
+    "^\\s*#[\\s\\S]*?$"
+  ],
+  "overrides": [
+    {
+      "filename": "**/*.md",
+      "words": []
+    },
+    {
+      "filename": "**/*.py",
+      "words": []
+    }
+  ]
+}

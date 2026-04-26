@@ -1,36 +1,36 @@
-# Ejemplo 02 — Prompt Engineering Práctico con LLMs
+# Example 02 — Practical Prompt Engineering with LLMs
 
-## Contexto
+## Context
 
-Aprenderás técnicas de **prompt engineering** para obtener mejores respuestas de Large Language Models (LLMs). Explorarás estrategias como zero-shot, few-shot, chain-of-thought y estructuración de prompts.
+You will learn **prompt engineering** techniques to obtain better responses from Large Language Models (LLMs). You will explore strategies such as zero-shot, few-shot, chain-of-thought, and prompt structuring.
 
 ## Objective
 
-Dominar técnicas de prompting para tareas de: clasificación, extracción de información, razonamiento y generación estructurada.
+Master prompting techniques for tasks of: Classification, information extraction, reasoning and structured generation.
 
-**Nota:** Usaremos ejemplos conceptuales. En producción, reemplaza con APIs como OpenAI GPT, Anthropic Claude, o modelos locales vía HuggingFace.
+**Note:** We will use conceptual Examples. In production, replace with APIs like OpenAI GPT, Anthropic Claude, or local Models via HuggingFace.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Setup simulado (sin API real)
+## 🚀 Step 1: Mock setup (not real API)
 
 ```python
-# Simulación de respuestas de LLM para demostración
-# En producción: usar openai.ChatCompletion.create() o similar
+# Simulation de responses de LLM para demonstration
+# En production: use openai.ChatCompletion.create() o similar
 
 class MockLLM:
     """
-    Simulador de LLM para demostración
-    En producción: reemplazar con API real (OpenAI, Claude, etc.)
+    Simulador de LLM para demonstration
+    En production: reemplazar con API real (OpenAI, Claude, etc.)
     """
     def generate(self, prompt, temperature=0.7):
-        """Simula respuesta de LLM"""
-        # Aquí iría la llamada real a la API
+        """Simula response de LLM"""
+        # Here would go la llamada real a la API
         return f"[SIMULATED RESPONSE to: {prompt[:50]}...]"
 
 llm = MockLLM()
 
-# En producción (ejemplo con OpenAI):
+# En production (example con OpenAI):
 # import openai
 # openai.api_key = 'tu-api-key'
 #
@@ -45,144 +45,144 @@ llm = MockLLM()
 
 ______________________________________________________________________
 
-## 📚 Técnica 1: Zero-Shot Prompting
+## 📚 Technique 1: Zero-Shot Prompting
 
-### ¿Qué es?
+### What is it?
 
-Dar instrucciones directas sin ejemplos previos.
+Give direct instructions without previous examples.
 
-### Ejemplo: Clasificación de sentimientos
+### Example: Classification of feelings
 
 ```python
 # ❌ PROMPT MALO (vago)
-bad_prompt = "Analiza este texto: 'El producto llegó roto y el servicio al cliente fue terrible.'"
+bad_prompt = "Analiza este text: 'El product arrive roto y el servicio al client, clientele fue terrible.'"
 
-# ✅ PROMPT BUENO (específico)
+# ✅ PROMPT BUENO (specific)
 good_prompt = """
-Clasifica el sentimiento del siguiente texto como POSITIVO, NEGATIVO o NEUTRAL.
+Clasifica el sentiment del next text como POSITIVO, NEGATIVO o NEUTRAL.
 
-Texto: "El producto llegó roto y el servicio al cliente fue terrible."
+Texto: "El product arrive roto y el servicio al client, clientele fue terrible."
 
-Sentimiento:
+Sentiment:
 """
 
 print("=== ZERO-SHOT PROMPTING ===\n")
 print("Prompt malo:", bad_prompt)
 print("\nPrompt bueno:", good_prompt)
 
-# Respuesta esperada del LLM:
+# Answer expected del LLM:
 # "NEGATIVO"
 ```
 
-**Mejoras aplicadas:**
+**Improvements applied:**
 
-- ✅ Instrucción clara y específica
-- ✅ Opciones de respuesta definidas (POSITIVO, NEGATIVO, NEUTRAL)
-- ✅ Formato estructurado
-- ✅ Delimitación clara del input ("Texto: ...")
+- ✅ Clear and specific instruction
+- ✅ Defined response options (POSITIVE, NEGATIVE, NEUTRAL)
+- ✅ Structured format
+- ✅ Clear delimitation of the input ("Text: ...")
 
 ______________________________________________________________________
 
-## 🎯 Técnica 2: Few-Shot Prompting
+## 🎯 Technique 2: Few-Shot Prompting
 
-### ¿Qué es?
+### What is it?
 
-Proporcionar ejemplos de entrada-salida antes de la tarea real. El modelo aprende el patrón.
+Provide input-output examples before the actual task. The Model learns the pattern.
 
-### Ejemplo: Extracción de información
+### Example: Information extraction
 
 ```python
 few_shot_prompt = """
-Extrae el nombre del producto, precio y opinión del siguiente texto.
+Extrae el nombre del product, price y opinion del next text.
 
-Ejemplo 1:
-Texto: "Compré el iPhone 14 por $999 y es increíble."
-Resultado:
-- Producto: iPhone 14
+Example 1:
+Texto: "I bought el iPhone 14 por $999 y es incredible."
+Result:
+- Production: iPhone 14
 - Precio: $999
-- Opinión: Positiva
+- Opinion: Positiva
 
-Ejemplo 2:
-Texto: "La laptop Dell costó $1200 pero tiene problemas de batería."
-Resultado:
-- Producto: Laptop Dell
+Example 2:
+Texto: "La laptop Dell cost $1200 but tiene problems de battery."
+Result:
+- Production: Laptop Dell
 - Precio: $1200
-- Opinión: Negativa
+- Opinion: Negativa
 
-Ejemplo 3:
+Example 3:
 Texto: "El mouse Logitech vale $25 y funciona bien."
-Resultado:
-- Producto: Mouse Logitech
+Result:
+- Production: Mouse Logitech
 - Precio: $25
-- Opinión: Positiva
+- Opinion: Positiva
 
 Ahora tu turno:
-Texto: "Compré los AirPods Pro por $249 y el sonido es decepcionante."
-Resultado:
+Texto: "I bought los AirPods Pro por $249 y el sonido es decepcionante."
+Result:
 """
 
 print("=== FEW-SHOT PROMPTING ===\n")
 print(few_shot_prompt)
 
-# Respuesta esperada:
-# - Producto: AirPods Pro
+# Answer expected:
+# - Production: AirPods Pro
 # - Precio: $249
-# - Opinión: Negativa
+# - Opinion: Negativa
 ```
 
-**Ventajas:**
+**Advantages:**
 
-- ✅ No requiere fine-tuning del modelo
-- ✅ El LLM aprende el formato deseado
-- ✅ Más preciso que zero-shot para tareas complejas
+- ✅ Does not require fine-tuning of the Model
+- ✅ The LLM learns the desired format
+- ✅ More precise than zero-shot for complex tasks
 
-**Recomendaciones:**
+**Recommendations:**
 
-- Usar 2-5 ejemplos (más no siempre es mejor)
-- Ejemplos diversos (diferentes cases)
-- Mantener formato consistente
+- Use 2-5 Examples (more is not always better)
+- Diverse examples (different cases)
+- Maintain consistent format
 
 ______________________________________________________________________
 
-## 🧠 Técnica 3: Chain-of-Thought (CoT) Prompting
+## 🧠 Technique 3: Chain-of-Thought (CoT) Prompting
 
-### ¿Qué es?
+### What is it?
 
-Pedir al modelo que "piense en voz alta" paso a paso antes de responder. Mejora razonamiento en problemas complejos.
+Ask the Model to "think out loud" step by step before responding. Improves reasoning in complex problems.
 
-### Ejemplo: Problema matemático
+### Example: Math problem
 
 ```python
 # ❌ SIN CHAIN-OF-THOUGHT
 direct_prompt = """
-Problema: Juan tiene 3 cajas con 4 manzanas cada una. Regala 5 manzanas. ¿Cuántas le quedan?
-Respuesta:
+Problem: Juan tiene 3 cajas con 4 manzanas each una. Regala 5 manzanas. ¿How many le quedan?
+Answer:
 """
 
 # ✅ CON CHAIN-OF-THOUGHT
 cot_prompt = """
-Resuelve el siguiente problema paso a paso:
+Resuelve el next problem paso a paso:
 
-Problema: Juan tiene 3 cajas con 4 manzanas cada una. Regala 5 manzanas. ¿Cuántas le quedan?
+Problem: Juan tiene 3 cajas con 4 manzanas each una. Regala 5 manzanas. ¿How many le quedan?
 
-Paso 1: Calcular el total de manzanas inicial
+Paso 1: Calculate el total de manzanas inicial
 Paso 2: Restar las manzanas regaladas
-Paso 3: Respuesta final
+Paso 3: Answer final
 
-Solución:
+Solution:
 """
 
 print("=== CHAIN-OF-THOUGHT PROMPTING ===\n")
 print("Sin CoT:\n", direct_prompt)
 print("\nCon CoT:\n", cot_prompt)
 
-# Respuesta esperada (con CoT):
+# Answer expected (con CoT):
 # Paso 1: Juan tiene 3 cajas × 4 manzanas = 12 manzanas
 # Paso 2: Regala 5 manzanas: 12 - 5 = 7 manzanas
 # Paso 3: Le quedan 7 manzanas
 ```
 
-### Ejemplo: Razonamiento lógico
+### Example: Logical Reasoning
 
 ```python
 cot_logic_prompt = """
@@ -190,79 +190,79 @@ Pregunta: Si todos los gatos son animales, y algunos animales son mascotas, ¿es
 
 Razona paso a paso:
 1. Identifica las premisas
-2. Analiza la lógica
-3. Determina la conclusión
+2. Analiza la logic
+3. Determina la conclusion
 
 Razonamiento:
 """
 
-print("\n=== CoT para razonamiento lógico ===\n")
+print("\n=== CoT para razonamiento logical ===\n")
 print(cot_logic_prompt)
 
-# Respuesta esperada:
+# Answer expected:
 # 1. Premisas:
 #    - Todos los gatos son animales
 #    - Algunos animales son mascotas
-# 2. Análisis:
-#    - No hay relación directa entre "gatos" y "mascotas"
+# 2. Analysis:
+#    - No hay relationship directa entre "gatos" y "mascotas"
 #    - Que algunos animales sean mascotas no implica que los gatos lo sean
-# 3. Conclusión: NO se puede concluir que algunos gatos son mascotas (falacia lógica)
+# 3. Conclusion: NO se can concluir que algunos gatos son mascotas (falacia logic)
 ```
 
-**Cuándo usar CoT:**
+**When use CoT:**
 
-- ✅ Problemas matemáticos
-- ✅ Razonamiento lógico
-- ✅ Tareas multi-paso
-- ✅ Cuando necesitas explicabilidad
+- ✅ Mathematical problems
+- ✅ Logical reasoning
+- ✅ Multi-step tasks
+- ✅ When you need explainability
 
 ______________________________________________________________________
 
-## 🏗️ Técnica 4: Estructuración de Roles y Contexto
+## 🏗️ Technique 4: Structuring Roles and Context
 
 ### System Message + User Message
 
 ```python
 structured_prompt = """
-System: Eres un asistente experto en análisisde datos financieros. Responde de manera concisa y técnica.
+System: Eres un asistente experto en analysisof data financieros. Respond, Response, Responds, Responded, Responder de manera concisa y technique.
 
-User: Analiza esta tendencia: Las acciones de TechCorp subieron 15% en enero, bajaron 8% en febrero, y subieron 22% en marzo. ¿Es una buena inversión?
+User: Analiza this trend: Las acciones de TechCorp subieron 15% en enero, bajaron 8% en febrero, y subieron 22% en marzo. ¿Es una buena investment?
 """
 
 print("=== ROLE-BASED PROMPTING ===\n")
 print(structured_prompt)
 
-# Respuesta esperada (más técnica gracias al rol definido):
-# "Análisis de retorno acumulado:
+# Answer expected (más technique gracias al rol definido):
+# "Analysis de retorno acumulado:
 # - Enero: +15%
-# - Febrero: -8% (sobre base de 115%) = neto ~105.8%
-# - Marzo: +22% (sobre base de 105.8%) = neto ~129.1%
+# - Febrero: -8% (about base de 115%) = neto ~105.8%
+# - Marzo: +22% (about base de 105.8%) = neto ~129.1%
 # Retorno acumulado: ~29.1% en trimestre Q1 (excelente)
 # Sin embargo, volatilidad intramensual significativa.
-# Recomendación: Buena señala alcista, pero verificar fundamentals y diversificar riesgo."
+# Recommendation: Buena points out alcista, but verificar fundamentals y diversificar risk."
 ```
 
-**Beneficios de estructurar roles:**
+**Benefits of structuring roles:**
 
-- ✅ El modelo adopta "personalidad" específica
-- ✅ Respuestas más alineadas con expertise requerido
-- ✅ Tono y nivel técnico apropiados
+- ✅ The Model adopts a specific "personality"
+- ✅ Answers more aligned with required expertise
+- ✅ Appropriate tone and technical level
 
 ______________________________________________________________________
 
-## 📋 Técnica 5: Output Formatting (JSON estructurado)
+## 📋 Technique 5: Output Formatting (Structured JSON)
 
-### ¿Por qué?
+### Because?
 
-Facilita parseo automático de respuestas para integrar con pipelines de datos.
+Facilitates automatic parsing of responses to integrate with Data pipelines.
 
-### Ejemplo: Extracción a JSON
+### Example: Extract to JSON
 
 ```python
 json_prompt = """
-Extrae información del siguiente texto y devuélvela en formato JSON.
+Extrae information del next text y give it back en format JSON.
 
-Texto: "María González, especialista en Machine Learning con 5 años de experiencia, trabaja en TechCorp como Senior Data Scientist. Su email es mgonzalez@techcorp.com."
+Texto: "Maria Gonzalez, especialista en Machine Learning con 5 years de experiencia, trabaja en TechCorp como Senior Data Scientist. Su email es mgonzalez@techcorp.com."
 
 Formato esperado:
 {
@@ -280,9 +280,9 @@ JSON:
 print("=== OUTPUT FORMATTING (JSON) ===\n")
 print(json_prompt)
 
-# Respuesta esperada:
+# Answer expected:
 # {
-#   "nombre": "María González",
+#   "nombre": "Maria Gonzalez",
 #   "especialidad": "Machine Learning",
 #   "experiencia_años": 5,
 #   "empresa": "TechCorp",
@@ -291,13 +291,13 @@ print(json_prompt)
 # }
 ```
 
-**Validación del output:**
+**Output validation:**
 
 ```python
 import json
 
 def validate_llm_json(response):
-    """Validar que el LLM devolvió JSON válido"""
+    """Validate que el LLM returned JSON valid"""
     try:
         data = json.loads(response)
         required_keys = ["nombre", "especialidad", "experiencia_años", "empresa", "puesto", "email"]
@@ -308,145 +308,145 @@ def validate_llm_json(response):
 
         return True, data
     except json.JSONDecodeError as e:
-        return False, f"JSON inválido: {e}"
+        return False, f"JSON invalid: {e}"
 
-# Ejemplo de uso
-simulated_response = '{"nombre": "María González", "especialidad": "Machine Learning", ...}'
+# Example de usage
+simulated_response = '{"nombre": "Maria Gonzalez", "especialidad": "Machine Learning", ...}'
 is_valid, result = validate_llm_json(simulated_response)
-print(f"Válido: {is_valid}")
+print(f"Valid: {is_valid}")
 ```
 
 ______________________________________________________________________
 
-## 🛡️ Técnica 6: Constraint Enforcement (Restricciones)
+## 🛡️ Technique 6: Constraint Enforcement (Restrictions)
 
-### Forzar límites claros
+### Force clear boundaries
 
 ```python
 constrained_prompt = """
-Resume el siguiente artículo en EXACTAMENTE 3 puntos clave. No uses más de 50 palabras en total.
+Resume el next article en EXACTAMENTE 3 puntos clave. No uses más de 50 words en total.
 
-Artículo: "La inteligencia artificial está transformando la industria financiera. Los bancos utilizan ML para detectar fraudes, los robo-advisors gestionan portafolios automáticamente, y el análisis predictivo mejora las decisiones de inversión. Sin embargo, persisten desafíos en regulación, transparencia y sesgo algorítmico."
+Article: "La inteligencia artificial this transformando la industria financiera. Los bancos utilizan ML para detect fraudes, los robo-advisors gestionan portafolios automatically, y el analysis prediction improvement las decisions de investment. Sin embargo, persistent challenges en regulation, transparencia y sesgo algorithmic."
 
-Resumen (3 puntos, máx 50 palabras):
+Summary (3 puntos, máx 50 words):
 """
 
 print("=== CONSTRAINT ENFORCEMENT ===\n")
 print(constrained_prompt)
 
-# Respuesta esperada:
+# Answer expected:
 # 1. ML detecta fraudes en banca
-# 2. Robo-advisors automatizan gestión de portafolios
-# 3. Desafíos: regulación y sesgo algorítmico
+# 2. Robo-advisors automatizan management de portafolios
+# 3. Challenges: regulation y sesgo algorithmic
 ```
 
-**Restricciones útiles:**
+**Useful restrictions:**
 
-- **Longitud:** "máximo 100 palabras", "exactamente 5 ítems"
-- **Formato:** "solo bullets", "tabla markdown"
-- **Tono:** "lenguaje simple", "técnico y formal"
-- **Idioma:** "responde en español"
-- **Prohibiciones:** "no uses analogías", "evita jerga"
+- **Length:** "maximum 100 words", "exactly 5 items"
+- **Format:** "bullets only", "markdown table"
+- **Tone:** "simple language", "technical and formal"
+- **Language:** "answers in Spanish"
+- **Prohibitions:** "do not use analogies", "avoid jargon"
 
 ______________________________________________________________________
 
-## 💡 Técnica 7: Self-Consistency (Auto-consistencia)
+## 💡 Technique 7: Self-Consistency
 
-### ¿Qué es?
+### What is it?
 
-Generar múltiples respuestas independientes y elegir la más consistente (votación).
+Generate multiple independent responses and choose the most consistent one (voting).
 
-### Implementación conceptual
+### Conceptual implementation
 
 ```python
 def self_consistency(prompt, num_samples=5):
     """
-    Generar múltiples respuestas y votar por la más común
+    Generate multiple responses y votar por la más common
     """
     responses = []
     for i in range(num_samples):
-        # En producción: modificar temperature para variabilidad
+        # En production: modificar temperature para variabilidad
         response = llm.generate(prompt, temperature=0.8)
         responses.append(response)
 
-    # Votar (contar respuestas más frecuentes)
+    # Votar (contar responses más frecuentes)
     from collections import Counter
     vote_result = Counter(responses).most_common(1)[0]
-    return vote_result[0], vote_result[1] / num_samples  # respuesta, confianza
+    return vote_result[0], vote_result[1] / num_samples  # response, confianza
 
-# Ejemplo de uso
+# Example de usage
 math_prompt = """
-Problema: Si un tren sale de Madrid a las 10:00 AM a 120 km/h y otro sale de Barcelona (620 km de distancia) a las 10:30 AM a 100 km/h hacia Madrid, ¿a qué hora se encuentran?
+Problem: Si un tren sale de Madrid a las 10:00 AM a 120 km/h y otro sale de Barcelona (620 km de distancia) a las 10:30 AM a 100 km/h hacia Madrid, ¿a qué hora se encuentran?
 
-Responde solo la hora (formato HH:MM).
+Respond, Response, Responds, Responded, Responder solo la hora (format HH:MM).
 """
 
 # answer, confidence = self_consistency(math_prompt, num_samples=5)
-# print(f"Respuesta: {answer} (confianza: {confidence:.0%})")
+# print(f"Answer: {answer} (confianza: {confidence:.0%})")
 ```
 
-**Cuándo usar:**
+**When use:**
 
-- Problemas de razonamiento complejo
-- Cuando necesitas alta confiabilidad
-- Tareas con respuesta inequívoca
+- Complex reasoning problems
+- When you need high reliability
+- Tasks with unambiguous response
 
 ______________________________________________________________________
 
-## 🎨 Técnica 8: Multi-turn Conversation (Refinamiento iterativo)
+## 🎨 Technique 8: Multi-turn Conversation (Iterative Refinement)
 
-### Ejemplo: Refinando código
+### Example: Refining code
 
 ```python
-# Turn 1: Generar borrador
+# Turn 1: Generate borrador
 prompt_1 = """
-Genera una función Python para calcular el factorial de un número.
+Genera una function Python para calculator el factorial de un number.
 """
-# Respuesta (simulada):
+# Answer (simulada):
 # def factorial(n):
 #     result = 1
 #     for i in range(1, n+1):
 #         result *= i
 #     return result
 
-# Turn 2: Pedir mejora
+# Turn 2: Pedir improvement
 prompt_2 = """
-Mejora la función anterior:
-1. Agregar validación de input
-2. Usar recursión en lugar de loop
-3. Agregar docstrings
+Improvement la function anterior:
+1. Add validation de input
+2. Wear recursion en lugar de loop
+3. Add docstrings
 """
-# Respuesta mejorada (simulada):
+# Answer mejorada (simulada):
 # def factorial(n):
-#     \"\"\"Calcula factorial de n recursivamente.\"\"\"
+#     \"\"\"Calculate factorial de n recursivamente.\"\"\"
 #     if not isinstance(n, int) or n < 0:
-#         raise ValueError("n debe ser entero no negativo")
+#         raise ValueError("n must ser entero no negativo")
 #     return 1 if n == 0 else n * factorial(n-1)
 
 # Turn 3: Optimizar
 prompt_3 = """
-Ahora optimiza usando lru_cache para memoization.
+Ahora optimiza using lru_cache para memoization.
 """
-# Respuesta final (simulada):
+# Answer final (simulada):
 # from functools import lru_cache
 #
 # @lru_cache(maxsize=None)
 # def factorial(n):
-#     \"\"\"Calcula factorial con memoization.\"\"\"
+#     \"\"\"Calculate factorial con memoization.\"\"\"
 #     if not isinstance(n, int) or n < 0:
-#         raise ValueError("n debe ser entero no negativo")
+#         raise ValueError("n must ser entero no negativo")
 #     return 1 if n == 0 else n * factorial(n-1)
 ```
 
-**Ventajas:**
+**Advantages:**
 
-- Refinamiento incremental
-- El LLM recuerda contexto previo
-- Ideal para tareas complejas iterativas
+- Incremental refinement
+- The LLM remembers previous context
+- Ideal for complex iterative tasks
 
 ______________________________________________________________________
 
-## 📊 Comparación de técnicas
+## 📊 Comparison of techniques
 
 ```python
 import pandas as pd
@@ -467,139 +467,139 @@ comparison = pd.DataFrame({
     'Accuracy': ['Medium', 'High', 'High', 'Medium', 'Medium', 'Medium', 'Very High', 'High'],
     'Use Case': [
         'Tareas simples',
-        'Clasificación, extracción',
-        'Razonamiento matemático',
-        'Respuesta personalizada',
-        'Integración pipelines',
+        'Classification, extraction',
+        'Razonamiento mathematical',
+        'Answer personalizada',
+        'Integration pipelines',
         'Limitar outputs',
-        'Problemas críticos',
-        'Refinamiento código'
+        'Problems critics',
+        'Refinamiento code'
     ]
 })
 
 print(comparison.to_string(index=False))
 ```
 
-**Salida:**
+**Output:**
 
 ```
           Technique Complexity  Cost (API calls)  Accuracy                Use Case
           Zero-Shot        Low                 1    Medium          Tareas simples
-           Few-Shot     Medium                 1      High  Clasificación, extracción
-  Chain-of-Thought     Medium                 1      High   Razonamiento matemático
-         Role-Based        Low                 1    Medium    Respuesta personalizada
-        JSON Output        Low                 1    Medium     Integración pipelines
+           Few-Shot     Medium                 1      High  Classification, extraction
+  Chain-of-Thought     Medium                 1      High   Razonamiento mathematical
+         Role-Based        Low                 1    Medium    Answer personalizada
+        JSON Output        Low                 1    Medium     Integration pipelines
         Constraints        Low                 1    Medium           Limitar outputs
-  Self-Consistency       High                 5 Very High        Problemas críticos
-         Multi-Turn       High                 3      High      Refinamiento código
+  Self-Consistency       High                 5 Very High        Problems critics
+         Multi-Turn       High                 3      High      Refinamiento code
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝Executive summary
 
-### ✅ Mejores prácticas para prompts efectivos
+### ✅ Best Practices for effective prompts
 
-1. **Ser específico:**
+1. **Be specific:**
 
-   - ❌ "Analiza este texto"
-   - ✅ "Clasifica el sentimiento como POSITIVO, NEGATIVO o NEUTRAL"
+   - ❌ "Analyze this text"
+   - ✅ "Classify the Sentiment as POSITIVE, NEGATIVE or NEUTRAL"
 
-1. **Usar delimitadores claros:**
+1. **Use clear delimiters:**
 
    ```
-   Input: """texto aquí"""
+   Input: """text here"""
    Output:
    ```
 
-1. **Especificar formato de salida:**
+1. **Specify output format:**
 
-   - "Responde en JSON"
-   - "Lista numerada de 5 ítems"
+   - "Respond, Response, Responds, Responded, Reply in JSON"
+- "Numbered list of 5 items"
    - "Tabla markdown"
 
-1. **Dar contexto/rol:**
+1. **Dar context/rol:**
 
-   - "Eres un experto en..."
-   - "Actúa como un profesor de..."
+   - "You are an expert in..."
+- "Act like a teacher of..."
 
-1. **Pedir razonamiento paso a paso:**
+1. **Ask for step-by-step reasoning:**
 
-   - Para matemáticas, lógica, problemas complejos
+- For mathematics, logic, complex problems
 
-1. **Usar ejemplos (few-shot):**
+1. **Use Examples (few-shot):**
 
-   - 2-5 ejemplos representativos
-   - Formato consistente
+   - 2-5 Representative Examples
+   - Consistent format
 
-1. **Iterar y refinar:**
+1. **Iterate and refine:**
 
-   - Probar múltiples formulaciones
-   - Ajustar temperatura (0 = determinista, 1 = creativo)
+   - Try multiple formulations
+   - Adjust temperature (0 = deterministic, 1 = creative)
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons learned
 
-### ✅ Parámetros de API importantes
+### ✅ Important API parameters
 
 **Temperature (0-1):**
 
-- `0.0`: Determinista, respuestas consistentes (para clasificación, extracción)
+- `0.0`: Deterministic, consistent responses (for Classification, extraction)
 - `0.7`: Balance (general purpose)
-- `1.0`: Creativo, variado (para generación de ideas, storytelling)
+- `1.0`: Creative, varied (for idea generation, storytelling)
 
 **Max tokens:**
 
-- Limita longitud de respuesta
-- Evita respuestas cortadas: calcular tokens necesarios (1 palabra ≈ 1.3 tokens)
+- Limit response length
+- Avoid cut off responses: calculator tokens required (1 word ≈ 1.3 tokens)
 
 **Top-p (nucleus sampling):**
 
-- Alternativa a temperature
-- `0.9` = considera solo top 90% de probabilidad de tokens
+- Alternative to temperature
+- `0.9` = considers only top 90% probability of tokens
 
 **Frequency/Presence penalty:**
 
-- Penaliza repetición de tokens
-- Útil para textos creativos largos
+- Penalizes repetition of tokens
+- Useful for long creative texts
 
-### ✅ Errores comunes
+### ✅ Errors common
 
-- ❌ **Prompts vagos:** "Analiza esto" → el LLM no sabe qué hacer
-- ❌ **No especificar formato:** Output inconsistente
-- ❌ **Muy pocos ejemplos (few-shot):** 1 ejemplo no es suficiente
-- ❌ **Demasiado contexto:** Exceder límite de tokens (4k-128k según modelo)
-- ❌ **No validar outputs:** JSON malformado, respuestas fuera de especificación
+- ❌ **Vague Prompts:** "Analyze this" → the LLM doesn't know what to do
+- ❌ **Do not specify format:** Inconsistent output
+- ❌ **Very few Examples (few-shot):** 1 Example is not enough
+- ❌ **Too much context:** Exceed token limit (4k-128k according to Model)
+- ❌ **No validate outputs:** Malformed JSON, responses out of specification
 
-### 💡 Debugging de prompts
+### 💡 Prompt debugging
 
-1. **Prompt no funciona:**
+1. **Prompt not working:**
 
-   - Revisar especificidad
-   - Agregar ejemplos
-   - Usar CoT para problemas complejos
+   - Check specificity
+   - Add Examples
+   - Use CoT for complex problems
 
-1. **Output inconsistente:**
+1. **Inconsistent output:**
 
-   - Bajar temperature (hacia 0)
-   - Agregar más restricciones
-   - Usar self-consistency
+   - Lower temperature (towards 0)
+- Add more restrictions
+   - Use self-consistency
 
-1. **Respuestas cortadas:**
+1. **Answers cut:**
 
-   - Aumentar max_tokens
-   - Simplificar prompt
+   - Increase max_tokens
+   - Simplify prompt
 
-1. **Demasiado costoso:**
+1. **Too expensive:**
 
-   - Reducir num_samples (self-consistency)
-   - Usar modelos más pequeños para tareas simples
-   - Cachear respuestas comunes
+   - Reduce num_samples (self-consistency)
+- Use smaller Models for simple tasks
+   - Cache responses common
 
 ______________________________________________________________________
 
-## 🔧 Template de prompt completo
+## 🔧 Complete prompt template
 
 ```python
 PROMPT_TEMPLATE = """
@@ -627,50 +627,50 @@ Constraints:
 Output:
 """
 
-# Ejemplo de uso
+# Example de usage
 filled_prompt = PROMPT_TEMPLATE.format(
-    system_role="Eres un asistente de análisis de datos",
-    task_description="Extraer información de reseñas de productos",
-    additional_context="Reseñas de e-commerce español",
-    few_shot_examples="Ejemplo 1:...\nEjemplo 2:...",
-    user_input="La laptop es buena pero cara",
-    specific_instructions="1. Identifica producto\n2. Clasifica sentimiento\n3. Extrae precio si existe",
-    output_format="JSON con claves: producto, sentimiento, precio",
-    constraints="- Sentimiento debe ser POSITIVO, NEGATIVO o NEUTRAL\n- Si no hay precio, usa null"
+    system_role="Eres un asistente de analysis de data",
+    task_description="Extraer information de reviews de products",
+    additional_context="Reviews de e-commerce Spanish",
+    few_shot_examples="Example 1:...\nEjemplo 2:...",
+    user_input="La laptop es buena but cara",
+    specific_instructions="1. Identifica product\n2. Clasifica sentiment\n3. Extrae price si existe",
+    output_format="JSON con claves: product, sentiment, price",
+    constraints="- Sentiment must ser POSITIVO, NEGATIVO o NEUTRAL\n- Si no hay price, usa null"
 )
 
 print(filled_prompt)
 ```
 
-### 📌 Checklist de prompting
+### 📌 Prompting checklist
 
-- ✅ Instrucción clara y específica
-- ✅ Formato de salida definido
-- ✅ Ejemplos representativos (2-5 para few-shot)
-- ✅ Delimitadores para input/output
-- ✅ Restricciones explícitas
-- ✅ Contexto/rol cuando sea relevante
-- ✅ CoT para razonamiento complejo
-- ✅ Validación de outputs
-- ✅ Temperature apropiada (0 = determinista, 1 = creativo)
-- ✅ Control de costos (max_tokens, num_samples)
+- ✅ Clear and specific instruction
+- ✅ Defined output format
+- ✅ Representative examples (2-5 for few-shot)
+- ✅ Delimiters for input/output
+- ✅ Explicit restrictions
+- ✅ Context/role when relevant
+- ✅ CoT for complex reasoning
+- ✅ Output validation
+- ✅ Appropriate temperature (0 = deterministic, 1 = creative)
+- ✅ Cost control (max_tokens, num_samples)
 
 ______________________________________________________________________
 
-## 📚 Recursos adicionales
+## 📚 Additional Resources
 
 - **Papers:**
 
   - "Chain-of-Thought Prompting Elicits Reasoning in LLMs" (Wei et al., 2022)
   - "Few-Shot Learning with Language Models" (Brown et al., 2020)
 
-- **Herramientas:**
+- **Tools:**
 
-  - [OpenAI Playground](https://platform.openai.com/playground): Experimentar con prompts
-  - [LangChain](https://langchain.com): Framework para aplicaciones con LLMs
-  - [PromptBase](https://promptbase.com): Marketplace de prompts
+  - [OpenAI Playground](https://platform.openai.com/playground): Experiment with prompts
+  - [LangChain](https://langchain.com): Framework for applications with LLMs
+  - [PromptBase](https://promptbase.com): Prompt Marketplace
 
-- **Práctica:**
+- **Practice:**
 
-  - [Learn Prompting](https://learnprompting.org): Curso interactivo
-  - [Anthropic Prompt Library](https://docs.anthropic.com/claude/prompt-library): Ejemplos de Claude
+  - [Learn Prompting](https://learnprompting.org): Cursor interaction
+  - [Anthropic Prompt Library](https://docs.anthropic.com/claude/prompt-library): Examples by Claude

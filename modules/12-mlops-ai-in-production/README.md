@@ -8,51 +8,51 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 
 - Containerize models with Docker for reproducibility
 - Implement CI/CD pipelines with GitHub Actions for ML
-- Setup model registry con MLflow para version control
+- Setup model registry with MLflow for version control
 - Detect data drift and model decay in production
 - Implement monitoring with Prometheus + Grafana
 - Create automatic alerting for anomalies
 - Automated retraining pipelines
 - A/B testing infrastructure for models
-- Log predictions y performance metrics
+- Log predictions and performance metrics
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (MLOps lifecycle, deployment strategies, monitoring, CI/CD)
+- **theory/**: fundamentals (MLOps lifecycle, deployment strategies, monitoring, CI/CD)
 - **examples/**: guided examples with Docker, MLflow, FastAPI
-- **practices/**: ejercicios hands-on
-  - 01: CI/CD para ML (Dockerfile, GitHub Actions, MLflow registry, automated retraining, data drift detection, A/B testing)
-  - 02: Monitoring y Observability (logging predictions, Prometheus metrics, Grafana dashboard, alerting, performance tracking, cost monitoring)
+- **practices/**: Exercises hands-on
+  - 01: CI/CD for ML (Dockerfile, GitHub Actions, MLflow registry, automated retraining, data drift detection, A/B testing)
+  - 02: Monitoring and Observability (logging predictions, Prometheus metrics, Grafana dashboard, alerting, performance tracking, cost monitoring)
 - **mini-project/**: full MLOps pipeline (training → testing → deployment → monitoring)
 - **evaluation/**: checklist and rubric
-- **notes/**: deployment decisions y incident logs
+- **notes/**: deployment decisions and incident logs
 
 ## 📋 Prerrequisitos
 
-- Módulo 03: Machine Learning Fundamentals (model training)
+- Module 03: Machine Learning Fundamentals (model training)
 - Basic knowledge of Docker
 - Familiarity with Git/GitHub
 - Linux command line basics
 
 ## 📅 ​​Recommended Study Plan
 
-**Semana 1** (8-10 horas):
+**Week 1** (8-10 horas):
 
-1. Lee material de `/theory` (MLOps, CI/CD, deployment) (2h)
+1. Read material from `/theory` (MLOps, CI/CD, deployment) (2h)
 1. Ejecuta `/examples` (Docker, FastAPI, MLflow) (3h)
-1. Completa `/practices/01-cicd-ml.md` (5h)
+1. Complete `/practices/01-cicd-ml.md` (5h)
 
-**Semana 2** (8-10 horas):
-4\. Lee material sobre monitoring y observability (2h)
-5\. Completa `/practices/02-monitoring-observability.md` (5h)
-6\. Desarrolla mini-proyecto (4h)
+**Week 2** (8-10 horas):
+4\. Read material about monitoring and observability (2h)
+5\. Complete `/practices/02-monitoring-observability.md` (5h)
+6\. Desarrolla Mini-project (4h)
 
 ## ✅ Competencias Clave
 
 - [ ] Dockerize ML models (Dockerfile, requirements.txt)
 - [ ] FastAPI for model serving
-- [ ] CI/CD con GitHub Actions (test → train → deploy)
-- [ ] Model registry y versioning (MLflow)
+- [ ] CI/CD with GitHub Actions (test → train → deploy)
+- [ ] Model registry and versioning (MLflow)
 - [ ] Data drift detection (KS test, PSI)
 - [ ] Automated retraining triggers
 - [ ] Prometheus metrics export
@@ -64,13 +64,13 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 ## ✅ Module criteria completed
 
 - 2 solved and validated practices
-- Mini-proyecto: full MLOps pipeline desplegado y monitoreado
+- Mini-project: full MLOps pipeline deployed and monitored
 - Final evaluation approved (>=70/100)
-- Demostrar: Docker, CI/CD, monitoring, alerting, drift detection
+- Demonstrate: Docker, CI/CD, monitoring, alerting, drift detection
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
-**Herramientas:**
+**Tools:**
 
 - [MLflow](https://mlflow.org/)
 - [DVC (Data Version Control)](https://dvc.org/)
@@ -101,7 +101,7 @@ Congratulations! You have completed all 12 core modules. Now you can:
 
 - Explorar **trends-extras/** (agents, guardrails, multimodal, etc.)
 - Go deeper into your area of ​​interest
-- Construir proyectos end-to-end
+- Build proyectos end-to-end
 - Contribuir a proyectos open source
 
 ## Module objective

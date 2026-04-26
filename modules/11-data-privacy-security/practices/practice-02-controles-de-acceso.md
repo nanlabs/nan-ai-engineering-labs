@@ -1,17 +1,17 @@
-# Práctica 02 — Controles de acceso
+# Practice 02 — Controls, Access Controllers
 
 ## Objective
 
-Definir permisos mínimos para un flujo de IA.
+Defines minimum permissions for an AI flow.
 
-## Enunciado
+## Statement
 
-1. Identificar roles del proceso.
-1. Asignar permisos mínimos por rol.
-1. Detectar sobrepermisos.
-1. Proponer ajustes.
+1. Identify process roles.
+1. Assign minimum permissions per role.
+1. Detect sobrepermisos.
+1. Propose ajustes.
 
-## Validación
+## Validation
 
-- Matriz de acceso construida.
-- Principio de mínimo privilegio aplicado.
+- Constructed access matrix.
+- Principle of minimum privilege applied.

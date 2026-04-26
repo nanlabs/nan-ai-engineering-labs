@@ -4,7 +4,7 @@
 
 Calculate mean, median, standard deviation and detect outliers in a real dataset using Pandas.
 
-## Concepts previos
+## Concepts previous
 
 - **Mean:** arithmetic average of the values.
 - **Median:** central value when the Data is ordered.
@@ -23,18 +23,18 @@ import numpy as np
 ### 2. Create an Example dataset
 
 ```python
-# Simular datos de tiempos de respuesta de un servidor (en ms)
+# Similar data de tiempos de response de un servidor (en ms)
 np.random.seed(42)
 tiempos_normales = np.random.normal(loc=150, scale=30, size=95)
-tiempos_outliers = np.array([450, 480, 520, 490, 510])  # valores atípicos
+tiempos_outliers = np.array([450, 480, 520, 490, 510])  # values atypical
 tiempos = np.concatenate([tiempos_normales, tiempos_outliers])
 
-# Crear DataFrame
+# Create DataFrame
 df = pd.DataFrame({'tiempo_respuesta_ms': tiempos})
 print(df.head())
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
    tiempo_respuesta_ms
@@ -49,30 +49,30 @@ print(df.head())
 
 ```python
 media = df['tiempo_respuesta_ms'].mean()
-mediana = df['tiempo_respuesta_ms'].median()
-desviacion = df['tiempo_respuesta_ms'].std()
+median = df['tiempo_respuesta_ms'].median()
+deviation = df['tiempo_respuesta_ms'].std()
 
 print(f"Media: {media:.2f} ms")
-print(f"Mediana: {mediana:.2f} ms")
-print(f"Desvío estándar: {desviacion:.2f} ms")
+print(f"Mediana: {median:.2f} ms")
+print(f"Detour standard: {deviation:.2f} ms")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 Media: 165.97 ms
 Mediana: 151.23 ms
-Desvío estándar: 74.52 ms
+Detour standard: 74.52 ms
 ```
 
 ### 4. View distribution with a quick summary
 
 ```python
-print("\nResumen estadístico completo:")
+print("\nResumen statistical complete:")
 print(df.describe())
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
        tiempo_respuesta_ms
@@ -93,7 +93,7 @@ Q1 = df['tiempo_respuesta_ms'].quantile(0.25)
 Q3 = df['tiempo_respuesta_ms'].quantile(0.75)
 IQR = Q3 - Q1
 
-# Límites para outliers
+# Boundaries para outliers
 limite_inferior = Q1 - 1.5 * IQR
 limite_superior = Q3 + 1.5 * IQR
 
@@ -103,16 +103,16 @@ print(f"\nRango normal: [{limite_inferior:.2f}, {limite_superior:.2f}]")
 outliers = df[(df['tiempo_respuesta_ms'] < limite_inferior) |
               (df['tiempo_respuesta_ms'] > limite_superior)]
 
-print(f"\nOutliers detectados: {len(outliers)}")
+print(f"\nOutliers detected: {len(outliers)}")
 print(outliers)
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 Rango normal: [76.23, 225.67]
 
-Outliers detectados: 5
+Outliers detected: 5
     tiempo_respuesta_ms
 95              450.0
 96              480.0
@@ -132,7 +132,7 @@ Outliers detectados: 5
 import pandas as pd
 import numpy as np
 
-# Crear datos
+# Create data
 np.random.seed(42)
 tiempos_normales = np.random.normal(loc=150, scale=30, size=95)
 tiempos_outliers = np.array([450, 480, 520, 490, 510])
@@ -140,13 +140,13 @@ tiempos = np.concatenate([tiempos_normales, tiempos_outliers])
 
 df = pd.DataFrame({'tiempo_respuesta_ms': tiempos})
 
-# Estadísticas básicas
-print("Estadísticas descriptivas:")
+# Statistics basic
+print("Statistics descriptive:")
 print(f"Media: {df['tiempo_respuesta_ms'].mean():.2f} ms")
 print(f"Mediana: {df['tiempo_respuesta_ms'].median():.2f} ms")
-print(f"Desvío estándar: {df['tiempo_respuesta_ms'].std():.2f} ms")
+print(f"Detour standard: {df['tiempo_respuesta_ms'].std():.2f} ms")
 
-# Detección de outliers con IQR
+# Detection de outliers con IQR
 Q1 = df['tiempo_respuesta_ms'].quantile(0.25)
 Q3 = df['tiempo_respuesta_ms'].quantile(0.75)
 IQR = Q3 - Q1
@@ -157,17 +157,17 @@ limite_superior = Q3 + 1.5 * IQR
 outliers = df[(df['tiempo_respuesta_ms'] < limite_inferior) |
               (df['tiempo_respuesta_ms'] > limite_superior)]
 
-print(f"\nOutliers detectados ({len(outliers)}):")
+print(f"\nOutliers detected ({len(outliers)}):")
 print(outliers['tiempo_respuesta_ms'].values)
 ```
 
-## Errors comunes
+## Errors common
 
 - ❌ Use only the mean without considering the median (sensitive to outliers).
 - ❌ Do not verify the Data distribution before applying Models.
 - ❌ Confuse variance with standard deviation (dev = √variance).
 
-## Exercise propuesto
+## Exercise proposed
 
 Load a real Kaggle dataset and calculate:
 

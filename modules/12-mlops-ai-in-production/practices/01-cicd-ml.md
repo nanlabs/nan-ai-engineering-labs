@@ -1,17 +1,17 @@
-# Práctica 01 — CI/CD para ML
+# Practice 01 — CI/CD for ML
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Setup GitHub Actions para ML
-- Dockerize modelos
-- Automated testing y retraining
-- Version control para modelos
+- Setup GitHub Actions for ML
+- Dockerize Models
+- Automated testing and retraining
+- Version control for Models
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guiados
 
-### Ejercicio 1.1: Dockerfile para ML
+### Exercise 1.1: Dockerfile for ML
 
 ```dockerfile
 # Dockerfile
@@ -50,11 +50,11 @@ def predict(features: list[float]):
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Propuestos
 
-### Ejercicio 2.1: GitHub Actions Workflow
+### Exercise 2.1: GitHub Actions Workflow
 
-**Enunciado:**
+**Statement:**
 Crea `.github/workflows/ml-pipeline.yml`:
 
 ```yaml
@@ -68,9 +68,9 @@ jobs:
     - Upload artifacts
 ```
 
-### Ejercicio 2.2: Model Registry
+### Exercise 2.2: Model Registry
 
-**Enunciado:**
+**Statement:**
 Implementa model versioning:
 
 - MLflow Model Registry
@@ -78,28 +78,28 @@ Implementa model versioning:
 - Compare metrics
 - Promote best model
 
-### Ejercicio 2.3: Automated Retraining
+### Exercise 2.3: Automated Retraining
 
-**Enunciado:**
-Trigger retraining cuando:
+**Statement:**
+Trigger retraining when:
 
-- Nuevos datos disponibles
+- Nuevos Data disponibles
 - Performance drift detectado
 - Scheduled (weekly)
 
-### Ejercicio 2.4: Data Drift Detection
+### Exercise 2.4: Data Drift Detection
 
-**Enunciado:**
+**Statement:**
 Monitor data distribution:
 
 - Compare train vs production
 - KS test, PSI metric
 - Alert si drift significativo
 
-### Ejercicio 2.5: A/B Testing Infrastructure
+### Exercise 2.5: A/B Testing Infrastructure
 
-**Enunciado:**
-Deploy dos versiones:
+**Statement:**
+Deploy dos versions:
 
 - Model A (current)
 - Model B (candidate)
@@ -111,14 +111,14 @@ ______________________________________________________________________
 ## ✅ Checklist
 
 - [ ] Dockerize ML models
-- [ ] CI/CD con GitHub Actions
+- [ ] CI/CD with GitHub Actions
 - [ ] Model versioning
 - [ ] Automated retraining
 - [ ] Data drift detection
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [MLflow](https://mlflow.org/)
 - [DVC (Data Version Control)](https://dvc.org/)

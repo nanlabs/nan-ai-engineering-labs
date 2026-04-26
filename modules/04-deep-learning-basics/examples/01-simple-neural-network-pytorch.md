@@ -1,16 +1,16 @@
-# Ejemplo 01 — Red Neuronal Simple con PyTorch (MNIST)
+# Example 01 — Simple Neural network with PyTorch (MNIST)
 
-## Contexto
+## Context
 
-Construirás tu primera red neuronal desde cero usando PyTorch para clasificar dígitos escritos a mano (MNIST). Aprenderás arquitectura básica, forward pass, backpropagation y entrenamiento.
+You will build your first Neural network from scratch using PyTorch to classify handwritten digits (MNIST). You will learn basic architecture, forward pass, backpropagation and Training.
 
 ## Objective
 
-Clasificar imágenes de dígitos (0-9) del dataset MNIST.
+Classify Images of digits (0-9) from the MNIST dataset.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Setup e importaciones
+## 🚀 Step 1: Setup and imports
 
 ```python
 import torch
@@ -21,7 +21,7 @@ from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Configurar device (GPU si está disponible)
+# Configurar device (GPU si this disponible)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Usando device: {device}")
 
@@ -29,7 +29,7 @@ print(f"Usando device: {device}")
 torch.manual_seed(42)
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Usando device: cuda  (o cpu si no hay GPU)
@@ -37,9 +37,9 @@ Usando device: cuda  (o cpu si no hay GPU)
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Cargar y explorar datos
+## 📥 Step 2: Load and explore Data
 
-### 2.1 Descargar MNIST
+### 2.1 Download MNIST
 
 ```python
 # Transformaciones: convertir a tensor y normalizar
@@ -63,27 +63,27 @@ test_dataset = datasets.MNIST(
     transform=transform
 )
 
-print(f"Train set: {len(train_dataset)} imágenes")
-print(f"Test set: {len(test_dataset)} imágenes")
+print(f"Train set: {len(train_dataset)} images")
+print(f"Test set: {len(test_dataset)} images")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Train set: 60000 imágenes
-Test set: 10000 imágenes
+Train set: 60000 images
+Test set: 10000 images
 ```
 
-### 2.2 Explorar datos
+### 2.2 Explore Data
 
 ```python
-# Visualizar ejemplos
+# Visualize examples
 fig, axes = plt.subplots(2, 5, figsize=(12, 5))
 axes = axes.ravel()
 
 for i in range(10):
     image, label = train_dataset[i]
-    # Desnormalizar para visualización
+    # Desnormalizar para visualization
     image = image.squeeze().numpy() * 0.3081 + 0.1307
     axes[i].imshow(image, cmap='gray')
     axes[i].set_title(f'Label: {label}')
@@ -94,14 +94,14 @@ plt.show()
 
 # Inspeccionar forma
 sample_image, sample_label = train_dataset[0]
-print(f"\nForma de imagen: {sample_image.shape}")  # [1, 28, 28]
+print(f"\nForma de image: {sample_image.shape}")  # [1, 28, 28]
 print(f"Forma de label: {sample_label}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Forma de imagen: torch.Size([1, 28, 28])  👈 1 canal (grayscale), 28x28 píxeles
+Forma de image: torch.Size([1, 28, 28])  👈 1 channel (grayscale), 28x28 pixels
 Forma de label: 5
 ```
 
@@ -115,7 +115,7 @@ batch_size = 64
 train_loader = DataLoader(
     train_dataset,
     batch_size=batch_size,
-    shuffle=True  # Mezclar cada epoch
+    shuffle=True  # Mezclar each epoch
 )
 
 test_loader = DataLoader(
@@ -124,29 +124,29 @@ test_loader = DataLoader(
     shuffle=False
 )
 
-print(f"Número de batches en train: {len(train_loader)}")
-print(f"Número de batches en test: {len(test_loader)}")
+print(f"Number de batches en train: {len(train_loader)}")
+print(f"Number de batches en test: {len(test_loader)}")
 ```
 
 ______________________________________________________________________
 
-## 🏗️ Paso 3: Definir arquitectura de la red neuronal
+## 🏗️ Step 3: Define architecture of the Neural network
 
 ```python
 class SimpleNN(nn.Module):
     """
-    Red neuronal simple (Fully Connected / MLP)
+    Neural network simple (Fully Connected / MLP)
     Arquitectura: 784 -> 128 -> 64 -> 10
     """
     def __init__(self):
         super(SimpleNN, self).__init__()
 
-        # Capas
+        # Layers
         self.fc1 = nn.Linear(28 * 28, 128)  # Input: 784, Output: 128
         self.fc2 = nn.Linear(128, 64)        # Input: 128, Output: 64
-        self.fc3 = nn.Linear(64, 10)         # Input: 64, Output: 10 (clases)
+        self.fc3 = nn.Linear(64, 10)         # Input: 64, Output: 10 (classes)
 
-        # Activación
+        # Activation
         self.relu = nn.ReLU()
 
     def forward(self, x):
@@ -157,31 +157,31 @@ class SimpleNN(nn.Module):
         # Flatten: [batch_size, 1, 28, 28] -> [batch_size, 784]
         x = x.view(x.size(0), -1)
 
-        # Capa 1: Linear + ReLU
+        # Layer 1: Linear + ReLU
         x = self.fc1(x)
         x = self.relu(x)
 
-        # Capa 2: Linear + ReLU
+        # Layer 2: Linear + ReLU
         x = self.fc2(x)
         x = self.relu(x)
 
-        # Capa 3: Linear (sin activación, esto se hace en loss function)
+        # Layer 3: Linear (sin activation, esto se have en loss function)
         x = self.fc3(x)
 
         return x  # Logits (sin softmax aún)
 
-# Crear modelo
+# Create model
 model = SimpleNN().to(device)
 print(model)
 
-# Contar parámetros
+# Contar parameters
 total_params = sum(p.numel() for p in model.parameters())
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-print(f"\nTotal de parámetros: {total_params:,}")
-print(f"Parámetros entrenables: {trainable_params:,}")
+print(f"\nTotal de parameters: {total_params:,}")
+print(f"Parameters entrenables: {trainable_params:,}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 SimpleNN(
@@ -191,11 +191,11 @@ SimpleNN(
   (relu): ReLU()
 )
 
-Total de parámetros: 109,386
-Parámetros entrenables: 109,386
+Total de parameters: 109,386
+Parameters entrenables: 109,386
 ```
 
-**Cálculo de parámetros:**
+**Parameter calculation:**
 
 - fc1: 784 × 128 + 128 (bias) = 100,480
 - fc2: 128 × 64 + 64 = 8,256
@@ -204,7 +204,7 @@ Parámetros entrenables: 109,386
 
 ______________________________________________________________________
 
-## 🔧 Paso 4: Definir loss function y optimizador
+## 🔧 Step 4: Define loss function and optimizer
 
 ```python
 # Loss function: CrossEntropyLoss (combina LogSoftmax + NLLLoss)
@@ -219,14 +219,14 @@ print(f"Optimizer: {optimizer}")
 
 ______________________________________________________________________
 
-## 🏋️ Paso 5: Función de entrenamiento
+## 🏋️ Step 5: Training Function
 
 ```python
 def train_epoch(model, loader, criterion, optimizer, device):
     """
-    Entrenar una época
+    Train una time
     """
-    model.train()  # Modo entrenamiento (activa dropout, batch norm, etc.)
+    model.train()  # Modo training (activa dropout, batch norm, etc.)
     running_loss = 0.0
     correct = 0
     total = 0
@@ -239,14 +239,14 @@ def train_epoch(model, loader, criterion, optimizer, device):
         outputs = model(images)
         loss = criterion(outputs, labels)
 
-        # Backward pass y optimización
-        optimizer.zero_grad()  # Limpiar gradientes previos
-        loss.backward()        # Calcular gradientes (backpropagation)
+        # Backward pass y optimization
+        optimizer.zero_grad()  # Limpiar gradientes previous
+        loss.backward()        # Calculate gradientes (backpropagation)
         optimizer.step()       # Actualizar pesos
 
-        # Métricas
+        # Metrics
         running_loss += loss.item()
-        _, predicted = torch.max(outputs.data, 1)  # Clase con mayor probabilidad
+        _, predicted = torch.max(outputs.data, 1)  # Clause, Class con mayor probability
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
@@ -259,19 +259,19 @@ def train_epoch(model, loader, criterion, optimizer, device):
 
 ______________________________________________________________________
 
-## 🧪 Paso 6: Función de evaluación
+## 🧪 Step 6: Evaluation Function
 
 ```python
 def evaluate(model, loader, criterion, device):
     """
-    Evaluar en validation/test set
+    Evaluate en validation/test set
     """
-    model.eval()  # Modo evaluación (desactiva dropout, batch norm)
+    model.eval()  # Modo evaluation (desactiva dropout, batch norm)
     running_loss = 0.0
     correct = 0
     total = 0
 
-    with torch.no_grad():  # No calcular gradientes (ahorra memoria)
+    with torch.no_grad():  # No calculator gradientes (ahorra memoria)
         for images, labels in loader:
             images, labels = images.to(device), labels.to(device)
 
@@ -279,7 +279,7 @@ def evaluate(model, loader, criterion, device):
             outputs = model(images)
             loss = criterion(outputs, labels)
 
-            # Métricas
+            # Metrics
             running_loss += loss.item()
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
@@ -293,13 +293,13 @@ def evaluate(model, loader, criterion, device):
 
 ______________________________________________________________________
 
-## 🚂 Paso 7: Loop de entrenamiento
+## 🚂 Step 7: Training Loop
 
 ```python
-# Hiperparámetros
+# Hyperparameters
 num_epochs = 10
 
-# Tracking de métricas
+# Tracking de metrics
 train_losses = []
 train_accs = []
 test_losses = []
@@ -308,12 +308,12 @@ test_accs = []
 print("=== INICIO ENTRENAMIENTO ===\n")
 
 for epoch in range(num_epochs):
-    # Entrenar
+    # Train
     train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
     train_losses.append(train_loss)
     train_accs.append(train_acc)
 
-    # Evaluar
+    # Evaluate
     test_loss, test_acc = evaluate(model, test_loader, criterion, device)
     test_losses.append(test_loss)
     test_accs.append(test_acc)
@@ -327,7 +327,7 @@ for epoch in range(num_epochs):
 print("=== ENTRENAMIENTO COMPLETADO ===")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 === INICIO ENTRENAMIENTO ===
@@ -351,7 +351,7 @@ Epoch [10/10]
 
 ______________________________________________________________________
 
-## 📊 Paso 8: Visualizar curvas de entrenamiento
+## 📊 Step 8: Visualize Training curves
 
 ```python
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
@@ -378,28 +378,28 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Observaciones:**
+**Observations:**
 
-- Train accuracy aumenta más rápido que test (esperado)
-- Test loss empieza a aumentar después de época 7-8 → señal de overfitting leve
-- Test accuracy final ~98% (excelente para baseline)
+- Train accuracy increases faster than test (expected)
+- Test loss starts to increase after era 7-8 → sign of slight overfitting
+- Final test accuracy ~98% (excellent for baseline)
 
 ______________________________________________________________________
 
-## 🔍 Paso 9: Inferencia y visualización de predicciones
+## 🔍 Step 9: Inference and Visualization of Predictions
 
 ```python
 # Obtener batch de test
 images, labels = next(iter(test_loader))
 images, labels = images.to(device), labels.to(device)
 
-# Predecir
+# Predict
 model.eval()
 with torch.no_grad():
     outputs = model(images)
     _, predicted = torch.max(outputs, 1)
 
-# Visualizar primeros 10
+# Visualize primeros 10
 fig, axes = plt.subplots(2, 5, figsize=(12, 5))
 axes = axes.ravel()
 
@@ -422,31 +422,31 @@ plt.show()
 
 ______________________________________________________________________
 
-## 💾 Paso 10: Guardar modelo
+## 💾 Paso 10: Save Model
 
 ```python
-# Guardar pesos del modelo
+# Save pesos del model
 torch.save(model.state_dict(), 'mnist_simple_nn.pth')
-print("Modelo guardado: mnist_simple_nn.pth")
+print("Model guardado: mnist_simple_nn.pth")
 
-# Cargar modelo (en producción)
+# Load model (en production)
 model_loaded = SimpleNN().to(device)
 model_loaded.load_state_dict(torch.load('mnist_simple_nn.pth'))
 model_loaded.eval()
-print("Modelo cargado exitosamente")
+print("Model cargado exitosamente")
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝 Executive summary
 
-### ✅ Resultados
+### ✅ Results
 
-- **Train Accuracy:** 99.32%
-- **Test Accuracy:** 97.89%
-- **Parámetros:** 109,386
+- **Train accuracy:** 99.32%
+- **Test accuracy:** 97.89%
+- **Parameters:** 109,386
 
-### 🏗️ Arquitectura
+### 🏗️ Architecture
 
 ```
 Input (28x28 = 784)
@@ -457,10 +457,10 @@ Dense(128 → 64) + ReLU
   ↓
 Dense(64 → 10)
   ↓
-Output (10 clases)
+Output (10 classes)
 ```
 
-### 🎯 Hiperparámetros
+### 🎯 Hyperparameters
 
 - **Batch size:** 64
 - **Learning rate:** 0.001
@@ -470,59 +470,59 @@ Output (10 clases)
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons learned
 
-### ✅ Conceptos clave de PyTorch
+### ✅ PyTorch key concepts
 
-1. **`nn.Module`:** Clase base para modelos
+1. **`nn.Module`:** Clause, Base class for Models
 
-   - `__init__()`: Definir capas
-   - `forward()`: Definir flujo de datos
+   - `__init__()`: Define Layers
+   - `forward()`: Defines data flow
 
 1. **Device management:**
 
-   - `.to(device)`: Mover modelo/datos a GPU/CPU
-   - Siempre mover datos antes de forward pass
+   - `.to(device)`: Mover Model/Data a GPU/CPU
+   - Always move Data before forward pass
 
 1. **Loss functions:**
 
-   - `CrossEntropyLoss`: Para clasificación multiclase
-   - Combina softmax + negative log likelihood
+   - `CrossEntropyLoss`: For multiclass Classification
+   - Combine softmax + negative log likelihood
 
-1. **Optimizadores:**
+1. **Optimizers:**
 
-   - `Adam`: Ajusta learning rate automáticamente por parámetro
-   - `optimizer.zero_grad()`: Limpiar gradientes previos
-   - `loss.backward()`: Calcular gradientes (backpropagation)
-   - `optimizer.step()`: Actualizar pesos
+- `Adam`: Adjust learning rate automatically by parameter
+   - `optimizer.zero_grad()`: Clear previous gradients
+   - `loss.backward()`: Calculate gradients (backpropagation)
+   - `optimizer.step()`: Update weights
 
-1. **Modos del modelo:**
+1. **Model Modes:**
 
-   - `model.train()`: Activa dropout, batch norm
-   - `model.eval()`: Desactiva dropout, batch norm
-   - `torch.no_grad()`: No calcular gradientes (ahorra memoria)
+   - `model.train()`: Activate dropout, batch norm
+   - `model.eval()`: Disable dropout, batch norm
+   - `torch.no_grad()`: No calculator gradients (saves memory)
 
-### 🚫 Errores comunes evitados
+### 🚫 Common errors avoided
 
-- ❌ Olvidar `optimizer.zero_grad()` → gradientes acumulados
-- ❌ No mover datos a device → error de device mismatch
-- ❌ No usar `model.eval()` en evaluación → dropout activo
-- ❌ Calcular gradientes en evaluación → memory overflow
+- ❌ Forget `optimizer.zero_grad()` → accumulated gradients
+- ❌ Do not move Data to device → device mismatch error
+- ❌ Don't use `model.eval()` in Evaluation → active dropout
+- ❌ Calculate gradients in Evaluation → memory overflow
 
-### 📊 Análisis de performance
+### 📊 Performance analysis
 
-- **Overfitting leve:** Train acc (99.3%) > Test acc (97.9%)
-- **Mitigación:** Agregar dropout, aumentar dataset, early stopping
+- **overfitting slighte, level:** Train acc (99.3%) > Test acc (97.9%)
+- **Mitigation:** Add dropout, increase dataset, early stopping
 
-### 💡 Mejoras posibles
+### 💡 Possible improvements
 
-1. **Regularización:** Agregar Dropout entre capas
-1. **Data augmentation:** Rotaciones, traslaciones
-1. **Arquitectura:** CNN en lugar de FC (mejor para imágenes)
-1. **Learning rate schedule:** Reducir lr durante entrenamiento
-1. **Early stopping:** Detener cuando test loss aumenta
+1. **Regularization:** Add Dropout entre Layers
+1. **Data augmentation:** Rotations, translations
+1. **Architecture:** CNN instead of FC (better for Images)
+1. **Learning rate schedule:** Reduce lr during Training
+1. **Early stopping:** Stop when test loss increases
 
-### 🔧 Próximos pasos
+### 🔧 Next steps
 
-- Ejemplo 02: Implementar dropout y early stopping
-- Módulo 6: CNNs para mejorar performance en MNIST
+- Example 02: Implement dropout and early stopping
+- Module 6: CNNs to improve performance in MNIST

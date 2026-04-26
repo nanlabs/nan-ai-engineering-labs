@@ -1,14 +1,14 @@
-# AI Observability — Monitoring de LLM Applications
+# AI Observability — Monitoring of LLM Applications
 
 ## Available examples
 
-- Ejemplo 1: Placeholder breve
-- Ejemplo 2: Placeholder breve
+- Example 1: Add structured logging with request IDs and token metadata.
+- Example 2: Build a latency/cost dashboard with alert thresholds.
 
 ## How to use these examples
 
-Revisa, ejecuta y adapta cada ejemplo segun tu entorno.
+Review, execute and adapt each Example according to your environment.
 
 ## Next steps
 
-- Convertir un ejemplo en ejercicio guiado.
+- Convert an Example into a guided Exercise.

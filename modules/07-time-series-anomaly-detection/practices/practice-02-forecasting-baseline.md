@@ -1,17 +1,17 @@
-# Práctica 02 — Baseline de forecasting
+# Practice 02 — Forecasting Baseline
 
 ## Objective
 
-Crear primer pronóstico para tener referencia.
+Create first Forecast for reference.
 
-## Enunciado
+## Statement
 
-1. Implementar naive forecast.
-1. Implementar promedio móvil.
+1. Implement naive forecast.
+1. Implement moving average.
 1. Medir MAE/RMSE.
-1. Comparar resultados.
+1. Compare Results.
 
-## Validación
+## Validation
 
 - Baselines reproducibles.
-- Métricas correctamente calculadas.
+- Metrics correctly calculadas.

@@ -38,7 +38,7 @@ Use residuals or z-scores to flag anomalous points.
 1. `ex_03_seasonal_baseline_forecast.py`
 
    - Forecasts by repeating the last observed season.
-   - Expected output: seasonal prediction list and MAPE score.
+   - Expected output: seasonal prediction list and MAP score.
 
 1. `ex_04_zscore_anomaly_detection.py`
 

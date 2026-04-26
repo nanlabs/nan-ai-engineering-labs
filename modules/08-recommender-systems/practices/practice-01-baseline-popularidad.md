@@ -1,17 +1,17 @@
-# Práctica 01 — Baseline por popularidad
+# Practice 01 — Baseline by popularity
 
 ## Objective
 
-Crear recomendador inicial con ítems más populares.
+Create initial recommender with most popular items.
 
-## Enunciado
+## Statement
 
-1. Calcular ítems más consumidos.
-1. Recomendar top-N por usuario.
-1. Excluir ítems ya vistos.
-1. Revisar cobertura básica.
+1. Calculate most consumed items.
+1. Recommend top-N by user.
+1. Exclude already viewed items.
+1. Review basic coverage.
 
-## Validación
+## Validation
 
 - Genera recomendaciones reproducibles.
-- Excluye interacciones previas del usuario.
+- Excludes previous user interactions.

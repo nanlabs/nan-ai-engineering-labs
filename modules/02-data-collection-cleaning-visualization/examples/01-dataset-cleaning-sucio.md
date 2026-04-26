@@ -1,21 +1,21 @@
-# Example 01 — Cleaning de Dataset Sucio (Ventas de E-commerce)
+# Example 01 — Dirty Dataset Cleaning (E-commerce Sales)
 
-## Contexto
+## Context
 
-Trabajas para un e-commerce que tiene un dataset de transacciones con múltiples Problems de calidad. Tu tarea es limpiar los Data antes de entrenar un Model de Prediction de churn.
+You work for an e-commerce that has a transaction dataset with multiple quality problems. Your task is to clean the Data before training a Churn Prediction Model.
 
-## Dataset problemático
+## Problematic dataset
 
 ```python
 import pandas as pd
 import numpy as np
 
-# Simular dataset con problemas típicos
+# Similar dataset con problems typical
 np.random.seed(42)
 
 data = {
     'customer_id': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112],
-    'age': [25, 150, 35, np.nan, 42, 28, 'treinta', 55, 40, 32, 29, 38],  # Problema: outlier, NaN, string
+    'age': [25, 150, 35, np.nan, 42, 28, 'treinta', 55, 40, 32, 29, 38],  # Problem: outlier, NaN, string
     'income': [50000, 75000, 60000, 80000, np.nan, 55000, 70000, 65000, 72000, 58000, 62000, np.nan],  # NaN
     'purchase_date': ['2024-01-15', '2024-01-20', '2024-01-25', '2024-01-30',
                       '2024/02/05', 'invalid', '2024-02-15', '2024-02-20',
@@ -34,7 +34,7 @@ print(df)
 print(f"\nDimensiones: {df.shape}")
 ```
 
-## Salida inicial
+## Initial output
 
 ```
 Dataset original:
@@ -52,38 +52,38 @@ Dataset original:
 10          111   29  62000.0    2024-03-05        fashion          850  user11@mail.com
 11          112   38      NaN    2024-03-10           Home         1400  user12@mail.com
 
-Dimensiones: (12, 7)
+Dimensions: (12, 7)
 ```
 
 ______________________________________________________________________
 
-## 🔍 Paso 1: Diagnóstico inicial
+## 🔍 Step 1: Initial diagnosis
 
 ```python
-# Información general
-print("=== INFORMACIÓN GENERAL ===")
+# Information general
+print("=== INFORMATION GENERAL ===")
 print(df.info())
 print("\n=== VALORES NULOS ===")
 print(df.isnull().sum())
-print("\n=== ESTADÍSTICAS DESCRIPTIVAS ===")
+print("\n=== STATISTICS DESCRIPTIVAS ===")
 print(df.describe())
 print("\n=== DUPLICADOS ===")
 print(f"Filas duplicadas (email): {df.duplicated(subset=['email']).sum()}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== INFORMACIÓN GENERAL ===
+=== INFORMATION GENERAL ===
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 12 entries, 0 to 11
 Data columns (total 7 columns):
  #   Column         Non-Null Count  Dtype
 ---  ------         --------------  -----
  0   customer_id    12 non-null     int64
- 1   age            11 non-null     object  👈 debería ser int
+ 1   age            11 non-null     object  👈 ought ser int
  2   income         10 non-null     float64
- 3   purchase_date  12 non-null     object  👈 debería ser datetime
+ 3   purchase_date  12 non-null     object  👈 ought ser datetime
  4   category       12 non-null     object
  5   total_spent    12 non-null     int64
  6   email          12 non-null     object
@@ -102,43 +102,43 @@ email            0
 Filas duplicadas (email): 1  👈 user3@mail.com aparece 2 veces
 ```
 
-### Problems detectados
+### Problems detected
 
-1. **age:** Type object (debería ser int), tiene NaN y valor "treinta"
-1. **income:** 2 valores nulos
-1. **purchase_date:** formato inconsistente, valor "invalid"
-1. **category:** inconsistencia de mayúsculas/minúsculas
-1. **total_spent:** valor negativo (-500)
-1. **email:** email duplicado y formato inválido
-1. **Posible outlier:** age=150
+1. **age:** Type object (should be int), has NaN and value "thirty"
+1. **income:** 2 values nulls
+1. **purchase_date:** inconsistent format, value "invalid"
+1. **category:** case inconsistency
+1. **total_spent:** negative value (-500)
+1. **email:** duplicate email and invalid format
+1. **Possible outlier:** age=150
 
 ______________________________________________________________________
 
-## 🛠️ Paso 2: Cleaning sistemática
+## 🛠️ Step 2: Systematic Cleaning
 
-### 2.1 Remover duplicados
+### 2.1 Remove duplicates
 
 ```python
-# Identificar duplicados
+# Identify duplicates
 print("Filas duplicadas:")
 print(df[df.duplicated(subset=['email'], keep=False)])
 
-# Opción 1: Mantener primera ocurrencia
+# Option 1: Mantener primera ocurrencia
 df_clean = df.drop_duplicates(subset=['email'], keep='first')
 print(f"\nFilas eliminadas: {len(df) - len(df_clean)}")
-print(f"Nuevas dimensiones: {df_clean.shape}")
+print(f"Nuevas dimensions: {df_clean.shape}")
 ```
 
-**Decisión:** Mantener primera ocurrencia de email duplicado (<user3@mail.com>).
+**Decision:** Keep first occurrence of duplicate email (<user3@mail.com>).
 
-### 2.2 Corregir columna `age`
+### 2.2 Correct `age` column
 
 ```python
-# Convertir a numérico (coerce convierte inválidos a NaN)
+# Convert a numeric (coerce convierte invalids a NaN)
 df_clean['age'] = pd.to_numeric(df_clean['age'], errors='coerce')
 print(f"Valores NaN en age: {df_clean['age'].isnull().sum()}")
 
-# Detectar outliers con IQR
+# Detect outliers con IQR
 Q1 = df_clean['age'].quantile(0.25)
 Q3 = df_clean['age'].quantile(0.75)
 IQR = Q3 - Q1
@@ -146,101 +146,101 @@ lower_bound = Q1 - 1.5 * IQR
 upper_bound = Q3 + 1.5 * IQR
 
 outliers = df_clean[(df_clean['age'] < lower_bound) | (df_clean['age'] > upper_bound)]
-print(f"\nOutliers detectados: {len(outliers)}")
+print(f"\nOutliers detected: {len(outliers)}")
 print(outliers[['customer_id', 'age']])
 
-# Opción conservadora: reemplazar outliers con mediana
+# Option conservadora: reemplazar outliers con median
 df_clean['age'] = df_clean['age'].apply(
     lambda x: df_clean['age'].median() if (x < lower_bound or x > upper_bound) else x
 )
 
-# Imputar NaN con mediana
+# Imputar NaN con median
 df_clean['age'].fillna(df_clean['age'].median(), inplace=True)
 print(f"\nNaN restantes en age: {df_clean['age'].isnull().sum()}")
 ```
 
-**Decisión:**
+**Decision:**
 
-- outlier (150) reemplazado con mediana
-- NaN imputados con mediana
+- outlier (150) replaced with median
+- NaN imputed with median
 
-### 2.3 Corregir columna `income`
+### 2.3 Correct `income` column
 
 ```python
-# Estrategia: imputar con mediana del grupo (por category)
+# Estrategia: imputar con median del group (por category)
 df_clean['income'] = df_clean.groupby('category')['income'].transform(
     lambda x: x.fillna(x.median())
 )
 
-# Si aún quedan NaN (grupo sin valores), usar mediana global
+# Si aún quedan NaN (group sin values), use median global
 df_clean['income'].fillna(df_clean['income'].median(), inplace=True)
 print(f"NaN restantes en income: {df_clean['income'].isnull().sum()}")
 ```
 
-**Decisión:** Imputación por grupo (category) para mayor Precision.
+**Decision:** Imputation by group (category) for greater Precision.
 
-### 2.4 Corregir columna `purchase_date`
+### 2.4 Correct `purchase_date` column
 
 ```python
-# Función para normalizar formato
+# Function para normalizar format
 def parse_date(date_str):
     try:
-        # Intentar formato ISO
+        # Intentar format ISO
         return pd.to_datetime(date_str, format='%Y-%m-%d')
     except:
         try:
-            # Intentar formato alternativo
+            # Intentar format alternativo
             return pd.to_datetime(date_str, format='%Y/%m/%d')
         except:
-            # Inválido: retornar NaT
+            # Invalid: retornar NaT
             return pd.NaT
 
 df_clean['purchase_date'] = df_clean['purchase_date'].apply(parse_date)
-print(f"NaT (fechas inválidas): {df_clean['purchase_date'].isnull().sum()}")
+print(f"NaT (fechas invalid): {df_clean['purchase_date'].isnull().sum()}")
 
-# Eliminar filas con fechas inválidas (decisión de negocio)
+# Eliminar rows con fechas invalid (decision de business)
 df_clean = df_clean.dropna(subset=['purchase_date'])
-print(f"Dimensiones tras eliminar fechas inválidas: {df_clean.shape}")
+print(f"Dimensions tras eliminar fechas invalid: {df_clean.shape}")
 ```
 
-**Decisión:** Eliminar registros con fecha inválida (opción: imputar con fecha modal o eliminar).
+**Decision:** Delete records with invalid date (option: impute with modal date or delete).
 
-### 2.5 Normalizar columna `category`
+### 2.5 Normalize `category` column
 
 ```python
-# Convertir a lowercase y title case
+# Convert a lowercase y title case
 df_clean['category'] = df_clean['category'].str.lower().str.title()
-print("Categorías únicas:")
+print("Categories unique:")
 print(df_clean['category'].value_counts())
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Categorías únicas:
+Categories unique:
 Electronics    3
 Fashion        3
 Home           3
 ```
 
-### 2.6 Corregir Anomalies en `total_spent`
+### 2.6 Correct Anomalies in `total_spent`
 
 ```python
-# Detectar valores negativos
+# Detect values negativos
 negative_mask = df_clean['total_spent'] < 0
 print(f"Valores negativos: {negative_mask.sum()}")
 
-# Opción 1: Convertir a valor absoluto (asumir error de signo)
+# Option 1: Convert a valor absoluto (asumir error de signo)
 # df_clean['total_spent'] = df_clean['total_spent'].abs()
 
-# Opción 2: Eliminar transacciones negativas (refunds?)
+# Option 2: Eliminar transacciones negativas (refunds?)
 df_clean = df_clean[df_clean['total_spent'] >= 0]
-print(f"Dimensiones tras eliminar negativos: {df_clean.shape}")
+print(f"Dimensions tras eliminar negativos: {df_clean.shape}")
 ```
 
-**Decisión:** Eliminar transacciones negativas (interpretadas como refunds, fuera de alcance del Analysis).
+**Decision:** Eliminate negative transactions (interpreted as refunds, outside the scope of the Analysis).
 
-### 2.7 Validar emails
+### 2.7 Validate emails
 
 ```python
 import re
@@ -251,16 +251,16 @@ def is_valid_email(email):
 
 df_clean['email_valid'] = df_clean['email'].apply(is_valid_email)
 invalid_emails = df_clean[~df_clean['email_valid']]
-print(f"Emails inválidos: {len(invalid_emails)}")
+print(f"Emails invalids: {len(invalid_emails)}")
 
-# Eliminar registros con emails inválidos
+# Eliminar registros con emails invalids
 df_clean = df_clean[df_clean['email_valid']].drop('email_valid', axis=1)
-print(f"Dimensiones finales: {df_clean.shape}")
+print(f"Dimensions finales: {df_clean.shape}")
 ```
 
 ______________________________________________________________________
 
-## ✅ Paso 3: Dataset limpio final
+## ✅ Step 3: Final clean dataset
 
 ```python
 print("=== DATASET LIMPIO ===")
@@ -273,7 +273,7 @@ print("\n=== DUPLICADOS ===")
 print(f"Duplicados: {df_clean.duplicated().sum()}")
 ```
 
-**Salida limpia:**
+**Clean output:**
 
 ```
 === DATASET LIMPIO ===
@@ -288,23 +288,23 @@ print(f"Duplicados: {df_clean.duplicated().sum()}")
 10          111  29.0  62000.0    2024-03-05      Fashion          850  user11@mail.com
 11          112  38.0  67500.0    2024-03-10         Home         1400  user12@mail.com
 
-Dimensiones finales: (9, 7)
+Dimensions finales: (9, 7)
 ```
 
-**Resumen de transformaciones:**
+**Summary of transformations:**
 
-- Filas originales: 12 → Filas finales: 9 (3 eliminadas)
-- Nulos imputados: age (2), income (2)
-- outliers corregidos: 1 (age=150)
-- Duplicados eliminados: 1
-- Fechas inválidas eliminadas: 1
-- Emails inválidos eliminados: 1
-- Valores negativos eliminados: 1
-- Categorías normalizadas: 3 diferentes
+- Original rows: 12 → Final rows: 9 (3 removed)
+- Nulls imputed: age (2), income (2)
+- corrected outliers: 1 (age=150)
+- Duplicates removed: 1
+- Invalid dates removed: 1
+- Invalid emails deleted: 1
+- Negative values ​​removed: 1
+- Normalized categories: 3 different
 
 ______________________________________________________________________
 
-## 📊 Paso 4: Visualization de calidad
+## 📊 Step 4: Quality visualization
 
 ```python
 import matplotlib.pyplot as plt
@@ -312,22 +312,22 @@ import seaborn as sns
 
 fig, axes = plt.subplots(2, 2, figsize=(12, 8))
 
-# 1. Distribución de age
+# 1. Distribution de age
 axes[0, 0].hist(df_clean['age'], bins=10, edgecolor='black', color='skyblue')
-axes[0, 0].set_title('Distribución de Edad')
+axes[0, 0].set_title('Distribution de Edad')
 axes[0, 0].set_xlabel('Edad')
 axes[0, 0].set_ylabel('Frecuencia')
 
-# 2. Distribución de income
+# 2. Distribution de income
 axes[0, 1].hist(df_clean['income'], bins=10, edgecolor='black', color='lightgreen')
-axes[0, 1].set_title('Distribución de Ingresos')
+axes[0, 1].set_title('Distribution de Ingresos')
 axes[0, 1].set_xlabel('Ingresos')
 axes[0, 1].set_ylabel('Frecuencia')
 
-# 3. Transacciones por categoría
+# 3. Transacciones por category
 df_clean['category'].value_counts().plot(kind='bar', ax=axes[1, 0], color='coral')
-axes[1, 0].set_title('Transacciones por Categoría')
-axes[1, 0].set_xlabel('Categoría')
+axes[1, 0].set_title('Transacciones por Category')
+axes[1, 0].set_xlabel('Category')
 axes[1, 0].set_ylabel('Cantidad')
 axes[1, 0].tick_params(axis='x', rotation=0)
 
@@ -343,25 +343,25 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🎓 Lessons aprendidas
+## 🎓 Lessons learned
 
-### ✅ Buenas Practices aplicadas
+### ✅ Good Practices applied
 
-1. **Diagnóstico antes de actuar:** `info()`, `describe()`, `isnull()`
-1. **Documentar decisiones:** ¿Por qué eliminar vs imputar?
-1. **Validation contextual:** IQR para outliers, regex para emails
-1. **Imputación inteligente:** Por grupo (category) en lugar de global
-1. **Preservar trazabilidad:** Dataset original intacto, transformaciones en copia
+1. **Diagnosis before acting:** `info()`, `describe()`, `isnull()`
+1. **Document decisions:** Why delete vs impute?
+1. **Contextual validation:** IQR for outliers, regex for emails
+1. **Smart Imputation:** By group (category) instead of global
+1. **Preserve traceability:** Original dataset intact, transformations in copy
 
-### ⚠️ Consideraciones de negocio
+### ⚠️ Business considerations
 
-- **Eliminar vs corregir:** Depende del % de Data afectados y disponibilidad de información adicional
-- **Imputación:** Puede introducir sesgo. Documentar método usado
-- **outliers:** No siempre son Errors. Validar con experto de dominio
+- **Delete vs correct:** Depends on the % of data affected and availability of additional information
+- **Imputation:** May introduce bias. Document method used
+- **outliers:** They are not always Errors. Validate with domain expert
 
-### 🔧 Herramientas útiles
+### 🔧 Useful tools
 
-- `pd.to_numeric(errors='coerce')`: Conversión robusta
-- `groupby().transform()`: Imputación por grupo
-- `dropna()` vs `fillna()`: Trade-off entre pérdida de Data y calidad
-- Regex para Validation de formatos
+- `pd.to_numeric(errors='coerce')`: Robust conversion
+- `groupby().transform()`: Imputation by group
+- `dropna()` vs `fillna()`: Trade-off between data loss and quality
+- Regex for Validation of formats

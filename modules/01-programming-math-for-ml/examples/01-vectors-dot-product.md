@@ -1,10 +1,10 @@
-# Example 1 — Vectores y producto punto
+# Example 1 — Vectors and product point
 
 ## Objective
 
 Represent vectors using NumPy and calculate basic similarity between them using the dot product.
 
-## Concepts previos
+## Concepts previous
 
 - A **vector** is an ordered list of numbers.
 - The **dot product** of two vectors measures their directional similarity.
@@ -13,33 +13,33 @@ Represent vectors using NumPy and calculate basic similarity between them using 
 
 ## Step by step implementation
 
-### 1. Importar NumPy
+### 1. Import NumPy
 
 ```python
 import numpy as np
 ```
 
-### 2. Crear dos vectores
+### 2. Create dos vectors
 
 ```python
-# Vector que representa características de un producto A
-producto_a = np.array([4.5, 3.2, 5.0])  # [precio, calidad, popularidad]
+# Vector que represents features de un product A
+producto_a = np.array([4.5, 3.2, 5.0])  # [price, quality, popularity]
 
-# Vector que representa características de un producto B
+# Vector que represents features de un product B
 producto_b = np.array([4.7, 3.0, 4.8])
 ```
 
 ### 3. Calculate the dot product
 
 ```python
-similitud = np.dot(producto_a, producto_b)
-print(f"Similitud entre productos: {similitud:.2f}")
+similarity = np.dot(producto_a, producto_b)
+print(f"Similarity entre products: {similarity:.2f}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-Similitud entre productos: 54.71
+Similarity entre products: 54.71
 ```
 
 ### 4. Calculate the norm (length) of each vector
@@ -48,35 +48,35 @@ Similitud entre productos: 54.71
 norma_a = np.linalg.norm(producto_a)
 norma_b = np.linalg.norm(producto_b)
 
-print(f"Norma de producto A: {norma_a:.2f}")
-print(f"Norma de producto B: {norma_b:.2f}")
+print(f"Norma de product A: {norma_a:.2f}")
+print(f"Norma de product B: {norma_b:.2f}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-Norma de producto A: 7.35
-Norma de producto B: 7.24
+Norma de product A: 7.35
+Norma de product B: 7.24
 ```
 
-### 5. Calcular similitud normalizada (coseno)
+### 5. Calculate similarity normalized (cosine)
 
 ```python
-similitud_coseno = similitud / (norma_a * norma_b)
-print(f"Similitud coseno: {similitud_coseno:.4f}")
+similitud_coseno = similarity / (norma_a * norma_b)
+print(f"Similarity cosine: {similitud_coseno:.4f}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-Similitud coseno: 1.0281
+Similarity cosine: 1.0281
 ```
 
 > ⚠️ **Note:** The cosine similarity should be between -1 and 1. If it is greater than 1, there is a rounding error or the vectors are almost identical.
 
 ### 6. Interpretation
 
-- Un valor cercano a 1 indica que ambos productos son muy similares en sus Features.
+- A close value of 1 indicates that both products are very similar in their features.
 - We use this in ML to measure similarity between text embeddings, Images, etc.
 
 ## Complete executable code
@@ -84,36 +84,36 @@ Similitud coseno: 1.0281
 ```python
 import numpy as np
 
-# Definir vectores
+# Define vectors
 producto_a = np.array([4.5, 3.2, 5.0])
 producto_b = np.array([4.7, 3.0, 4.8])
 
-# Producto punto
-similitud = np.dot(producto_a, producto_b)
-print(f"Similitud (producto punto): {similitud:.2f}")
+# Production point
+similarity = np.dot(producto_a, producto_b)
+print(f"Similarity (product point): {similarity:.2f}")
 
-# Normas
+# Norms
 norma_a = np.linalg.norm(producto_a)
 norma_b = np.linalg.norm(producto_b)
 print(f"Norma A: {norma_a:.2f}, Norma B: {norma_b:.2f}")
 
-# Similitud coseno
-similitud_coseno = similitud / (norma_a * norma_b)
-print(f"Similitud coseno: {similitud_coseno:.4f}")
+# Similarity cosine
+similitud_coseno = similarity / (norma_a * norma_b)
+print(f"Similarity cosine: {similitud_coseno:.4f}")
 ```
 
-## Errors comunes
+## Errors common
 
 - ❌ Forget that vectors must have the same dimension.
 - ❌ Confuse dot product with element-by-element multiplication (`*`).
 - ❌ Do not normalize before calculating cosine (use norms).
 
-## Exercise propuesto
+## Exercise proposed
 
 Create two vectors that represent users based on their movie genre preferences:
 
 ```python
-usuario_1 = np.array([5, 3, 0, 4])  # [acción, comedia, drama, sci-fi]
+usuario_1 = np.array([5, 3, 0, 4])  # [action, comedy, drama, sci-fi]
 usuario_2 = np.array([4, 2, 1, 5])
 ```
 

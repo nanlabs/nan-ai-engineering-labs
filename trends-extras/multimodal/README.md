@@ -1,29 +1,29 @@
 # Multimodal AI — Vision + Language Models
 
-## 🎯 Objetivo
+## 🎯 Objective
 
-Trabajar con modelos multimodales que combinan visión y lenguaje (CLIP, BLIP, GPT-4V, LLaVA): image captioning, visual question answering, text-to-image.
+Work with multimodal Models that combine vision and language (CLIP, BLIP, GPT-4V, LLaVA): image captioning, visual question answering, text-to-image.
 
-## 💡 Qué aprenderás
+## 💡 What will you learn
 
-- Vision-Language Models (VLMs): arquitectura y training
-- CLIP para image-text similarity y zero-shot classification
-- BLIP para image captioning y VQA
-- GPT-4V y Gemini para visual understanding
+- Vision-Language Models (VLMs): architecture and training
+- CLIP for image-text similarity and zero-shot classification
+- BLIP for image captioning and VQA
+- GPT-4V and Gemini for visual understanding
 - Text-to-image: Stable Diffusion, DALL-E, Midjourney
-- Multi-modal embeddings y retrieval
+- Multi-modal embeddings and retrieval
 - Fusion techniques (early vs late fusion)
 
-## 📂 Contenido
+## 📂 Content
 
 ### Examples
 
-- **ex_01_clip_zero_shot_classification.py**: Clasificación de imágenes sin training con CLIP
-- **ex_02_image_captioning_blip.py**: Generar captions descriptivos con BLIP
-- **ex_03_visual_question_answering.py**: Responder preguntas sobre imágenes
-- **ex_04_text_to_image_stable_diffusion.py**: Generar imágenes desde prompts
+- **ex_01_clip_zero_shot_classification.py**: Classification of Images without training with CLIP
+- **ex_02_image_captioning_blip.py**: Generate captions descriptions with BLIP
+- **ex_03_visual_question_answering.py**: Responder questions about Images
+- **ex_04_text_to_image_stable_diffusion.py**: Generate Images from prompts
 
-## 🔑 Conceptos Clave
+## 🔑 Concepts Clave
 
 ### Vision-Language Models Architecture
 
@@ -66,7 +66,7 @@ Trabajar con modelos multimodales que combinan visión y lenguaje (CLIP, BLIP, G
 
 ## 🎨 CLIP: Contrastive Learning
 
-**Training**: Pares (image, caption) con contrastive loss
+**Training**: Pairs (image, caption) with contrastive loss
 
 ```python
 # Simplified CLIP concept
@@ -94,14 +94,14 @@ predicted_class = similarities.argmax()
 
 ## 📊 Models Comparison
 
-| Model                | Task                | Open Source | API | Best For                 |
+| Model | Task | Open Source | API | Best For |
 | -------------------- | ------------------- | ----------- | --- | ------------------------ |
-| **CLIP**             | Image-text matching | ✅          | -   | Zero-shot classification |
-| **BLIP**             | Captioning, VQA     | ✅          | -   | Understanding images     |
-| **LLaVA**            | Visual chat         | ✅          | -   | Open source VLM          |
-| **GPT-4V**           | Multi-modal chat    | ❌          | ✅  | Production apps          |
-| **Stable Diffusion** | Text-to-image       | ✅          | ✅  | Image generation         |
-| **DALL-E 3**         | Text-to-image       | ❌          | ✅  | High quality images      |
+| **CLIP** | Image-text matching | ✅ | - | Zero-shot classification |
+| **BLIP** | Captioning, VQA | ✅ | - | Understanding images |
+| **KEY** | Visual chat | ✅ | - | Open source VLM |
+| **GPT-4V** | Multi-modal chat | ❌ | ✅ | Production apps |
+| **Stable Diffusion** | Text-to-image | ✅ | ✅ | Image generation |
+| **DALL-E 3** | Text-to-image | ❌ | ✅ | High quality images |
 
 ## 💻 Code Pattern: VQA Pipeline
 
@@ -125,15 +125,15 @@ print(f"Q: {question}")
 print(f"A: {answer}")
 ```
 
-## 🧪 Ejercicio Rápido
+## 🧪 Quick Exercise
 
 1. **Setup**: `pip install transformers pillow torch`
-1. **CLIP Zero-Shot**: Clasifica imagen entre 5 categorías sin training
-1. **Image Captioning**: Genera caption para tus fotos
-1. **VQA**: Haz 3 preguntas sobre una imagen
-1. **Compara**: Precisión de CLIP vs BLIP en tus ejemplos
+1. **CLIP Zero-Shot**: Classify Image between 5 categories without training
+1. **Image Captioning**: Generate captions for your photos
+1. **VQA**: Ask 3 questions about an Image
+1. **Compare**: Precision of CLIP vs BLIP in your Examples
 
-## 📚 Recursos Curados
+## 📚 Resources Curados
 
 **Models & Papers:**
 
@@ -158,52 +158,62 @@ print(f"A: {answer}")
 - [CLIP Tutorial](https://github.com/openai/CLIP)
 - [Stable Diffusion Guide](https://stable-diffusion-art.com/)
 
-## ✅ Checklist de Aprendizaje
+## ✅ Learning Checklist
 
-- [ ] CLIP para zero-shot classification
-- [ ] Image captioning con BLIP
+- [ ] CLIP for zero-shot classification
+- [ ] Image captioning with BLIP
 - [ ] Visual question answering
-- [ ] Multi-modal embeddings para retrieval
-- [ ] Text-to-image con Stable Diffusion
-- [ ] Fine-tuning VLM en custom dataset
-- [ ] Evaluation metrics (BLEU, CIDEr para captioning)
+- [ ] Multi-modal embeddings for retrieval
+- [ ] Text-to-image with Stable Diffusion
+- [ ] Fine-tuning VLM in custom dataset
+- [ ] Evaluation metrics (BLEU, CIDEr for captioning)
 
 ## 🎯 Impacto Real
 
-- **E-commerce**: Search por imagen + texto, auto-tagging
-- **Accessibility**: Auto-captioning para personas con discapacidad visual
-- **Content Moderation**: Detectar contenido inapropiado con VQA
-- **Creative Tools**: Text-to-image para diseño gráfico
-- **Healthcare**: Medical image analysis con VLMs
+- **E-commerce**: Search by Image + text, auto-tagging
+- **Accessibility**: Auto-captioning for people with visual impairments
+- **Content Moderation**: Detect Inappropriate Content with VQA
+- **Creative Tools**: Text-to-image for graphic design
+- **Healthcare**: Medical image analysis with VLMs
 
-## 🚀 Próximos Pasos
+## 🚀 Next Steps
 
-Integra con:
+Integrate with:
 
-- **agents** para crear agentes visuales (analyse image → reason → act)
-- **guardrails** para filtrar imágenes generadas inapropiadas
-- **llm-evals** para evaluar calidad de captions/VQA responses
+- **agents** to create visual agents (analyze image → reason → act)
+- **guardrails** for filter Images generated inappropriately
+- **llm-evals** to assess quality of captions/VQA responses
 
 ## Module objective
 
-Pendiente de completar este apartado.
+Build practical multimodal workflows that combine vision and language models for classification, captioning, question answering, and generation tasks.
 
 ## What you will achieve
 
-Pendiente de completar este apartado.
+- Run core multimodal pipelines end-to-end.
+- Select appropriate models for image-text use cases.
+- Evaluate response quality and failure patterns.
+- Adapt examples to product-oriented scenarios.
 
 ## Internal structure
 
-Pendiente de completar este apartado.
+- `README.md`: concepts, trade-offs, and implementation guidance.
+- `examples/`: CLIP, BLIP, VQA, and text-to-image demonstrations.
+- `practices/`: guided multimodal exercises and performance analysis.
 
 ## Level path (L1-L4)
 
-Pendiente de completar este apartado.
+- L1: Execute baseline image-text tasks.
+- L2: Tune prompts and preprocessing strategies.
+- L3: Compare model outputs across real scenarios.
+- L4: Design a robust multimodal mini-solution with evaluation.
 
 ## Recommended plan (by progress, not by weeks)
 
-Pendiente de completar este apartado.
+Start with deterministic tasks (classification/captioning), then add open-ended tasks (VQA/generation). Once outputs are stable, add evaluation and guardrails.
 
 ## Module completion criteria
 
-Pendiente de completar este apartado.
+- You can deploy at least two multimodal pipelines.
+- You can explain model selection and observed trade-offs.
+- You can provide a short quality review with representative examples.

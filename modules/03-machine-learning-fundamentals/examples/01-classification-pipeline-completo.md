@@ -1,16 +1,16 @@
-# Example 01 — Pipeline Completo de Classification (Iris Dataset)
+# Example 01 — Complete Classification Pipeline (Iris Dataset)
 
-## Contexto
+## Context
 
-Construirás un pipeline completo de Machine Learning desde cero: desde Data crudos hasta Prediction, siguiendo las mejores Practices profesionales. Usaremos el dataset Iris (Classification de especies de flores) por ser didáctico pero representativo.
+You will build a complete Machine Learning pipeline from scratch: from raw Data to Prediction, following professional best practices. We will use the Iris dataset (Classification of flower species) because it is didactic but representative.
 
 ## Objective
 
-Predecir la especie de flor Iris basándose en mediciones de sépalos y pétalos.
+Predict the Iris flower species based on measurements of sepals and petals.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Importar librerías y cargar Data
+## 🚀 Step 1: Import libraries and load Data
 
 ```python
 import numpy as np
@@ -27,57 +27,57 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 import warnings
 warnings.filterwarnings('ignore')
 
-# Cargar dataset
+# Load dataset
 iris = load_iris()
 X = pd.DataFrame(iris.data, columns=iris.feature_names)
 y = pd.Series(iris.target, name='species')
 
 print("=== DATASET IRIS ===")
-print(f"Dimensiones: {X.shape}")
+print(f"Dimensions: {X.shape}")
 print(f"Features: {list(X.columns)}")
-print(f"Clases: {iris.target_names}")
-print(f"\nPrimeras filas:")
+print(f"Cases, Clashes, Classes: {iris.target_names}")
+print(f"\nPrimeras rows:")
 print(X.head())
-print(f"\nDistribución de clases:")
+print(f"\nDistribución de classes:")
 print(y.value_counts())
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === DATASET IRIS ===
-Dimensiones: (150, 4)
+Dimensions: (150, 4)
 Features: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
-Clases: ['setosa' 'versicolor' 'virginica']
+Cases, Clashes, Classes: ['setosa' 'versicolor' 'virginica']
 
-Primeras filas:
+Primeras rows:
    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
 0                5.1               3.5                1.4               0.2
 1                4.9               3.0                1.4               0.2
 2                4.7               3.2                1.3               0.2
 
-Distribución de clases:
-0    50  👈 Balanceado (33% cada clase)
+Distribution de classes:
+0    50  👈 Balanced (33% each clause, class)
 1    50
 2    50
 ```
 
 ______________________________________________________________________
 
-## 📊 Paso 2: Analysis Exploratorio (EDA)
+## 📊 Step 2: Exploratory Analysis (EDA)
 
-### 2.1 Estadísticas descriptivas
+### 2.1 Descriptive statistics
 
 ```python
-print("=== ESTADÍSTICAS DESCRIPTIVAS ===")
+print("=== STATISTICS DESCRIPTIVAS ===")
 print(X.describe())
-print(f"\nValores nulos: {X.isnull().sum().sum()}")
+print(f"\nValores nulls: {X.isnull().sum().sum()}")
 ```
 
-### 2.2 Visualizaciones
+### 2.2 Visualizations
 
 ```python
-# Crear DataFrame combinado para visualización
+# Create DataFrame combinado para visualization
 df = X.copy()
 df['species'] = y.map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})
 
@@ -100,23 +100,23 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Insights del EDA:**
+**EDA Insights:**
 
-- **Setosa** se separa claramente (petal length/width más cortos)
-- **Versicolor y Virginica** tienen overlap (más difíciles de distinguir)
-- No hay valores nulos ni outliers extremos
-- Dataset balanceado (no requiere re-balanceo)
+- **Setosa** separates clearly (shorter petal length/width)
+- **Versicolor and Virginica** have overlap (more difficult to distinguish)
+- There are no null values ​​or extreme outliers
+- Balanced dataset (does not require re-balancing)
 
 ______________________________________________________________________
 
-## 🔧 Paso 3: Preparación de Data
+## 🔧 Step 3: Data Preparation
 
 ### 3.1 Train/Test Split
 
 ```python
 # Split: 80% train, 20% test
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y  # stratify preserva distribución de clases
+    X, y, test_size=0.2, random_state=42, stratify=y  # stratify preserva distribution de classes
 )
 
 print(f"Train set: {X_train.shape}")
@@ -125,28 +125,28 @@ print(f"\nDistribución en train:")
 print(y_train.value_counts())
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Train set: (120, 4)
 Test set: (30, 4)
 
-Distribución en train:
+Distribution en train:
 0    40
 1    40
 2    40
-✅ Stratify funcionó: distribución balanceada preservada
+✅ Stratify it worked: distribution balanced preservada
 ```
 
-### 3.2 Escalado de features
+### 3.2 Feature scaling
 
 ```python
-# Entrenar scaler solo con train (prevenir data leakage)
+# Train scaler solo con train (prevenir data leakage)
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)  # Aplicar transformación aprendida
+X_test_scaled = scaler.transform(X_test)  # Apply transformation aprendida
 
-# Convertir de nuevo a DataFrame para mantener nombres de columnas
+# Convertir de nuevo a DataFrame para mantener nombres de columns
 X_train_scaled = pd.DataFrame(X_train_scaled, columns=X.columns)
 X_test_scaled = pd.DataFrame(X_test_scaled, columns=X.columns)
 
@@ -156,10 +156,10 @@ print("\nDespués del escalado (train):")
 print(X_train_scaled.describe().loc[['mean', 'std']])
 ```
 
-**Salida:**
+**Output:**
 
 ```
-Después del escalado:
+After del escalado:
        sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
 mean          -0.000000        -0.000000            -0.000000          0.000000
 std            1.008403         1.008403             1.008403          1.008403
@@ -168,19 +168,19 @@ std            1.008403         1.008403             1.008403          1.008403
 
 ______________________________________________________________________
 
-## 🤖 Paso 4: Training de Models
+## 🤖 Step 4: Model Training
 
 ### 4.1 Baseline: Logistic Regression
 
 ```python
-# Modelo base
+# Model base
 lr = LogisticRegression(max_iter=200, random_state=42)
 lr.fit(X_train_scaled, y_train)
 
-# Predicciones
+# Predictions
 y_pred_lr = lr.predict(X_test_scaled)
 
-# Evaluación
+# Evaluation
 acc_lr = accuracy_score(y_test, y_pred_lr)
 print(f"=== LOGISTIC REGRESSION ===")
 print(f"Accuracy: {acc_lr:.4f}")
@@ -188,7 +188,7 @@ print(f"\nClassification Report:")
 print(classification_report(y_test, y_pred_lr, target_names=iris.target_names))
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === LOGISTIC REGRESSION ===
@@ -232,7 +232,7 @@ print(f"Accuracy: {acc_rf:.4f}")
 
 ______________________________________________________________________
 
-## 📈 Paso 5: Comparación de Models
+## 📈 Step 5: Comparison of Models
 
 ### 5.1 Cross-validation
 
@@ -254,7 +254,7 @@ for name, model in models.items():
     print(f"  Scores: {scores}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === CROSS-VALIDATION (5-FOLD) ===
@@ -271,10 +271,10 @@ Random Forest:
   Scores: [1.         0.95833333 1.         0.95833333 0.91666667]
 ```
 
-### 5.2 Visualization de comparación
+### 5.2 Comparison display
 
 ```python
-# Comparar performance
+# Compare performance
 comparison = pd.DataFrame({
     'Model': list(models.keys()),
     'Test Accuracy': [acc_lr, acc_dt, acc_rf],
@@ -285,17 +285,17 @@ comparison = pd.DataFrame({
 print("\n=== RESUMEN DE MODELOS ===")
 print(comparison)
 
-# Gráfico
+# Graphic
 fig, ax = plt.subplots(figsize=(10, 6))
-x = np.arange(len(comparison))
+x = np.arrange(len(comparison))
 width = 0.35
 
 ax.bar(x - width/2, comparison['Test Accuracy'], width, label='Test Accuracy', color='skyblue')
 ax.bar(x + width/2, comparison['CV Mean'], width, label='CV Mean', color='lightcoral')
 
-ax.set_xlabel('Modelo')
+ax.set_xlabel('Model')
 ax.set_ylabel('Accuracy')
-ax.set_title('Comparación de Modelos')
+ax.set_title('Comparison de Models')
 ax.set_xticks(x)
 ax.set_xticklabels(comparison['Model'], rotation=15, ha='right')
 ax.legend()
@@ -307,10 +307,10 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🎯 Paso 6: Analysis detallado del mejor Model
+## 🎯 Step 6: Detailed analysis of the better Model
 
 ```python
-# Seleccionar mejor modelo (Logistic Regression y Random Forest empatan)
+# Seleccionar better model (Logistic Regression y Random Forest empatan)
 best_model = rf  # Elegimos RF por robustez
 
 # Confusion Matrix
@@ -333,7 +333,7 @@ feature_importance = pd.DataFrame({
 print("\n=== FEATURE IMPORTANCE ===")
 print(feature_importance)
 
-# Gráfico
+# Graphic
 plt.figure(figsize=(10, 6))
 plt.barh(feature_importance['feature'], feature_importance['importance'], color='steelblue')
 plt.xlabel('Importance')
@@ -343,12 +343,12 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === FEATURE IMPORTANCE ===
               feature  importance
-2  petal length (cm)    0.445302  👈 Feature más importante
+2  petal length (cm)    0.445302  👈 Feature más important
 3   petal width (cm)    0.425186
 0  sepal length (cm)    0.089254
 1   sepal width (cm)    0.040258
@@ -356,122 +356,122 @@ plt.show()
 
 **Insight:**
 
-- Dimensiones de **pétalo** son mucho más predictivas que sépalos
-- Esto confirma observaciones del EDA
+- **Petal** dimensions are much more predictive than sepals
+- This confirms EDA observations
 
 ______________________________________________________________________
 
-## 🚀 Paso 7: Pipeline reproducible con scikit-learn
+## 🚀 Step 7: Reproducible pipeline with scikit-learn
 
 ```python
 from sklearn.pipeline import Pipeline
 
-# Construir pipeline
+# Build pipeline
 pipeline = Pipeline([
     ('scaler', StandardScaler()),
     ('classifier', RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42))
 ])
 
-# Entrenar pipeline (fit + transform automático)
+# Train pipeline (fit + transform automatic)
 pipeline.fit(X_train, y_train)
 
-# Predecir
+# Predict
 y_pred_pipeline = pipeline.predict(X_test)
 acc_pipeline = accuracy_score(y_test, y_pred_pipeline)
 
 print(f"=== PIPELINE ===")
 print(f"Accuracy: {acc_pipeline:.4f}")
 
-# Ventaja: Predecir en datos nuevos sin olvidar escalar
-new_sample = np.array([[5.1, 3.5, 1.4, 0.2]])  # Setosa típica
+# Advantage: Predict en data nuevos sin olvidar escalar
+new_sample = np.array([[5.1, 3.5, 1.4, 0.2]])  # Setosa typical
 prediction = pipeline.predict(new_sample)
 print(f"\nPredicción para muestra nueva: {iris.target_names[prediction[0]]}")
 ```
 
 ______________________________________________________________________
 
-## 💾 Paso 8: Guardar Model
+## 💾 Paso 8: Save Model
 
 ```python
 import joblib
 
-# Guardar modelo entrenado
+# Save model entrenado
 joblib.dump(pipeline, 'iris_classifier_pipeline.pkl')
-print("Modelo guardado: iris_classifier_pipeline.pkl")
+print("Model guardado: iris_classifier_pipeline.pkl")
 
-# Cargar modelo (en producción)
+# Load model (en production)
 loaded_pipeline = joblib.load('iris_classifier_pipeline.pkl')
 prediction_loaded = loaded_pipeline.predict(new_sample)
-print(f"Predicción con modelo cargado: {iris.target_names[prediction_loaded[0]]}")
+print(f"Prediction con model cargado: {iris.target_names[prediction_loaded[0]]}")
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝 Executive summary
 
 ### ✅ Results
 
-| Model               | Test accuracy | CV Mean | CV Std |
+| Model | Test accuracy | CV Mean | CV Std |
 | ------------------- | ------------- | ------- | ------ |
-| Logistic Regression | 1.0000        | 0.9667  | 0.0316 |
-| Decision Tree       | 1.0000        | 0.9583  | 0.0316 |
-| Random Forest       | 1.0000        | 0.9667  | 0.0316 |
+| Logistic Regression | 1.0000 | 0.9667 | 0.0316 |
+| Decision Tree | 1.0000 | 0.9583 | 0.0316 |
+| Random Forest | 1.0000 | 0.9667 | 0.0316 |
 
-**Model seleccionado:** Random Forest
+**Selected model:** Random Forest
 
-- accuracy perfecto en test set (1.00)
-- Robusto en cross-validation (0.9667 ± 0.0316)
+- perfect accuracy in test set (1.00)
+- Robust in cross-validation (0.9667 ± 0.0316)
 - Interpretable (feature importance)
 
 ### 🎯 Features clave
 
-1. **petal length** (44.5%) - Más importante
+1. **petal length** (44.5%) - Most important
 1. **petal width** (42.5%)
 1. **sepal length** (8.9%)
 1. **sepal width** (4.0%)
 
-### 🔍 Observaciones
+### 🔍 Observations
 
-- Dataset Iris es "fácil" (accuracy cercano a 100%)
-- Setosa perfectamente separable
-- Versicolor/Virginica overlap mínimo
-- No hubo overfitting (CV y test performance similares)
+- Dataset Iris is "easy" (accuracy close to 100%)
+- Perfectly separable setosa
+- Versicolor/Virginica overlap minimum
+- There was no overfitting (similar CV and test performance)
 
 ______________________________________________________________________
 
-## 🎓 Lessons aprendidas
+## 🎓 Lessons learned
 
-### ✅ Buenas Practices aplicadas
+### ✅ Good Practices applied
 
-1. **Train/test split estratificado** → Preserva distribución de clases
-1. **Escalado después de split** → Previene data leakage
-1. **Cross-validation** → Validation robusta (no confiar solo en test accuracy)
-1. **Comparación de múltiples Models** → Baseline simple vs complejos
-1. **Pipeline de scikit-learn** → Reproducibilidad y prevenir Errors
-1. **Feature importance** → Interpretabilidad
+1. **Train/test split stratified** → Preserve class distribution
+1. **Scaling after split** → Prevents data leakage
+1. **Cross-validation** → Robust validation (do not rely only on test accuracy)
+1. **Comparison of multiple Models** → Baseline simple vs complex
+1. **Scikit-learn Pipeline** → Reproducibility and preventing Errors
+1. **Feature importance** → Interpretability
 
-### 🚫 Errors comunes evitados
+### 🚫 Common errors avoided
 
-- ❌ Escalar antes de split (data leakage)
-- ❌ Optimizar Hyperparameters mirando test set (overfitting)
-- ❌ No usar cross-validation (sobreestimar performance)
-- ❌ Olvidar estratificación (split desbalanceado)
+- ❌ Scale before split (data leakage)
+- ❌ Optimize Hyperparameters by looking at test set (overfitting)
+- ❌ Do not use cross-validation (overestimate performance)
+- ❌ Forget stratification (unbalanced split)
 
-### 🔧 Herramientas clave
+### 🔧 Key tools
 
-- `StandardScaler`: Escalado (media 0, std 1)
-- `train_test_split` con `stratify`: Split balanceado
+- `StandardScaler`: Scaling (mean 0, std 1)
+- `train_test_split` with `stratify`: Split balanced
 - `cross_val_score`: Cross-validation
 - `Pipeline`: Workflow reproducible
-- `joblib`: Persistencia de Models
+- `joblib`: Model Persistence
 
-### 💡 Próximos pasos
+### 💡 Next steps
 
-Para datasets reales más complejos:
+For more complex real datasets:
 
-1. Manejo de missing values y outliers
-1. Feature engineering más sofisticado
+1. Handling missing values ​​and outliers
+1. More sophisticated feature engineering
 1. Hyperparameter tuning (Grid Search, Random Search)
-1. Analysis de Errors (por qué el Model falla)
-1. Calibración de probabilidades
-1. Threshold optimization (si costos de FP/FN difieren)
+1. Error Analysis (why the Model fails)
+1. Probability calibration
+1. Threshold optimization (if FP/FN costs differ)

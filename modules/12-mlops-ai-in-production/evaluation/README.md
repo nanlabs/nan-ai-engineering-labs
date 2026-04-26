@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 35%
-- Mini-proyecto: 45%
+- Theory: 20%
+- Practices: 35%
+- Mini-project: 45%
 
 ## Rubric
 
-- Comprensión del ciclo MLOps.
-- Calidad técnica del flujo operativo.
-- Cobertura de monitoreo y alertas.
-- Claridad de plan de rollback e incidentes.
+- Understanding the MLOps cycle.
+- Quality technique of the operational flow.
+- Monitoring and alert coverage.
+- Clarity of rollback plan and incidents.
 
 ## Checklist final
 
-- [ ] Versionado de artefactos definido.
-- [ ] Serving básico implementado.
-- [ ] Métricas de operación disponibles.
-- [ ] Drift monitoreado con alertas.
-- [ ] Plan de rollout/rollback documentado.
-- [ ] Lecciones aprendidas registradas.
+- [ ] Defined artifact versioning.
+- [ ] Serving basic implementado.
+- [ ] Operation metrics available.
+- [ ] Drift monitored with alerts.
+- [ ] Documented rollout/rollback plan.
+- [ ] Lessons learned registradas.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

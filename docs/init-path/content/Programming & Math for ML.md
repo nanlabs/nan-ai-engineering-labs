@@ -7,7 +7,7 @@ Understanding the mathematical foundations and programming paradigms behind mach
 - Linear Algebra: Vectors, matrices, dot product, matrix multiplication, eigenvalues.
 - Calculus: Derivatives, partial derivatives, chain rule (for backpropagation).
 - Probability & Statistics: Bayes theorem, distributions, conditional probability, expectation.
-- Optimization: Gradient descent, cost functions, learning rates.
+- Optimization: gradient descent, cost functions, learning rates.
 
 ## 💻 Programming Skills
 

@@ -1,8 +1,8 @@
-# {{TEMA}}
+# {{Topic}}
 
 ## Module objective
 
-Describir que se aprende desde 0 y que resultado practico se espera al finalizar.
+Describe what is learned from 0 and what practical result is expected at the end.
 
 ## What you will achieve
 
@@ -12,32 +12,32 @@ Describir que se aprende desde 0 y que resultado practico se espera al finalizar
 
 ## Internal structure
 
-- **theory/**: conceptos clave y fundamentos.
-- **examples/**: ejemplos guiados resueltos.
-- **practices/**: ejercicios guiados y autonomos.
-- **mini-project/**: integracion del modulo en un caso unico.
-- **evaluation/**: rubrica y checklist.
-- **notes/**: bitacora personal de aprendizaje.
+- **theory/**: Key and fundamental concepts.
+- **examples/**: Examples guiados resueltos.
+- **practices/**: Guided and autonomous exercises.
+- **mini-project/**: integration of the module in a single case.
+- **evaluation/**: rubric and checklist.
+- **notes/**: Learning's personal log.
 
 ## Level path (L1-L4)
 
-- L1: fundamentos.
-- L2: aplicado.
-- L3: avanzado.
-- L4: senior (trade-offs y arquitectura).
+- L1: fundamentals.
+- L2: applied.
+- L3: advanced.
+- L4: senior (trade-offs and architecture).
 
 ## Recommended plan (by progress, not by weeks)
 
-1. Leer teoria y tomar notas.
-1. Ejecutar ejemplos.
-1. Resolver practicas.
-1. Completar mini-proyecto.
-1. Cerrar evaluacion y actualizar estado.
+1. Read theory and take notes.
+1. Execute Examples.
+1. Resolver practices.
+1. Complete Mini-project.
+1. Close evaluation and update status.
 
 ## Module completion criteria
 
-- Teoria resumida en `notes/`.
+- Theory summarized in `notes/`.
 - Practicas completadas.
-- Mini-proyecto validado.
-- Evaluacion final aprobada.
+- Mini-project validated.
+- Evaluation final aprobada.
 - `STATUS.md` actualizado.

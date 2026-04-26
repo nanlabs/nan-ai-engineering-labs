@@ -1,7 +1,7 @@
 """
 Text Data Augmentation with NLP Techniques
 ===========================================
-Augmenta datasets de texto para training con back-translation, paraphrasing, y EDA.
+Augmenta datasets de text para training con back-translation, paraphrasing, y EDA.
 
 Requirements:
     pip install transformers torch nltk sentence-transformers nlpaug

@@ -32,7 +32,7 @@ SQL_INJECTION_PATTERNS = [
 
 def detect_prompt_injection(text: str) -> Tuple[bool, str]:
     """
-    Detecta intentos de prompt injection.
+    Detect intentos de prompt injection.
 
     Returns:
         (is_injection, matched_pattern)
@@ -48,7 +48,7 @@ def detect_prompt_injection(text: str) -> Tuple[bool, str]:
 
 def detect_sql_injection(text: str) -> Tuple[bool, str]:
     """
-    Detecta intentos de SQL injection.
+    Detect intentos de SQL injection.
     """
     for pattern in SQL_INJECTION_PATTERNS:
         if re.search(pattern, text, re.IGNORECASE):

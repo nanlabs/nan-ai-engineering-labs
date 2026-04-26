@@ -1,7 +1,7 @@
 # Notes — Time Series & Anomaly Detection
 
-Registrar aprendizajes y decisiones técnicas.
+Record learnings and decisions techniques.
 
 ## How to use this folder
 
-Pendiente de completar este apartado.
+Pending completion of this section.

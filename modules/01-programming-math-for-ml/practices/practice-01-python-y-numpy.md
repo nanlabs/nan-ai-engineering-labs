@@ -10,7 +10,7 @@ Get familiar with basic Python and fundamental operations with NumPy to manipula
 
 ## Estimated duration
 
-30-40 minutos
+30-40 minutes
 
 ______________________________________________________________________
 
@@ -25,30 +25,30 @@ ______________________________________________________________________
 ```python
 import numpy as np
 
-# Crear arrays
+# Create arrays
 a = np.array([1, 2, 3, 4, 5])
 b = np.array([10, 20, 30, 40, 50])
 
 # Operaciones elemento a elemento
 suma = a + b
 resta = b - a
-multiplicacion = a * b
+multiplication = a * b
 
 print("Array a:", a)
 print("Array b:", b)
 print("Suma:", suma)
 print("Resta (b-a):", resta)
-print("Multiplicación:", multiplicacion)
+print("Multiplication:", multiplication)
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 Array a: [1 2 3 4 5]
 Array b: [10 20 30 40 50]
 Suma: [11 22 33 44 55]
 Resta (b-a): [ 9 18 27 36 45]
-Multiplicación: [ 10  40  90 160 250]
+Multiplication: [ 10  40  90 160 250]
 ```
 
 **Explanation:**
@@ -67,27 +67,27 @@ ______________________________________________________________________
 ```python
 import numpy as np
 
-datos = np.array([23, 45, 12, 67, 34, 89, 23, 56, 78, 90])
+data = np.array([23, 45, 12, 67, 34, 89, 23, 56, 78, 90])
 
-media = np.mean(datos)
-maximo = np.max(datos)
-minimo = np.min(datos)
-suma_total = np.sum(datos)
+media = np.mean(data)
+maximo = np.max(data)
+minimo = np.min(data)
+suma_total = np.sum(data)
 
-print(f"Datos: {datos}")
+print(f"Data: {data}")
 print(f"Media: {media:.2f}")
-print(f"Máximo: {maximo}")
-print(f"Mínimo: {minimo}")
+print(f"Maximum: {maximo}")
+print(f"Minimum: {minimo}")
 print(f"Suma total: {suma_total}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-Datos: [23 45 12 67 34 89 23 56 78 90]
+Data: [23 45 12 67 34 89 23 56 78 90]
 Media: 51.70
-Máximo: 90
-Mínimo: 12
+Maximum: 90
+Minimum: 12
 Suma total: 517
 ```
 
@@ -100,12 +100,12 @@ ______________________________________________________________________
 
 ## Part 2: To solve (proposal)
 
-### Ejercicio 2.1: Filtrado condicional
+### Exercise 2.1: Filtrado conditional
 
-**Consigna:**
+**Instruction:**
 Create an array with 15 random numbers between 1 and 100. Filter and display only numbers greater than 50.
 
-**Pistas:**
+**Tracks:**
 
 - Use `np.random.randint(1, 101, size=15)` to generate random numbers.
 - Use boolean indexing: `array[array > 50]`.
@@ -120,43 +120,43 @@ ______________________________________________________________________
 
 ### Exercise 2.2: Reshape and transposition
 
-**Consigna:**
+**Instruction:**
 Create an array of 12 consecutive numbers (1 to 12). Reshape to a 3x4 matrix. Then transpose the matrix and display both.
 
-**Pistas:**
+**Tracks:**
 
-- Use `np.arange(1, 13)` to create consecutive numbers.
+- Use `np.arrange(1, 13)` to create consecutive numbers.
 - Uses `.reshape(3, 4)` to convert the matrix.
-- Usa `.T` o `np.transpose()` para transponer.
+- Use `.T` or `np.transpose()` to transpose.
 
 **Success Criteria:**
 
-- Matriz original: 3 filas x 4 columnas.
-- Matriz transpuesta: 4 filas x 3 columnas.
+- Matrix original: 3 rows x 4 columns.
+- Matrix transposed: 4 rows x 3 columns.
 - Values ​​must match correctly in transposed positions.
 
 ______________________________________________________________________
 
-### Ejercicio 2.3: Producto punto entre vectores
+### Exercise 2.3: Production point entre vectors
 
-**Consigna:**
+**Instruction:**
 Create two vectors of size 5 with values ​​of your choice. Calculate:
 
-1. Producto punto.
+1. Production point.
 1. Norm (magnitude) of each vector.
 1. Angle between both vectors (use the cosine formula).
 
-**Pistas:**
+**Tracks:**
 
-- Producto punto: `np.dot(a, b)`.
+- Production point: `np.dot(a, b)`.
 - Norma: `np.linalg.norm(a)`.
 - Cosine of the angle: `cos(θ) = (a·b) / (||a|| * ||b||)`.
-- Angle in degrees: `np.arccos(coseno) * 180 / np.pi`.
+- Angle in degrees: `np.arccos(cosine) * 180 / np.pi`.
 
 **Success Criteria:**
 
-- Producto punto calculado correctamente.
-- Normas positivas.
+- Production point calculated correctly.
+- Norms positive.
 - Angle between 0° and 180°.
 
 ______________________________________________________________________
@@ -164,7 +164,7 @@ ______________________________________________________________________
 ## Entregable
 
 - A notebook or script `.py` with the solutions from Part 2.
-- Comentarios explicando cada paso.
+- Comments explaining each paso.
 - Visible outputs (use `print()` to show results).
 
 ## Help resources

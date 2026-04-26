@@ -1,17 +1,17 @@
-# Práctica 01 — Generative Adversarial Networks (GANs)
+# Practice 01 — Generative Adversarial Networks (GANs)
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar GAN básica
-- Entrenar generador y discriminador
-- Generar imágenes sintéticas
-- Identificar mode collapse
+- Basic GAN implementation
+- Train generator and discriminator
+- Generate synthetic images
+- Identify mode collapse
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: GAN Simple
+### Exercise 1.1: GAN Simple
 
 ```python
 import torch
@@ -65,48 +65,48 @@ print(f"Discriminator params: {sum(p.numel() for p in disc.parameters())}")
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: DCGAN
+### Exercise 2.1: DCGAN
 
-**Enunciado:**
-Implementa Deep Convolutional GAN:
+**Statement:**
+Implement Deep Convolutional GAN:
 
-- Usa Conv2d y ConvTranspose2d
-- BatchNorm en ambos networks
-- Entrena en MNIST o CIFAR-10
+- Use Conv2d and ConvTranspose2d
+- BatchNorm on both networks
+- Train on MNIST or CIFAR-10
 
-### Ejercicio 2.2: Conditional GAN
+### Exercise 2.2: Conditional GAN
 
-**Enunciado:**
-Controla generación con labels:
+**Statement:**
+Control generation with labels:
 
-- Concatena label con latent vector
-- Genera dígitos específicos
-- Visualiza interpolación
+- Concatenate label with latent vector
+- Generate specific digits
+- Display interpolation
 
-### Ejercicio 2.3: Mode Collapse Detection
+### Exercise 2.3: Mode Collapse Detection
 
-**Enunciado:**
-Detecta mode collapse:
+**Statement:**
+Detect mode collapse:
 
-- Mide diversidad de samples
-- Compara con dataset real
-- Implementa mitigation strategies
+- Measure sample diversity
+- Compare with real dataset
+- Implement mitigation strategies
 
-### Ejercicio 2.4: WGAN
+### Exercise 2.4: WGAN
 
-**Enunciado:**
-Implementa Wasserstein GAN:
+**Statement:**
+Implement Wasserstein GAN:
 
 - Earth Mover's Distance
 - Weight clipping
-- Compara estabilidad con GAN vanilla
+- Compare stability with vanilla GAN
 
-### Ejercicio 2.5: Image-to-Image con Pix2Pix
+### Exercise 2.5: Image-to-Image with Pix2Pix
 
-**Enunciado:**
-Traducción de imágenes:
+**Statement:**
+Images Translation:
 
 - U-Net generator
 - PatchGAN discriminator
@@ -116,15 +116,15 @@ ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Implementar GAN vanilla
-- [ ] DCGAN para imágenes
+- [ ] Implement GAN vanilla
+- [ ] DCGAN for Images
 - [ ] Conditional generation
-- [ ] Detectar mode collapse
-- [ ] WGAN para estabilidad
+- [ ] Detect mode collapse
+- [ ] WGAN for stability
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [GAN Lab](https://poloclub.github.io/ganlab/)
 - [PyTorch GAN Examples](https://github.com/eriklindernoren/PyTorch-GAN)

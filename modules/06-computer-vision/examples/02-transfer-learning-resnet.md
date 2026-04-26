@@ -1,12 +1,12 @@
-# Ejemplo 02 — Transfer Learning con ResNet (ImageNet → Custom Dataset)
+# Example 02 — Transfer Learning with ResNet (ImageNet → Custom Dataset)
 
-## Contexto
+## Context
 
-Entrenar CNNs desde cero requiere millones de imágenes y días de cómputo. **Transfer Learning** permite aprovechar modelos preentrenados (ImageNet: 1.2M imágenes, 1000 clases) y adaptarlos a tu problema específico.
+Train CNNs from scratch requires millions of Images and days of computation. **Transfer Learning** allows you to take advantage of pre-trained Models (ImageNet: 1.2M Images, 1000 classes) and adapt them to your specific Problem.
 
 ## Objective
 
-Clasificar imágenes de perros vs gatos usando ResNet18 preentrenado, con fine-tuning.
+Classify images of dogs vs cats using pre-trained ResNet18, with fine-tuning.
 
 ______________________________________________________________________
 
@@ -31,9 +31,9 @@ torch.manual_seed(42)
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Preparar dataset custom
+## 📥 Step 2: Prepare custom dataset
 
-### 2.1 Estructura de directorios esperada
+### 2.1 Structure of expected directors
 
 ```
 data/
@@ -63,13 +63,13 @@ class DogsVsCatsDataset(Dataset):
     def __init__(self, root_dir, transform=None):
         """
         root_dir: ruta a 'train/' o 'val/'
-        transform: transformaciones de imágenes
+        transform: transformations de images
         """
         self.transform = transform
         self.images = []
         self.labels = []
 
-        # Clase 0: dogs, Clase 1: cats
+        # Clause, Class 0: dogs, Clause, Class 1: cats
         for class_idx, class_name in enumerate(['dogs', 'cats']):
             class_dir = os.path.join(root_dir, class_name)
             image_files = glob(os.path.join(class_dir, '*.jpg'))
@@ -96,10 +96,10 @@ class DogsVsCatsDataset(Dataset):
 # https://www.kaggle.com/c/dogs-vs-cats
 ```
 
-### 2.3 Transformaciones (importante para transfer learning)
+### 2.3 Transformations (important for transfer learning)
 
 ```python
-# ImageNet stats (obligatorio para modelos preentrenados en ImageNet)
+# ImageNet stats (obligatorio para models pretrained en ImageNet)
 imagenet_mean = [0.485, 0.456, 0.406]
 imagenet_std = [0.229, 0.224, 0.225]
 
@@ -111,7 +111,7 @@ transform_train = transforms.Compose([
     transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
     transforms.RandomRotation(15),
     transforms.ToTensor(),
-    transforms.Normalize(imagenet_mean, imagenet_std)  # 👈 CRÍTICO para transfer learning
+    transforms.Normalize(imagenet_mean, imagenet_std)  # 👈 CRITICAL para transfer learning
 ])
 
 # Val: sin augmentation
@@ -121,7 +121,7 @@ transform_val = transforms.Compose([
     transforms.Normalize(imagenet_mean, imagenet_std)
 ])
 
-# Crear datasets
+# Create datasets
 train_dataset = DogsVsCatsDataset('data/train', transform=transform_train)
 val_dataset = DogsVsCatsDataset('data/val', transform=transform_val)
 
@@ -133,7 +133,7 @@ print(f"Train batches: {len(train_loader)}")
 print(f"Val batches: {len(val_loader)}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 Loaded 20000 images from data/train
@@ -144,20 +144,20 @@ Val batches: 157
 
 ______________________________________________________________________
 
-## 🏗️ Paso 3: Cargar modelo preentrenado
+## 🏗️ Step 3: Pre-trained Load Model
 
-### 3.1 ResNet18 preentrenado
+### 3.1 Pretrained ResNet18
 
 ```python
-# Cargar ResNet18 con pesos de ImageNet
-model = models.resnet18(pretrained=True)  # Descarga pesos automáticamente
+# Load ResNet18 con pesos de ImageNet
+model = models.resnet18(pretrained=True)  # Descarga pesos automatically
 print("ResNet18 cargado con pesos de ImageNet")
 
-# Inspeccionar arquitectura
+# Inspeccionar architecture
 print(f"\n{model}")
 ```
 
-**Arquitectura de ResNet18:**
+**ResNet18 architecture:**
 
 ```
 ResNet(
@@ -170,73 +170,73 @@ ResNet(
   (layer3): Sequential(...)
   (layer4): Sequential(...)
   (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
-  (fc): Linear(in_features=512, out_features=1000)  👈 1000 clases ImageNet
+  (fc): Linear(in_features=512, out_features=1000)  👈 1000 classes ImageNet
 )
 ```
 
-### 3.2 Modificar última capa para nuestro problema
+### 3.2 Modify last Layer for our Problem
 
 ```python
-# Reemplazar FC layer para 2 clases (dogs vs cats)
+# Reemplazar FC layer para 2 classes (dogs vs cats)
 num_features = model.fc.in_features  # 512 para ResNet18
-model.fc = nn.Linear(num_features, 2)  # 2 clases: dogs, cats
+model.fc = nn.Linear(num_features, 2)  # 2 classes: dogs, cats
 
 model = model.to(device)
-print(f"\nÚltima capa reemplazada: Linear(512 → 2)")
+print(f"\nÚltima layer reemplazada: Linear(512 → 2)")
 ```
 
 ______________________________________________________________________
 
-## 🔧 Paso 4: Estrategias de Transfer Learning
+## 🔧 Step 4: Transfer Learning Strategies
 
-### Estrategia 1: Feature Extraction (congelar capas previas)
+### Strategy 1: Feature Extraction (freeze previous Layers)
 
 ```python
-# Congelar todas las capas EXCEPTO la última FC
+# Congelar all las layers EXCEPTO la last FC
 for param in model.parameters():
     param.requires_grad = False  # Congelar
 
-# Descongelar solo la última capa
+# Descongelar solo la last layer
 model.fc.requires_grad_(True)
 
 # Verificar
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 total_params = sum(p.numel() for p in model.parameters())
 print(f"\nEstrategia: Feature Extraction")
-print(f"Parámetros entrenables: {trainable_params:,} de {total_params:,} ({100*trainable_params/total_params:.2f}%)")
+print(f"Parameters entrenables: {trainable_params:,} de {total_params:,} ({100*trainable_params/total_params:.2f}%)")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Estrategia: Feature Extraction
-Parámetros entrenables: 1,026 de 11,689,512 (0.01%)  👈 Solo última capa
+Parameters entrenables: 1,026 de 11,689,512 (0.01%)  👈 Solo last layer
 ```
 
-**Cuándo usar:** Dataset pequeño (\<5k imágenes), clases similares a ImageNet
+**When use:** Small dataset (\<5k Images), classes similar to ImageNet
 
-### Estrategia 2: Fine-Tuning (descongelar progresivamente)
+### Strategy 2: Fine-Tuning (defrost progressively)
 
 ```python
-# Descongelar todas las capas
+# Descongelar all las layers
 for param in model.parameters():
     param.requires_grad = True
 
-# Usar diferentes learning rates (LR más bajo para capas tempranas)
+# Wear different learning rates (LR más low para layers tempranas)
 optimizer = optim.SGD([
-    {'params': model.layer1.parameters(), 'lr': 1e-5},  # Capas tempranas: LR bajo
+    {'params': model.layer1.parameters(), 'lr': 1e-5},  # Layers tempranas: LR low
     {'params': model.layer2.parameters(), 'lr': 1e-5},
     {'params': model.layer3.parameters(), 'lr': 1e-4},
     {'params': model.layer4.parameters(), 'lr': 1e-4},
-    {'params': model.fc.parameters(), 'lr': 1e-3}  # Última capa: LR alto
+    {'params': model.fc.parameters(), 'lr': 1e-3}  # Last layer: LR alto
 ], momentum=0.9, weight_decay=5e-4)
 
 print("\nEstrategia: Fine-Tuning con differential learning rates")
 ```
 
-**Cuándo usar:** Dataset mediano-grande (>10k imágenes), clases diferentes a ImageNet
+**When use:** Medium-large dataset (>10k Images), classes different to ImageNet
 
-**Para este ejemplo, usaremos Feature Extraction (más simple):**
+**For this Example, we will use Feature Extraction (simpler):**
 
 ```python
 # Volver a Feature Extraction
@@ -251,7 +251,7 @@ optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
 
 ______________________________________________________________________
 
-## 🏋️ Paso 5: Entrenamiento
+## 🏋️ Paso 5: Training
 
 ```python
 def train_epoch(model, loader, criterion, optimizer, device):
@@ -297,7 +297,7 @@ def evaluate(model, loader, criterion, device):
 
     return running_loss / len(loader), 100 * correct / total
 
-# Entrenar
+# Train
 num_epochs = 10
 train_losses, train_accs = [], []
 val_losses, val_accs = [], []
@@ -318,7 +318,7 @@ for epoch in range(num_epochs):
           f"Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.2f}%")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 === TRANSFER LEARNING: FEATURE EXTRACTION ===
@@ -328,26 +328,26 @@ Epoch [2/10] | Train Loss: 0.1234, Train Acc: 94.56% | Val Loss: 0.0987, Val Acc
 ...
 Epoch [10/10] | Train Loss: 0.0456, Train Acc: 98.12% | Val Loss: 0.0678, Val Acc: 97.89%
 
-👉 97.89% de accuracy con solo 10 épocas usando un modelo entrenado en ImageNet!
+👉 97.89% de accuracy con solo 10 eras using un model trained en ImageNet!
 ```
 
 ______________________________________________________________________
 
-## 📊 Paso 6: Comparar con entrenamiento desde cero
+## 📊 Step 6: Compare with Training from scratch
 
-### 6.1 Entrenar ResNet18 desde cero (sin pesos preentrenados)
+### 6.1 Train ResNet18 from scratch (no pre-trained weights)
 
 ```python
-# Crear modelo sin pretrain
+# Create model sin pretrain
 model_scratch = models.resnet18(pretrained=False)
 model_scratch.fc = nn.Linear(512, 2)
 model_scratch = model_scratch.to(device)
 
-# Entrenar TODAS las capas
+# Train TODAS las layers
 criterion_scratch = nn.CrossEntropyLoss()
 optimizer_scratch = optim.Adam(model_scratch.parameters(), lr=0.001, weight_decay=5e-4)
 
-print("\n=== ENTRENAMIENTO DESDE CERO ===\n")
+print("\n=== TRAINING DESDE CERO ===\n")
 
 scratch_train_accs = []
 scratch_val_accs = []
@@ -364,10 +364,10 @@ for epoch in range(10):
           f"Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.2f}%")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-=== ENTRENAMIENTO DESDE CERO ===
+=== TRAINING DESDE CERO ===
 
 Epoch [1/10] | Train Loss: 0.6834, Train Acc: 56.12% | Val Loss: 0.6523, Val Acc: 62.34%
 Epoch [2/10] | Train Loss: 0.5123, Train Acc: 74.56% | Val Loss: 0.4821, Val Acc: 78.21%
@@ -377,7 +377,7 @@ Epoch [10/10] | Train Loss: 0.2134, Train Acc: 91.23% | Val Loss: 0.2987, Val Ac
 👉 Solo 88.45% (vs 97.89% con transfer learning)
 ```
 
-### 6.2 Comparación gráfica
+### 6.2 Graphical comparison
 
 ```python
 fig, ax = plt.subplots(figsize=(10, 6))
@@ -388,34 +388,34 @@ ax.plot(epochs, scratch_val_accs, marker='s', label='Desde Cero', linewidth=2)
 
 ax.set_xlabel('Epoch')
 ax.set_ylabel('Validation Accuracy (%)')
-ax.set_title('Transfer Learning vs Entrenamiento Desde Cero')
+ax.set_title('Transfer Learning vs Training Desde Cero')
 ax.legend()
 ax.grid(alpha=0.3)
 plt.show()
 
-print("\n=== COMPARACIÓN FINAL ===")
+print("\n=== COMPARISON FINAL ===")
 print(f"Transfer Learning: {val_accs[-1]:.2f}%")
 print(f"Desde Cero:        {scratch_val_accs[-1]:.2f}%")
-print(f"Mejora:            +{val_accs[-1] - scratch_val_accs[-1]:.2f}%")
+print(f"Improvement:            +{val_accs[-1] - scratch_val_accs[-1]:.2f}%")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== COMPARACIÓN FINAL ===
+=== COMPARISON FINAL ===
 Transfer Learning: 97.89%
 Desde Cero:        88.45%
-Mejora:            +9.44%  👈 ¡Significativo!
+Improvement:            +9.44%  👈 ¡Significativo!
 ```
 
 ______________________________________________________________________
 
-## 🚀 Paso 7: Fine-Tuning (opcional)
+## 🚀 Step 7: Fine-Tuning (optional)
 
-### 7.1 Descongelar capas progresivamente
+### 7.1 Defrost Layers progressively
 
 ```python
-print("\n=== FINE-TUNING: Descongelar últimas 2 capas ===\n")
+print("\n=== FINE-TUNING: Descongelar latest 2 layers ===\n")
 
 # Descongelar layer4 y fc
 for param in model.layer4.parameters():
@@ -423,11 +423,11 @@ for param in model.layer4.parameters():
 
 # Optimizer con differential LR
 optimizer_finetune = optim.Adam([
-    {'params': model.layer4.parameters(), 'lr': 1e-4},  # LR bajo para layer4
+    {'params': model.layer4.parameters(), 'lr': 1e-4},  # LR low para layer4
     {'params': model.fc.parameters(), 'lr': 1e-3}       # LR alto para fc
 ], weight_decay=5e-4)
 
-# Entrenar 5 épocas más
+# Train 5 eras más
 finetune_val_accs = []
 
 for epoch in range(5):
@@ -443,24 +443,24 @@ for epoch in range(5):
 print(f"\nMejora con fine-tuning: {val_accs[-1]:.2f}% → {finetune_val_accs[-1]:.2f}%")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-=== FINE-TUNING: Descongelar últimas 2 capas ===
+=== FINE-TUNING: Descongelar latest 2 layers ===
 
 Fine-tune Epoch [1/5] | Train Loss: 0.0389, Train Acc: 98.67% | Val Loss: 0.0512, Val Acc: 98.34%
 Fine-tune Epoch [2/5] | Train Loss: 0.0267, Train Acc: 99.12% | Val Loss: 0.0487, Val Acc: 98.56%
 ...
 Fine-tune Epoch [5/5] | Train Loss: 0.0156, Train Acc: 99.56% | Val Loss: 0.0434, Val Acc: 98.89%
 
-Mejora con fine-tuning: 97.89% → 98.89%  👈 +1% adicional
+Improvement con fine-tuning: 97.89% → 98.89%  👈 +1% adicional
 ```
 
 ______________________________________________________________________
 
-## 🔍 Paso 8: Visualizar features aprendidas
+## 🔍 Paso 8: Visualize features learned
 
-### 8.1 Activations de capa intermedia
+### 8.1 Intermediate Layer Activations
 
 ```python
 # Hook para capturar activaciones
@@ -474,7 +474,7 @@ def get_activation(name):
 # Registrar hook en layer4
 model.layer4.register_forward_hook(get_activation('layer4'))
 
-# Procesar una imagen
+# Procesar una image
 model.eval()
 sample_image, sample_label = val_dataset[0]
 sample_image_batch = sample_image.unsqueeze(0).to(device)  # [1, 3, 224, 224]
@@ -482,7 +482,7 @@ sample_image_batch = sample_image.unsqueeze(0).to(device)  # [1, 3, 224, 224]
 with torch.no_grad():
     output = model(sample_image_batch)
 
-# Visualizar activaciones (primeros 16 canales)
+# Visualize activaciones (primeros 16 channels)
 layer4_act = activations['layer4'].squeeze()  # [512, 7, 7]
 
 fig, axes = plt.subplots(4, 4, figsize=(10, 10))
@@ -498,142 +498,142 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Interpretación:** Cada canal detecta different features (bordes, texturas, partes del objeto).
+**Interpretation:** Each Channel detects different features (edges, textures, parts of the object).
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝 Executive summary
 
-### ✅ Comparación de estrategias
+### ✅ Strategy comparison
 
-| Estrategia             | Parámetros Entrenables | Val Acc @ 10 epochs | Tiempo entrenamiento | Cuándo usar                                      |
+| Strategy | Trainable Parameters | Val Acc @ 10 epochs | Training Time | When to use |
 | ---------------------- | ---------------------- | ------------------- | -------------------- | ------------------------------------------------ |
-| **Feature Extraction** | 1,026 (0.01%)          | **97.89%**          | ~5 min (GPU)         | Dataset pequeño, clases similares a ImageNet     |
-| **Fine-Tuning**        | 11,689,512 (100%)      | **98.89%**          | ~25 min (GPU)        | Dataset mediano-grande, clases diferentes        |
-| **Desde Cero**         | 11,689,512 (100%)      | 88.45%              | ~30 min (GPU)        | Dataset muy grande (>100k), tarea muy específica |
+| **Feature Extraction** | 1,026 (0.01%) | **97.89%** | ~5 min (GPU) | Small dataset, classes similar to ImageNet |
+| **Fine-Tuning** | 11,689,512 (100%) | **98.89%** | ~25 min (GPU) | Medium-large dataset, different classes |
+| **From Scratch** | 11,689,512 (100%) | 88.45% | ~30 min (GPU) | Very large dataset (>100k), very specific task |
 
-### 🎯 Ventajas del Transfer Learning
+### 🎯 Advantages of Transfer Learning
 
-1. **Menos datos:** 97.89% con 20k imágenes vs 88.45% desde cero
-1. **Entrenamiento rápido:** Feature extraction 5x más rápido
-1. **Mejor generalización:** Features de ImageNet son universales
-1. **Menor overfitting:** Capas convolucionales ya optimizadas
+1. **Less Data:** 97.89% with 20k Images vs 88.45% from zero
+1. **Training fast:** Feature extraction 5x faster
+1. **Best generalization:** ImageNet features are universal
+1. **Minor overfitting:** Convolutional layers already optimized
 
 ______________________________________________________________________
 
-## 🎓 Lecciones aprendidas
+## 🎓 Lessons learned
 
-### ✅ Transfer Learning: Guía práctica
+### ✅ Transfer Learning: Practical Guide
 
-**1. Elegir arquitectura:**
+**1. Choose architecture:**
 
-- **ResNet (18, 34, 50):** Balance entre accuracy y velocidad
-- **EfficientNet (B0-B7):** State-of-the-art, más eficiente
-- **MobileNet:** Para edge devices (celulares, IoT)
-- **VGG:** Obsoleto (muchos parámetros, lento)
+- **ResNet (18, 34, 50):** Balance between accuracy and speed
+- **EfficientNet (B0-B7):** State-of-the-art, most efficient
+- **MobileNet:** For edge devices (cellular, IoT)
+- **VGG:** Deprecated (many parameters, slow)
 
-**2. Cuándo usar cada estrategia:**
+**2. When use each strategy:**
 
-| Dataset Size  | Similitud a ImageNet | Estrategia Recomendada                 |
+| Dataset Size | Similarity to ImageNet | Recommended Strategy |
 | ------------- | -------------------- | -------------------------------------- |
-| \<1k imágenes | Alta                 | Feature Extraction                     |
-| \<1k imágenes | Baja                 | Data Augmentation + Feature Extraction |
-| 1k-10k        | Alta                 | Feature Extraction → Fine-Tuning       |
-| 1k-10k        | Baja                 | Fine-Tuning todas las capas            |
-| >10k          | Cualquiera           | Fine-Tuning                            |
-| >100k         | Baja                 | Considerar entrenar desde cero         |
+| \<1k Images | High | Feature Extraction |
+| \<1k Images | Low | Data Augmentation + Feature Extraction |
+| 1k-10k | High | Feature Extraction → Fine-Tuning |
+| 1k-10k | Low | Fine-Tuning all Layers |
+| >10k | Any | Fine-Tuning |
+| >100k | Low | Consider training from scratch |
 
-**3. Preprocessing CRÍTICO:**
+**3. CRITICAL Preprocessing:**
 
-- ✅ Usar **ImageNet stats** (mean/std) para normalizar
-- ✅ Resize a **224×224** (mayoría de modelos)
-- ❌ NO uses tus propias stats → rompe transfer learning
+- ✅ Use **ImageNet stats** (mean/std) to normalize
+- ✅ Resize to **224×224** (most Models)
+- ❌ DO NOT use your own stats → breaks transfer learning
 
 **4. Learning rates:**
 
 - Feature Extraction: LR = 1e-3 (solo FC layer)
 - Fine-Tuning: Differential LR
-  - Capas tempranas: 1e-5 (cambios pequeños)
-  - Capas tardías: 1e-4
+- Early layers: 1e-5 (small changes)
+- Late layers: 1e-4
   - FC layer: 1e-3
 
-**5. Descongelar progresivamente:**
+**5. Defrost progressively:**
 
 ```python
-# Paso 1: Entrenar solo FC (5-10 épocas)
+# Paso 1: Train solo FC (5-10 eras)
 for param in model.parameters():
     param.requires_grad = False
 model.fc.requires_grad_(True)
 
-# Paso 2: Descongelar layer4 (5 épocas)
+# Paso 2: Descongelar layer4 (5 eras)
 model.layer4.requires_grad_(True)
 
-# Paso 3: Descongelar layer3 (5 épocas)
+# Paso 3: Descongelar layer3 (5 eras)
 model.layer3.requires_grad_(True)
 
 # ... hasta descongelar todo
 ```
 
-### 💡 Mejoras adicionales
+### 💡 Additional improvements
 
-1. **Mixed Precision Training:** FP16 para entrenar más rápido
-1. **Gradient Accumulation:** Simular batch sizes grandes
-1. **Test-Time Augmentation (TTA):** Predecir en múltiples versiones augmentadas
-1. **Ensemble:** Combinar múltiples modelos (ResNet + EfficientNet)
-1. **Progressive Resizing:** Entrenar con imágenes pequeñas primero, luego grandes
+1. **Mixed Precision Training:** FP16 to train faster
+1. **gradient Accumulation:** Similar batch sizes large
+1. **Test-Time Augmentation (TTA):** Predict in multiple augmented versions
+1. **Ensemble:** Combine multiple Models (ResNet + EfficientNet)
+1. **Progressive Resizing:** Train with small Images first, then large
 
-### 🚫 Errores comunes
+### 🚫 Errors common
 
-- ❌ **No usar ImageNet normalization:** Features no alinean con pesos pretrained
-- ❌ **LR muy alto en fine-tuning:** Destruye features aprendidasen ImageNet
-- ❌ **Descongelar todo desde el inicio:** Capas tempranas aprenden muy rápido y rompen features
-- ❌ **No hacer data augmentation:** Overfitting con datasets pequeños
+- ❌ **Do not use ImageNet normalization:** Features do not align with pretrained weights
+- ❌ **LR very high in fine-tuning:** Destroys features learned in ImageNet
+- ❌ **Unfreeze everything from the beginning:** Early layers learn very quickly and break features
+- ❌ **Do not do data augmentation:** overfitting with small datasets
 
 ______________________________________________________________________
 
-## 🔧 Código de producción
+## 🔧 Production code
 
 ```python
-# Cargar modelo preentrenado y modificar FC
+# Load model preentrenado y modificar FC
 model = models.resnet18(pretrained=True)
 model.fc = nn.Linear(model.fc.in_features, num_classes)
 
-# Feature Extraction: congelar capas previas
+# Feature Extraction: congelar layers previas
 for param in model.parameters():
     param.requires_grad = False
 model.fc.requires_grad_(True)
 
-# Transformaciones (CRÍTICO: usar ImageNet stats)
+# Transformaciones (CRITICAL: use ImageNet stats)
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
-# Entrenar
+# Train
 optimizer = optim.Adam(model.fc.parameters(), lr=1e-3)
 criterion = nn.CrossEntropyLoss()
 
-# Después de convergencia: fine-tuning
+# After de convergencia: fine-tuning
 model.layer4.requires_grad_(True)
 optimizer = optim.Adam([
     {'params': model.layer4.parameters(), 'lr': 1e-4},
     {'params': model.fc.parameters(), 'lr': 1e-3}
 ])
 
-# Guardar
+# Save
 torch.save(model.state_dict(), 'model_finetunned.pth')
 ```
 
 ### 📌 Checklist Transfer Learning
 
-- ✅ Usar modelo preentrenado (ResNet, EfficientNet)
-- ✅ Modificar última capa para tu número de clases
-- ✅ Preprocessing con ImageNet stats
-- ✅ Empezar con Feature Extraction (congelar capas)
-- ✅ usar LR apropiado (1e-3 para FC)
-- ✅ Data augmentation agresiva
-- ✅ Monitorear overfitting (train/val gap)
-- ✅ Si dataset >10k: hacer fine-tuning
-- ✅ Fine-tuning con differential LR
-- ✅ Descongelar progresivamente (de atrás hacia adelante)
+- ✅ Use pre-trained Model (ResNet, EfficientNet)
+- ✅ Modify last Layer for your number of classes
+- ✅ Preprocessing with ImageNet stats
+- ✅ Start with Feature Extraction (freeze Layers)
+- ✅ use appropriate LR (1e-3 for FC)
+- ✅ Aggressive data augmentation
+- ✅ Monitor overfitting (train/val gap)
+- ✅ If dataset >10k: do fine-tuning
+- ✅ Fine-tuning with LR differential
+- ✅ Defrost progressively (from back to front)

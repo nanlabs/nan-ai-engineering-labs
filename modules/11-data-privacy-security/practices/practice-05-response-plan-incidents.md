@@ -1,17 +1,17 @@
-# Práctica 05 — Plan de respuesta a incidentes
+# Practice 05 — Incident response plan
 
 ## Objective
 
-Definir acciones ante evento de seguridad.
+Defines actions in the event of a security event.
 
-## Enunciado
+## Statement
 
-1. Definir tipos de incidente.
-1. Establecer pasos de detección, contención y recuperación.
+1. Defines Incident Types.
+1. Establish detection, containment and recovery steps.
 1. Asignar responsables.
-1. Definir comunicación y post-mortem.
+1. Defines communication and post-mortem.
 
-## Validación
+## Validation
 
-- Plan claro y accionable.
-- Responsables y tiempos definidos.
+- Clear and actionable plan.
+- Responsible parties and times defined.

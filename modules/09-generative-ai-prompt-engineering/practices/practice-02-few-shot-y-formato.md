@@ -1,17 +1,17 @@
-# Práctica 02 — Few-shot y formato
+# Practice 02 — Few-shot and format
 
 ## Objective
 
-Mejorar consistencia de salida con ejemplos y formato.
+Improve output consistency with Examples and format.
 
-## Enunciado
+## Statement
 
-1. Agregar 2-3 ejemplos few-shot.
-1. Definir formato de salida obligatorio.
-1. Ejecutar casos de prueba.
-1. Comparar con prompt base.
+1. Add 2-3 Examples few-shot.
+1. Defines mandatory output format.
+1. Execute Testing cases.
+1. Compare with base prompt.
 
-## Validación
+## Validation
 
-- Mejora de consistencia observable.
-- Formato de salida respetado.
+- Observable consistency improvement.
+- Respected output format.

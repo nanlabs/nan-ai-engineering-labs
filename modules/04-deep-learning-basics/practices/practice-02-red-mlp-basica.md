@@ -1,17 +1,17 @@
-# Práctica 02 — Red MLP básica
+# Practice 02 — Basic MLP Network
 
 ## Objective
 
-Entrenar una red pequeña para clasificación simple.
+Train a small network for simple Classification.
 
-## Enunciado
+## Statement
 
-1. Cargar dataset sencillo (ej. digits/tabular).
-1. Definir MLP con 1-2 capas ocultas.
-1. Entrenar por épocas.
-1. Reportar accuracy en validación.
+1. Load dataset sencillo (ej. digits/tabular).
+1. Defines MLP with 1-2 hidden Layers.
+1. Train by eras.
+1. Report accuracy in Validation.
 
-## Validación
+## Validation
 
-- Entrenamiento completo.
-- Métrica de clasificación reportada.
+- Training complete.
+- Classification metrics reported.

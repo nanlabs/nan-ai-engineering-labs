@@ -1,17 +1,17 @@
-# Práctica 05 — Plan de mitigación
+# Practice 05 — Mitigation Plan
 
 ## Objective
 
-Diseñar acciones concretas para reducir riesgos detectados.
+Design concrete actions to reduce detected risks.
 
-## Enunciado
+## Statement
 
-1. Priorizar 3 riesgos críticos.
-1. Definir mitigación técnica y operativa.
-1. Asignar métricas de seguimiento.
-1. Proponer calendario de revisión.
+1. Prioritize 3 critical risks.
+1. Defines technical and operational mitigation.
+1. Assign tracking metrics.
+1. Propose review schedule.
 
-## Validación
+## Validation
 
-- Plan accionable y priorizado.
-- Métricas de seguimiento definidas.
+- Actionable and prioritized plan.
+- Defined tracking metrics.

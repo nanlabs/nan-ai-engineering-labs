@@ -1,17 +1,17 @@
-# Práctica 02 — Detección de sesgos
+# Practice 02 — Bias Detection
 
 ## Objective
 
-Detectar desbalances y posibles sesgos en datos.
+Detect imbalances and possible biases in Data.
 
-## Enunciado
+## Statement
 
-1. Analizar distribución por grupos.
-1. Identificar desbalances relevantes.
-1. Relacionar sesgos con riesgo de predicción.
-1. Documentar hallazgos.
+1. Analyze distribution by groups.
+1. Identify desbalances relevant.
+1. Relate biases to Prediction risk.
+1. Document findings.
 
-## Validación
+## Validation
 
-- Evidencia cuantitativa presentada.
-- Sesgos explicados en contexto.
+- Evidence cuantitativa presentada.
+- Bias explained in context.

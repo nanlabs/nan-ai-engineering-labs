@@ -1,17 +1,17 @@
-# Práctica 05 — Análisis de errores
+# Practice 05 — Error Analysis
 
 ## Objective
 
-Detectar patrones de fallo para definir siguiente iteración.
+Detect failure patterns to define next iteration.
 
-## Enunciado
+## Statement
 
-1. Generar matriz de confusión.
-1. Revisar ejemplos mal clasificados.
-1. Detectar clases más conflictivas.
-1. Proponer plan de mejora.
+1. Generate Confusion matrix.
+1. Revisar Examples mal clasificados.
+1. Detect most conflictive classes.
+1. Propose improvement plan.
 
-## Validación
+## Validation
 
-- Errores analizados por clase.
-- Plan de mejora accionable.
+- Errors parsed by clause, class.
+- Actionable improvement plan.

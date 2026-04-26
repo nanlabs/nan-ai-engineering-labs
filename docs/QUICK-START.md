@@ -1,20 +1,20 @@
-# 🚀 Quick Start Guide — ¡Empieza en 10 minutos
+# 🚀 Quick Start Guide — Get started in 10 minutes
 
-> **Tu primer día en el programa AI/ML: Setup, primer módulo, y primeros pasos**
+> **Your first day in the AI/ML program: Setup, first Module, and first steps**
 
 ______________________________________________________________________
 
-## ⏱️ Timeline de tu primer día
+## ⏱️ Timeline of your first day
 
 ```
 ┌──────────────────────────────────────────────────┐
 │  Minuto 0-3: Setup del entorno                   │
 ├──────────────────────────────────────────────────┤
-│  Minuto 3-8: Lee overview del Módulo 1           │
+│  Minuto 3-8: Lee overview del Module 1           │
 ├──────────────────────────────────────────────────┤
-│  Minuto 8-30: Primera práctica con NumPy         │
+│  Minuto 8-30: Primera practice con NumPy         │
 ├──────────────────────────────────────────────────┤
-│  Minuto 30-60: Primer ejemplo ejecutado          │
+│  Minuto 30-60: Primer example executedo          │
 └──────────────────────────────────────────────────┘
 
 ¡Felicitaciones! Ya comenzaste tu camino hacia AI/ML 🎉
@@ -22,22 +22,22 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 📥 Step 1: Setup (3 minutos)
+## 📥 Step 1: Setup (3 minutes)
 
-### Clone el repositorio
+### Clone the repository
 
 ```bash
 git clone https://github.com/matiasz8/training-ai.git
 cd training-ai
 ```
 
-### Crea tu entorno virtual
+### Create your virtual environment
 
 ```bash
 # Python 3.8+ requerido
 python --version  # Verifica que tengas Python 3.8+
 
-# Crea entorno virtual
+# Create entorno virtual
 python -m venv venv
 
 # Activa el entorno
@@ -45,50 +45,50 @@ source venv/bin/activate        # Linux/Mac
 # o
 venv\scripts\activate           # Windows
 
-# Verifica activación (deberías ver "venv" en tu prompt)
-which python  # Debería apuntar a tu venv
+# Verifica activation (you should ver "venv" en tu prompt)
+which python  # Ought apuntar a tu venv
 ```
 
-### Instala dependencias base
+### Install base dependencies
 
 ```bash
 # Instala solo lo necesario para empezar
 pip install --upgrade pip
 pip install numpy pandas matplotlib jupyter scikit-learn
 
-# Verifica instalación
+# Verifica installation
 python -c "import numpy; print(f'NumPy {numpy.__version__} OK')"
 python -c "import pandas; print(f'Pandas {pandas.__version__} OK')"
 ```
 
-**✅ Checkpoint:** Si ves los mensajes "OK", estás listo para continuar!
+**✅ Checkpoint:** If you see the "OK" messages, you are ready to continue!
 
 ______________________________________________________________________
 
-## 📖 Step 2: Primera lectura (5 minutos)
+## 📖 Step 2: First reading (5 minutes)
 
-### Lee el overview del Módulo 1
+### Read the overview of Module 1
 
 ```bash
 cd modules/01-programming-math-for-ml/
 cat README.md  # o abre en tu editor
 ```
 
-**🎯 En este módulo aprenderás:**
+**🎯 In this Module you will learn:**
 
-- Python científico: NumPy, Pandas, Matplotlib
-- Álgebra lineal aplicada: vectores, matrices, producto punto
-- Estadística descriptiva: media, varianza, correlación
-- Probabilidad básica: distribuciones, teorema de Bayes
+- Python scientist: NumPy, Pandas, Matplotlib
+- Applied linear algebra: vectors, matrices, product point
+- Descriptive statistics: mean, variance, correlation
+- Basic probability: distributions, Bayes theorem
 
-**⏰ Tiempo estimado:** 2-3 semanas (10-15h/semana)
+**⏰ Estimated time:** 2-3 weeks (10-15h/week)
 
-### Explora la estructura del módulo
+### Explore the Module Structure
 
 ```bash
 tree -L 1  # o ls para ver carpetas
 
-# Deberías ver:
+# You should ver:
 # ├── README.md
 # ├── STATUS.md
 # ├── theory/
@@ -101,34 +101,34 @@ tree -L 1  # o ls para ver carpetas
 
 ______________________________________________________________________
 
-## 💻 Step 3: Primera práctica (25 minutos)
+## 💻 Step 3: First Practice (25 minutes)
 
-### Abre tu primer Jupyter notebook
+### Open your first Jupyter notebook
 
 ```bash
 # Desde modules/01-programming-math-for-ml/
 jupyter notebook
 
-# Se abrirá tu browser con Jupyter
+# Se will open tu browser con Jupyter
 # Navega a practices/ y abre practice-01-python-y-numpy.md
 ```
 
-### O trabaja con Python directamente
+### Or work with Python directly
 
 ```bash
-# Crea un archivo de práctica
+# Create un archivo de practice
 touch mi_primera_practica.py
 
-# Copia el contenido de practices/practice-01-python-y-numpy.md
-# Y ejecuta sección por sección
+# Copia el content de practices/practice-01-python-y-numpy.md
+# Y execute section por section
 ```
 
-### Tu primer código: Vectores con NumPy
+### Your first code: Vectors with NumPy
 
 ```python
 import numpy as np
 
-# Crea tu primer vector
+# Create tu primer vector
 v1 = np.array([1, 2, 3, 4])
 v2 = np.array([5, 6, 7, 8])
 
@@ -137,277 +137,277 @@ suma = v1 + v2
 print(f"Suma: {suma}")
 
 producto_punto = np.dot(v1, v2)
-print(f"Producto punto: {producto_punto}")
+print(f"Production point: {producto_punto}")
 
 # Magnitud (norma)
 magnitud = np.linalg.norm(v1)
 print(f"Magnitud: {magnitud:.2f}")
 ```
 
-**🎉 Output esperado:**
+**🎉 Expected output:**
 
 ```
 Suma: [ 6  8 10 12]
-Producto punto: 70
+Production point: 70
 Magnitud: 5.48
 ```
 
-**✅ Checkpoint:** Si ejecutaste el código y viste los resultados, ¡ya estás programando ML!
+**✅ Checkpoint:** If you ran the code and saw the Results, you are already programming ML!
 
 ______________________________________________________________________
 
-## 🎯 Step 4: Primer ejemplo completo (30 minutos)
+## 🎯 Step 4: First Example complete (30 minutes)
 
-### Ejecuta tu primer ejemplo con datos reales
+### Run your first Example with real Data
 
 ```bash
 cd examples/
-cat 01-vectores-producto-punto.md  # Lee el ejemplo
+cat 01-vectores-producto-punto.md  # Lee el example
 ```
 
-### Copia el código y ejecútalo
+### Copy the code and run it
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Simula ratings de usuarios a películas
-usuario_gustos = np.array([5, 4, 1, 2])  # [Acción, Drama, Comedia, Terror]
-pelicula_1 = np.array([5, 3, 0, 1])      # Mad Max (mucha acción)
+# Simula ratings de users a movies
+usuario_gustos = np.array([5, 4, 1, 2])  # [Action, Drama, Comedia, Terror]
+pelicula_1 = np.array([5, 3, 0, 1])      # Mad Max (mucha action)
 pelicula_2 = np.array([2, 5, 4, 0])      # Drama familiar
 
-# Calcula similitud (producto punto)
+# Calculate similarity (product point)
 similitud_1 = np.dot(usuario_gustos, pelicula_1)
 similitud_2 = np.dot(usuario_gustos, pelicula_2)
 
-print(f"Recomendación para Película 1: {similitud_1}")
-print(f"Recomendación para Película 2: {similitud_2}")
+print(f"Recommendation para Movie 1: {similitud_1}")
+print(f"Recommendation para Movie 2: {similitud_2}")
 
 if similitud_1 > similitud_2:
-    print("✅ Recomiendo Película 1 (acción)")
+    print("✅ Recomiendo Movie 1 (action)")
 else:
-    print("✅ Recomiendo Película 2 (drama)")
+    print("✅ Recomiendo Movie 2 (drama)")
 ```
 
-**🎓 Lo que acabas de hacer:**
+**🎓 What you just did:**
 
-- Implementaste un **sistema de recomendación básico**
-- Usaste **álgebra lineal** (producto punto) para calcular similitud
-- Aplicaste **ML conceptual**: matching de preferencias
+- You implemented a **basic recommendation system**
+- You used **linear algebra** (product point) for calculator similarity
+- You applied **conceptual ML**: preference matching
 
-**✅ Checkpoint:** ¡Acabas de crear tu primer algoritmo de ML!
+**✅ Checkpoint:** You have just created your first ML Algorithm!
 
 ______________________________________________________________________
 
-## 📊 Step 5: Trackea tu progreso
+## 📊 Step 5: Track your progress
 
-### Actualiza tu STATUS.md
+### Update your STATUS.md
 
 ```bash
 # Abre STATUS.md en tu editor
 vim STATUS.md  # o code STATUS.md, nano, etc.
 ```
 
-### Marca tu progreso
+### Mark your progress
 
 ```markdown
-## Estado actual: 🟡 En progreso
+## Status actual: 🟡 En progress
 
-### Progreso por sección:
-- ✅ Setup completado (2024-03-05)
-- ✅ Primer ejemplo ejecutado (2024-03-05)
+### Progreso por section:
+- ✅ Setup completed (2024-03-05)
+- ✅ Primer example executedo (2024-03-05)
 - 🟡 Theory: 0/3 completada
-- 🟡 Examples: 1/2 ejecutados
+- 🟡 Examples: 1/2 executedos
 - ⏳ Practices: 0/2 completadas
 
-### Próximos pasos:
-1. Leer theory/README.md (álgebra lineal)
-2. Completar practice-01-python-y-numpy.md
-3. Ejecutar example-02-estadistica-descriptiva.md
+### Next pasos:
+1. Leer theory/README.md (algebra lineal)
+2. Complete practice-01-python-y-numpy.md
+3. Execute example-02-estadistica-descriptiva.md
 
-### Notas/Aprendizajes:
-- El producto punto mide similitud entre vectores
-- NumPy hace operaciones vectoriales muy rápido
+### Notes/Aprendizajes:
+- El product point mide similarity entre vectors
+- NumPy have operaciones vectoriales muy fast
 ```
 
 ______________________________________________________________________
 
-## 🗺️ Step 6: Plan para los próximos días
+## 🗺️ Step 6: Plan for the next days
 
-### Semana 1: Fundamentos de Python para ML
+### Week 1: Python Fundamentals for ML
 
 ```
 Día 1-2: Theory + Examples de Python/NumPy
 Día 3-4: Practices de Python/NumPy
-Día 5-7: Theory + Examples de Álgebra Lineal
+Día 5-7: Theory + Examples de Algebra Lineal
 ```
 
-### Semana 2: Matemáticas aplicadas
+### Week 2: Applied Math
 
 ```
-Día 8-10:  Practices de Álgebra Lineal
-Día 11-12: Theory + Examples de Estadística
-Día 13-14: Practices de Estadística
+Día 8-10:  Practices de Algebra Lineal
+Día 11-12: Theory + Examples de Statistics
+Día 13-14: Practices de Statistics
 ```
 
-### Semana 3: Consolidación
+### Week 3: Consolidation
 
 ```
-Día 15-18: Mini-proyecto del módulo
-Día 19-20: Evaluación y siguiente módulo
+Día 15-18: Mini-project del module
+Día 19-20: Evaluation y next module
 ```
 
-**⏰ Tiempo recomendado:** 1.5-2 horas/día
+**⏰ Recommended time:** 1.5-2 hours/day
 
 ______________________________________________________________________
 
-## 🎯 Checklist de tu primer día
+## 🎯 Checklist of your first day
 
-Marca lo que completaste:
+Mark what you complete:
 
-- [ ] ✅ Cloné el repositorio
-- [ ] ✅ Creé y activé entorno virtual
-- [ ] ✅ Instalé NumPy, Pandas, Matplotlib
-- [ ] ✅ Leí README.md del Módulo 1
-- [ ] ✅ Ejecuté mi primer código (vectores NumPy)
-- [ ] ✅ Completé el ejemplo de recomendación
-- [ ] ✅ Actualicé mi STATUS.md
-- [ ] ✅ Entiendo el flujo: theory → examples → practices
+- [ ] ✅ I cloned the repository
+- [ ] ✅ I created and I activated virtual environment
+- [ ] ✅ I installed NumPy, Pandas, Matplotlib
+- [ ] ✅ I read README.md from Module 1
+- [ ] ✅ I executed mi primer code (vectors NumPy)
+- [ ] ✅ I completed the Example of recommendation
+- [ ] ✅ I updated mi STATUS.md
+- [ ] ✅ I understand flow: theory → examples → practices
 
-**Si marcaste 6+ items:** ¡Excelente comienzo! 🎉
+**If you checked 6+ items:** Excellent start! 🎉
 
 ______________________________________________________________________
 
-## 💡 Tips para mantener el ritmo
+## 💡 Tips to keep up the peace
 
-### 📅 **Consistencia > Intensidad**
-
-```
-Mejor:    1.5h/día durante 5 días = 7.5h/semana ✅
-Que:      7.5h en un solo sábado 😫
-```
-
-### 🎯 **Mini-objetivos diarios**
+### 📅 **Consistency > Intensity**
 
 ```
-✅ Hoy: Ejecutar 1 ejemplo
-✅ Mañana: Completar 1 práctica
-✅ Pasado: Leer 1 sección de theory
+Mejor:    1.5h/día durante 5 days = 7.5h/week ✅
+Que:      7.5h en un solo Saturday 😫
 ```
 
-### 📝 **Documenta tus aprendizajes**
+### 🎯 **Daily Mini-Objectives**
 
-Usa la carpeta `notes/` para guardar:
+```
+✅ Hoy: Execute 1 example
+✅ Mañana: Complete 1 practice
+✅ Pasado: Leer 1 section de theory
+```
 
-- ❓ Dudas que tengas
-- 💡 Insights que descubras
-- 🐛 Bugs que resuelvas
-- 🔗 Links útiles que encuentres
+### 📝 **Document your learnings**
 
-### 🤝 **Comparte tu progreso**
+Use the `notes/` folder to save:
+
+- ❓ Doubts you have
+- 💡Insights you discover
+- 🐛 Bugs that you solve
+- 🔗 Useful links that you find
+
+### 🤝 **Compare your progress**
 
 - Sube mini-projects a GitHub
-- Comparte en LinkedIn/Twitter
-- Únete a comunidades de ML (Discord, Reddit)
+- Compare on LinkedIn/Twitter
+- Join ML communities (Discord, Reddit)
 
 ______________________________________________________________________
 
-## 🚨 Troubleshooting común
+## 🚨 Troubleshooting common
 
 ### ❌ "ModuleNotFoundError: No module named 'numpy'"
 
 ```bash
-# Verifica que el venv esté activado
+# Verifica que el venv this activado
 which python  # Debe apuntar a tu venv
 
 # Reinstala si es necesario
 pip install numpy pandas matplotlib
 ```
 
-### ❌ "Permission denied" al crear venv
+### ❌ "Permission denied" when creating venv
 
 ```bash
-# Asegúrate de tener permisos
+# Make sure de tener permisos
 sudo apt install python3-venv  # Ubuntu/Debian
 # o
 brew install python  # Mac
 ```
 
-### ❌ Jupyter no se abre
+### ❌ Jupyter does not open
 
 ```bash
 # Instala jupyter si no lo hiciste
 pip install jupyter
 
-# Inicia en el puerto específico
+# Inicia en el puerto specific
 jupyter notebook --port 8888
 ```
 
 ### ❌ "Python version too old"
 
 ```bash
-# Verifica versión
+# Verifica version
 python --version
 
 # Necesitas Python 3.8+
-# Instala desde python.org o usa pyenv
+# Instala from python.org o usa pyenv
 ```
 
 ______________________________________________________________________
 
-## 📚 Recursos adicionales para empezar
+## 📚 Additional resources to get started
 
-### 🎥 **Videos recomendados** (opcional)
+### 🎥 **Videos recommended** (optional)
 
-- [NumPy in 10 minutes](https://www.youtube.com/results?search_query=numpy+tutorial) - Conceptos básicos
-- [Matplotlib crash course](https://www.youtube.com/results?search_query=matplotlib+tutorial) - Visualización
+- [NumPy in 10 minutes](https://www.youtube.com/results?search_query=numpy+tutorial) - Concepts basic
+- [Matplotlib crash course](https://www.youtube.com/results?search_query=matplotlib+tutorial) - Visualization
 
-### 📖 **Documentación oficial**
+### 📖 **Documentation official**
 
-- [NumPy docs](https://numpy.org/doc/) - Referencia completa
-- [Pandas docs](https://pandas.pydata.org/docs/) - Para data wrangling
+- [NumPy docs](https://numpy.org/doc/) - Complete reference
+- [Pandas docs](https://pandas.pydata.org/docs/) - For data wrangling
 
-### 🤝 **Comunidades**
+### 🤝 **Communities**
 
 - Reddit: r/learnmachinelearning, r/MachineLearning
 - Discord: Fast.ai, ML Collective
-- Stack Overflow: Etiqueta "python" y "numpy"
+- Stack Overflow: "python" and "numpy" tag
 
 ______________________________________________________________________
 
-## 🎉 ¡Felicitaciones
+## 🎉 Congratulations
 
-Si llegaste hasta acá, ya:
+If you got this far, now:
 
-- ✅ Configuraste tu entorno de desarrollo
-- ✅ Ejecutaste tu primer código de ML
-- ✅ Entiendes la estructura del programa
-- ✅ Tienes un plan claro para seguir
+- ✅ You configured your development environment
+- ✅ You ran your first ML code
+- ✅ You understand the Structure of the program
+- ✅ You have a clear plan to follow
 
-**Próximo paso inmediato:**
+**Next immediate step:**
 
 ```bash
 cd modules/01-programming-math-for-ml/theory/
-cat README.md  # Lee la teoría completa
+cat README.md  # Lee la theory complete
 ```
 
 ______________________________________________________________________
 
-## 🔗 Links útiles
+## 🔗 Links useful
 
-- [← Volver al README principal](../README.md)
-- [📖 Ver todos los módulos](RESUMEN-MODULOS.md)
-- [🗺️ Ver roadmap completo](LEARNING-PATH.md)
-- [💪 Tips de consistencia](STUDY-RHYTHM.md)
+- [← Return to main README](../README.md)
+- [📖 See all modules](SUMMARY-MODULES.md)
+- [🗺️ Ver roadmap complete](LEARNING-PATH.md)
+- [💪 Consistency Tips](STUDY-RHYTHM.md)
 
 ______________________________________________________________________
 
 <div align="center">
 
-### 🚀 El viaje de 1000 millas comienza con un solo paso
+### 🚀 The journey of 1000 miles begins with a single step
 
-**Ya diste el primer paso. Ahora sigue adelante.** 💪
+**You've already taken the first step. Now move on.** 💪
 
-[Continuar con Theory →](../modules/01-programming-math-for-ml/theory/README.md)
+[Continue with Theory →](../modules/01-programming-math-for-ml/theory/README.md)
 
 </div>

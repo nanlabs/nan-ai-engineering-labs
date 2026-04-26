@@ -1,31 +1,31 @@
-# Fases de creación (implementación escalonada)
+# Phases, Creation Phases (phased implementation)
 
-## Fase A — Estructura base
+## Phase A — Structure base
 
-- Crear árbol principal del training.
-- Definir plantillas y convenciones.
-- Establecer criterios de completitud por módulo.
+- Create main training tree.
+- Define templates and conventions.
+- Set completeness criteria per Module.
 
-## Fase B — Contenido inicial por módulo
+## Phase B — Content initial per Module
 
-- Crear `README.md` y `STATUS.md` en cada módulo.
-- Definir objetivos desde 0 y roadmap L1-L4.
+- Create `README.md` and `STATUS.md` in each Module.
+- Defines Objectives from 0 and roadmap L1-L4.
 - Estandarizar secciones internas.
 
-## Fase C — Práctica mínima viable
+## Phase C — Practice minimum viable
 
-- Cargar prácticas iniciales por módulo.
-- Definir mini-proyecto por módulo.
-- Agregar checklist de validación.
+- Load Practices initial per Module.
+- Defines Mini-project by Module.
+- Add Validation checklist.
 
-## Fase D — Profundización
+## Phase D — Deepening
 
-- Incluir casos avanzados y optimización.
-- Documentar decisiones de arquitectura y trade-offs.
-- Elevar nivel a perfil senior.
+- Include cases advanceds and optimization.
+- Document architectural decisions and trade-offs.
+- Elevar level a perfil senior.
 
-## Fase E — Mejora continua
+## Phase E — Improvement continua
 
-- Actualizar tendencias mensualmente.
-- Registrar aprendizajes y backlog técnico.
-- Recalibrar carga/ritmo para sostener constancia.
+- Actualizar tendencies mensualmente.
+- Record learnings and technical backlog.
+- Recalibrate load/pace to maintain consistency.

@@ -10,13 +10,13 @@ Apply linear algebra operations using NumPy to solve typical ML problems: data r
 
 ## Estimated duration
 
-40-50 minutos
+40-50 minutes
 
 ______________________________________________________________________
 
 ## Part 1: Solved (step by step guide)
 
-### Ejercicio 1.1: Representar un dataset como matriz
+### Exercise 1.1: Represent a dataset as a matrix
 
 **Setpoint:** Represents a dataset of 4 samples with 3 features each as a matrix. Calculate the mean of each characteristic (column).
 
@@ -27,7 +27,7 @@ ______________________________________________________________________
 ```python
 import numpy as np
 
-# Dataset: 4 muestras, 3 características [altura_cm, peso_kg, edad]
+# Dataset: 4 muestras, 3 features [altura_cm, peso_kg, edad]
 X = np.array([
     [170, 65, 25],
     [160, 55, 30],
@@ -35,27 +35,27 @@ X = np.array([
     [175, 70, 35]
 ])
 
-print("Dataset (matriz X):")
+print("Dataset (matrix X):")
 print(X)
 print(f"\nDimensiones: {X.shape}")  # (4, 3) = 4 muestras, 3 features
 
-# Media por columna (característica)
+# Media por columna (feature)
 media_columnas = np.mean(X, axis=0)
-print(f"\nMedia por característica: {media_columnas}")
+print(f"\nMedia por feature: {media_columnas}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-Dataset (matriz X):
+Dataset (matrix X):
 [[170  65  25]
  [160  55  30]
  [180  75  28]
  [175  70  35]]
 
-Dimensiones: (4, 3)
+Dimensions: (4, 3)
 
-Media por característica: [171.25  66.25  29.5 ]
+Media por feature: [171.25  66.25  29.5 ]
 ```
 
 **Explanation:**
@@ -76,29 +76,29 @@ ______________________________________________________________________
 ```python
 import numpy as np
 
-# Vector de pesos (parámetros del modelo)
+# Vector de pesos (parameters del model)
 w = np.array([0.5, 1.2, -0.3])
 
-# Vector de entrada (una muestra)
+# Vector de input (una muestra)
 x = np.array([170, 65, 25])
 
-# Bias (término independiente)
+# Bias (term independiente)
 b = 10
 
-# Predicción
+# Prediction
 y_pred = np.dot(w, x) + b
 
 print(f"Pesos: {w}")
 print(f"Entrada: {x}")
-print(f"Predicción: {y_pred:.2f}")
+print(f"Prediction: {y_pred:.2f}")
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
 Pesos: [ 0.5  1.2 -0.3]
 Entrada: [170  65  25]
-Predicción: 170.50
+Prediction: 170.50
 ```
 
 **Explanation:**
@@ -112,7 +112,7 @@ ______________________________________________________________________
 
 ### Exercise 2.1: Data Normalization
 
-**Consigna:**
+**Instruction:**
 Given the following dataset:
 
 ```python
@@ -130,9 +130,9 @@ Normalize each column using the formula:
 **Success Criteria:**
 
 - Each column must have mean ≈ 0 and standard deviation ≈ 1.
-- Usa `np.mean()` y `np.std()` con `axis=0`.
+- Use `np.mean()` and `np.std()` with `axis=0`.
 
-**Pistas:**
+**Tracks:**
 
 ```python
 media = np.mean(X, axis=0)
@@ -142,9 +142,9 @@ X_norm = (X - media) / std
 
 ______________________________________________________________________
 
-### Ejercicio 2.2: Similitud coseno entre muestras
+### Exercise 2.2: Similarity cosine entre muestras
 
-**Consigna:**
+**Instruction:**
 You have two users represented as preference vectors:
 
 ```python
@@ -162,23 +162,23 @@ similitud_coseno = (a · b) / (||a|| * ||b||)
 
 **Success Criteria:**
 
-- Resultado entre -1 y 1.
+- Result between -1 and 1.
 - If the result is close to 1, both users have similar preferences.
 
-**Pistas:**
+**Tracks:**
 
 ```python
 dot_product = np.dot(usuario_1, usuario_2)
 norma_1 = np.linalg.norm(usuario_1)
 norma_2 = np.linalg.norm(usuario_2)
-similitud = dot_product / (norma_1 * norma_2)
+similarity = dot_product / (norma_1 * norma_2)
 ```
 
 ______________________________________________________________________
 
 ### Exercise 2.3: Matrix multiplication
 
-**Consigna:**
+**Instruction:**
 You have a data matrix `X` (3 samples, 2 features) and a weight matrix `W` (2 features, 4 neurons).
 
 Calculate `Y = X @ W` (predictions for the 3 samples in 4 outputs).
@@ -201,10 +201,10 @@ W = np.array([
 - Result must be a 3x4 matrix.
 - Each row represents the outputs of a sample for 4 neurons.
 
-**Pistas:**
+**Tracks:**
 
 - Use `@` or `np.matmul()` for matrix multiplication.
-- Dimensiones: (3, 2) @ (2, 4) = (3, 4).
+- Dimensions: (3, 2) @ (2, 4) = (3, 4).
 
 ______________________________________________________________________
 
@@ -217,5 +217,5 @@ ______________________________________________________________________
 ## Help resources
 
 - [NumPy Linear Algebra](https://numpy.org/doc/stable/reference/routines.linalg.html)
-- [Broadcasting en NumPy](https://numpy.org/doc/stable/user/basics.broadcasting.html)
+- [Broadcasting in NumPy](https://numpy.org/doc/stable/user/basics.broadcasting.html)
 - [Matrix Multiplication - Khan Academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:multiplying-matrices-by-matrices/v/matrix-multiplication-intro)

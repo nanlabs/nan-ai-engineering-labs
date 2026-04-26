@@ -1,17 +1,17 @@
-# Práctica 04 — Guardrails básicos
+# Practice 04 — Basic Guardrails
 
 ## Objective
 
-Reducir respuestas fuera de alcance o riesgosas.
+Reduce out-of-scope or risky responses.
 
-## Enunciado
+## Statement
 
-1. Definir reglas de seguridad y límites.
+1. Define security rules and limits.
 1. Incorporarlas al prompt o postproceso.
-1. Ejecutar casos adversariales simples.
-1. Evaluar efectividad de controles.
+1. Execute cases adversariales simples.
+1. Evaluate effectiveness of controls, controllers.
 
-## Validación
+## Validation
 
-- Guardrails explícitos y aplicados.
-- Casos de riesgo reducidos.
+- Explicit and applied guardrails.
+- Reduced risk cases.

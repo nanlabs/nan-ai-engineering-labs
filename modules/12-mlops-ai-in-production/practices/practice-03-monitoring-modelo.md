@@ -1,17 +1,17 @@
-# Práctica 03 — Monitoreo de modelo
+# Practice 03 — Model Monitoring
 
 ## Objective
 
-Registrar métricas de operación y calidad.
+Register operation and quality metrics.
 
-## Enunciado
+## Statement
 
-1. Definir métricas (latencia, tasa de error, calidad).
-1. Registrar métricas por ventana temporal.
-1. Graficar evolución.
-1. Detectar comportamientos anómalos.
+1. Defines Metrics (latency, error rate, quality).
+1. Record Metrics by time window.
+1. Graph evolution.
+1. Detect anomalous behaviors.
 
-## Validación
+## Validation
 
-- Métricas mínimas disponibles.
-- Observaciones operativas documentadas.
+- Minimum metrics available.
+- Observaciones operativas documenteds.

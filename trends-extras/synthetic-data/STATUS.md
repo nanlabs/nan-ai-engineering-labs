@@ -1,18 +1,18 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
 ## Current progress
 
-_Pendiente de completar._
+_Pending completion._
 
 ## Checklist
 
-- [ ] Definir alcance del modulo
-- [ ] Completar recursos clave
+- [ ] Defines scope of the module
+- [ ] Complete Resources clave
 
 ## Blockers
 
-- Ninguno por ahora.
+- None for now.
 
 ## Next steps
 
-- Priorizar contenidos y actividades de esta semana.
+- Prioritize Contents and activities of this week.

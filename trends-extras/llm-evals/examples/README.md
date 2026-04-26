@@ -1,14 +1,14 @@
-# LLM Evals — Evaluación Sistemática de LLMs
+# LLM Evals — Systematic Evaluation of LLMs
 
 ## Available examples
 
-- Ejemplo 1: Placeholder breve
-- Ejemplo 2: Placeholder breve
+- Example 1: Compare prompts with BLEU/ROUGE/BERTScore on a fixed dataset.
+- Example 2: Run a regression test suite across two model versions.
 
 ## How to use these examples
 
-Revisa, ejecuta y adapta cada ejemplo segun tu entorno.
+Review, execute and adapt each Example according to your environment.
 
 ## Next steps
 
-- Convertir un ejemplo en ejercicio guiado.
+- Convert an Example into a guided Exercise.

@@ -2,23 +2,23 @@
 
 ## Objective
 
-Explica en 2-3 lineas que problema resuelve este ejemplo y por que importa.
+Explain in 2-3 lines what Problem this Example solves and why it matters.
 
 ## Entrada
 
-- Datos usados:
-- Parametros clave:
+- Data usados:
+- Parameters clave:
 - Supuestos:
 
-## Ejecucion
+## Execution
 
 ```bash
 python examples/<example-file>.py
 ```
 
-## Salida esperada
+## Output expected
 
-Inclui una salida esperada minima para que la persona pueda validar rapidamente.
+I included a minimum expected output so that the person can quickly validate.
 
 ```text
 Input size: 4
@@ -28,13 +28,13 @@ Result mean: 5.00
 
 ## Variacion sugerida
 
-Propone un cambio controlado (parametro, dataset o modelo) y que deberia observarse.
+It proposes a controlled change (parameter, dataset or Model) that should be observed by observers.
 
-## Errores comunes
+## Errors common
 
-- Error 1 + como detectarlo.
-- Error 2 + como corregirlo.
+- error 1 + como detector.
+- error 2 + como corregirlo.
 
 ## Proximo paso
 
-Indica que ejemplo/practica sigue y por que.
+Indicate which Example/practice follows and why.

@@ -1,28 +1,28 @@
-# Ejemplo 01 — Deployment de Modelo ML con FastAPI y Docker
+# Example 01 — Model ML Deployment with FastAPI and Docker
 
-## Contexto
+## Context
 
-Llevar modelos de Jupyter notebooks a producción requiere API robusta, versionado, containerización y CI/CD.
+Bringing Jupyter notebook models to production requires robust API, versioning, containerization, and CI/CD.
 
 ## Objective
 
-Desplegar modelo de clasificación con FastAPI, Docker y mejores prácticas de MLOps.
+Deploy Classification Model with FastAPI, Docker and MLOps best practices.
 
 ______________________________________________________________________
 
-## 🚀 Setup del proyecto
+## 🚀 Project setup
 
 ```bash
-# Estructura del proyecto
+# Structure del project
 ml-api/
 ├── app/
 │   ├── __init__.py
 │   ├── main.py           # FastAPI app
 │   ├── models.py         # Pydantic schemas
-│   ├── inference.py      # Lógica de predicción
-│   └── monitoring.py     # Logs y métricas
+│   ├── inference.py      # Logic de prediction
+│   └── monitoring.py     # Logs y metrics
 ├── model/
-│   ├── model.pkl         # Modelo entrenado
+│   ├── model.pkl         # Model trained
 │   └── preprocessing.pkl # Transformaciones
 ├── tests/
 │   ├── test_api.py
@@ -35,10 +35,10 @@ ml-api/
 
 ______________________________________________________________________
 
-## 🤖 Entrenar y guardar modelo
+## 🤖 Train and save Model
 
 ```python
-# train.py - Script de entrenamiento
+# train.py - Script de training
 
 import pandas as pd
 import numpy as np
@@ -50,7 +50,7 @@ import joblib
 import json
 from datetime import datetime
 
-# Cargar datos
+# Load data
 data = load_breast_cancer()
 X = pd.DataFrame(data.data, columns=data.feature_names)
 y = data.target
@@ -65,11 +65,11 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Entrenar
+# Train
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train_scaled, y_train)
 
-# Evaluar
+# Evaluate
 from sklearn.metrics import accuracy_score, roc_auc_score
 y_pred = model.predict(X_test_scaled)
 y_proba = model.predict_proba(X_test_scaled)[:, 1]
@@ -81,11 +81,11 @@ metrics = {
     'model_version': '1.0.0'
 }
 
-# Guardar modelo y artefactos
+# Save model y artefactos
 joblib.dump(model, 'model/model.pkl')
 joblib.dump(scaler, 'model/preprocessing.pkl')
 
-# Guardar metadata
+# Save metadata
 with open('model/metadata.json', 'w') as f:
     json.dump({
         'metrics': metrics,
@@ -93,15 +93,15 @@ with open('model/metadata.json', 'w') as f:
         'target_names': list(data.target_names)
     }, f, indent=2)
 
-print(f"✅ Modelo entrenado y guardado")
+print(f"✅ Model trained y guardado")
 print(f"Accuracy: {metrics['accuracy']:.4f}")
 print(f"ROC-AUC: {metrics['roc_auc']:.4f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-✅ Modelo entrenado y guardado
+✅ Model trained y guardado
 Accuracy: 0.9737
 ROC-AUC: 0.9956
 ```
@@ -119,7 +119,7 @@ import numpy as np
 
 class PredictionInput(BaseModel):
     """
-    Schema para input de predicción
+    Schema para input de prediction
     """
     features: List[float] = Field(
         ...,
@@ -130,14 +130,14 @@ class PredictionInput(BaseModel):
 
     @validator('features')
     def validate_features(cls, v):
-        # Validar que no haya NaN o Inf
+        # Validate que no haya NaN o Inf
         if any(np.isnan(x) or np.isinf(x) for x in v):
             raise ValueError("Features contienen NaN o Inf")
         return v
 
 class PredictionOutput(BaseModel):
     """
-    Schema para output de predicción
+    Schema para output de prediction
     """
     prediction: int = Field(..., ge=0, le=1, description="0=malignant, 1=benign")
     probability_benign: float = Field(..., ge=0.0, le=1.0)
@@ -154,7 +154,7 @@ class HealthResponse(BaseModel):
 
 class MetricsResponse(BaseModel):
     """
-    Métricas del modelo
+    Metrics del model
     """
     total_predictions: int
     avg_inference_time_ms: float
@@ -163,7 +163,7 @@ class MetricsResponse(BaseModel):
 
 ______________________________________________________________________
 
-## 🔧 Lógica de inferencia
+## 🔧 Inference logic
 
 ```python
 # app/inference.py
@@ -179,7 +179,7 @@ logger = logging.getLogger(__name__)
 
 class ModelInference:
     """
-    Clase para manejar carga y predicción del modelo
+    Clause, Class para manejar carga y prediction del model
     """
     def __init__(self, model_path: str = "model/model.pkl"):
         self.model_path = Path(model_path)
@@ -193,7 +193,7 @@ class ModelInference:
 
     def load_model(self):
         """
-        Carga modelo, scaler y metadata
+        Carga model, scaler y metadata
         """
         try:
             self.model = joblib.load(self.model_path)
@@ -202,19 +202,19 @@ class ModelInference:
             with open(self.model_path.parent / "metadata.json") as f:
                 self.metadata = json.load(f)
 
-            logger.info(f"✅ Modelo cargado: v{self.metadata['metrics']['model_version']}")
+            logger.info(f"✅ Model cargado: v{self.metadata['metrics']['model_version']}")
 
         except Exception as e:
-            logger.error(f"❌ Error cargando modelo: {e}")
+            logger.error(f"❌ Error cargando model: {e}")
             raise
 
     def predict(self, features: list) -> dict:
         """
-        Realiza predicción
+        Realiza prediction
         """
         start_time = time.time()
 
-        # Validación dimensional
+        # Validation dimensional
         if len(features) != 30:
             raise ValueError(f"Expected 30 features, got {len(features)}")
 
@@ -222,16 +222,16 @@ class ModelInference:
         features_array = np.array(features).reshape(1, -1)
         features_scaled = self.scaler.transform(features_array)
 
-        # Predecir
+        # Predict
         prediction = int(self.model.predict(features_scaled)[0])
         probabilities = self.model.predict_proba(features_scaled)[0]
 
-        # Métricas
+        # Metrics
         inference_time = (time.time() - start_time) * 1000  # ms
         self.prediction_count += 1
         self.total_inference_time += inference_time
 
-        logger.info(f"Predicción: {prediction}, Prob: {probabilities[1]:.4f}, Time: {inference_time:.2f}ms")
+        logger.info(f"Prediction: {prediction}, Prob: {probabilities[1]:.4f}, Time: {inference_time:.2f}ms")
 
         return {
             'prediction': prediction,
@@ -241,7 +241,7 @@ class ModelInference:
 
     def get_metrics(self) -> dict:
         """
-        Retorna métricas de uso
+        Retorna metrics de usage
         """
         avg_time = (
             self.total_inference_time / self.prediction_count
@@ -285,10 +285,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Crear app
+# Create app
 app = FastAPI(
     title="ML Model API",
-    description="API para predicción de cáncer de mama",
+    description="API para prediction de cancer de mama",
     version="1.0.0"
 )
 
@@ -301,18 +301,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Cargar modelo al iniciar
+# Load model al iniciar
 model_inference = None
 
 @app.on_event("startup")
 async def startup_event():
     """
-    Cargar modelo al iniciar la aplicación
+    Load model al iniciar la application
     """
     global model_inference
     try:
         model_inference = ModelInference()
-        logger.info("🚀 API iniciada y modelo cargado")
+        logger.info("🚀 API iniciada y model cargado")
     except Exception as e:
         logger.error(f"❌ Error en startup: {e}")
         raise
@@ -320,7 +320,7 @@ async def startup_event():
 @app.get("/", tags=["Root"])
 async def root():
     """
-    Endpoint raíz
+    Endpoint root
     """
     return {
         "message": "ML Model API",
@@ -344,19 +344,19 @@ async def health_check():
 @app.post("/predict", response_model=PredictionOutput, tags=["Prediction"])
 async def predict(input_data: PredictionInput):
     """
-    Realizar predicción
+    Realizar prediction
 
     Args:
         input_data: 30 features del tumor
 
     Returns:
-        Predicción y probabilidad
+        Prediction y probability
     """
     try:
-        # Predecir
+        # Predict
         result = model_inference.predict(input_data.features)
 
-        # Generar ID único
+        # Generate ID only
         prediction_id = str(uuid.uuid4())
 
         return PredictionOutput(
@@ -370,13 +370,13 @@ async def predict(input_data: PredictionInput):
         raise HTTPException(status_code=400, detail=str(e))
 
     except Exception as e:
-        logger.error(f"Error en predicción: {e}")
+        logger.error(f"Error en prediction: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
 
 @app.get("/metrics", response_model=MetricsResponse, tags=["Monitoring"])
 async def get_metrics():
     """
-    Obtener métricas de uso del modelo
+    Obtener metrics de usage del model
     """
     metrics = model_inference.get_metrics()
 
@@ -427,7 +427,7 @@ LABEL version="1.0.0"
 # Directorio de trabajo
 WORKDIR /app
 
-# Instalar dependencias del sistema
+# Instalar dependencies del sistema
 RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
@@ -435,14 +435,14 @@ RUN apt-get update && apt-get install -y \
 # Copiar requirements
 COPY requirements.txt .
 
-# Instalar dependencias Python
+# Instalar dependencies Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar código
+# Copiar code
 COPY app/ ./app/
 COPY model/ ./model/
 
-# Crear usuario no-root
+# Create user no-root
 RUN useradd -m -u 1000 mluser && chown -R mluser:mluser /app
 USER mluser
 
@@ -453,16 +453,16 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/health')"
 
-# Comando de inicio
+# Commando de inicio
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 ______________________________________________________________________
 
-## 🚀 Build y Run
+## 🚀 Build and Run
 
 ```bash
-# Build imagen
+# Build image
 docker build -t ml-api:1.0.0 .
 
 # Run container
@@ -490,11 +490,11 @@ curl -X POST http://localhost:8000/predict \
                      0.2654, 0.4601, 0.1189]
     }'
 
-# Ver métricas
+# Ver metrics
 curl http://localhost:8000/metrics
 ```
 
-**Salida:**
+**Output:**
 
 ```json
 {
@@ -520,7 +520,7 @@ client = TestClient(app)
 
 def test_root():
     """
-    Test endpoint raíz
+    Test endpoint root
     """
     response = client.get("/")
     assert response.status_code == 200
@@ -537,7 +537,7 @@ def test_health_check():
 
 def test_predict_valid():
     """
-    Test predicción válida
+    Test prediction valid
     """
     payload = {
         "features": [17.99, 10.38, 122.8, 1001.0, 0.1184, 0.2776, 0.3001,
@@ -558,10 +558,10 @@ def test_predict_valid():
 
 def test_predict_invalid_features():
     """
-    Test con número incorrecto de features
+    Test con number incorrecto de features
     """
     payload = {
-        "features": [1.0, 2.0, 3.0]  # Solo 3 features (requiere 30)
+        "features": [1.0, 2.0, 3.0]  # Solo 3 features (requires 30)
     }
 
     response = client.post("/predict", json=payload)
@@ -569,13 +569,13 @@ def test_predict_invalid_features():
 
 def test_metrics():
     """
-    Test endpoint de métricas
+    Test endpoint de metrics
     """
     response = client.get("/metrics")
     assert response.status_code == 200
     assert "total_predictions" in response.json()
 
-# Ejecutar tests
+# Execute tests
 # pytest tests/ -v --cov=app
 ```
 
@@ -601,7 +601,7 @@ def generate_random_features():
 
 def make_prediction(features):
     """
-    Hace una predicción
+    Have una prediction
     """
     start = time.time()
 
@@ -620,7 +620,7 @@ def make_prediction(features):
 
 def load_test(n_requests=100, n_workers=10):
     """
-    Load test con múltiples workers
+    Load test con multiple workers
     """
     print(f"🔥 Load test: {n_requests} requests con {n_workers} workers paralelos")
 
@@ -635,11 +635,11 @@ def load_test(n_requests=100, n_workers=10):
         for future in as_completed(futures):
             results.append(future.result())
 
-    # Análisis
+    # Analysis
     latencies = [r['latency_ms'] for r in results if r['success']]
     success_rate = sum(r['success'] for r in results) / len(results)
 
-    print(f"\n✅ Resultados:")
+    print(f"\n✅ Results:")
     print(f"Success rate: {success_rate:.2%}")
     print(f"Latency media: {np.mean(latencies):.2f}ms")
     print(f"Latency p50: {np.percentile(latencies, 50):.2f}ms")
@@ -652,12 +652,12 @@ if __name__ == "__main__":
     load_test(n_requests=500, n_workers=20)
 ```
 
-**Salida:**
+**Output:**
 
 ```
 🔥 Load test: 500 requests con 20 workers paralelos
 
-✅ Resultados:
+✅ Results:
 Success rate: 100.00%
 Latency media: 15.34ms
 Latency p50: 12.45ms
@@ -669,18 +669,18 @@ Throughput: 326.78 req/s
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
-### ✅ Componentes de producción
+### ✅ Production components
 
 ```
-Modelo entrenado (joblib)
+Model trained (joblib)
     ↓
 FastAPI (REST API)
     ↓
-Pydantic (validación)
+Pydantic (validation)
     ↓
-Docker (containerización)
+Docker (containerization)
     ↓
 Tests (pytest)
     ↓
@@ -689,31 +689,31 @@ CI/CD (GitHub Actions)
 Kubernetes / Cloud Run (deployment)
 ```
 
-### 🎯 Mejores prácticas
+### 🎯 Mejores Practices
 
 - ✅ **Versionado:** Model registry (MLflow, DVC)
-- ✅ **Validación:** Pydantic schemas para input/output
+- ✅ **Validation:** Pydantic schemas for input/output
 - ✅ **Logging:** Structured logging (JSON)
 - ✅ **Monitoring:** Prometheus + Grafana
 - ✅ **Testing:** Unit + integration + load tests
 - ✅ **Security:** Rate limiting, authentication (API keys)
-- ✅ **Documentation:** OpenAPI (Swagger) automático con FastAPI
+- ✅ **Documentation:** Automatic OpenAPI (Swagger) with FastAPI
 
-### 🚫 Errores comunes
+### 🚫 Errors common
 
-- ❌ No versionar modelos (imposible rollback)
-- ❌ No validar inputs (crashes en producción)
-- ❌ Modelo muy grande en memoria (usar batch o streaming)
+- ❌ No versionar Models (impossible rollback)
+- ❌ Do not validate inputs (crashes in production)
+- ❌ Model very large in memory (use batch or streaming)
 - ❌ No monitorear latencia/errors (blind deployment)
-- ❌ Hardcodear paths (usar env variables)
+- ❌ Hardcodear paths (use env variables)
 
 ### 📌 Checklist Deployment
 
-- ✅ Modelo guardado con metadata (versión, métricas, fecha)
-- ✅ API con validación de input/output
-- ✅ Dockerfile optimizado (multi-stage, tamaño mínimo)
+- ✅ Model saved with metadata (version, Metrics, date)
+- ✅ API with input/output validation
+- ✅ Optimized Dockerfile (multi-stage, minimum size)
 - ✅ Health check endpoint
-- ✅ Tests automáticos (unit + integration)
+- ✅ Automatic tests (unit + integration)
 - ✅ Load testing realizado
 - ✅ Logging estructurado
 - ✅ Monitoring configurado
@@ -721,8 +721,8 @@ Kubernetes / Cloud Run (deployment)
 
 ### 🚀 Next steps
 
-- Integración con Model Registry (MLflow)
+- Integration with Model Registry (MLflow)
 - A/B Testing framework
 - Feature store (Feast)
 - Canary deployments
-- Auto-scaling en Kubernetes
+- Auto-scaling in Kubernetes

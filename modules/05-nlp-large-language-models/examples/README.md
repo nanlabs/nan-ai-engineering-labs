@@ -8,7 +8,7 @@ Preprocess text for classification tasks.
 
 Train a text-classification baseline.
 
-## Example 3 — Embeddings and similarity
+## Example 3 — embeddings and similarity
 
 Compare sentences by semantic proximity.
 

@@ -2,7 +2,7 @@
 CLIP Zero-Shot Classification
 ==============================
 Classify images without training using OpenAI CLIP.
-CLIP aprende relaciones imagen-texto de 400M pares.
+CLIP aprende relaciones imagen-text de 400M pares.
 
 Requirements:
     pip install transformers torch pillow
@@ -26,16 +26,16 @@ class MockCLIPDemo:
 
     def __init__(self):
         print("🔄 Mock CLIP model loaded (conceptual demo)")
-        print("Para uso real: descomentar imports y usar modelo real\n")
+        print("Para usage real: descomentar imports y usar model real\n")
 
     def classify_image(self, image_path: str, candidate_labels: list) -> dict:
         """
-        Clasifica imagen contra labels sin training.
+        Clasifica image contra labels sin training.
         """
-        print(f"📸 Imagen: {image_path}")
+        print(f"📸 Image: {image_path}")
         print(f"🏷️  Labels: {candidate_labels}")
 
-        # En el modelo real:
+        # En el model real:
         # 1. image_features = clip.encode_image(image) -> [512]
         # 2. text_features = clip.encode_text(prompts) -> [n_labels, 512]
         # 3. similarity = image_features @ text_features.T -> [n_labels]
@@ -56,7 +56,7 @@ class MockCLIPDemo:
             reverse=True
         )
 
-        print("\n📊 Resultados:")
+        print("\n📊 Results:")
         for label, prob in results:
             bar = "█" * int(prob * 50)
             print(f"  {label:20s} {prob:6.2%} {bar}")
@@ -193,7 +193,7 @@ def demo_emotions():
 
 if __name__ == "__main__":
     print("\n🎯 CLIP ZERO-SHOT IMAGE CLASSIFICATION")
-    print("🔬 Sin training, solo con descripciones de texto!\n")
+    print("🔬 Sin training, solo con descripciones de text!\n")
 
     demo_animals()
     demo_vehicles()
@@ -203,11 +203,11 @@ if __name__ == "__main__":
     print("\n" + "="*70)
     print("💡 VENTAJAS DE CLIP ZERO-SHOT:")
     print("="*70)
-    print("✅ No requiere dataset de training")
+    print("✅ No require dataset de training")
     print("✅ Funciona con cualquier label (incluso inventado)")
     print("✅ Multilingual (works in Spanish, English, etc.)")
     print("✅ Flexible: cambia labels sin reentrenar")
-    print("\n📚 Modelo real: openai/clip-vit-base-patch32 (Hugging Face)")
+    print("\n📚 Model real: openai/clip-vit-base-patch32 (Hugging Face)")
     print("📄 Paper: https://arxiv.org/abs/2103.00020")
 
     print("\n" + "="*70)

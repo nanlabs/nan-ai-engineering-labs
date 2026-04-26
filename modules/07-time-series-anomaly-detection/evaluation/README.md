@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de dinámica temporal.
-- Correcta validación de modelos en tiempo.
-- Calidad de detección de anomalías.
-- Claridad en interpretación de alertas.
+- Understanding of temporal dynamics.
+- Correct Validation of Models in time.
+- Anomaly detection quality.
+- Clarity in interpretation of alerts.
 
 ## Checklist final
 
-- [ ] Serie temporal preparada correctamente.
-- [ ] Baseline de forecasting implementado.
-- [ ] Modelo mejorado comparado con baseline.
-- [ ] Método de anomalías aplicado.
-- [ ] Métricas y gráficos de respaldo.
-- [ ] Recomendaciones de siguiente paso.
+- [ ] Time series preparada correctly.
+- [ ] Implemented forecasting baseline.
+- [ ] Improved model compared to baseline.
+- [ ] Anomalies method applied.
+- [ ] Supporting metrics and graphs.
+- [ ] Next step recommendations.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

@@ -2,92 +2,92 @@
 
 ## Why this module matters
 
-La calidad de los Data determina el límite superior de performance de cualquier Model de ML. Sin Data limpios, estructurados y bien entendidos, incluso el mejor Algorithm fallará. Este Module te da herramientas para transformar Data crudos en datasets confiables listos para entrenar Models.
+The quality of the Data determines the upper limit of performance of any ML Model. Without clean, structured and well-understood data, even the best Algorithm will fail. This Module gives you tools to transform raw data into reliable datasets ready to train Models.
 
 ______________________________________________________________________
 
-## 1. Types de Data
+## 1. Data Types
 
-### Classification por Structure
+### Classification by Structure
 
-- **Data estructurados:** tablas SQL, CSVs, Excel (filas y columnas).
-- **Data semi-estructurados:** JSON, XML, logs.
-- **Data no estructurados:** texto libre, Images, audio, video.
+- **Structured data:** SQL tables, CSVs, Excel (rows and columns).
+- **Semi-structured data:** JSON, XML, logs.
+- **Unstructured data:** free text, Images, audio, video.
 
-### Implicancias para ML
+### Implications for ML
 
-- Models tradicionales (regresión, árboles) trabajan con Data tabulares estructurados.
-- Deep learning maneja eficientemente Data no estructurados (Images, texto).
+- Traditional models (regression, trees) work with structured tabular data.
+- Deep learning efficiently handles unstructured data (Images, text).
 
 ______________________________________________________________________
 
-## 2. Fuentes de Data
+## 2. Data Sources
 
-### Estrategias de obtención
+### Obtaining strategies
 
-- **APIs:** Data de servicios web (Twitter API, GitHub API, OpenWeather).
-- **Web scraping:** extraer Data de HTML usando BeautifulSoup o Scrapy.
-- **Bases de Data:** SQL (PostgreSQL, MySQL), NoSQL (MongoDB).
-- **Archivos:** CSV, JSON, Parquet, Excel.
-- **Datasets públicos:** Kaggle, UCI ML Repository, Google Dataset Search.
+- **APIs:** Data from web services (Twitter API, GitHub API, OpenWeather).
+- **Web scraping:** extract Data from HTML using BeautifulSoup or Scrapy.
+- **Databases:** SQL (PostgreSQL, MySQL), NoSQL (MongoDB).
+- **Files:** CSV, JSON, Parquet, Excel.
+- **Public datasets:** Kaggle, UCI ML Repository, Google Dataset Search.
 
-### Consideraciones críticas
+### Critical Considerations
 
-- Siempre verificar licencias y términos de Usage de los Data.
-- Evaluar frecuencia de actualización y confiabilidad de la fuente.
-- Considerar volumen necesario para entrenar Models robustos.
+- Always verify licenses and terms of Data Usage.
+- Evaluate update frequency and source reliability.
+- Consider volume necessary to train robust Models.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Working with APIs in Python - Corey Schafer](https://www.youtube.com/watch?v=tb8gHvYlCFs) - 18 min
 1. [Web Scraping with BeautifulSoup - freeCodeCamp](https://www.youtube.com/watch?v=XVv6mJpFOb0) - 2 horas
-1. [Pandas for Data Analysis - Keith Galli](https://www.youtube.com/watch?v=vmEHCJofslg) - 1 hora
+1. [Pandas for Data Analysis - Keith Galli](https://www.youtube.com/watch?v=vmEHCJofslg) - 1 hour
 
 ______________________________________________________________________
 
-## 3. Calidad de Data y Cleaning
+## 3. Data Quality and Cleaning
 
-### Problems comunes en Data reales
+### Common problems in real data
 
-- **Valores nulos:** Data faltantes (NaN, None, null, espacios vacíos).
-- **Duplicados:** filas repetidas que inflan Metrics artificialmente.
-- **outliers:** valores atípicos que pueden ser Errors o casos extremos legítimos.
-- **Formatos inconsistentes:** fechas en múltiples formatos, mayúsculas/minúsculas mezcladas.
-- **Types de Data incorrectos:** números guardados como strings, categorías como números.
+- **Nuls values:** Missing data (NaN, None, null, empty spaces).
+- **Duplicates:** repeated rows that artificially inflate Metrics.
+- **outliers:** outlier values ​​that may be legitimate errors or extreme cases.
+- **Inconsistent formats:** dates in multiple formats, mixed uppercase/lowercase.
+- **Incorrect Data Types:** numbers saved as strings, categories as numbers.
 
-### Técnicas de Cleaning por Problem
+### Cleaning Techniques by Problem
 
-**Para valores nulos:**
+**For values ​​nulls:**
 
-- Eliminar filas/columnas con muchos nulos (cuando el % es alto, >50%).
-- Imputar con media, mediana, moda (según distribución y contexto).
-- Forward fill / backward fill para time series.
-- Usar Models predictivos para imputar (KNN Imputer, regresión).
+- Remove rows/columns with many nulls (when % is high, >50%).
+- Impute with mean, median, mode (according to distribution and context).
+- Forward fill / backward fill for time series.
+- Use predictive models to impute (KNN Imputer, regression).
 
-**Para duplicados:**
+**For duplicates:**
 
-- Detectar con `.duplicated()` y eliminar con `.drop_duplicates()`.
-- Decidir qué fila conservar (primera, última, o custom).
+- Detect with `.duplicated()` and remove with `.drop_duplicates()`.
+- Decide which row to keep (first, last, or custom).
 
-**Para outliers:**
+**For outliers:**
 
-- Método IQR (rango intercuartílico): valores fuera de \[Q1 - 1.5*IQR, Q3 + 1.5*IQR\].
-- Z-score: valores con |z| > 3 son outliers potenciales.
-- Visualization con boxplots para decisión informada.
+- IQR method (interquartile range): valuesoutside \[Q1 - 1.5*IQR, Q3 + 1.5*IQR\].
+- Z-score: values ​​with |z| > 3 are potential outliers.
+- Visualization with boxplots for informed decision.
 
-**Para formatos:**
+**For formats:**
 
-- Normalizar strings: `.str.lower()`, `.str.strip()`, remover caracteres especiales.
-- Parsing de fechas: `pd.to_datetime()` con formato explícito.
-- Conversión de Types: `.astype()` con Validation previa.
+- Normalize strings: `.str.lower()`, `.str.strip()`, remove special characters.
+- Date parsing: `pd.to_datetime()` with explicit format.
+- Types conversion: `.astype()` with prior Validation.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Data Cleaning with Pandas - Corey Schafer](https://www.youtube.com/watch?v=eMOA1pPVUc4) - 20 min
 1. [Handling Missing Data - StatQuest](https://www.youtube.com/watch?v=jb3CVnBYgQc) - 10 min
 1. [Complete Data Cleaning Tutorial - Alex The Analyst](https://www.youtube.com/watch?v=bDhvCp3_lYw) - 30 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Pandas Data Cleaning Guide](https://pandas.pydata.org/docs/user_guide/missing_data.html)
 - [DataCamp - Data Cleaning with Python](https://www.datacamp.com/tutorial/data-cleaning-python)
@@ -99,43 +99,43 @@ ______________________________________________________________________
 
 ### Concepts clave
 
-**Feature engineering** es crear nuevas features a partir de existentes para mejorar la capacidad predictiva del Model.
+**Feature engineering** is creating new features from existing ones to improve the predictive capacity of the Model.
 
-### Transformaciones comunes
+### common transformations
 
-- **Logaritmos:** comprimir rangos grandes, normalizar distribuciones asimétricas.
-- **Raíz cuadrada / potencias:** ajustar relaciones no lineales.
-- **Binning:** convertir variables continuas en categorías (edad → rangos etarios).
-- **Interacciones:** multiplicar features relacionadas (área = ancho × alto).
+- **Logarithms:** compress large ranges, normalize asymmetric distributions.
+- **Square root / powers:** adjust non-linear relationships.
+- **Binning:** convert continuous variables into categories (age → age ranges).
+- **Interactions:** multiply related features (area = width × height).
 
-### Encoding de variables categóricas
+### Encoding of categorical variables
 
-- **One-Hot Encoding:** crear columnas binarias por cada categoría.
-- **Label Encoding:** asignar números enteros a categorías (solo si hay orden).
-- **Target Encoding:** reemplazar categoría por media del target en esa categoría.
-- **Frequency Encoding:** reemplazar por frecuencia de aparición.
+- **One-Hot Encoding:** create binary columns for each category.
+- **Label Encoding:** assign integers to categories (only if there is order).
+- **Target Encoding:** replace category by means of the target in that category.
+- **Frequency Encoding:** replace with frequency of occurrence.
 
 ### Feature Scaling (Normalization)
 
-- **Min-Max Scaling:** escalar a rango \[0, 1\]: `(x - min) / (max - min)`.
+- **Min-Max Scaling:** scale to range \[0, 1\]: `(x - min) / (max - min)`.
 - **Standardization (Z-score):** media 0, std 1: `(x - mean) / std`.
-- **Cuándo usar cada uno:**
-  - Min-Max: cuando necesitás rango acotado (neural networks).
-  - Standardization: cuando la distribución importa (regresión, SVM).
+- **When use each uno:**
+- Min-Max: when you need limited range (neural networks).
+  - Standardization: when distribution matters (regression, SVM).
 
-### Examples aplicados
+### Examples applied
 
-- De una fecha extraer: día de la semana, mes, trimestre, es_fin_de_semana.
-- De texto extraer: longitud, número de palabras, presencia de palabras clave.
-- De transacciones: monto promedio últimos 30 días, desviación estándar, máximo.
+- From a date extract: day of the week, month, quarter, is_end_of_week.
+- From text extract: length, number of words, presence of keywords.
+- Transactions: average amount in the last 30 days, standard deviation, maximum.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Feature Engineering Course - Applied AI](https://www.youtube.com/watch?v=2N7hCn40YdY) - 1 hora
 1. [Feature Scaling Explained - Krish Naik](https://www.youtube.com/watch?v=mnKm3YP56PY) - 15 min
 1. [Categorical Encoding - Data Science Dojo](https://www.youtube.com/watch?v=irHhDMbw3xo) - 20 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Feature Engineering - Google ML Guide](https://developers.google.com/machine-learning/data-prep/transform/introduction)
 - [Feature Engineering for Machine Learning - Towards Data Science](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114)
@@ -145,96 +145,96 @@ ______________________________________________________________________
 
 ## 5. Exploratory Data Analysis (EDA)
 
-### Objective del EDA
+### Objective of the EDA
 
-Entender la Structure, distribución y relaciones en tus Data **ANTES** de entrenar Models. El EDA previene Errors costosos y revela insights para feature engineering.
+Understand the Structure, distribution and relationships in your Data **BEFORE** training Models. EDA prevents costly errors and reveals insights for feature engineering.
 
-### Pasos típicos del EDA
+### Typical EDA steps
 
-**1. Resumen estadístico inicial:**
+**1. Initial statistical summary:**
 
 ```python
-df.info()          # tipos, nulos
-df.describe()      # estadísticas numéricas
-df.value_counts()  # frecuencias categóricas
+df.info()          # types, nulls
+df.describe()      # statistics numerical
+df.value_counts()  # frecuencias categorical
 ```
 
-**2. Analysis de distribuciones:**
+**2. Analysis of distributions:**
 
-- Histogramas para variables numéricas.
-- KDE plots para densidad de probabilidad.
-- Countplots para categóricas.
+- Histograms for numerical variables.
+- KDE plots for probability density.
+- Countplots for categorical.
 
-**3. Analysis de relaciones:**
+**3. Relationship analysis:**
 
-- Scatter plots para relación entre dos variables numéricas.
-- Box plots agrupados para comparar distribuciones por categoría.
-- Matriz de correlación (heatmap) para detectar multicolinealidad.
+- Scatter plots for relationship between two numerical variables.
+- Grouped box plots to compare distributions by category.
+- Correlation matrix (heatmap) to detect multicollinearity.
 
-**4. Detección de patrones:**
+**4. Pattern detection:**
 
-- Agrupaciones naturales (clusters).
-- Tendencias temporales.
-- outliers y Anomalies.
+- Natural groupings (clusters).
+- Temporal trends.
+- outliers and anomalies.
 
-### Herramientas de Visualization
+### Visualization Tools
 
-**Matplotlib:** gráficos base altamente personalizables.
-**Seaborn:** visualizaciones estadísticas elegantes con menos código.
-**Plotly:** gráficos interactivos para Exploration dinámica.
+**Matplotlib:** highly customizable base plots.
+**Seaborn:** Elegant statistical visualizations with less code.
+**Plotly:** Interactive plots for dynamic Exploration.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [EDA with Pandas - Corey Schafer](https://www.youtube.com/watch?v=Wb2Tp35dZ-I) - 35 min
-1. [Data Visualization with Seaborn - Keith Galli](https://www.youtube.com/watch?v=6GUZXDef2U0) - 1 hora
+1. [Data Visualization with Seaborn - Keith Galli](https://www.youtube.com/watch?v=6GUZXDef2U0) - 1 hour
 1. [Complete EDA Tutorial - Ken Jee](https://www.youtube.com/watch?v=QWgg4w1SpJ8) - 40 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
-- [From Data to Viz](https://www.data-to-viz.com/) - guía de elección de gráficos
+- [From Data to Viz](https://www.data-to-viz.com/) - chart selection guide
 - [Seaborn Tutorial](https://seaborn.pydata.org/tutorial.html)
 - [Python Graph Gallery](https://www.python-graph-gallery.com/)
-- [Kaggle EDA Notebooks](https://www.kaggle.com/code?tags=13204) - Examples reales
+- [Kaggle EDA Notebooks](https://www.kaggle.com/code?tags=13204) - Examples real
 
 ______________________________________________________________________
 
 ## 6. Buenas Practices
 
-### Durante la preparación de Data
+### During Data preparation
 
-- **Documentar transformaciones:** registrar todos los pasos aplicados.
-- **No contaminar test set:** separar Data ANTES de cualquier transformación.
-- **Reproducibilidad:** fijar semillas aleatorias al dividir train/test.
-- **Pipelines automatizados:** usar `sklearn.pipeline.Pipeline` para encadenar transformaciones.
-- **Versionar datasets:** guardar snapshots de Data procesados.
+- **Document transformations:** record all applied steps.
+- **Do not contaminate test set:** separate Data BEFORE any transformation.
+- **Reproducibility:** set random seeds when splitting train/test.
+- **Automated pipelines:** use `sklearn.pipeline.Pipeline` to chain transformations.
+- **Version datasets:** save snapshots of processed data.
 
-### Verificación de calidad (checklist)
+### Quality verification (checklist)
 
-- ✅ Revisar % de nulos por columna.
-- ✅ Validar rangos esperados de valores numéricos.
-- ✅ Confirmar que no hay duplicados no intencionales.
-- ✅ Verificar consistencia de formatos de fecha/hora.
-- ✅ Detectar features con correlación perfecta (redundantes).
-- ✅ Validar balance de clases en Problems de Classification.
+- ✅ Check % of nulls per column.
+- ✅ Validate expected ranges of numerical values.
+- ✅ Confirm that there are no unintentional duplicates.
+- ✅ Check consistency of date/time formats.
+- ✅ Detect features with perfect correlation (redundant).
+- ✅ Validate balance of classes in Classification Problems.
 
-📚 **Resources adicionales:**
+📚 **Additional resources:**
 
-- [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/) - Structure de proyectos
-- [Great Expectations](https://greatexpectations.io/) - Validation automatizada de Data
-- [Pandas Profiling](https://github.com/ydataai/ydata-profiling) - EDA automático
+- [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/) - Project structure
+- [Great Expectations](https://greatexpectations.io/) - Automated Data Validation
+- [Pandas Profiling](https://github.com/ydataai/ydata-profiling) - automatic EDA
 
 ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente Module, deberías poder:
+Before moving to the next Module, you should be able to:
 
-- ✅ Cargar y explorar un dataset real de Kaggle usando Pandas.
-- ✅ Detectar y manejar valores nulos con al menos 2 estrategias diferentes justificadas.
-- ✅ Identificar outliers y decidir si eliminarlos, mantenerlos o tratarlos según contexto.
-- ✅ Realizar EDA completo con visualizaciones que respondan preguntas concretas de negocio.
-- ✅ Aplicar feature engineering básico (encoding, scaling, nuevas features derivadas).
-- ✅ Crear un pipeline reproducible de preprocesamiento documentado step-by-step.
-- ✅ Explicar por qué la calidad de Data impacta directamente en el performance del Model.
+- ✅ Load and explore a real Kaggle dataset using Pandas.
+- ✅ Detect and handle null values ​​with at least 2 different justified strategies.
+- ✅ Identify outliers and decide whether to eliminate them, keep them or treat them according to context.
+- ✅ Perform complete EDA with visualizations that answer specific business questions.
+- ✅ Apply feature engineering basic (encoding, scaling, new derived features).
+- ✅ Create a reproducible step-by-step documented preprocessing pipeline.
+- ✅ Explain why the quality of Data directly impacts the performance of the Model.
 
-Si respondiste "sí" a todas, estás listo para modelar sobre bases sólidas.
+If you answered "yes" to all, you're ready to model some solid foundations.

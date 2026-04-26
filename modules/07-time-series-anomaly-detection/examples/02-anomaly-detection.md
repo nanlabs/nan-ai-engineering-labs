@@ -1,16 +1,16 @@
-# Example 02 — Detección de Anomalies en time series
+# Example 02 — Detection of Anomalies in time series
 
-## Contexto
+## Context
 
-Las Anomalies son observaciones que se desvían significativamente del comportamiento normal. Aprenderás técnicas estadísticas, basadas en ML y deep learning para detectar Anomalies en time series.
+Anomalies are observations that deviate significantly from normal behavior. You will learn statistical techniques, based on ML and deep learning to detect Anomalies in time series.
 
 ## Objective
 
-Detectar transacciones fraudulentas, fallas de servidores o comportamientos anómalos en Data temporales.
+Detect fraudulent transactions, server failures or anomalous behavior in temporary data.
 
 ______________________________________________________________________
 
-## 🚀 Paso 1: Setup e importaciones
+## 🚀 Step 1: Setup and imports
 
 ```python
 import pandas as pd
@@ -29,33 +29,33 @@ sns.set_style('whitegrid')
 
 ______________________________________________________________________
 
-## 📥 Paso 2: Generar Data con Anomalies
+## 📥 Step 2: Generate Data with Anomalies
 
 ```python
-# Serie temporal normal
+# Time series normal
 np.random.seed(42)
 date_range = pd.date_range(start='2023-01-01', periods=365, freq='H')
 
-# Patrón normal: tendencia + estacionalidad
-hours = np.arange(len(date_range))
+# Pattern normal: trend + seasonality
+hours = np.arrange(len(date_range))
 trend = 0.05 * hours
-seasonality = 20 * np.sin(2 * np.pi * hours / 24)  # Estacionalidad diaria
+seasonality = 20 * np.sin(2 * np.pi * hours / 24)  # Seasonality diaria
 noise = np.random.normal(0, 5, len(date_range))
 
 normal_values = 100 + trend + seasonality + noise
 
-# Inyectar anomalías (5% de los datos)
+# Inyectar anomalies (5% de los data)
 anomaly_indices = np.random.choice(len(date_range), size=int(0.05 * len(date_range)), replace=False)
 anomaly_values = normal_values.copy()
 
-# Tipos de anomalías:
-# - Point anomalies: valores extremos
-# - Collective anomalies: patrones anómalos consecutivos
+# Types de anomalies:
+# - Point anomalies: values extremos
+# - Collective anomalies: patterns anomalous consecutivos
 for idx in anomaly_indices[:10]:  # Point anomalies
     anomaly_values[idx] += np.random.choice([-50, 50])  # Spike/Drop
 
 for idx in anomaly_indices[10:15]:  # Collective anomalies
-    anomaly_values[idx:idx+5] += 30  # Período elevado
+    anomaly_values[idx:idx+5] += 30  # Period elevado
 
 # DataFrame
 df = pd.DataFrame({
@@ -67,15 +67,15 @@ df['is_anomaly'] = False
 df.loc[anomaly_indices, 'is_anomaly'] = True
 
 print(f"Total de observaciones: {len(df)}")
-print(f"Anomalías inyectadas: {df['is_anomaly'].sum()} ({100*df['is_anomaly'].mean():.2f}%)")
+print(f"Anomalies inyectadas: {df['is_anomaly'].sum()} ({100*df['is_anomaly'].mean():.2f}%)")
 print(f"\n{df.head()}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Total de observaciones: 365
-Anomalías inyectadas: 18 (4.93%)
+Anomalies inyectadas: 18 (4.93%)
 
             timestamp      value  is_anomaly
 0 2023-01-01 00:00:00  95.234512       False
@@ -87,20 +87,20 @@ Anomalías inyectadas: 18 (4.93%)
 
 ______________________________________________________________________
 
-## 📊 Paso 3: Visualizar Data
+## 📊 Paso 3: Visualize Data
 
 ```python
 plt.figure(figsize=(16, 6))
 
-# Plot serie completa
+# Plot series complete
 plt.plot(df['timestamp'], df['value'], label='Valores', color='blue', alpha=0.7)
 
-# Highlight anomalías
+# Highlight anomalies
 anomalies = df[df['is_anomaly']]
 plt.scatter(anomalies['timestamp'], anomalies['value'],
-            color='red', s=100, label='Anomalías Reales', zorder=5)
+            color='red', s=100, label='Anomalies Reales', zorder=5)
 
-plt.title('Serie Temporal con Anomalías Inyectadas', fontsize=16)
+plt.title('Series Temporal con Anomalies Inyectadas', fontsize=16)
 plt.xlabel('Timestamp')
 plt.ylabel('Valor')
 plt.legend()
@@ -110,15 +110,15 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🔍 Técnica 1: Métodos Estadísticos (Z-Score)
+## 🔍 Technique 1: Statistical Methods (Z-Score)
 
-### 1.1 Z-Score (desviación estándar)
+### 1.1 Z-Score (standard deviation)
 
 ```python
 def detect_anomalies_zscore(df, column, threshold=3):
     """
-    Detecta anomalías usando Z-score
-    threshold=3: valores más de 3 desviaciones estándar se consideran anomalías
+    Detecta anomalies using Z-score
+    threshold=3: values más de 3 desviaciones standard se consideran anomalies
     """
     mean = df[column].mean()
     std = df[column].std()
@@ -130,11 +130,11 @@ def detect_anomalies_zscore(df, column, threshold=3):
 
 df = detect_anomalies_zscore(df, 'value', threshold=3)
 
-# Métricas
+# Metrics
 from sklearn.metrics import confusion_matrix, classification_report, precision_score, recall_score, f1_score
 
 print("=== Z-SCORE METHOD ===")
-print(f"Anomalías detectadas: {df['anomaly_zscore'].sum()}")
+print(f"Anomalies detectadas: {df['anomaly_zscore'].sum()}")
 
 print("\nConfusion Matrix:")
 cm = confusion_matrix(df['is_anomaly'], df['anomaly_zscore'])
@@ -145,11 +145,11 @@ print(classification_report(df['is_anomaly'], df['anomaly_zscore'],
                            target_names=['Normal', 'Anomaly']))
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Z-SCORE METHOD ===
-Anomalías detectadas: 15
+Anomalies detectadas: 15
 
 Confusion Matrix:
 [[345   2]
@@ -164,24 +164,24 @@ Classification Report:
     accuracy                           0.99       365
 ```
 
-### 1.2 Visualizar detección Z-Score
+### 1.2 Visualize Z-Score detection
 
 ```python
 plt.figure(figsize=(16, 6))
 
 plt.plot(df['timestamp'], df['value'], label='Valores', color='blue', alpha=0.5)
 
-# Anomalías detectadas
+# Anomalies detectadas
 detected = df[df['anomaly_zscore']]
 plt.scatter(detected['timestamp'], detected['value'],
             color='orange', s=100, label='Detectadas (Z-Score)', marker='x', zorder=5)
 
-# Anomalías reales
+# Anomalies real
 real = df[df['is_anomaly']]
 plt.scatter(real['timestamp'], real['value'],
             color='red', s=50, label='Reales', alpha=0.5, zorder=4)
 
-plt.title('Detección con Z-Score (threshold=3)', fontsize=16)
+plt.title('Detection con Z-Score (threshold=3)', fontsize=16)
 plt.xlabel('Timestamp')
 plt.ylabel('Valor')
 plt.legend()
@@ -191,15 +191,15 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🤖 Técnica 2: Isolation Forest (ML)
+## 🤖 Technique 2: Isolation Forest (ML)
 
-### 2.1 Feature engineering para time series
+### 2.1 Feature engineering for time series
 
 ```python
-# Crear features:
+# Create features:
 # - Valor actual
-# - Lags (valores previos)
-# - Rolling statistics (media, std móvil)
+# - Lags (values previous)
+# - Rolling statistics (media, std mobile)
 # - Hora del día
 
 df['hour'] = df['timestamp'].dt.hour
@@ -214,13 +214,13 @@ df['lag_3'] = df['value'].shift(3)
 df['rolling_mean_24'] = df['value'].rolling(window=24, center=False).mean()
 df['rolling_std_24'] = df['value'].rolling(window=24, center=False).std()
 
-# Diferencia con media móvil
+# Diferencia con media mobile
 df['diff_from_rolling_mean'] = df['value'] - df['rolling_mean_24']
 
-# Drop NaNs (primeras filas por lags y rolling)
+# Drop NaNs (primeras rows por lags y rolling)
 df.dropna(inplace=True)
 
-# Features para modelo
+# Features para model
 feature_cols = ['value', 'lag_1', 'lag_2', 'lag_3',
                 'rolling_mean_24', 'rolling_std_24',
                 'diff_from_rolling_mean', 'hour']
@@ -231,7 +231,7 @@ print(f"Features: {X.shape}")
 print(f"\n{X.head()}")
 ```
 
-### 2.2 Entrenar Isolation Forest
+### 2.2 Train Isolation Forest
 
 ```python
 # Normalizar features
@@ -239,19 +239,19 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Isolation Forest
-# contamination: porcentaje esperado de anomalías (ajustar según dominio)
+# contamination: porcentaje esperado de anomalies (ajustar according to dominio)
 iso_forest = IsolationForest(
-    contamination=0.05,  # Esperamos ~5% de anomalías
+    contamination=0.05,  # Esperamos ~5% de anomalies
     random_state=42,
     n_estimators=100
 )
 
-# Predecir: 1 = normal, -1 = anomalía
+# Predict: 1 = normal, -1 = anomaly
 df['iso_forest_pred'] = iso_forest.fit_predict(X_scaled)
 df['anomaly_isoforest'] = df['iso_forest_pred'] == -1
 
 print("=== ISOLATION FOREST ===")
-print(f"Anomalías detectadas: {df['anomaly_isoforest'].sum()}")
+print(f"Anomalies detectadas: {df['anomaly_isoforest'].sum()}")
 
 print("\nConfusion Matrix:")
 cm_iso = confusion_matrix(df['is_anomaly'], df['anomaly_isoforest'])
@@ -262,15 +262,15 @@ print(classification_report(df['is_anomaly'], df['anomaly_isoforest'],
                            target_names=['Normal', 'Anomaly']))
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === ISOLATION FOREST ===
-Anomalías detectadas: 17
+Anomalies detectadas: 17
 
 Confusion Matrix:
 [[330  17]
- [  1  17]]  👈 Mejor recall (17/18 anomalías detectadas)
+ [  1  17]]  👈 Mejor recall (17/18 anomalies detectadas)
 
 Classification Report:
               precision    recall  f1-score   support
@@ -281,7 +281,7 @@ Classification Report:
     accuracy                           0.95       365
 ```
 
-### 2.3 Visualizar Isolation Forest
+### 2.3 Visualize Isolation Forest
 
 ```python
 plt.figure(figsize=(16, 6))
@@ -298,7 +298,7 @@ real = df[df['is_anomaly']]
 plt.scatter(real['timestamp'], real['value'],
             color='red', s=50, label='Reales', alpha=0.5, zorder=4)
 
-plt.title('Detección con Isolation Forest', fontsize=16)
+plt.title('Detection con Isolation Forest', fontsize=16)
 plt.xlabel('Timestamp')
 plt.ylabel('Valor')
 plt.legend()
@@ -308,14 +308,14 @@ plt.show()
 
 ______________________________________________________________________
 
-## 📐 Técnica 3: IQR (Interquartile Range)
+## 📐 Technique 3: IQR (Interquartile Range)
 
-### 3.1 Método IQR con ventana móvil
+### 3.1 IQR method with moving window
 
 ```python
 def detect_anomalies_iqr(df, column, window=24, multiplier=1.5):
     """
-    Detecta anomalías usando IQR (Interquartile Range) en ventana móvil
+    Detecta anomalies using IQR (Interquartile Range) en ventana mobile
     """
     df['rolling_Q1'] = df[column].rolling(window=window).quantile(0.25)
     df['rolling_Q3'] = df[column].rolling(window=window).quantile(0.75)
@@ -331,7 +331,7 @@ def detect_anomalies_iqr(df, column, window=24, multiplier=1.5):
 df = detect_anomalies_iqr(df, 'value', window=24, multiplier=1.5)
 
 print("=== IQR METHOD ===")
-print(f"Anomalías detectadas: {df['anomaly_iqr'].sum()}")
+print(f"Anomalies detectadas: {df['anomaly_iqr'].sum()}")
 
 print("\nConfusion Matrix:")
 cm_iqr = confusion_matrix(df['is_anomaly'], df['anomaly_iqr'])
@@ -342,11 +342,11 @@ print(classification_report(df['is_anomaly'], df['anomaly_iqr'],
                            target_names=['Normal', 'Anomaly']))
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === IQR METHOD ===
-Anomalías detectadas: 19
+Anomalies detectadas: 19
 
 Confusion Matrix:
 [[329  18]
@@ -361,15 +361,15 @@ Classification Report:
 
 ______________________________________________________________________
 
-## 🧠 Técnica 4: LSTM Autoencoder (Deep Learning)
+## 🧠 Technique 4: LSTM Autoencoder (Deep Learning)
 
-### 4.1 Preparar Data para LSTM
+### 4.1 Prepare Data for LSTM
 
 ```python
 import torch
 import torch.nn as nn
 
-# Crear secuencias (ventanas de 24 horas)
+# Create secuencias (ventanas de 24 horas)
 def create_sequences(data, seq_length=24):
     sequences = []
     for i in range(len(data) - seq_length):
@@ -377,29 +377,29 @@ def create_sequences(data, seq_length=24):
         sequences.append(seq)
     return np.array(sequences)
 
-# Solo usar valores (sin timestamps)
+# Solo use values (sin timestamps)
 values = df['value'].values
 
 # Normalizar
 scaler_lstm = StandardScaler()
 values_scaled = scaler_lstm.fit_transform(values.reshape(-1, 1)).flatten()
 
-# Crear secuencias
+# Create secuencias
 seq_length = 24
 sequences = create_sequences(values_scaled, seq_length)
 
 print(f"Secuencias creadas: {sequences.shape}")  # (n_samples, seq_length)
 
-# Convertir a tensores
+# Convert a tensores
 X_lstm = torch.FloatTensor(sequences).unsqueeze(-1)  # [n_samples, seq_length, 1]
 ```
 
-### 4.2 Definir LSTM Autoencoder
+### 4.2 Define LSTM Autoencoder
 
 ```python
 class LSTMAutoencoder(nn.Module):
     """
-    Autoencoder basado en LSTM para detección de anomalías
+    Autoencoder basado en LSTM para detection de anomalies
     """
     def __init__(self, seq_length, n_features=1, hidden_size=32):
         super(LSTMAutoencoder, self).__init__()
@@ -426,14 +426,14 @@ class LSTMAutoencoder(nn.Module):
 
         return output
 
-# Crear modelo
+# Create model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model_lstm = LSTMAutoencoder(seq_length=seq_length, hidden_size=32).to(device)
 
 print(model_lstm)
 ```
 
-### 4.3 Entrenar autoencoder
+### 4.3 Train autoencoder
 
 ```python
 # Loss y optimizer
@@ -446,7 +446,7 @@ from torch.utils.data import TensorDataset, DataLoader
 dataset = TensorDataset(X_lstm, X_lstm)  # Input = Output (autoencoder)
 loader = DataLoader(dataset, batch_size=32, shuffle=True)
 
-# Entrenar
+# Train
 num_epochs = 50
 losses = []
 
@@ -473,10 +473,10 @@ for epoch in range(num_epochs):
     if (epoch + 1) % 10 == 0:
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss/len(loader):.6f}")
 
-print("✅ Entrenamiento completado")
+print("✅ Training completed")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Epoch [10/50], Loss: 0.012345
@@ -484,25 +484,25 @@ Epoch [20/50], Loss: 0.008234
 Epoch [30/50], Loss: 0.005678
 Epoch [40/50], Loss: 0.004123
 Epoch [50/50], Loss: 0.003456
-✅ Entrenamiento completado
+✅ Training completed
 ```
 
-### 4.4 Detección de Anomalies con reconstruction error
+### 4.4 Detection of Anomalies with reconstruction error
 
 ```python
-# Predecir (reconstruir)
+# Predict (reconstruir)
 model_lstm.eval()
 with torch.no_grad():
     X_lstm_device = X_lstm.to(device)
     reconstructed = model_lstm(X_lstm_device).cpu().numpy()
 
-# Calcular reconstruction error (MAE)
+# Calculate reconstruction error (MAE)
 reconstruction_errors = np.mean(np.abs(X_lstm.numpy() - reconstructed), axis=(1, 2))
 
-# Threshold: percentil 95 (top 5% errores son anomalías)
+# Threshold: percentile 95 (top 5% errors son anomalies)
 threshold_lstm = np.percentile(reconstruction_errors, 95)
 
-# Detectar anomalías
+# Detect anomalies
 anomalies_lstm = reconstruction_errors > threshold_lstm
 
 # Alinear con dataframe original (considerando seq_length)
@@ -511,9 +511,9 @@ df.iloc[seq_length:seq_length+len(anomalies_lstm), df.columns.get_loc('anomaly_l
 
 print("=== LSTM AUTOENCODER ===")
 print(f"Threshold: {threshold_lstm:.6f}")
-print(f"Anomalías detectadas: {df['anomaly_lstm'].sum()}")
+print(f"Anomalies detectadas: {df['anomaly_lstm'].sum()}")
 
-# Métricas (considerar solo filas con predicción)
+# Metrics (considerar solo rows con prediction)
 valid_rows = df.iloc[seq_length:seq_length+len(anomalies_lstm)]
 
 print("\nConfusion Matrix:")
@@ -523,7 +523,7 @@ print(cm_lstm)
 
 ______________________________________________________________________
 
-## 📊 Comparar todos los métodos
+## 📊 Compare all methods
 
 ```python
 # Tabla comparativa
@@ -550,10 +550,10 @@ comparison = pd.DataFrame({
     'F1-Score': f1_scores
 })
 
-print("\n=== COMPARACIÓN DE MÉTODOS ===")
+print("\n=== COMPARISON DE METHODS ===")
 print(comparison.to_string(index=False))
 
-# Visualizar
+# Visualize
 fig, axes = plt.subplots(1, 3, figsize=(16, 5))
 
 axes[0].bar(comparison['Method'], comparison['Precision'], color='skyblue')
@@ -575,10 +575,10 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Salida esperada:**
+**Output expected:**
 
 ```
-=== COMPARACIÓN DE MÉTODOS ===
+=== COMPARISON DE METHODS ===
             Method  Precision  Recall  F1-Score
            Z-Score       0.88    0.83      0.85
                IQR       0.49    0.94      0.64
@@ -588,81 +588,81 @@ plt.show()
 
 ______________________________________________________________________
 
-## 📝 Resumen ejecutivo
+## 📝Executive summary
 
-### ✅ Comparación de métodos
+### ✅ Comparison of methods
 
-| Método               | Precision | recall | f1-Score | Ventajas                                                 | Desventajas                                             |
+| Method | Precision | recall | f1-Score | Advantages | Disadvantages |
 | -------------------- | --------- | ------ | -------- | -------------------------------------------------------- | ------------------------------------------------------- |
-| **Z-Score**          | 0.88      | 0.83   | 0.85     | Simple, rápido                                           | Asume distribución normal, no captura contexto temporal |
-| **IQR**              | 0.49      | 0.94   | 0.64     | Robusto a outliers                                       | Muchos falsos positivos                                 |
-| **Isolation Forest** | 0.50      | 0.94   | 0.65     | No asume distribución, maneja multi-dimensional          | Requiere feature engineering                            |
-| **LSTM Autoencoder** | 0.75      | 0.89   | 0.81     | Captura patrones temporales, detecta Anomalies complejas | Lento, requiere Data                                    |
+| **Z-Score** | 0.88 | 0.83 | 0.85 | Simple, fast | Assume normal distribution, does not capture temporal context |
+| **IQR** | 0.49 | 0.94 | 0.64 | Robust to outliers | Many false positives |
+| **Isolation Forest** | 0.50 | 0.94 | 0.65 | Does not assume distribution, handles multi-dimensional | Requires feature engineering |
+| **LSTM Autoencoder** | 0.75 | 0.89 | 0.81 | Capture temporal patterns, detect complex anomalies | Slow, requires Data |
 
-### 🎯 Cuándo usar cada método
+### 🎯 When use each method
 
 **Z-Score / IQR:**
 
-- ✅ Baseline rápido
-- ✅ Anomalies point (valores extremos)
-- ✅ Series estacionarias
+- ✅ Baseline fast
+- ✅ Anomalies point (extreme values)
+- ✅ Stationary series
 
 **Isolation Forest:**
 
-- ✅ Anomalies complejas (multi-dimensional)
-- ✅ No asume distribución de Data
-- ✅ Datasets medianos-grandes
+- ✅ Complex anomalies (multi-dimensional)
+- ✅ No assumption of data distribution
+- ✅ Medium-large datasets
 
 **LSTM Autoencoder:**
 
-- ✅ Anomalies contextuales (dependen de secuencia)
-- ✅ Patrones temporales complejos
-- ✅ Datasets muy grandes (>10k puntos)
+- ✅ Contextual anomalies (depend on sequence)
+- ✅ Complex temporal patterns
+- ✅ Very large datasets (>10k points)
 
 ______________________________________________________________________
 
-## 🎓 Lessons aprendidas
+## 🎓 Lessons learned
 
-### ✅ Types de Anomalies
+### ✅ Types of Anomalies
 
 1. **Point Anomalies:**
 
-   - Valores individuales extremos
-   - Example: Temperatura de 100°C en invierno
-   - **Detectar con:** Z-Score,IQR
+   - Extreme individual values
+   - Example: Temperature of 100°C in winter
+   - **Detect with:** Z-Score,IQR
 
 1. **Contextual Anomalies:**
 
-   - Valores anómalos según contexto
-   - Example: Tráfico bajo a las 3 PM (normal a las 3 AM)
-   - **Detectar con:** LSTM, Prophet residuals
+- Abnormal values ​​according to context
+- Example: Low traffic at 3 PM (normal at 3 AM)
+   - **Detect with:** LSTM, Prophet residuals
 
 1. **Collective Anomalies:**
 
-   - Secuencia de valores anómalos
-   - Example: Caída sostenida de 24 horas
-   - **Detectar con:** LSTM, Change Point Detection
+- Sequence of abnormal values
+- Example: Sustained 24-hour fall
+   - **Detect with:** LSTM, Change Point Detection
 
-### ✅ Desafíos
+### ✅ Challenges
 
-1. **Class imbalance:** Anomalies son raras (~1-5%)
+1. **Class imbalance:** Anomalies are rare (~1-5%)
 
-   - **Solución:** Usar Metrics apropiadas (Precision, recall, f1), no solo accuracy
+   - **Solution:** Use appropriate Metrics (Precision, recall, f1), not just accuracy
 
-1. **Definir threshold:**
+1. **Define threshold:**
 
-   - Z-Score: 3 (estándar), 2 (sensible), 4 (conservador)
-   - IQR: 1.5 (estándar), 3 (conservador)
-   - LSTM: Percentil 95-99
+- Z-Score: 3 (standard), 2 (sensitive), 4 (conservative)
+- IQR: 1.5 (standard), 3 (conservative)
+   - LSTM: Percentile 95-99
 
-1. **Falsos positivos:**
+1. **False positives:**
 
-   - IQR genera muchos FP (alta sensibilidad)
-   - **Solución:** Ensemble de métodos, Validation humana
+   - IQR generates many FP (high sensitivity)
+- **Solution:** Method Ensemble, Human Validation
 
-### 💡 Mejoras adicionales
+### 💡Additional improvements
 
-1. **Ensemble:** Combinar múltiples métodos (votación)
+1. **Ensemble:** Combine multiple methods (voting)
 
 ```python
 df['anomaly_ensemble'] = (
@@ -671,26 +671,26 @@ df['anomaly_ensemble'] = (
 ).astype(int)
 ```
 
-1. **Seasonal Hybrid ESD (S-H-ESD):** Detecta Anomalies considerando Seasonality
-1. **Prophet:** Usar residuals como Anomalies
-1. **Transformer Autoencoder:** Más poderoso que LSTM
+1. **Seasonal Hybrid ESD (S-H-ESD):** Detects Anomalies considering Seasonality
+1. **Prophet:** Use residuals as Anomalies
+1. **Transformer Autoencoder:** More powerful than LSTM
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ Usar Z-Score en series no estacionarias
-- ❌ No considerar Seasonality
-- ❌ Threshold fijo para todas las series
-- ❌ No validar detecciones (muchos FP)
-- ❌ Entrenar LSTM con Anomalies (contamina el Model)
+- ❌ Use Z-Score in non-stationary series
+- ❌Do not consider Seasonality
+- ❌Fixed threshold for all series
+- ❌ Do not validate detections (many FPs)
+- ❌ Train LSTM with Anomalies (contaminates the Model)
 
 ______________________________________________________________________
 
-## 🔧 Pipeline de producción
+## 🔧 Production pipeline
 
 ```python
 def anomaly_detection_pipeline(df, value_col, methods=['zscore', 'isoforest']):
     """
-    Pipeline multi-método para detección de anomalías
+    Pipeline multi-method para detection de anomalies
     """
     results = {}
 
@@ -719,26 +719,26 @@ def anomaly_detection_pipeline(df, value_col, methods=['zscore', 'isoforest']):
 
         results['isoforest'] = df_result['anomaly_isoforest']
 
-    # Ensemble (votación)
+    # Ensemble (vote)
     ensemble_votes = sum(results.values())
-    results['ensemble'] = ensemble_votes >= len(methods) / 2  # Mayoría
+    results['ensemble'] = ensemble_votes >= len(methods) / 2  # Most
 
     return pd.DataFrame(results)
 
-# Usar
+# Wear
 anomaly_results = anomaly_detection_pipeline(df, 'value', methods=['zscore', 'isoforest'])
 print(anomaly_results.sum())
 ```
 
-### 📌 Checklist detección de Anomalies
+### 📌 Anomaly detection checklist
 
-- ✅ Entender Types de Anomalies (point, contextual, collective)
-- ✅ Visualizar Data antes de modelar
-- ✅ Considerar Seasonality y Trend
-- ✅ Probar múltiples métodos (baseline estadístico + ML)
-- ✅ Feature engineering para métodos ML
-- ✅ Tuning de threshold (validar con domain expert)
-- ✅ Evaluar con Precision/recall/f1 (no accuracy)
-- ✅ Visualizar detecciones para sanity check
-- ✅ Implementar alerting en producción
-- ✅ Feedback loop para mejorar Models
+- ✅ Understand Types of Anomalies (point, contextual, collective)
+- ✅ Visualize Data before modeling
+- ✅ Consider Seasonality and Trend
+- ✅ Test multiple methods (statistical baseline + ML)
+- ✅ Feature engineering for ML methods
+- ✅ Threshold tuning (validate with domain expert)
+- ✅ Evaluate yourself with Precision/recall/f1 (no accuracy)
+- ✅ Visualize detections for health check
+- ✅ Implement alerting in production
+- ✅ Feedback loop to improve Models

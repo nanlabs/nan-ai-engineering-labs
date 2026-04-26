@@ -34,61 +34,61 @@ Each learning unit must contain:
 ### Unit `README.md`
 
 1. `# <Module Title>`
-1. `## Objetivo del modulo`
-1. `## Que vas a lograr`
-1. `## Estructura interna`
-1. `## Ruta de niveles (L1-L4)`
-1. `## Plan recomendado (por progreso, no por semanas)`
-1. `## Criterio de modulo completado`
+1. `## Objective of the module`
+1. `## What are you going to achieve?
+1. `## Structure interna`
+1. `## Level path (L1-L4)`
+1. `## Recommended plan (by progress, not by weeks)`
+1. `## Module criteria completed`
 
 ### `theory/README.md`
 
 1. `# Theory - <Module Title>`
-1. `## Por que este modulo importa`
-1. `## Checklist de comprension final`
+1. `## Why does this module matter?
+1. `## Final compression checklist`
 
 ### `examples/README.md`
 
 1. `# Examples - <Module Title>`
-1. `## Ejemplos disponibles`
-1. `## Como usar estos ejemplos`
-1. `## Proximos pasos`
+1. `## Examples disponibles`
+1. `## Como use estos Examples`
+1. `## Proximos steps`
 
 ### `practices/README.md`
 
 1. `# Practices - <Module Title>`
 1. `## Practicas`
-1. `## Criterio de aprobacion`
+1. `## Approval criteria`
 
 ### `mini-project/README.md`
 
 1. `# Mini-project - <Module Title>`
-1. `## Proyecto`
-1. `## Objetivo`
+1. `## Project`
+1. `## Objective`
 1. `## Alcance`
 1. `## Entregables`
-1. `## Criterios de aceptacion`
+1. `## Acceptance criteria`
 
 ### `evaluation/README.md`
 
 1. `# Evaluation - <Module Title>`
 1. `## Ponderacion`
 1. `## Rubrica`
-1. `## Evaluacion final`
-1. `## Criterio de aprobacion`
+1. `## Evaluation final`
+1. `## Approval criteria`
 
 ### `notes/README.md`
 
 1. `# Notes - <Module Title>`
-1. `## Como usar esta carpeta`
+1. `## Como use this carpeta`
 
 ### `STATUS.md`
 
-1. `# Estado - <Module Title>`
+1. `# Status - <Module Title>`
 1. `## Progreso actual`
 1. `## Checklist`
 1. `## Bloqueos`
-1. `## Proximos pasos`
+1. `## Proximos steps`
 
 ## Lab Completeness Definition
 

@@ -1,17 +1,17 @@
-# Práctica 05 — Evaluación de respuestas
+# Practice 05 — Evaluation of responses
 
 ## Objective
 
-Construir marco simple para evaluar calidad de salida.
+Build simple framework to assess output quality.
 
-## Enunciado
+## Statement
 
-1. Definir criterios (correctitud, relevancia, claridad, seguridad).
-1. Puntuar 10 respuestas.
-1. Identificar patrones de error.
-1. Proponer mejoras de próxima iteración.
+1. Define criterios (correctitud, relevancia, claridad, security).
+1. Puntuar 10 responses.
+1. Identify error patterns.
+1. Propose improvements for the next iteration.
 
-## Validación
+## Validation
 
-- Matriz de evaluación completa.
-- Recomendaciones accionables.
+- Complete Evaluation Matrix.
+- Recommendations actionable.

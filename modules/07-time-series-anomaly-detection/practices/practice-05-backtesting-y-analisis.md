@@ -1,17 +1,17 @@
-# Práctica 05 — Backtesting y análisis final
+# Practice 05 — Backtesting and final Analysis
 
 ## Objective
 
-Evaluar estabilidad de forecasting y anomalías en diferentes ventanas.
+Evaluate forecasting stability and Anomalies in different windows.
 
-## Enunciado
+## Statement
 
-1. Definir esquema de backtesting temporal.
-1. Ejecutar validaciones por ventanas.
-1. Resumir métricas promedio y variabilidad.
-1. Proponer estrategia de monitoreo continuo.
+1. Defines temporary backtesting scheme.
+1. Run windowed validations.
+1. Summarize Metrics average and variability.
+1. Propose continuous monitoring strategy.
 
-## Validación
+## Validation
 
 - Backtesting temporal correcto.
-- Recomendaciones finales accionables.
+- Recommendations finales actionable.

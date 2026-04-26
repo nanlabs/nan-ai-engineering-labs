@@ -9,41 +9,41 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 - Implement symmetric (Fernet) and asymmetric (RSA) encryption for data
 - Apply secure hashing (bcrypt, SHA-256) for passwords and data integrity
 - Understand and apply basic homomorphic encryption
-- Implementar differential privacy (Laplace mechanism, DP-SGD)
+- Implement differential privacy (Laplace mechanism, DP-SGD)
 - Simulate federated learning with multiple clients
 - Gestionar privacy budgets (ε, δ)
 - Analizar privacy-utility trade-offs
 - Design secure ML pipelines
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (cryptography, differential privacy, federated learning, secure computation)
+- **theory/**: fundamentals (cryptography, differential privacy, federated learning, secure computation)
 - **examples/**: guided examples with cryptography, OpenDP, PySyft
-- **practices/**: ejercicios hands-on
+- **practices/**: Exercises hands-on
   - 01: Encryption and Hashing (bcrypt, SHA-256, Fernet, RSA, homomorphic encryption, key management)
-  - 02: Differential Privacy y Federated Learning (Laplace mechanism, DP-SGD, privacy budgets, FL simulation, secure aggregation)
-- **mini-project/**: secure ML pipeline con privacy guarantees
+  - 02: Differential Privacy and Federated Learning (Laplace mechanism, DP-SGD, privacy budgets, FL simulation, secure aggregation)
+- **mini-project/**: secure ML pipeline with privacy guarantees
 - **evaluation/**: checklist and rubric
-- **notes/**: privacy considerations y threat models
+- **notes/**: privacy considerations and threat models
 
 ## 📋 Prerrequisitos
 
-- Módulo 03: Machine Learning Fundamentals (training pipelines)
+- Module 03: Machine Learning Fundamentals (training pipelines)
 - Basic knowledge of cryptography
 - Understanding threat models
 
 ## 📅 ​​Recommended Study Plan
 
-**Semana 1** (6-8 horas):
+**Week 1** (6-8 horas):
 
-1. Lee material de `/theory` (encryption, hashing, threat models) (2h)
+1. Read material from `/theory` (encryption, hashing, threat models) (2h)
 1. Ejecuta `/examples` (2h)
-1. Completa `/practices/01-encriptacion-hashing.md` (4h)
+1. Complete `/practices/01-encriptacion-hashing.md` (4h)
 
-**Semana 2** (6-8 horas):
-4\. Lee material sobre differential privacy y FL (2h)
-5\. Completa `/practices/02-differential-privacy-federated.md` (4h)
-6\. Desarrolla mini-proyecto (3h)
+**Week 2** (6-8 horas):
+4\. Read material about differential privacy and FL (2h)
+5\. Complete `/practices/02-differential-privacy-federated.md` (4h)
+6\. Desarrolla Mini-project (3h)
 
 ## ✅ Competencias Clave
 
@@ -60,11 +60,11 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 ## ✅ Module criteria completed
 
 - 2 solved and validated practices
-- Mini-proyecto: secure ML pipeline funcional
+- Mini-project: secure ML pipeline functional
 - Final evaluation approved (>=70/100)
-- Demostrar: encryption, differential privacy, federated learning, privacy budgets
+- Demonstrate: encryption, differential privacy, federated learning, privacy budgets
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -73,7 +73,7 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 - [PySyft (Federated Learning)](https://github.com/OpenMined/PySyft)
 - [PyCryptodome](https://pycryptodome.readthedocs.io/)
 
-**Tutoriales:**
+**Tutorials:**
 
 - [Differential Privacy Tutorial](https://programming-dp.com/)
 - [Federated Learning Book](https://www.federated-learning.org/)
@@ -89,7 +89,7 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 
 ## 🚀 Next Module
 
-**Módulo 12: MLOps & AI in Production** - CI/CD, monitoring, deployment
+**Module 12: MLOps & AI in Production** - CI/CD, monitoring, deployment
 
 ## Module objective
 

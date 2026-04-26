@@ -1,39 +1,39 @@
-# Theory — Programación y Matemática para ML
+# Theory — Programming and Mathematics for ML
 
 ## Why this module matters
 
-Sin base matemática y de programación, usar modelos de ML se vuelve una caja negra. Este módulo te da herramientas para entender qué hace un modelo internamente, por qué falla y cómo mejorarlo con fundamento técnico sólido.
+Without a mathematical and programming foundation, using ML Models becomes a black box. This Module gives you tools to understand what a Model does internally, why it fails and how to improve it with a solid technical foundation.
 
 ______________________________________________________________________
 
-## 1. Python esencial para ML (desde cero)
+## 1. Essential Python for ML (from scratch)
 
-### Fundamentos de Python
+### Python Fundamentals
 
-- **Tipos de datos:** `int`, `float`, `str`, `list`, `dict`, `tuple`.
-- **Control de flujo:** `if`, `for`, `while`, funciones, list comprehensions.
-- **Conceptos clave:** variables, operadores, módulos, manejo de errores básico.
+- **Data Types:** `int`, `float`, `str`, `list`, `dict`, `tuple`.
+- **Flow control:** `if`, `for`, `while`, Functions, list comprehensions.
+- **Key concepts:** variables, operators, Modules, basic Error handling.
 
-### Librerías fundamentales
+### Fundamental libraries
 
-- **NumPy:** operaciones numéricas eficientes, vectores, matrices, broadcasting.
-- **Pandas:** manipulación de datos tabulares, DataFrames, Series, operaciones de limpieza.
-- **Matplotlib / Seaborn:** visualización de datos, gráficos de línea, dispersión, histogramas.
-- **Scikit-learn:** introducción a pipelines básicos de ML.
+- **NumPy:** efficient numerical operations, vectors, matrices, broadcasting.
+- **Pandas:** manipulation of tabular Data, DataFrames, Series, Cleaning operations.
+- **Matplotlib / Seaborn:** Data visualization, line graphs, scatter, histograms.
+- **Scikit-learn:** Introduction to basic ML pipelines.
 
-### Herramientas de trabajo
+### Work tools
 
-- **Jupyter Notebooks:** ambiente interactivo para experimentación.
-- **Google Colab:** notebooks en la nube con GPUs gratuitas.
-- **Reproducibilidad:** guardar código versionado, semillas aleatorias, entornos virtuales.
+- **Jupyter Notebooks:** interactive environment for experimentation.
+- **Google Colab:** cloud notebooks with free GPUs.
+- **Reproducibilidad:** guardar code versionado, semillas aleatorias, entornos virtuales.
 
-📹 **Videos recomendados (ver en este orden):**
+📹 **Recommended videos (watch in this order):**
 
 1. [Python for Beginners - Microsoft](https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6) - 44 videos cortos
 1. [NumPy Tutorial - freeCodeCamp](https://www.youtube.com/watch?v=QUT1VHiLmmI) - 1 hora
 1. [Pandas Tutorial - Corey Schafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS) - 10 videos
 
-📚 **Recursos escritos:**
+📚 **Resources written:**
 
 - [Python Data Science Handbook (Jake VanderPlas)](https://jakevdp.github.io/PythonDataScienceHandbook/) - gratuito online
 - [NumPy Documentation - Quickstart](https://numpy.org/doc/stable/user/quickstart.html)
@@ -41,131 +41,131 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 2. Álgebra lineal aplicada
+## 2. Applied linear algebra
 
-### Conceptos fundamentales
+### Concepts fundamentales
 
-- **Escalares, vectores y matrices:** representación y notación.
-- **Operaciones con vectores:**
-  - Suma y resta elemento a elemento
-  - Producto punto (dot product): similitud entre vectores
-  - Norma de un vector: magnitud/longitud
-- **Operaciones con matrices:**
-  - Suma/resta de matrices
-  - Multiplicación matriz-vector y matriz-matriz
-  - Transpuesta de una matriz
+- **Scalars, vectors and matrices:** representation and notation.
+- **Operations with vectors:**
+  - Add and subtract element by element
+  - Production point (dot product): similarity entre vectors
+  - Norm of a vector: magnitude/length
+- **Operations with matrices:**
+  - Addition/subtraction of matrices
+- Matrix-vector and matrix-matrix multiplication
+  - Transpose of a matrix
   - Identidad e inversa
 
-### Intuición para ML
+### Intuition for ML
 
-- Un modelo lineal combina características usando pesos (producto punto).
-- Redes neuronales son secuencias de multiplicaciones matriz-vector + funciones no lineales.
-- Eigenvalues y eigenvectors aparecen en PCA (reducción de dimensionalidad).
+- A linear Model combines Features using weights (product point).
+- neural networks are sequences of matrix-vector multiplications + non-linear Functions.
+- Eigenvalues ​​and eigenvectors appear in PCA (dimensionality reduction).
 
-📹 **Videos recomendados (ver en orden):**
+📹 **Videos recommended (view in order):**
 
-1. [Essence of Linear Algebra - 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) - Serie completa (15 videos, ~3 horas)
-1. [Linear Algebra for Machine Learning - Imperial College (Coursera)](https://www.coursera.org/learn/linear-algebra-machine-learning) (curso opcional certificable)
+1. [Essence of Linear Algebra - 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) - Series complete (15 videos, ~3 horas)
+1. [Linear Algebra for Machine Learning - Imperial College (Coursera)](https://www.coursera.org/learn/linear-algebra-machine-learning) (cursor opcional certificable)
 
-📚 **Recursos escritos:**
+📚 **Resources written:**
 
 - [Linear Algebra Review - Stanford CS229](http://cs229.stanford.edu/section/cs229-linalg.pdf)
 - [NumPy for Linear Algebra](https://numpy.org/doc/stable/reference/routines.linalg.html)
 
 ______________________________________________________________________
 
-## 3. Cálculo aplicado a optimización
+## 3. Calculation applied to optimization
 
-### Conceptos clave
+### Concepts clave
 
-- **Derivada:** mide la tasa de cambio local de una función.
-- **Derivada parcial:** cambio respecto a una sola variable (cuando hay múltiples).
-- **Regla de la cadena:** base conceptual del algoritmo backpropagation.
-- **Gradiente:** vector de derivadas parciales; apunta en dirección de máximo crecimiento.
+- **Derived:** measures the local rate of change of a Function.
+- **Partial derivative:** change with respect to a single variable (when there are multiple).
+- **Chain rule:** conceptual basis of the backpropagation Algorithm.
+- **Gradient:** vector of partial derivatives; points in the direction of maximum growth.
 
-### Intuición para ML
+### Intuition for ML
 
-- Si conocés el gradiente del error respecto a los parámetros del modelo, podés ajustarlos en la dirección que reduce el error.
-- El entrenamiento de redes neuronales es esencialmente calcular gradientes y actualizar pesos.
+- If you know the gradient of the error with respect to the Model parameters, you can adjust them in the direction that reduces the error.
+- Training neural networks is essentially calculating gradients and updating weights.
 
-📹 **Videos recomendados (ver en orden):**
+📹 **Videos recommended (view in order):**
 
-1. [Essence of Calculus - 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) - Serie completa (12 videos, ~3 horas)
+1. [Essence of Calculus - 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) - Series complete (12 videos, ~3 horas)
 1. [What is Backpropagation? - 3Blue1Brown](https://www.youtube.com/watch?v=Ilg3gGewQ5U) - 14 min
 
-📚 **Recursos escritos:**
+📚 **Resources written:**
 
 - [Calculus for ML - Khan Academy](https://www.khanacademy.org/math/calculus-1)
 - [Backpropagation Explained - Stanford CS231n](http://cs231n.github.io/optimization-2/)
 
 ______________________________________________________________________
 
-## 4. Probabilidad y estadística
+## 4. Probability and statistics
 
-### Conceptos fundamentales
+### Concepts fundamentales
 
-- **Medidas de tendencia central:** media, mediana, moda.
-- **Medidas de dispersión:** varianza, desvío estándar, cuartiles, rango intercuartílico.
+- **Trend central measurements:** mean, median, mode.
+- **Dispersion measures:** variance, standard deviation, quartiles, interquartile range.
 - **Distribuciones:** normal (gaussiana), binomial, uniforme, Poisson.
-- **Probabilidad condicional y Teorema de Bayes.**
-- **Correlación vs causalidad.**
+- **Conditional probability and Bayes' Theorem.**
+- **Correlation vs causality.**
 
-### Intuición para ML
+### Intuition for ML
 
-- Entender la distribución de tus datos te ayuda a elegir el modelo correcto y detectar outliers.
-- La incertidumbre de predicción se cuantifica usando probabilidad.
-- Naive Bayes, uno de los algoritmos de clasificación más simples, usa el Teorema de Bayes directamente.
+- Understanding the distribution of your Data helps you choose the correct Model and detect outliers.
+- Prediction uncertainty is quantified using probability.
+- Naive Bayes, one of the simplest Classification Algorithms, uses Bayes' Theorem directly.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
-1. [StatQuest - Statistics Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9) - Serie completa
+1. [StatQuest - Statistics Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9) - Series complete
 1. [Probability - Khan Academy](https://www.khanacademy.org/math/statistics-probability/probability-library)
 
-📚 **Recursos escritos:**
+📚 **Resources written:**
 
 - [Think Stats (Allen Downey)](https://greenteapress.com/thinkstats2/html/index.html) - gratuito
 - [Seeing Theory - Visual Probability](https://seeing-theory.brown.edu/)
 
 ______________________________________________________________________
 
-## 5. Optimización y gradiente descendente
+## 5. Optimization and gradient descent
 
-### Conceptos clave
+### Concepts clave
 
-- **Función de costo (loss function):** mide qué tan mal predice el modelo.
-- **Gradiente descendente:**
-  - Algoritmo iterativo para minimizar la función de costo.
-  - Tasa de aprendizaje (learning rate): cuánto ajustar los parámetros en cada paso.
-  - Convergencia: cuándo detener el entrenamiento.
-- **Variantes:** SGD (stochastic), mini-batch, momentum, Adam.
+- **Cost function (loss function):** measures how poorly the Model predicts.
+- **Gradiente descent:**
+  - Iterative algorithm to minimize the cost function.
+- Learning rate: how much to adjust the parameters in each step.
+- Convergence: when to stop training.
+- **Variants:** SGD (stochastic), mini-batch, momentum, Adam.
 
-### Intuición para ML
+### Intuition for ML
 
-El entrenamiento de casi todos los modelos modernos (redes neuronales, regresión logística, etc.) se basa en optimización iterativa usando gradiente descendente.
+The Training of almost all modern Models (neural networks, logistic regression, etc.) is based on iterative optimization using gradient descent.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Gradient Descent - StatQuest](https://www.youtube.com/watch?v=sDv4f4s2SB8) - 9 min
 1. [Optimizers Explained - Andrej Karpathy](https://www.youtube.com/watch?v=IHZwWFHWa-w) - 46 min
 
-📚 **Recursos escritos:**
+📚 **Resources written:**
 
 - [An Overview of Gradient Descent Optimization Algorithms](https://ruder.io/optimizing-gradient-descent/)
 - [CS231n - Optimization](http://cs231n.github.io/optimization-1/)
 
 ______________________________________________________________________
 
-## 6. Reproducibilidad y buenas prácticas
+## 6. Reproducibility and good practices
 
 ### Fundamentos
 
 - Fijar semillas aleatorias (`np.random.seed`, `random.seed`, `torch.manual_seed`).
-- Separar datos correctamente: train / validation / test.
-- Documentar experimentos en `notes/` del módulo.
-- Usar Git para versionar código y decisiones.
-- Usar ambientes virtuales (`venv`, `conda`) para reproducibilidad de paquetes.
+- Separar Data correctly: train / validation / test.
+- Document experiments in `notes/` of the Module.
+- Use Git to version code and decisions.
+- Use virtual environments (`venv`, `conda`) for package reproducibility.
 
-📚 **Recursos:**
+📚 **Resources:**
 
 - [Reproducible ML - Google Best Practices](https://developers.google.com/machine-learning/guides/rules-of-ml)
 - [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
@@ -174,12 +174,12 @@ ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente módulo, deberías poder responder:
+Before moving on to the next Module, you should be able to answer:
 
-- ✅ ¿Podés explicar qué es una derivada con un ejemplo visual?
-- ✅ ¿Podés calcular un producto punto en Python con NumPy?
-- ✅ ¿Podés interpretar media, varianza y desvío estándar de un dataset real?
-- ✅ ¿Podés implementar una actualización de parámetros con gradiente descendente a mano?
-- ✅ ¿Entendés por qué fijar una semilla aleatoria es importante para reproducibilidad?
+- ✅ Can you explain what a derivative is with a visual Example?
+- ✅ Can you calculate a product point in Python with NumPy?
+- ✅ Can you interpret the mean, variance and standard deviation of a real dataset?
+- ✅ Can you implement a parameter update with gradient descent by hand?
+- ✅ Do you understand why setting a random seed is important for reproducibility?
 
-Si respondiste "sí" a todas, estás listo para avanzar.
+If you answered "yes" to all, you are ready to move forward.

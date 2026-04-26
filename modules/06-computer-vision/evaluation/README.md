@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de conceptos visuales y CNN.
-- Calidad de implementación y reproducibilidad.
-- Análisis de errores y mejora del modelo.
-- Claridad en conclusiones técnicas.
+- Understanding of visual concepts and CNN.
+- Quality of implementation and reproducibility.
+- Error Analysis and Model improvement.
+- Clarity in Conclusions techniques.
 
 ## Checklist final
 
-- [ ] Preprocesamiento correcto de imágenes.
+- [ ] Correct preprocessing of Images.
 - [ ] CNN baseline entrenada.
-- [ ] Uso de augmentación o ajuste equivalente.
-- [ ] Métricas y matriz de confusión reportadas.
-- [ ] Análisis de clases difíciles.
-- [ ] Propuesta de siguiente iteración.
+- [ ] Usage of augmentation or equivalent adjustment.
+- [ ] Metrics and Confusion matrix reported.
+- [ ] Analysis of difficult classes.
+- [ ] Proposal for next iteration.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Puntaje minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

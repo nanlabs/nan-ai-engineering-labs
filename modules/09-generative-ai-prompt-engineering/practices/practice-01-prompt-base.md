@@ -1,17 +1,17 @@
-# Práctica 01 — Prompt base
+# Practice 01 — Prompt base
 
 ## Objective
 
-Diseñar un prompt inicial claro para una tarea concreta.
+Design a clear initial prompt for a specific task.
 
-## Enunciado
+## Statement
 
-1. Definir tarea (ejemplo: resumen).
+1. Define tarea (Example: summary).
 1. Escribir prompt base.
-1. Ejecutar 5 casos de prueba.
-1. Registrar aciertos y fallos.
+1. Execute 5 Testing cases.
+1. Record successes and failures.
 
-## Validación
+## Validation
 
-- Prompt con objetivo y formato definidos.
-- Resultados iniciales documentados.
+- Prompt with Objective and format defined.
+- Results initial documentados.

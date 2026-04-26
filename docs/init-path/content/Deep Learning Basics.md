@@ -4,11 +4,11 @@ This section introduces key concepts, architectures, and tools that every AI & M
 🔍 Topics Covered:
 Neural Networks: Architecture of perceptrons, activation functions (ReLU, Sigmoid, Tanh), forward and backward propagation.
 Loss Functions: MSE, Cross-Entropy, and custom loss functions.
-Optimization: Gradient descent, stochastic gradient descent (SGD), momentum, Adam optimizer.
+Optimization: gradient descent, stochastic gradient descent (SGD), momentum, Adam optimizer.
 Regularization: Dropout, weight decay, early stopping.
 Deep Learning Frameworks: Introduction to PyTorch and TensorFlow.
 Model Training Best Practices: Epochs, batch sizes, learning rate scheduling.
-Overfitting vs Underfitting: Concepts and how to address them.
+overfitting vs underfitting: Concepts and how to address them.
 GPU Acceleration: Running models on GPUs with CUDA or cloud services (AWS, GCP, Azure).
 
 📌 Suggested Learning Resources:

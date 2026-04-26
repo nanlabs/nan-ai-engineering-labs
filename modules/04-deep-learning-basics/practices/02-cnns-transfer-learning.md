@@ -1,17 +1,17 @@
-# Práctica 02 — CNNs y Transfer Learning
+# Practice 02 — CNNs and Transfer Learning
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Construir CNNs para clasificación de imágenes
-- Aplicar data augmentation
-- Usar transfer learning con modelos preentrenados
-- Fine-tuning de redes profundas
+- Build CNNs for Image Classification
+- Apply data augmentation
+- Wear transfer learning with pretrained Models
+- Fine-tuning of deep networks
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: CNN Simple para MNIST
+### Exercise 1.1: Simple CNN for MNIST
 
 ```python
 import torch
@@ -58,7 +58,7 @@ model = SimpleCNN()
 print(model)
 ```
 
-**✅ Solución - Entrenar:**
+**✅ Solution - Train:**
 
 ```python
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -103,69 +103,69 @@ for epoch in range(epochs):
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Data Augmentation
+### Exercise 2.1: Data Augmentation
 
-**Enunciado:**
-Aplica transformaciones en training:
+**Statement:**
+Apply transformations in training:
 
 - RandomHorizontalFlip
 - RandomRotation(10)
-- RandomCrop con padding
+- RandomCrop with padding
 
-Compara accuracy con vs sin augmentation.
+Compare accuracy with vs without augmentation.
 
-### Ejercicio 2.2: Transfer Learning con ResNet
+### Exercise 2.2: Transfer Learning with ResNet
 
-**Enunciado:**
+**Statement:**
 Usa `torchvision.models.resnet18(pretrained=True)`:
 
-1. Congela capas convolucionales
-1. Reemplaza última capa FC (num_classes=10)
-1. Entrena solo la última capa
+1. Congela Layers convolucionales
+1. Replace last Layer FC (num_classes=10)
+1. Train only the last Layer
 
-### Ejercicio 2.3: Fine-Tuning
+### Exercise 2.3: Fine-Tuning
 
-**Enunciado:**
-Después de ejercicio anterior:
+**Statement:**
+After previous Exercise:
 
-1. Descongela todas las capas
-1. Usa learning rate bajo (1e-5)
-1. Entrena todo el modelo
+1. Unfreeze all the Layers
+1. Usa learning rate low (1e-5)
+1. Train the entire Model
 
-### Ejercicio 2.4: Visualización de Activaciones
+### Exercise 2.4: Visualization of Activations
 
-**Enunciado:**
-Extrae y visualiza feature maps:
+**Statement:**
+Extract and view feature maps:
 
-- Después de conv1
-- Después de conv2
-- Para una imagen de test
+- After conv1
+- After conv2
+- For a test image
 
-### Ejercicio 2.5: Grad-CAM
+### Exercise 2.5: Grad-CAM
 
-**Enunciado:**
-Implementa Grad-CAM simplificado:
+**Statement:**
+Implement Grad-CAM simplificado:
 
-- Identifica qué regiones influyen en predicción
-- Superpone heatmap sobre imagen original
+- Identify which regions influence Prediction
+- Superpone heatmap about Image original
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Construir CNNs con Conv2d, MaxPool2d
-- [ ] Calcular dimensiones output de conv layers
-- [ ] Aplicar data augmentation
-- [ ] Usar modelos preentrenados (transfer learning)
-- [ ] Congelar/descongelar capas
-- [ ] Fine-tuning con differential learning rates
-- [ ] Visualizar feature maps
+- [ ] Build CNNs with Conv2d, MaxPool2d
+- [ ] Calculate dimensions output of conv layers
+- [ ] Apply data augmentation
+- [ ] Wear Models pretrained (transfer learning)
+- [ ] Congelar/descongelar Layers
+- [ ] Fine-tuning with differential learning rates
+- [ ] Visualize feature maps
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [CS231n: CNNs for Visual Recognition](http://cs231n.stanford.edu/)
 - [PyTorch Vision Models](https://pytorch.org/vision/stable/models.html)

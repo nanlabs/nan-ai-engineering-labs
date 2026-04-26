@@ -1,17 +1,17 @@
-# Práctica 05 — Evaluación de salidas LLM
+# Practice 05 — Evaluation of LLM outputs
 
 ## Objective
 
-Evaluar calidad de respuestas generadas con criterios claros.
+Evaluate quality of responses generated with clear criteria.
 
-## Enunciado
+## Statement
 
-1. Definir 10 prompts de prueba.
-1. Evaluar cada respuesta por correctitud y relevancia.
-1. Marcar errores/alucinaciones.
-1. Proponer mejoras de prompt/contexto.
+1. Defines 10 Testing prompts.
+1. Evaluate each response for correctness and relevance.
+1. Marcar Errors/alucinaciones.
+1. Propose improvements to prompt/context.
 
-## Validación
+## Validation
 
-- Matriz de evaluación completa.
-- Recomendaciones accionables.
+- Complete Evaluation Matrix.
+- Recommendations actionable.

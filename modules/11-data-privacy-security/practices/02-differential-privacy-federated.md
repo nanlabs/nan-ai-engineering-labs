@@ -1,24 +1,24 @@
-# Práctica 02 — Differential Privacy y Federated Learning
+# Practice 02 — Differential Privacy and Federated Learning
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar differential privacy
+- Implement differential privacy
 - Privacy budget management
 - Federated learning simulation
 - Trade-off privacy/accuracy
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Laplace Mechanism
+### Exercise 1.1: Laplace Mechanism
 
 ```python
 import numpy as np
 
 def laplace_mechanism(true_value, sensitivity, epsilon):
     """
-    Añade ruido Laplaciano para differential privacy.
+    Duck noise Laplaciano para differential privacy.
 
     Args:
         true_value: Valor real
@@ -29,14 +29,14 @@ def laplace_mechanism(true_value, sensitivity, epsilon):
     noise = np.random.laplace(0, scale)
     return true_value + noise
 
-# Ejemplo: Private mean
+# Example: Private mean
 data = np.array([10, 20, 30, 40, 50])
 true_mean = data.mean()
 
 # Sensitivity = (max - min) / n
 sensitivity = (data.max() - data.min()) / len(data)
 
-# diferentes epsilons
+# different epsilons
 epsilons = [0.1, 1.0, 10.0]
 
 print(f"True mean: {true_mean:.2f}")
@@ -48,49 +48,49 @@ for eps in epsilons:
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Private Gradient Descent
+### Exercise 2.1: Private gradient Descent
 
-**Enunciado:**
-Implementa DP-SGD:
+**Statement:**
+Implement DP-SGD:
 
-- Clip gradients por sample
-- Añade ruido gaussiano a batch gradient
+- Clip gradients per sample
+- Add Gaussian noise to batch gradient
 - Track privacy budget (ε, δ)
 
-### Ejercicio 2.2: Privacy Budget Tracking
+### Exercise 2.2: Privacy Budget Tracking
 
-**Enunciado:**
-Sistema de accounting:
+**Statement:**
+Accounting system:
 
-- Composición de queries
+- Queries composition
 - Calculate cumulative ε
-- Stop cuando budget agotado
+- Stop when budget agotado
 
-### Ejercicio 2.3: Federated Learning
+### Exercise 2.3: Federated Learning
 
-**Enunciado:**
-Simula FL con 5 clientes:
+**Statement:**
+Simulate FL with 5 clients:
 
-- Cada cliente entrena localmente
+- Cada client, clientele entrena localmente
 - Servidor agrega pesos
 - FedAvg algorithm
-- Mide comunicación overhead
+- Measures communication overhead
 
-### Ejercicio 2.4: Secure Aggregation
+### Exercise 2.4: Secure Aggregation
 
-**Enunciado:**
+**Statement:**
 Agrega gradients sin revelar:
 
 - Secret sharing scheme
 - Servidor solo ve agregado
-- Clientes no ven gradients de otros
+- Clients do not see each other's gradients
 
-### Ejercicio 2.5: Privacy-Utility Trade-off
+### Exercise 2.5: Privacy-Utility Trade-off
 
-**Enunciado:**
-Experimenta con ε:
+**Statement:**
+Experiment with ε:
 
 - Vary epsilon: [0.1, 0.5, 1.0, 5.0, 10.0]
 - Plot accuracy vs epsilon
@@ -101,14 +101,14 @@ ______________________________________________________________________
 ## ✅ Checklist
 
 - [ ] Laplace mechanism
-- [ ] Differential privacy en ML
+- [ ] Differential privacy in ML
 - [ ] Privacy budget tracking
 - [ ] Federated learning simulation
 - [ ] Privacy-utility trade-off analysis
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [OpenDP](https://github.com/opendp/opendp)
 - [PySyft (Federated Learning)](https://github.com/OpenMined/PySyft)

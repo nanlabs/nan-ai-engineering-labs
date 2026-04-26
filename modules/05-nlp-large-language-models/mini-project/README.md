@@ -2,27 +2,27 @@
 
 ## Project
 
-Asistente de clasificación y resumen de tickets/textos (baseline NLP + apoyo LLM).
+Classification assistant and summary of tickets/texts (baseline NLP + LLM support).
 
 ## Objective
 
-Construir un flujo práctico que combine preprocesamiento, modelo base y evaluación de salida LLM.
+Build a practical flow that combines preprocessing, Base Model and LLM output evaluation.
 
 ## Scope
 
-- Ingesta y limpieza textual.
-- Baseline con TF-IDF + clasificador.
-- Componente LLM para resumen o mejora de respuesta.
-- Evaluación comparativa de calidad.
+- Ingestion and Textual Cleaning.
+- Baseline with TF-IDF + Classifier.
+- LLM component for summary or improvement of response.
+- Comparative quality evaluation.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Tabla comparativa de resultados (baseline vs LLM).
-- Recomendaciones de siguiente iteración.
+- Comparative table of Results (baseline vs LLM).
+- Next iteration recommendations.
 
 ## Acceptance criteria
 
-- Pipeline completo funcionando.
-- Métricas y evaluación cualitativa claras.
-- Riesgos de alucinación y límites documentados.
+- Pipeline complete funcionando.
+- Clear qualitative metrics and evaluation.
+- Documented hallucination risks and limits.

@@ -1,25 +1,25 @@
-# Guardrails — Safety & Control para LLMs
+# Guardrails — Safety & Control for LLMs
 
 ## Project
 
-Mini proyecto aplicado del modulo.
+Mini project applied of the module.
 
 ## Objective
 
-Construir una solucion funcional enfocada en aprendizaje aplicado.
+Build a functional solution focused on Learning applied.
 
 ## Scope
 
-- Incluye implementacion minima viable
-- Excluye optimizaciones avanzadas en esta etapa
+- Includes implementation minima viable
+- excludes advanced optimizations in this stage
 
 ## Deliverables
 
-- Codigo fuente
-- README de ejecucion
-- Breve reporte de resultados
+- Code fountain
+- execution README
+- Brief results report
 
 ## Acceptance criteria
 
-- Cumple requerimientos minimos definidos
-- Evidencia pruebas basicas de funcionamiento
+- Compliant requirements minima defined
+- Evidence evidence basic of operation

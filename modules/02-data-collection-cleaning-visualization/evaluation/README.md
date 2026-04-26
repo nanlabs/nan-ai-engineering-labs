@@ -2,35 +2,35 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 45%
-- Mini-proyecto: 35%
+- Theory: 20%
+- Practices: 45%
+- Mini-project: 35%
 
-## Rúbrica (1 a 5)
+## Rubric (1 to 5)
 
-- Calidad técnica de limpieza.
-- Correcta interpretación visual.
-- Reproducibilidad del pipeline.
-- Claridad para comunicar decisiones.
+- Cleaning technical quality.
+- Correct visual interpretation.
+- Pipeline reproducibility.
+- Clarity to communicate decisions.
 
 ## Checklist final
 
-- [ ] Perfilado inicial completo.
-- [ ] Estrategia de nulos aplicada y justificada.
-- [ ] Duplicados tratados correctamente.
-- [ ] Outliers evaluados con criterio.
-- [ ] EDA con visualizaciones útiles.
-- [ ] Dataset limpio exportado.
+- [ ] Perfilado inicial complete.
+- [ ] Nulls strategy applied and justified.
+- [ ] Duplicados tratados correctly.
+- [ ] outliers evaluated with criteria.
+- [ ] EDA with useful visualizations.
+- [ ] Dataset clean exportado.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
-- Si mini-proyecto \<70, rehacer con feedback.
+- Puntaje minimum: 70/100.
+- If Mini-project \<70, redo with feedback.
 
 ## Rubric
 
-Pendiente de completar este apartado.
+Pending completion of this section.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

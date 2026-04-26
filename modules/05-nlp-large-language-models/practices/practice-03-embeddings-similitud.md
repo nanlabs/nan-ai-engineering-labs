@@ -1,17 +1,17 @@
-# Práctica 03 — Embeddings y similitud
+# Practice 03 — embeddings and similarity
 
 ## Objective
 
-Comparar significado de frases con embeddings.
+Compare meaning of phrases with embeddings.
 
-## Enunciado
+## Statement
 
-1. Generar embeddings de frases.
-1. Calcular similitud coseno.
-1. Ordenar pares por similitud.
-1. Interpretar resultados semánticos.
+1. Generate phrase embeddings.
+1. Calculate similarity cosine.
+1. Sort pairs by similarity.
+1. Interpret semantic results.
 
-## Validación
+## Validation
 
-- Cálculo de similitud correcto.
-- Interpretación consistente.
+- Correct similarity calculation.
+- Consistent interpretation.

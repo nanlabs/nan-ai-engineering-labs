@@ -12,7 +12,7 @@ Apply resize, normalization, and a train/validation/test split.
 
 Train a small CNN and report accuracy.
 
-## Example 4 — Error analysis
+## Example 4 — error analysis
 
 Use a confusion matrix to find hard classes.
 

@@ -1,17 +1,17 @@
-# Práctica 02 — Explainability con SHAP y LIME
+# Practice 02 — Explainability with SHAP and LIME
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar SHAP values
-- Usar LIME para black-box models
-- Visualizar feature importance
-- Generar explanations para usuarios
+- Implement SHAP values
+- Wear LIME for black-box models
+- Visualize feature importance
+- Generate explanations for users
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: SHAP con Tree Models
+### Exercise 1.1: SHAP with Tree Models
 
 ```python
 import shap
@@ -24,7 +24,7 @@ X, y = load_iris(return_X_y=True, as_frame=True)
 feature_names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 X.columns = feature_names
 
-# Modelo
+# Model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X, y)
 
@@ -32,7 +32,7 @@ model.fit(X, y)
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X)
 
-# Visualización
+# Visualization
 shap.summary_plot(shap_values, X, feature_names=feature_names)
 plt.savefig('shap_summary.png')
 
@@ -43,50 +43,50 @@ shap.force_plot(explainer.expected_value[0], shap_values[0][0], instance)
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: LIME para Neural Networks
+### Exercise 2.1: LIME for Neural Networks
 
-**Enunciado:**
-Explica predicciones de NN:
+**Statement:**
+Explains NN Predictions:
 
 - Usa `lime.lime_tabular.LimeTabularExplainer`
-- Genera explanation para instancia
-- Visualiza top features
+- Generate explanation for instance
+- Visualize top features
 
-### Ejercicio 2.2: Counterfactual Explanations
+### Exercise 2.2: Counterfactual Explanations
 
-**Enunciado:**
+**Statement:**
 Genera counterfactuals:
-"Si feature X fuera Y, predicción cambiaría a Z"
+"If feature X were Y, Prediction would change to Z"
 
-- Encuentra mínimos cambios necesarios
-- Mantén feasibilidad
+- Find minimum necessary changes
+- Maintain feasibility
 
-### Ejercicio 2.3: Partial Dependence Plots
+### Exercise 2.3: Partial Dependence Plots
 
-**Enunciado:**
-Visualiza efecto de features:
+**Statement:**
+Visualize effect of features:
 
 - `sklearn.inspection.partial_dependence`
-- PDPs para top 4 features
-- ICE plots para heterogeneidad
+- PDPs for top 4 features
+- ICE plots for heterogeneity
 
-### Ejercicio 2.4: Anchors
+### Exercise 2.4: Anchors
 
-**Enunciado:**
-Implementa Anchors algorithm:
+**Statement:**
+Implement Anchors algorithm:
 
-- Reglas suficientes para predicción
+- Sufficient rules for Prediction
 - "SI edad > 50 AND income > 60k THEN approve"
-- Coverage y precision
+- Coverage and precision
 
-### Ejercicio 2.5: Explanation Dashboard
+### Exercise 2.5: Explanation Dashboard
 
-**Enunciado:**
+**Statement:**
 Interface interactiva:
 
-- Usuario selecciona instancia
+- User selecciona instancia
 - Muestra SHAP + LIME + Counterfactuals
 - Permite "what-if" analysis
 
@@ -94,15 +94,15 @@ ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] SHAP values y visualizaciones
-- [ ] LIME para modelos black-box
+- [ ] SHAP values ​​and visualizations
+- [ ] LIME for black-box Models
 - [ ] Partial dependence plots
 - [ ] Counterfactual explanations
 - [ ] Anchors rules
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [SHAP Docs](https://shap.readthedocs.io/)
 - [Interpretable ML Book](https://christophm.github.io/interpretable-ml-book/)

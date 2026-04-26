@@ -28,12 +28,12 @@ Apply `GridSearchCV` to a minimal hyperparameter set.
 1. `ex_01_train_test_split_baseline.py`
 
    - Reproducible binary-classification baseline with `train_test_split`.
-   - Expected output: `Accuracy` and `F1 score` above 0.90.
+   - Expected output: `accuracy` and `f1 score` above 0.90.
 
 1. `ex_02_linear_vs_logistic_baseline.py`
 
    - Comparison between regression and classification baselines.
-   - Expected output: `MAE` for diabetes plus `Accuracy` for breast_cancer.
+   - Expected output: `MAE` for diabetes plus `accuracy` for breast_cancer.
 
 1. `ex_03_regularization_tradeoffs.py`
 

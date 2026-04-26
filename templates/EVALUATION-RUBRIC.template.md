@@ -1,16 +1,16 @@
-# Rúbrica de evaluación — {{TEMA}}
+# Evaluation Rubric — {{Topic}}
 
 ## Criterios
 
-- Comprensión conceptual.
-- Implementación práctica.
-- Calidad técnica.
-- Comunicación de resultados.
+- Conceptual understanding.
+- Practical implementation.
+- Calidad technique.
+- Communication of Results.
 
 ## Escala
 
 - 1: inicial
-- 2: básico
+- 2: basic
 - 3: competente
-- 4: sólido
-- 5: avanzado
+- 4: solid
+- 5: advanced

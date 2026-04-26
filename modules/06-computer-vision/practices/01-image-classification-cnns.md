@@ -1,17 +1,17 @@
-# Práctica 01 — Clasificación de Imágenes con CNNs
+# Practice 01 — Image Classification with CNNs
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Construir CNNs para datasets de imágenes
-- Aplicar data augmentation efectivo
-- Comparar arquitecturas (custom vs preentrenadas)
+- Build CNNs for Images datasets
+- Apply data augmentation efectivo
+- Compare arquitecturas (custom vs preentrenadas)
 - Optimizar performance
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Custom CNN para CIFAR-10
+### Exercise 1.1: Custom CNN for CIFAR-10
 
 ```python
 import torch
@@ -45,69 +45,69 @@ print(f"Test samples: {len(testset)}")
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: ResNet vs VGG
+### Exercise 2.1: ResNet vs VGG
 
-**Enunciado:**
-Compara ResNet18 y VGG16 en CIFAR-10:
+**Statement:**
+Compare ResNet18 and VGG16 on CIFAR-10:
 
-- Accuracy
+- accuracy
 - Training time
 - Number of parameters
 
-### Ejercicio 2.2: Image Segmentation
+### Exercise 2.2: Image Segmentation
 
-**Enunciado:**
-Implementa U-Net simple para segmentación:
+**Statement:**
+Implement simple U-Net for segmentation:
 
 - Encoder-decoder architecture
 - Skip connections
-- Evalúa con IoU metric
+- Evaluate with IoU metric
 
-### Ejercicio 2.3: Object Detection
+### Exercise 2.3: Object Detection
 
-**Enunciado:**
-Usa YOLO pre-entrenado para detección:
+**Statement:**
+Use pre-trained YOLO for detection:
 
-- Detecta objetos en imágenes
+- Detect objects in Images
 - Dibuja bounding boxes
-- Calcula confidence scores
+- Calculate confidence scores
 
-### Ejercicio 2.4: Style Transfer
+### Exercise 2.4: Style Transfer
 
-**Enunciado:**
-Implementa neural style transfer:
+**Statement:**
+Implement neural style transfer:
 
 - Content image + style image
-- Optimiza imagen para combinar ambos
-- Visualiza proceso
+- Optimize Image to combine both
+- Visualize process
 
-### Ejercicio 2.5: Data Augmentation Ablation
+### Exercise 2.5: Data Augmentation Ablation
 
-**Enunciado:**
-Prueba diferentes augmentations:
+**Statement:**
+Testing different augmentations:
 
 - Sin augmentation
 - Solo flips
 - Flips + rotations
 - Flips + rotations + color jitter
 
-Compara accuracies.
+Compare accuracies.
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Construir CNNs custom
-- [ ] Aplicar data augmentation
-- [ ] Usar modelos preentrenados
-- [ ] Implementar segmentación
-- [ ] Evaluar con métricas apropiadas
+- [ ] Build CNNs custom
+- [ ] Apply data augmentation
+- [ ] Wear Models pretrained
+- [ ] Implement segmentation
+- [ ] Evaluate yourself with appropriate Metrics
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [PyTorch Vision](https://pytorch.org/vision/stable/index.html)
 - [Papers With Code - Computer Vision](https://paperswithcode.com/area/computer-vision)

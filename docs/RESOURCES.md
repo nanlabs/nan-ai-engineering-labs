@@ -1,13 +1,13 @@
-# Recursos base recomendados
+# Resources base recommended
 
-## Base técnica
+## Base technique
 
 - Python, NumPy, Pandas, Matplotlib, scikit-learn.
-- Fundamentos de álgebra lineal, cálculo y probabilidad aplicada.
-- Notebooks reproducibles y versionado con Git.
+- Fundamentals of linear algebra, calculation and applied probability.
+- Reproducible notebooks and versioned with Git.
 
-## Criterio de uso de recursos
+## Resources Usage Criteria
 
-- Priorizar recursos con práctica aplicada.
-- Limitar a 1-2 recursos principales por módulo.
-- Registrar qué recurso fue más útil y por qué.
+- Prioritize Resources with Practice applied.
+- Limit to 1-2 Resources principles per Module.
+- Record which resource was most useful and why.

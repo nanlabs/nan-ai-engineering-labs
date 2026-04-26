@@ -1,17 +1,17 @@
-# Practice 04 — Augmentación y mejora
+# Practice 04 — Augmentation and improvement
 
 ## Objective
 
-Aumentar robustez del Model con data augmentation.
+Increase robustness of the Model with data augmentation.
 
-## Enunciado
+## Statement
 
-1. Aplicar 2-3 transformaciones (flip, rotación, zoom).
-1. Reentrenar el Model.
-1. Comparar Metrics vs baseline.
-1. Identificar mejoras y límites.
+1. Apply 2-3 transformations (flip, rotation, zoom).
+1. Retrain the Model.
+1. Compare Metrics vs baseline.
+1. Identify improvements and limits.
 
 ## Validation
 
-- Comparación antes/después clara.
-- Conclusion técnica razonada.
+- Clear before/after comparison.
+- Conclusion technique razonada.

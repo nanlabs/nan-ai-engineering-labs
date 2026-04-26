@@ -1,17 +1,17 @@
-# Práctica 02 — Visualización de Datos Avanzada
+# Practice 02 — Advanced Data Visualization
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Crear visualizaciones efectivas con Matplotlib y Seaborn
-- Diseñar dashboards informativos
-- Aplicar principios de storytelling con datos
-- Generar gráficos interactivos
+- Create effective visualizations with Matplotlib and Seaborn
+- Design informative dashboards
+- Apply storytelling principles with Data
+- Generate interactive graphics
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Part 1: Guided Exercises
 
-### Ejercicio 1.1: Gráficos de distribución
+### Exercise 1.1: Distribution Graphs
 
 ```python
 import pandas as pd
@@ -19,11 +19,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Configuración de estilo
+# Configuration de estilo
 sns.set_style("whitegrid")
 plt.rcParams['figure.figsize'] = (12, 6)
 
-# Dataset de ejemplo
+# Dataset de example
 np.random.seed(42)
 n = 500
 
@@ -35,7 +35,7 @@ df = pd.DataFrame({
     'month': np.random.choice(range(1, 13), n)
 })
 
-# Múltiples distribuciones
+# Multiple distributions
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
 # Histograma
@@ -51,7 +51,7 @@ sns.kdeplot(data=df, x='satisfaction', ax=axes[0, 1], fill=True, color='coral')
 axes[0, 1].set_xlabel('Satisfaction Score')
 axes[0, 1].set_title('Customer Satisfaction Distribution')
 
-# Box Plot por categoría
+# Box Plot por category
 sns.boxplot(data=df, x='category', y='sales', ax=axes[1, 0], palette='Set2')
 axes[1, 0].set_xlabel('Category')
 axes[1, 0].set_ylabel('Sales ($)')
@@ -69,20 +69,20 @@ plt.tight_layout()
 plt.savefig('distributions_multi.png', dpi=150, bbox_inches='tight')
 plt.show()
 
-print("✅ Gráficos de distribución creados")
+print("✅ Graphics de distribution creados")
 ```
 
-### Ejercicio 1.2: Gráficos de relación
+### Exercise 1.2: Relationship Graphs
 
 ```python
-# Correlación y scatter plots
+# Correlation y scatter plots
 
-# Agregar variable correlacionada
+# Add variable correlacionada
 df['revenue'] = df['sales'] * df['customers'] / 10 + np.random.normal(0, 1000, n)
 
 fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 
-# Scatter plot básico
+# Scatter plot basic
 axes[0].scatter(df['sales'], df['revenue'], alpha=0.5, c='steelblue')
 axes[0].set_xlabel('Sales ($)')
 axes[0].set_ylabel('Revenue ($)')
@@ -100,7 +100,7 @@ axes[1].set_title('Sales vs Revenue by Category')
 axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
-# Heatmap de correlación
+# Heatmap de correlation
 numeric_cols = ['sales', 'customers', 'satisfaction', 'revenue']
 corr_matrix = df[numeric_cols].corr()
 
@@ -116,10 +116,10 @@ print("\n=== Correlaciones ===")
 print(corr_matrix)
 ```
 
-### Ejercicio 1.3: Time series visualization
+### Exercise 1.3: Time series visualization
 
 ```python
-# Agregar componente temporal
+# Add componente temporal
 df_ts = df.groupby('month').agg({
     'sales': 'sum',
     'customers': 'sum',
@@ -128,7 +128,7 @@ df_ts = df.groupby('month').agg({
 
 fig, axes = plt.subplots(2, 1, figsize=(14, 8))
 
-# Line plot con área
+# Line plot con area
 axes[0].plot(df_ts['month'], df_ts['sales'], marker='o',
              linewidth=2, markersize=8, color='steelblue', label='Sales')
 axes[0].fill_between(df_ts['month'], df_ts['sales'], alpha=0.3, color='steelblue')
@@ -155,7 +155,7 @@ ax1.set_xticks(range(1, 13))
 ax1.tick_params(axis='y', labelcolor='coral')
 ax2.tick_params(axis='y', labelcolor='green')
 
-# Combinar legends
+# Combiner legends
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
@@ -167,7 +167,7 @@ plt.show()
 print("✅ Visualizaciones temporales creadas")
 ```
 
-### Ejercicio 1.4: Dashboard completo
+### Exercise 1.4: Dashboard complete
 
 ```python
 # Dashboard de 6 paneles
@@ -231,102 +231,102 @@ plt.suptitle('Sales Analytics Dashboard', fontsize=18, fontweight='bold', y=0.99
 plt.savefig('dashboard_complete.png', dpi=150, bbox_inches='tight')
 plt.show()
 
-print("✅ Dashboard completo creado")
+print("✅ Dashboard complete creado")
 ```
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Part 2: Suggested Exercises
 
-### Ejercicio 2.1: Small Multiples
+### Exercise 2.1: Small Multiples
 
-**Enunciado:**
-Crea una visualización "small multiples" (facet grid) que muestre:
+**Statement:**
+Create a "small multiples" (facet grid) Visualization that shows:
 
-- Sales distribution por cada categoría (4 subplots)
-- Usar misma escala en X para comparabilidad
-- Añadir media y mediana en cada subplot
+- Sales distribution by each category (4 subplots)
+- Use same scale on X for comparability
+- Add mean and median in each subplot
 
-**Validación:**
+**Validation:**
 
 ```python
 # Debe generar 1 figura con 4 subplots (2x2)
-# Cada subplot debe tener título con nombre de categoría
-# Lines verticales para mean y median en cada subplot
+# Cada subplot must tener qualification con nombre de category
+# Lines verticales para mean y median en each subplot
 ```
 
-### Ejercicio 2.2: Stacked Bar Chart
+### Exercise 2.2: Stacked Bar Chart
 
-**Enunciado:**
-Visualiza la composición de ventas por mes y categoría:
+**Statement:**
+View the sales composition by month and category:
 
-- Eje X: meses (1-12)
-- Eje Y: total sales
-- Barras apiladas por categoría con colores diferentes
-- Leyenda ordenada por total sales descendente
+- X axis: months (1-12)
+- Y axis: total sales
+- Bars stacked by category with different colors
+- Legend sorted by total sales descent
 
-### Ejercicio 2.3: Sunburst/Treemap (con matplotlib)
+### Exercise 2.3: Sunburst/Treemap (with matplotlib)
 
-**Enunciado:**
-Crea un treemap que muestre:
+**Statement:**
+Create a treemap that shows:
 
-- Jerarquía: Category → Month → Sales
-- Tamaño de cada rectángulo proporcional a sales
-- Colores por categoría
-- Labels con porcentaje del total
+- Hierarchy: Category → Month → Sales
+- Size of each rectangle proportional to sales
+- Colors by category
+- Labels with percentage of the total
 
-### Ejercicio 2.4: Visualización de Outliers
+### Exercise 2.4: Visualization of outliers
 
-**Enunciado:**
-Crea un panel de diagnóstico de outliers:
+**Statement:**
+Create an outliers diagnostic panel:
 
-1. Boxplot con puntos individuales de outliers marcados
-1. Scatter plot marcando outliers en rojo
-1. Histograma con outliers en barra diferente
-1. Tabla con top 5 outliers y sus valores
+1. Boxplot with individual outlier points marked
+1. Scatter plot marking outliers in red
+1. Histogram with outliers in different bars
+1. Table with top 5 outliers and their values
 
-### Ejercicio 2.5: Animated Plot (exportar frames)
+### Exercise 2.5: Animated Plot (export frames)
 
-**Enunciado:**
-Crea una secuencia de gráficos que muestren evolución temporal:
+**Statement:**
+Create a sequence of graphs that show time evolution:
 
-- Un PNG por mes mostrando sales acumuladas hasta ese mes
-- Barra progresiva o line plot incremental
-- Exportar 12 imágenes: `month_01.png` a `month_12.png`
-- Bonus: usar `imageio` para crear GIF
-
-______________________________________________________________________
-
-## ✅ Checklist de Competencias
-
-Después de completar esta práctica, deberías poder:
-
-- [ ] Crear histogramas, KDE plots, boxplots y violin plots
-- [ ] Diseñar scatter plots con múltiples dimensiones (color, size, shape)
-- [ ] Generar heatmaps de correlación legibles
-- [ ] Visualizar series temporales con trends y seasonality
-- [ ] Construir dashboards multi-panel informativos
-- [ ] Aplicar principios de diseño (color, layout, jerarquía)
-- [ ] Exportar visualizaciones en alta resolución
-- [ ] Elegir tipo de gráfico apropiado para cada mensaje
+- One PNG per month showing accumulated sales up to that month
+- Progressive bar or incremental line plot
+- Export 12 Images: `month_01.png` to `month_12.png`
+- Bonus: use `imageio` to create GIF
 
 ______________________________________________________________________
 
-## 📚 Recursos Adicionales
+## ✅ Skills Checklist
 
-**Gallerías de inspiración:**
+After completing this Practice, you should be able to:
+
+- [ ] Create histograms, KDE plots, boxplots and violin plots
+- [ ] Design scatter plots with multiple dimensions (color, size, shape)
+- [ ] Generate readable correlation heatmaps
+- [ ] Visualize time series with trends and seasonality
+- [ ] Build informative multi-panel dashboards
+- [ ] Apply design principles (color, layout, hierarchy)
+- [ ] Export visualizations in high resolution
+- [ ] Choose appropriate Chart Type for each message
+
+______________________________________________________________________
+
+## 📚 Additional Resources
+
+**Inspiration Galleries:**
 
 - [Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)
 - [Seaborn Gallery](https://seaborn.pydata.org/examples/index.html)
 - [Python Graph Gallery](https://python-graph-gallery.com/)
 
-**Librerías interactivas:**
+**Interactive libraries:**
 
-- `plotly`: Gráficos interactivos
-- `bokeh`: Dashboards web
+- `plotly`: Interactive plots
+- `bokeh`: Web Dashboards
 - `altair`: Grammar of graphics
 
-**Principios de diseño:**
+**Design principles:**
 
 - [Data Visualization catalog](https://datavizcatalogue.com/)
-- [Color Brewer](https://colorbrewer2.org/) para paletas accesibles
+- [Color Brewer](https://colorbrewer2.org/) for accessible palettes

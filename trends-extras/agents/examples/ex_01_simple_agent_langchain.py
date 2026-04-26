@@ -59,7 +59,7 @@ if __name__ == "__main__":
     )
     print(f"\nAnswer: {result}\n")
 
-    # Ejemplo 2: Multi-step reasoning
+    # Example 2: Multi-step reasoning
     print("=" * 50)
     print("Example 2: Multi-step Reasoning")
     print("=" * 50)
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     )
     print(f"\nAnswer: {result}\n")
 
-    # Ejemplo 3: Research question
+    # Example 3: Research question
     print("=" * 50)
     print("Example 3: Research")
     print("=" * 50)
@@ -90,6 +90,6 @@ Thought: ...
 Action: tool_name
 Action Input: ...
 Observation: ...
-... (repite hasta tener respuesta)
+... (repite hasta tener response)
 Final Answer: ...
 """

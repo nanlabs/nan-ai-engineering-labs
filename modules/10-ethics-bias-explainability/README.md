@@ -6,21 +6,21 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 
 ## 💡 What are you going to achieve
 
-- Detectar bias en datasets y modelos (demographic parity, equalized odds)
+- Detect bias in datasets and Models (demographic parity, equalized odds)
 - Calculate nonsense impact and fairness metrics
-- Implementar técnicas de debiasing (reweighting, threshold optimization, adversarial)
+- Implement debiasing techniques (reweighting, threshold optimization, adversarial)
 - Apply SHAP values ​​to feature importance
 - Use LIME to explain black-box models
-- Generar counterfactual explanations y Anchors rules
+- Generate counterfactual explanations and Anchors rules
 - Build fairness dashboards
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (tipos de bias, fairness metrics, explainability methods)
+- **theory/**: fundamentals (Types of bias, fairness metrics, explainability methods)
 - **examples/**: guided examples with Fairlearn, SHAP, LIME
-- **practices/**: ejercicios hands-on
+- **practices/**: Exercises hands-on
   - 01: Detection and Mitigation of Bias (nonsense impact, reweighting, thresholds, adversarial debiasing, counterfactuals)
-  - 02: Explainability con SHAP y LIME (SHAP for trees/NNs, LIME tabular, PDPs, Anchors, dashboard)
+  - 02: Explainability with SHAP and LIME (SHAP for trees/NNs, LIME tabular, PDPs, Anchors, dashboard)
 - **mini-project/**: fairness audit + explanation system
 - **evaluation/**: checklist and rubric
 - **notes/**: bias cases found and mitigations applied
@@ -33,24 +33,24 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 
 ## 📅 ​​Recommended Study Plan
 
-**Semana 1** (6-8 horas):
+**Week 1** (6-8 horas):
 
-1. Lee material de `/theory` (2h)
+1. Read material from `/theory` (2h)
 1. Ejecuta `/examples` (2h)
-1. Completa `/practices/01-deteccion-mitigacion-bias.md` (4h)
+1. Complete `/practices/01-deteccion-mitigacion-bias.md` (4h)
 
-**Semana 2** (6-8 horas):
-4\. Completa `/practices/02-explainability-shap-lime.md` (4h)
-5\. Desarrolla mini-proyecto (3h)
+**Week 2** (6-8 horas):
+4\. Complete `/practices/02-explainability-shap-lime.md` (4h)
+5\. Desarrolla Mini-project (3h)
 
 ## ✅ Competencias Clave
 
-- [ ] Detectar bias en datos y modelos
-- [ ] Calcular disparate impact (80% rule)
-- [ ] Aplicar reweighting y resampling
-- [ ] Threshold optimization por grupo
-- [ ] SHAP values y visualizaciones
-- [ ] LIME para black-box models
+- [ ] Detect bias in Data and Models
+- [ ] Calculate disparate impact (80% rule)
+- [ ] Apply reweighting and resampling
+- [ ] Threshold optimization by group
+- [ ] SHAP values ​​and visualizations
+- [ ] LIME for black-box models
 - [ ] Counterfactual explanations
 - [ ] Fairness vs accuracy trade-offs
 
@@ -61,7 +61,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 - Final evaluation approved (>=70/100)
 - Demonstrate: bias detection, debiasing, SHAP/LIME, fairness dashboard
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -70,7 +70,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 - [SHAP](https://shap.readthedocs.io/)
 - [LIME](https://github.com/marcotcr/lime)
 
-**Cursos:**
+**Cursors, Cursor:**
 
 - [Fairness in Machine Learning (NIPS Tutorial)](https://fairmlbook.org/)
 
@@ -85,7 +85,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 
 ## 🚀 Next Module
 
-**Módulo 11: Data Privacy & Security** - Encriptación, differential privacy, federated learning
+**Module 11: Data Privacy & Security** - Encryption, differential privacy, federated learning
 
 ## Module objective
 

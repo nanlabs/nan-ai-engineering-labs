@@ -1,10 +1,10 @@
-# LLM Evals — Evaluación Sistemática de LLMs
+# LLM Evals — Systematic Evaluation of LLMs
 
 ## Practices
 
-- Practica 1: Placeholder breve
-- Practica 2: Placeholder breve
+- Practice 1: Build a prompt comparison report with metrics and error analysis.
+- Practice 2: Define a CI regression gate using a quality threshold.
 
 ## Approval criteria
 
-Se aprueba al completar las practicas y justificar decisiones tecnicas.
+Practices are fully approved and technical decisions justified.

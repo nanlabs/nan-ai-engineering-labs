@@ -1,0 +1,15 @@
+trends-extras/agents/README.md
+trends-extras/multimodal/examples/ex_04_text_to_image_stable_diffusion.py
+trends-extras/RESUMEN-EXTRAS.md
+modules/01-programming-math-for-ml/theory/README.md
+modules/05-nlp-large-language-models/practices/01-text-processing-embeddings.md
+trends-extras/ai-observability/README.md
+docs/MODULE-LAB-STANDARD.md
+trends-extras/guardrails/README.md
+templates/TOPIC-README.template.md
+modules/08-recommender-systems/examples/02-matrix-factorization-svd.md
+modules/12-mlops-ai-in-production/theory/README.md
+modules/09-generative-ai-prompt-engineering/README.md
+modules/02-data-collection-cleaning-visualization/practices/practice-02-limpieza-de-nulos-y-duplicados.md
+docs/PHASES-CREACION.md
+docs/LEARNING-PATH.md

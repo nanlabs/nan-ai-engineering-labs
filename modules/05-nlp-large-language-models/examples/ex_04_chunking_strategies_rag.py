@@ -30,11 +30,11 @@ def retrieve(chunks: list[str], query_terms: set[str]) -> list[tuple[int, str]]:
 def main() -> None:
     """Run fixed vs sentence chunking and show top retrieval result."""
     text = (
-        "RAG combina recuperacion y generacion para responder con contexto. "
-        "Chunking define como se parte el contenido antes de indexarlo. "
-        "Chunks muy grandes pierden precision y chunks muy pequenos pierden contexto."
+        "RAG combina recuperacion y generacion para responder con context. "
+        "Chunking define como se parte el content antes de indexarlo. "
+        "Chunks muy grandes pierden precision y chunks muy pequenos pierden context."
     )
-    query_terms = {"rag", "chunking", "contexto", "precision"}
+    query_terms = {"rag", "chunking", "context", "precision"}
 
     fixed = fixed_chunks(text, size=70)
     sentence = sentence_chunks(text)

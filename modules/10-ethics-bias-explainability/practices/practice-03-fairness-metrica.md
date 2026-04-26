@@ -1,17 +1,17 @@
-# Práctica 03 — Métrica de fairness
+# Practice 03 — Fairness metrics
 
 ## Objective
 
-Aplicar al menos una métrica de equidad.
+Apply at least one Equity Metric.
 
-## Enunciado
+## Statement
 
-1. Elegir métrica de fairness.
-1. Calcular por grupo relevante.
-1. Comparar resultados.
-1. Evaluar trade-offs con performance.
+1. Choose Fairness Metric.
+1. Calculate by relevant group.
+1. Compare Results.
+1. Evaluate trade-offs with performance.
 
-## Validación
+## Validation
 
-- Métrica calculada correctamente.
+- Metric calculada correctly.
 - Trade-offs explicados.

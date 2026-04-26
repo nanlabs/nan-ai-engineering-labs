@@ -1,17 +1,17 @@
-# Práctica 04 — Riesgos en pipeline de IA
+# Practice 04 — Risks in AI pipeline
 
 ## Objective
 
-Detectar superficies de ataque o fuga de datos.
+Detect attack surfaces or data leaks.
 
-## Enunciado
+## Statement
 
-1. Mapear pipeline de datos y modelo.
-1. Identificar puntos de riesgo.
+1. Map Data and Model pipeline.
+1. Identify risk points.
 1. Asignar severidad.
-1. Proponer mitigaciones prioritarias.
+1. Propose mitigaciones prioritarias.
 
-## Validación
+## Validation
 
-- Riesgos priorizados correctamente.
+- Risks priorizados correctly.
 - Mitigaciones viables.

@@ -8,17 +8,17 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 
 - Understand components of time series (trend, seasonality, noise, decomposition)
 - Build forecasting models (ARIMA, Prophet, LSTM)
-- Implementar detectors de anomalías (Z-score, IQR, Isolation Forest, LSTM Autoencoder)
-- Aplicar cross-validation temporal y multi-step forecasting
-- Evaluate with temporal metrics (MAE, RMSE, MAPE) and visual analysis
+- Implement Anomaly detectors (Z-score, IQR, Isolation Forest, LSTM Autoencoder)
+- Apply temporal cross-validation and multi-step forecasting
+- Evaluate with temporal metrics (MAE, RMSE, MAP) and visual analysis
 - Design detection systems in real time
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (series temporales, estacionariedad, forecasting, anomaly detection)
+- **theory/**: fundamentos (time series, estacionariedad, forecasting, anomaly detection)
 - **examples/**: guided examples with statsmodels, Prophet, PyOD
-- **practices/**: ejercicios hands-on
-  - 01: Forecasting de Series Temporales (ARIMA, Prophet, LSTM, cross-validation temporal)
+- **practices/**: Exercises hands-on
+  - 01: Time series forecasting (ARIMA, Prophet, LSTM, temporal cross-validation)
   - 02: Anomaly Detection (Z-score, IsoForest, LSTM Autoencoder, ensemble, real-time)
 - **mini-project/**: forecasting system + anomaly detection
 - **evaluation/**: checklist and rubric
@@ -49,7 +49,7 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 - Final evaluation approved (>=70/100)
 - Demonstrate: forecasting with ARIMA/Prophet, detection with multiple methods, evaluation
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -57,7 +57,7 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 - [Facebook Prophet](https://facebook.github.io/prophet/)
 - [PyOD (Anomaly Detection)](https://github.com/yzhao062/pyod)
 
-**Tutoriales:**
+**Tutorials:**
 
 - [Time Series Forecasting Guide](https://otexts.com/fpp3/)
 - [Anomaly Detection Papers](https://paperswithcode.com/task/anomaly-detection)

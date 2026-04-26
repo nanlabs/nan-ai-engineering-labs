@@ -1,12 +1,12 @@
-# Example 01 — Detección de Bias y Metrics de Fairness
+# Example 01 — Bias Detection and Fairness Metrics
 
-## Contexto
+## Context
 
-Los Models ML pueden perpetuar o amplificar sesgos presentes en Data de Training, resultando en decisiones discriminatorias.
+ML Models can perpetuate or amplify biases present in Training Data, resulting in discriminatory decisions.
 
 ## Objective
 
-Detectar y medir bias en Model de aprobación de crédito usando Metrics de fairness.
+Detect and measure bias in Credit Approval Model using fairness metrics.
 
 ______________________________________________________________________
 
@@ -26,10 +26,10 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📚 Generar Data sintéticos
+## 📚 Generate synthetic data
 
 ```python
-# Simulación de solicitudes de crédito
+# Simulation de solicitudes de credit
 n_samples = 1000
 
 data = {
@@ -43,41 +43,41 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Target: aprobación de crédito (score-based con bias)
+# Target: approval de credit (score-based con bias)
 def generate_approval(row):
     """
-    Función con bias intencional:
+    Function con bias intentional:
     - Base: credit_score + income
     - Bias: penaliza a mujeres y Group_B
     """
     base_score = row['credit_score'] / 10 + row['income'] / 10000
 
-    # Bias de género (mujeres necesitan 10% más score)
+    # Bias de gender (mujeres necesitan 10% más score)
     if row['gender'] == 'F':
         base_score *= 0.9
 
-    # Bias étnico (Group_B necesita 15% más score)
+    # Bias ethnic (Group_B necesita 15% más score)
     if row['ethnicity'] == 'Group_B':
         base_score *= 0.85
 
-    # Threshold para aprobación
+    # Threshold para approval
     return 1 if base_score > 100 else 0
 
 df['approved'] = df.apply(generate_approval, axis=1)
 
 print(f"Dataset: {len(df)} solicitudes")
-print(f"Tasa de aprobación: {df['approved'].mean():.2%}")
+print(f"Tasa de approval: {df['approved'].mean():.2%}")
 print("\nDistribución:")
 print(df[['gender', 'ethnicity', 'approved']].value_counts())
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Dataset: 1000 solicitudes
-Tasa de aprobación: 52.30%
+Tasa de approval: 52.30%
 
-Distribución:
+Distribution:
 gender  ethnicity  approved
 M       Group_A    1           298
                    0           161
@@ -91,7 +91,7 @@ F       Group_A    1           125
 
 ______________________________________________________________________
 
-## 🤖 Entrenar Model
+## 🤖 Train Model
 
 ```python
 # Features (excluir protected attributes para training)
@@ -99,7 +99,7 @@ feature_cols = ['age', 'income', 'credit_score', 'employment_years']
 X = df[feature_cols]
 y = df['approved']
 
-# Guardar atributos protegidos para análisis
+# Save atributos protegidos para analysis
 protected_attrs = df[['gender', 'ethnicity']]
 
 # Split
@@ -111,11 +111,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 test_indices = X_test.index
 protected_test = protected_attrs.loc[test_indices]
 
-# Modelo
+# Model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Predicción
+# Prediction
 y_pred = model.predict(X_test)
 
 # Accuracy general
@@ -123,7 +123,7 @@ acc = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {acc:.4f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Accuracy: 0.8867
@@ -131,7 +131,7 @@ Accuracy: 0.8867
 
 ______________________________________________________________________
 
-## ⚖️ Metrics de Fairness
+## ⚖️ Fairness Metrics
 
 ### 1. Demographic Parity (Statistical Parity)
 
@@ -140,7 +140,7 @@ def demographic_parity(y_pred, protected_attr):
     """
     P(Ŷ=1 | A=0) ≈ P(Ŷ=1 | A=1)
 
-    Aprobación similar entre grupos
+    Approval similar entre grupos
     """
     groups = protected_attr.unique()
     approval_rates = {}
@@ -150,20 +150,20 @@ def demographic_parity(y_pred, protected_attr):
         approval_rate = y_pred[mask].mean()
         approval_rates[group] = approval_rate
 
-    # Diferencia máxima
+    # Diferencia maximum
     rates = list(approval_rates.values())
     disparity = max(rates) - min(rates)
 
     return approval_rates, disparity
 
-# Por género
+# Por gender
 gender_rates, gender_disparity = demographic_parity(
     y_pred, protected_test['gender']
 )
 
-print("\n=== Demographic Parity - Género ===")
+print("\n=== Demographic Parity - Gender ===")
 for group, rate in gender_rates.items():
-    print(f"{group}: {rate:.2%} aprobación")
+    print(f"{group}: {rate:.2%} approval")
 print(f"Disparidad: {gender_disparity:.4f} (ideal < 0.1)")
 
 # Por etnia
@@ -173,21 +173,21 @@ ethnicity_rates, eth_disparity = demographic_parity(
 
 print("\n=== Demographic Parity - Etnia ===")
 for group, rate in ethnicity_rates.items():
-    print(f"{group}: {rate:.2%} aprobación")
+    print(f"{group}: {rate:.2%} approval")
 print(f"Disparidad: {eth_disparity:.4f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Demographic Parity - Género ===
-M: 68.23% aprobación
-F: 51.12% aprobación
+=== Demographic Parity - Gender ===
+M: 68.23% approval
+F: 51.12% approval
 Disparidad: 0.1711 (ideal < 0.1)
 
 === Demographic Parity - Etnia ===
-Group_A: 64.89% aprobación
-Group_B: 48.76% aprobación
+Group_A: 64.89% approval
+Group_B: 48.76% approval
 Disparidad: 0.1613
 ```
 
@@ -230,22 +230,22 @@ def equalized_odds(y_true, y_pred, protected_attr):
 
     return metrics, tpr_disparity, fpr_disparity
 
-# Por género
+# Por gender
 gender_metrics, tpr_disp, fpr_disp = equalized_odds(
     y_test.values, y_pred, protected_test['gender'].values
 )
 
-print("\n=== Equalized Odds - Género ===")
+print("\n=== Equalized Odds - Gender ===")
 for group, metrics in gender_metrics.items():
     print(f"{group}: TPR={metrics['TPR']:.4f}, FPR={metrics['FPR']:.4f}")
 print(f"TPR Disparidad: {tpr_disp:.4f}")
 print(f"FPR Disparidad: {fpr_disp:.4f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Equalized Odds - Género ===
+=== Equalized Odds - Gender ===
 M: TPR=0.9234, FPR=0.1523
 F: TPR=0.8567, FPR=0.2134
 TPR Disparidad: 0.0667
@@ -257,9 +257,9 @@ FPR Disparidad: 0.0611
 ```python
 def equal_opportunity(y_true, y_pred, protected_attr):
     """
-    Solo TPR debe ser igual (subset de Equalized Odds)
+    Solo TPR must ser igual (subset de Equalized Odds)
 
-    Útil cuando False Positives son aceptables
+    Useful when False Positives son aceptables
     """
     groups = protected_attr.unique()
     tprs = {}
@@ -283,16 +283,16 @@ tprs, eo_disparity = equal_opportunity(
     y_test.values, y_pred, protected_test['gender'].values
 )
 
-print("\n=== Equal Opportunity - Género ===")
+print("\n=== Equal Opportunity - Gender ===")
 for group, tpr in tprs.items():
     print(f"{group}: TPR={tpr:.4f}")
 print(f"Disparidad: {eo_disparity:.4f} (ideal < 0.1)")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Equal Opportunity - Género ===
+=== Equal Opportunity - Gender ===
 M: TPR=0.9234
 F: TPR=0.8567
 Disparidad: 0.0667 (ideal < 0.1)
@@ -300,10 +300,10 @@ Disparidad: 0.0667 (ideal < 0.1)
 
 ______________________________________________________________________
 
-## 📊 Visualization de Bias
+## 📊 Bias display
 
 ```python
-# Crear DataFrame con resultados
+# Create DataFrame con results
 results_df = pd.DataFrame({
     'y_true': y_test.values,
     'y_pred': y_pred,
@@ -311,14 +311,14 @@ results_df = pd.DataFrame({
     'ethnicity': protected_test['ethnicity'].values
 })
 
-# Approval rate por grupo
+# Approval rate por group
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
-# Por género
+# Por gender
 gender_approval = results_df.groupby('gender')['y_pred'].mean()
 axes[0].bar(gender_approval.index, gender_approval.values, color=['blue', 'pink'], alpha=0.7)
-axes[0].set_ylabel('Tasa de Aprobación')
-axes[0].set_title('Aprobación por Género')
+axes[0].set_ylabel('Tasa de Approval')
+axes[0].set_title('Approval por Gender')
 axes[0].axhline(y=results_df['y_pred'].mean(), color='red', linestyle='--', label='Media global')
 axes[0].legend()
 axes[0].set_ylim([0, 1])
@@ -326,8 +326,8 @@ axes[0].set_ylim([0, 1])
 # Por etnia
 eth_approval = results_df.groupby('ethnicity')['y_pred'].mean()
 axes[1].bar(eth_approval.index, eth_approval.values, color=['green', 'orange'], alpha=0.7)
-axes[1].set_ylabel('Tasa de Aprobación')
-axes[1].set_title('Aprobación por Etnia')
+axes[1].set_ylabel('Tasa de Approval')
+axes[1].set_title('Approval por Etnia')
 axes[1].axhline(y=results_df['y_pred'].mean(), color='red', linestyle='--', label='Media global')
 axes[1].legend()
 axes[1].set_ylim([0, 1])
@@ -337,7 +337,7 @@ plt.savefig('bias_approval_rates.png', dpi=150)
 plt.show()
 ```
 
-### Confusion matrix por grupo
+### Confusion matrix by group
 
 ```python
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -354,9 +354,9 @@ for idx, (group, attr) in enumerate(groups):
     cm = confusion_matrix(y_true_group, y_pred_group)
 
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-    ax.set_xlabel('Predicción')
+    ax.set_xlabel('Prediction')
     ax.set_ylabel('Real')
-    ax.set_title(f'Matriz Confusión: {group}')
+    ax.set_title(f'Matrix Confusion: {group}')
 
 plt.tight_layout()
 plt.savefig('bias_confusion_matrices.png', dpi=150)
@@ -365,18 +365,18 @@ plt.show()
 
 ______________________________________________________________________
 
-## 🛠️ Mitigación de Bias
+## 🛠️ Bias Mitigation
 
 ### 1. Reweighting
 
 ```python
 def reweighting(X, y, protected_attr):
     """
-    Asigna pesos a muestras para balancear representación
+    Asigna pesos a muestras para balancear representation
     """
     weights = np.ones(len(y))
 
-    # Calcular frecuencias
+    # Calculate frecuencias
     for group in protected_attr.unique():
         for label in [0, 1]:
             mask = (protected_attr == group) & (y == label)
@@ -400,17 +400,17 @@ model_fair.fit(X_train, y_train, sample_weight=weights_train)
 
 y_pred_fair = model_fair.predict(X_test)
 
-# Evaluar fairness
+# Evaluate fairness
 gender_rates_fair, disparity_fair = demographic_parity(
     y_pred_fair, protected_test['gender']
 )
 
-print("\n=== Después de Reweighting ===")
+print("\n=== After de Reweighting ===")
 for group, rate in gender_rates_fair.items():
     print(f"{group}: {rate:.2%}")
 print(f"Disparidad: {disparity_fair:.4f} (antes: {gender_disparity:.4f})")
 
-# Accuracy puede disminuir
+# Accuracy can disminuir
 acc_fair = accuracy_score(y_test, y_pred_fair)
 print(f"Accuracy: {acc_fair:.4f} (antes: {acc:.4f})")
 ```
@@ -422,7 +422,7 @@ from sklearn.metrics import roc_curve
 
 def optimize_thresholds(model, X_test, y_test, protected_attr):
     """
-    Encuentra thresholds diferentes por grupo para igualar TPR
+    Encuentra thresholds different por group para igualar TPR
     """
     y_proba = model.predict_proba(X_test)[:, 1]
 
@@ -432,7 +432,7 @@ def optimize_thresholds(model, X_test, y_test, protected_attr):
 
         fpr, tpr, thresh = roc_curve(y_test[mask], y_proba[mask])
 
-        # Threshold para TPR objetivo (ej: 0.85)
+        # Threshold para TPR objective (ej: 0.85)
         target_tpr = 0.85
         idx = np.argmin(np.abs(tpr - target_tpr))
         thresholds[group] = thresh[idx]
@@ -450,15 +450,15 @@ for group, thresh in thresholds_opt.items():
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
-### ✅ Metrics de Fairness
+### ✅ Fairness Metrics
 
-| Metric                 | Definición                              | Cuándo usar                                       |
+| Metric | Definition | When to use |
 | ---------------------- | --------------------------------------- | ------------------------------------------------- |
-| **Demographic Parity** | P(Ŷ=1\|A=a) igual para todos los grupos | Decisiones que no afectan proporción de población |
-| **Equalized Odds**     | TPR y FPR iguales entre grupos          | Errors (FP y FN) tienen mismo costo               |
-| **Equal Opportunity**  | Solo TPR igual entre grupos             | FP menos grave que FN (ej: screening médico)      |
+| **Demographic Parity** | P(Ŷ=1\|A=a) equal for all groups | Decisions that do not affect population proportion |
+| **Equalized Odds** | TPR and FPR equal between groups | Errors (FP and FN) have the same cost |
+| **Equal Opportunity** | Only TPR equal between groups | PF less serious than FN (e.g. medical screening) |
 
 ### 🎯 Trade-offs
 
@@ -466,59 +466,59 @@ ______________________________________________________________________
 Fairness ↑ ⟷ Accuracy ↓
 ```
 
-- Mitigar bias puede reducir accuracy general
-- Importante: definir qué Metric de fairness es prioritaria
-- No existe "universal fairness" - depende del contexto
+- Mitigate bias can reduce overall accuracy
+- Important: define which fairness Metric is a priority
+- There is no such thing as "universal fairness" - it depends on the context
 
-### 💡 Mejores Practices
+### 💡 Best Practices
 
-- ✅ Identificar protected attributes (género, etnia, edad)
-- ✅ Medir ANTES de deployment
-- ✅ Evaluar múltiples Metrics de fairness
-- ✅ Documentar trade-offs (accuracy vs fairness)
-- ✅ Re-evaluar periódicamente (drift de fairness)
-- ✅ Auditorías externas cuando posible
+- ✅ Identify protected attributes (gender, ethnicity, age)
+- ✅ Measure BEFORE deployment
+- ✅ Evaluate multiple fairness metrics
+- ✅ Document trade-offs (accuracy vs fairness)
+- ✅ Re-evaluate periodically (fairness drift)
+- ✅ External audits when possible
 
-### 🚫 Errors comunes
+### 🚫 Errors common
 
-- ❌ Remover protected attributes sin más (proxy variables persisten)
-- ❌ Solo medir accuracy (ignora disparidades por grupo)
-- ❌ Asumir que "treat everyone equal in code" = fairness
-- ❌ No involucrar stakeholders afectados
-- ❌ Olvidar intersectionalidad (ej: mujer + Group_B)
+- ❌ Remove protected attributes without further ado (proxy variables persist)
+- ❌ Only measure accuracy (ignore disparities by group)
+- ❌ Assume that "treat everyone equal in code" = fairness
+- ❌ Do not involve affected stakeholders
+- ❌ Forget intersectionality (ex: woman + Group_B)
 
-### 🔧 Técnicas de mitigación
+### 🔧 Mitigation techniques
 
 **Pre-processing:**
 
 - Reweighting
-- Resampling (oversample grupos minoritarios)
+- Resampling (oversample minority groups)
 - Data augmentation
 
 **In-processing:**
 
-- Fairness constraints en loss function
+- Fairness constraints in loss function
 - Adversarial debiasing
 
 **Post-processing:**
 
 - Threshold optimization
-- Calibración por grupo
+- Calibration by group
 
 ### 📌 Checklist Fairness
 
-- ✅ Protected attributes identificados
-- ✅ Demographic Parity evaluado
-- ✅ Equalized Odds evaluado
-- ✅ Visualization de disparidades
-- ✅ Trade-off accuracy/fairness documentado
-- ✅ Técnica de mitigación aplicada
-- ✅ Validation en Data históricos
-- ✅ Plan de monitoreo continuo
+- ✅ Protected attributes identified
+- ✅ Demographic Parity evaluated
+- ✅ Equalized Odds evaluated
+- ✅ Visualization of disparities
+- ✅Trade-off accuracy/fairness documented
+- ✅ Mitigation technique applied
+- ✅ Validation in historical data
+- ✅ Continuous monitoring plan
 
-### ⚠️ Legal y ético
+### ⚠️ Legal and ethical
 
-- Regulación (ej: EU AI Act, Fair Lending Laws)
-- Discriminación indirecta: proxies de protected attributes
-- Transparencia: explicar decisiones a usuarios afectados
+- Regulation (e.g. EU AI Act, Fair Lending Laws)
+- Indirect discrimination: protected attributes proxies
+- Transparency: explain decisions to affected users
 - Right to explanation (GDPR)

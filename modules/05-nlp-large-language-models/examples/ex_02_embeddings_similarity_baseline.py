@@ -41,7 +41,7 @@ def main() -> None:
     sentences = [
         "ai engineering workflows for production",
         "mlops workflows and production monitoring",
-        "cocina de recetas italianas tradicionales",
+        "cocina de recetas italians tradicionales",
     ]
 
     vocabulary = build_vocabulary(sentences)

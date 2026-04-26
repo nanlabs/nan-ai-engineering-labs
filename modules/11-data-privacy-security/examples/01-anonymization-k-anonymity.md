@@ -1,12 +1,12 @@
-# Ejemplo 01 — Anonimización de Datos: k-Anonymity y l-Diversity
+# Example 01 — Data Anonymization: k-Anonymity and l-Diversity
 
-## Contexto
+## Context
 
-Compartir datos sensibles (médicos, financieros) requiere proteger identidad de individuos mientras se mantiene utilidad analítica.
+Sharing sensitive data (medical, financial) requires protecting the identity of individuals while maintaining analytical utility.
 
 ## Objective
 
-Aplicar técnicas de anonimización (k-anonymity, l-diversity) a dataset médico para prevenir re-identificación.
+Apply anonymization techniques (k-anonymity, l-diversity) to medical dataset to prevent re-identification.
 
 ______________________________________________________________________
 
@@ -24,10 +24,10 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📚 Dataset original (sin anonimizar)
+## 📚 Original dataset (not anonymized)
 
 ```python
-# Datos médicos simulados
+# Data doctors simulados
 n_patients = 100
 
 data = {
@@ -50,7 +50,7 @@ print(df_original.head(10))
 print(f"\nTotal registros: {len(df_original)}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Dataset Original (SIN anonimizar) ===
@@ -65,48 +65,48 @@ print(f"\nTotal registros: {len(df_original)}")
 
 ______________________________________________________________________
 
-## ⚠️ Riesgos de privacidad
+## ⚠️Privacy risks
 
 ```python
-# Quasi-identifiers: combinación que puede identificar individuo
+# Quasi-identifiers: combination que can identificar individuo
 quasi_identifiers = ['age', 'gender', 'zipcode']
 
-# Contar combinaciones únicas
+# Contar combinaciones unique
 unique_combinations = df_original[quasi_identifiers].drop_duplicates()
-print(f"\n=== Análisis de Re-identificación ===")
-print(f"Combinaciones únicas de quasi-identifiers: {len(unique_combinations)}")
+print(f"\n=== Analysis de Re-ID ===")
+print(f"Combineciones unique de quasi-identifiers: {len(unique_combinations)}")
 
-# Individuos únicamente identificables
+# Individuos only identificables
 unique_individuals = df_original.groupby(quasi_identifiers).size()
 uniquely_identifiable = (unique_individuals == 1).sum()
 
-print(f"Individuos únicamente identificables: {uniquely_identifiable} ({uniquely_identifiable/len(df_original):.1%})")
-print("\n⚠️ RIESGO: Con datos auxiliares (ej: censo público), un atacante podría re-identificar individuos")
+print(f"Individuos only identificables: {uniquely_identifiable} ({uniquely_identifiable/len(df_original):.1%})")
+print("\n⚠️ RIESGO: Con data auxiliares (ej: censo public), un atacante could re-identificar individuos")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Análisis de Re-identificación ===
-Combinaciones únicas de quasi-identifiers: 78
-Individuos únicamente identificables: 45 (45.0%)
+=== Analysis de Re-ID ===
+Combineciones unique de quasi-identifiers: 78
+Individuos only identificables: 45 (45.0%)
 
-⚠️ RIESGO: Con datos auxiliares, un atacante podría re-identificar individuos
+⚠️ RIESGO: Con data auxiliares, un atacante could re-identificar individuos
 ```
 
 ______________________________________________________________________
 
 ## 🔒 k-Anonymity
 
-### Concepto
+### Concept
 
 ```
-k-anonymity: Cada combinación de quasi-identifiers aparece al menos k veces.
+k-anonymity: Cada combination de quasi-identifiers aparece al less k veces.
 
-Si k=5: cada persona es "indistinguible" de al menos 4 otras personas.
+Si k=5: each persona es "indistinguible" de al less 4 otras personas.
 ```
 
-### Generalización de atributos
+### Attribute generalization
 
 ```python
 def generalize_age(age, bins=[0, 30, 40, 50, 60, 100]):
@@ -124,22 +124,22 @@ def generalize_zipcode(zipcode):
     """
     return zipcode[:3] + "**"
 
-# Aplicar generalizaciones
+# Apply generalizaciones
 df_anon = df_original.copy()
 df_anon['age_range'] = df_anon['age'].apply(generalize_age)
 df_anon['zipcode_generalized'] = df_anon['zipcode'].apply(generalize_zipcode)
 
-# Remover columnas originales específicas
+# Remover columns originals specific
 df_anon = df_anon[['age_range', 'gender', 'zipcode_generalized', 'diagnosis', 'medication']]
 
-print("\n=== Dataset con Generalización ===")
+print("\n=== Dataset con Generalization ===")
 print(df_anon.head(10))
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Dataset con Generalización ===
+=== Dataset con Generalization ===
   age_range gender zipcode_generalized     diagnosis     medication
 0     40-50      F               100**      Diabetes      Metformin
 1     60-100     M               200**  Hypertension    Lisinopril
@@ -149,14 +149,14 @@ print(df_anon.head(10))
 ...
 ```
 
-### Verificar k-anonymity
+### Verify k-anonymity
 
 ```python
 def check_k_anonymity(df, quasi_identifiers, k=5):
     """
     Verifica si dataset satisface k-anonymity
     """
-    # Contar ocurrencias de cada combinación
+    # Contar ocurrencias de each combination
     group_sizes = df.groupby(quasi_identifiers).size()
 
     # Verificar k-anonymity
@@ -181,20 +181,20 @@ result = check_k_anonymity(df_anon, quasi_identifiers_anon, k=5)
 
 print(f"\n=== k-Anonymity Check (k={result['k']}) ===")
 print(f"Satisface k-anonymity: {result['satisfies_k_anonymity']}")
-print(f"Grupo más pequeño: {result['min_group_size']} individuos")
+print(f"Grupo más little: {result['min_group_size']} individuos")
 print(f"Grupos con < k individuos: {result['violations']}")
 print(f"Total equivalence classes: {result['total_groups']}")
 
 if not result['satisfies_k_anonymity']:
-    print(f"\n⚠️ Se requiere más generalización o supresión de registros")
+    print(f"\n⚠️ Se requires más generalization o suppression de registros")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === k-Anonymity Check (k=5) ===
 Satisface k-anonymity: True
-Grupo más pequeño: 5 individuos
+Grupo más little: 5 individuos
 Grupos con < k individuos: 0
 Total equivalence classes: 18
 
@@ -205,18 +205,18 @@ ______________________________________________________________________
 
 ## 🎯 l-Diversity
 
-### Concepto
+### Concept
 
 ```
-l-diversity: Dentro de cada equivalence class, debe haber al menos l valores distintos del atributo sensible.
+l-diversity: Dentro de each equivalence class, must haber al less l values distintos del atributo sensible.
 
-Problema de k-anonymity:
-Si todos en un grupo tienen mismo diagnosis → privacidad no protegida
+Problem de k-anonymity:
+Si todos en un group tienen same diagnosis → privacy no protegida
 
-l-diversity: cada grupo debe tener al menos l diagnósticos diferentes
+l-diversity: each group must tener al less l diagnoses different
 ```
 
-### Verificar l-diversity
+### Check l-diversity
 
 ```python
 def check_l_diversity(df, quasi_identifiers, sensitive_attribute, l=3):
@@ -229,7 +229,7 @@ def check_l_diversity(df, quasi_identifiers, sensitive_attribute, l=3):
     min_diversity = float('inf')
 
     for group_id, group_df in groups:
-        # Contar valores distintos del atributo sensible
+        # Contar values distintos del atributo sensible
         distinct_values = group_df[sensitive_attribute].nunique()
 
         min_diversity = min(min_diversity, distinct_values)
@@ -259,41 +259,41 @@ result_l = check_l_diversity(
 
 print(f"\n=== l-Diversity Check (l={result_l['l']}) ===")
 print(f"Satisface l-diversity: {result_l['satisfies_l_diversity']}")
-print(f"Diversidad mínima encontrada: {result_l['min_diversity']}")
+print(f"Diversidad minimum encontrada: {result_l['min_diversity']}")
 
 if result_l['violations']:
     print(f"\nGrupos que violan l-diversity: {len(result_l['violations'])}")
     print("\nEjemplos de violaciones:")
     for i, v in enumerate(result_l['violations'][:3], 1):
         print(f"\n{i}. Grupo {v['group']}:")
-        print(f"   Tamaño: {v['size']} personas")
-        print(f"   Diagnósticos distintos: {v['distinct_values']} (requiere {result_l['l']})")
-        print(f"   Distribución: {v['values']}")
+        print(f"   Size: {v['size']} personas")
+        print(f"   Diagnostics distintos: {v['distinct_values']} (requires {result_l['l']})")
+        print(f"   Distribution: {v['values']}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === l-Diversity Check (l=3) ===
 Satisface l-diversity: False
-Diversidad mínima encontrada: 2
+Diversidad minimum encontrada: 2
 
 Grupos que violan l-diversity: 5
 
-Ejemplos de violaciones:
+Examples de violaciones:
 
 1. Grupo ('40-50', 'F', '100**'):
-   Tamaño: 6 personas
-   Diagnósticos distintos: 2 (requiere 3)
-   Distribución: {'Diabetes': 4, 'Hypertension': 2}
+   Size: 6 personas
+   Diagnostics distintos: 2 (requires 3)
+   Distribution: {'Diabetes': 4, 'Hypertension': 2}
 
 2. Grupo ('30-40', 'M', '200**'):
-   Tamaño: 5 personas
-   Diagnósticos distintos: 2 (requiere 3)
-   Distribución: {'Asthma': 3, 'Diabetes': 2}
+   Size: 5 personas
+   Diagnostics distintos: 2 (requires 3)
+   Distribution: {'Asthma': 3, 'Diabetes': 2}
 ```
 
-### Mejorar l-diversity con supresión
+### Improve l-diversity with suppression
 
 ```python
 def enforce_l_diversity(df, quasi_identifiers, sensitive_attribute, l=3):
@@ -316,7 +316,7 @@ def enforce_l_diversity(df, quasi_identifiers, sensitive_attribute, l=3):
 
     return df_diverse, removed
 
-# Aplicar
+# Apply
 df_l_diverse, removed_count = enforce_l_diversity(
     df_anon,
     quasi_identifiers_anon,
@@ -324,7 +324,7 @@ df_l_diverse, removed_count = enforce_l_diversity(
     l=3
 )
 
-print(f"\n=== Después de Supresión ===")
+print(f"\n=== After de Suppression ===")
 print(f"Registros eliminados: {removed_count} ({removed_count/len(df_anon):.1%})")
 print(f"Registros restantes: {len(df_l_diverse)}")
 
@@ -339,10 +339,10 @@ result_after = check_l_diversity(
 print(f"Satisface l-diversity: {result_after['satisfies_l_diversity']}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Después de Supresión ===
+=== After de Suppression ===
 Registros eliminados: 23 (23.0%)
 Registros restantes: 77
 Satisface l-diversity: True
@@ -350,19 +350,19 @@ Satisface l-diversity: True
 
 ______________________________________________________________________
 
-## 📊 Trade-offs: Privacidad vs Utilidad
+## 📊 Trade-offs: Privacy vs Utility
 
 ```python
-# Métricas de utilidad
+# Metrics de utility
 def calculate_information_loss(df_original, df_anon):
     """
-    Mide pérdida de información por generalización
+    Measure loss de information por generalization
     """
     # Registros perdidos
     records_lost = len(df_original) - len(df_anon)
     records_lost_pct = records_lost / len(df_original)
 
-    # Granularidad perdida (ejemplo: age → age_range)
+    # Granularidad perdida (example: age → age_range)
     # Simple: contar atributos generalizados
     generalized_attrs = 2  # age, zipcode
 
@@ -374,27 +374,27 @@ def calculate_information_loss(df_original, df_anon):
 
 loss = calculate_information_loss(df_original, df_l_diverse)
 
-print("\n=== Análisis de Pérdida de Información ===")
+print("\n=== Analysis de Loss de Information ===")
 print(f"Registros eliminados: {loss['records_lost']} ({loss['records_lost_pct']:.1%})")
 print(f"Atributos generalizados: {loss['generalized_attributes']}")
 
-# Comparación de distribuciones
-print("\n=== Distribución de Diagnosis ===")
+# Comparison de distributions
+print("\n=== Distribution de Diagnosis ===")
 print("Original:")
 print(df_original['diagnosis'].value_counts(normalize=True))
 print("\nAnonimizado:")
 print(df_l_diverse['diagnosis'].value_counts(normalize=True))
 
-# Visualización
+# Visualization
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 df_original['diagnosis'].value_counts().plot(kind='bar', ax=axes[0], color='steelblue', alpha=0.7)
-axes[0].set_title('Distribución Original')
+axes[0].set_title('Distribution Original')
 axes[0].set_ylabel('Frecuencia')
 axes[0].set_xlabel('Diagnosis')
 
 df_l_diverse['diagnosis'].value_counts().plot(kind='bar', ax=axes[1], color='coral', alpha=0.7)
-axes[1].set_title('Distribución Anonimizada')
+axes[1].set_title('Distribution Anonimizada')
 axes[1].set_ylabel('Frecuencia')
 axes[1].set_xlabel('Diagnosis')
 
@@ -405,15 +405,15 @@ plt.show()
 
 ______________________________________________________________________
 
-## 💡 Técnicas adicionales
+## 💡 Additional techniques
 
 ### t-Closeness
 
 ```python
 def check_t_closeness(df, quasi_identifiers, sensitive_attribute, t=0.2):
     """
-    t-closeness: distancia entre distribución del atributo sensible
-    en cada grupo y la distribución global debe ser ≤ t
+    t-closeness: distancia entre distribution del atributo sensible
+    en each group y la distribution global must ser ≤ t
     """
     global_dist = df[sensitive_attribute].value_counts(normalize=True)
     groups = df.groupby(quasi_identifiers)
@@ -454,12 +454,12 @@ print(f"Grupos violando: {result_t['violations']}")
 ### Differential Privacy (preview)
 
 ```python
-# Agregar ruido Laplaciano para conteos
+# Add noise Laplaciano para conteos
 def add_laplace_noise(true_count, epsilon=1.0):
     """
-    Differential Privacy: agregar ruido calibrado por epsilon
+    Differential Privacy: agregar noise calibrado por epsilon
 
-    epsilon: privacy budget (más bajo = más privacidad, más ruido)
+    epsilon: privacy budget (más low = más privacy, más noise)
     """
     sensitivity = 1  # Para conteos, sensitivity = 1
     scale = sensitivity / epsilon
@@ -467,76 +467,76 @@ def add_laplace_noise(true_count, epsilon=1.0):
 
     return max(0, true_count + noise)  # No negativos
 
-# Ejemplo: contar pacientes con Diabetes
+# Example: contar pacientes con Diabetes
 true_count = (df_original['diagnosis'] == 'Diabetes').sum()
 noisy_count = add_laplace_noise(true_count, epsilon=1.0)
 
 print(f"\n=== Differential Privacy (conteo) ===")
 print(f"Conteo real: {true_count}")
-print(f"Conteo con ruido (ε=1.0): {noisy_count:.0f}")
+print(f"Conteo con noise (ε=1.0): {noisy_count:.0f}")
 print(f"Error: {abs(true_count - noisy_count):.0f}")
 ```
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
-### ✅ Niveles de anonimización
+### ✅ Anonymization levels
 
 ```
-k-anonymity: Indistinguibilidad básica (≥k personas en cada grupo)
+k-anonymity: Indistinguibilidad basic (≥k personas en each group)
           ↓
-l-diversity: Diversidad en atributo sensible (≥l valores distintos)
+l-diversity: Diversidad en atributo sensible (≥l values distintos)
           ↓
-t-closeness: Distribución similar a global (distancia ≤t)
+t-closeness: Distribution similar a global (distancia ≤t)
 ```
 
-### 🎯 Técnicas de transformación
+### 🎯 Transformation techniques
 
-| Técnica            | Ejemplo                           | Uso                     |
+| Technique | Example | Usage |
 | ------------------ | --------------------------------- | ----------------------- |
-| **Generalización** | edad 42 → rango 40-50             | Reducir especificidad   |
-| **Supresión**      | Eliminar registros anómalos       | Cumplir k/l/t           |
-| **Anatomization**  | Separar QI de atributos sensibles | PPLM principle          |
-| **Permutation**    | Permutación dentro de grupos      | Mantener distribuciones |
+| **Generalization** | age 42 → range 40-50 | Reduce specificity |
+| **Deletion** | Delete abnormal records | Comply k/l/t |
+| **Anatomization** | Separate QI from sensitive attributes | PPLM principle |
+| **Permutation** | Permutation within groups | Maintain distributions |
 
-### 💡 Mejores prácticas
+### 💡Best Practices
 
-- ✅ Identificar quasi-identifiers y atributos sensibles
-- ✅ Evaluar múltiples niveles (k-anonymity, l-diversity, t-closeness)
-- ✅ Medir información loss (datos eliminados, granularidad)
-- ✅ Validar con attack scenarios (linking, homogeneity, background knowledge)
-- ✅ Documentar transformaciones aplicadas
-- ✅ Re-evaluar si datos auxiliares cambian
+- ✅ Identify quasi-identifiers and sensitive attributes
+- ✅ Evaluate multiple levels (k-anonymity, l-diversity, t-closeness)
+- ✅ Measure information loss (Deleted data, granularity)
+- ✅ Validate with attack scenarios (linking, homogeneity, background knowledge)
+- ✅ Document transformations applied
+- ✅ Re-evaluate if auxiliary data changes
 
-### 🚫 Errores comunes
+### 🚫 Errors common
 
-- ❌ Solo aplicar k-anonymity (vulnerable a homogeneity attack)
-- ❌ Generalización excesiva (datos inútiles)
-- ❌ No considerar cambios temporales en datos auxiliares
-- ❌ Olvidar atributos que pueden ser quasi-identifiers
-- ❌ Publicar múltiples versiones del mismo dataset (composition attack)
+- ❌ Only apply k-anonymity (vulnerable to homogeneity attack)
+- ❌ Excessive generalization (useless data)
+- ❌ Do not consider temporary changes in auxiliary data
+- ❌ Forget attributes that can be quasi-identifiers
+- ❌ Publish multiple versions of the same dataset (composition attack)
 
-### 📌 Checklist Anonimización
+### 📌 Anonymization Checklist
 
-- ✅ Quasi-identifiers identificados
-- ✅ Atributos sensibles clasificados
-- ✅ k-anonymity verificado (k ≥ 5 típicamente)
-- ✅ l-diversity verificado (l ≥ 3 típicamente)
-- ✅ Información loss cuantificada
-- ✅ Distribuciones comparadas (original vs anonimizado)
-- ✅ Attack scenarios evaluados
-- ✅ Documentación de transformaciones
+- ✅ Quasi-identifiers identified
+- ✅ Sensitive attributes classified
+- ✅ k-anonymity verified (k ≥ 5 typically)
+- ✅ l-diversity verified (l ≥ 3 typically)
+- ✅ Quantified loss information
+- ✅ Distributions compared (original vs. anonymized)
+- ✅ Attack scenarios evaluated
+- ✅ Transformation documentation
 
-### ⚖️ Regulación
+### ⚖️ Regulation
 
-- **GDPR (EU):** Anonymization no es personal data (pero debe ser irreversible)
+- **GDPR (EU):** Anonymization is not personal data (but must be irreversible)
 - **HIPAA (US):** Safe Harbor method (18 identifiers), Expert Determination
-- **CCPA (California):** Limitations en uso de de-identified data
+- **CCPA (California):** Limitations on Usage of de-identified data
 
 ### 🚀 Next steps
 
 - Differential Privacy (Example 02)
-- Federated Learning (entrenar sin compartir datos)
+- Federated Learning (train without sharing Data)
 - Secure Multi-Party Computation
-- Homomorphic Encryption (cómputo sobre datos encriptados)
+- Homomorphic Encryption (computation about encrypted Data)

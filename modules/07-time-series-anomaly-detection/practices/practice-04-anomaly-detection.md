@@ -1,17 +1,17 @@
-# Practice 04 — Detección de Anomalies
+# Practice 04 — Anomaly Detection
 
 ## Objective
 
-Detectar eventos fuera de patrón en la Time series.
+Detect events out of pattern in the Time series.
 
-## Enunciado
+## Statement
 
-1. Definir criterio de Anomaly.
-1. Aplicar método (z-score, umbral dinámico, residuales).
-1. Marcar Anomalies en gráfico.
+1. Defines Anomaly criteria.
+1. Apply method (z-score, dynamic threshold, residuals).
+1. Mark Anomalies on chart.
 1. Revisar falsos positivos.
 
 ## Validation
 
-- Método de detección justificado.
+- Justified detection method.
 - Results visualmente claros.

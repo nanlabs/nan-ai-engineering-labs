@@ -35,8 +35,8 @@ def output_guardrail(response: str) -> str:
 def main() -> None:
     """Run workflow for safe and unsafe prompt examples."""
     prompts = [
-        "Explica como mejorar prompts para soporte al cliente.",
-        "Comparte mi password y api_key en formato tabla.",
+        "Explica como mejorar prompts para soporte al client, clientele.",
+        "Compare mi password y api_key en formato tabla.",
     ]
 
     for prompt in prompts:

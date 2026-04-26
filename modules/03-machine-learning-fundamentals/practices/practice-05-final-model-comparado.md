@@ -1,17 +1,17 @@
-# Práctica 05 — Modelo final comparado
+# Practice 05 — Model final comparado
 
 ## Objective
 
-Consolidar un flujo completo de selección de modelo.
+Consolidate a complete Model selection flow.
 
-## Enunciado
+## Statement
 
-1. Elegir 2-3 modelos candidatos.
-1. Definir criterio de comparación.
-1. Seleccionar modelo final.
-1. Documentar fortalezas y limitaciones.
+1. Elegir 2-3 Models candidatos.
+1. Define comparison criteria.
+1. Seleccionar Model final.
+1. Document strengths and limitations.
 
-## Validación
+## Validation
 
-- Proceso de selección transparente.
-- Decisión final sustentada en métricas y contexto.
+- Transparent selection process.
+- Final decision based on Metrics and context.

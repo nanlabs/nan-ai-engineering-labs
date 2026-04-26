@@ -11,7 +11,7 @@ Recommender Systems personalize the user experience by suggesting relevant conte
    Hybrid Systems
    Combining collaborative and content-based methods
 1. Deep Learning for Recommendations
-   Embeddings & dense representations
+   embeddings & dense representations
    Neural Collaborative Filtering (NCF)
    Autoencoders for rating prediction
    Two-tower models and Retrieval + Ranking pipelines
@@ -26,7 +26,7 @@ Recommender Systems personalize the user experience by suggesting relevant conte
    TensorFlow Recommenders, DeepRec, Hugging Face Transformers
    Vector Databases for similarity search: Pinecone, Weaviate, Qdrant
 1. Evaluation Metrics
-   Precision, Recall, F1
+   Precision, recall, f1
    Mean Reciprocal Rank (MRR), NDCG
    Coverage, Diversity, Serendipity
 

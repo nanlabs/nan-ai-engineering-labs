@@ -1,17 +1,17 @@
-# Práctica 01 — Imágenes y canales
+# Practice 01 — Images and Channels
 
 ## Objective
 
-Comprender cómo se representa una imagen digital.
+Understand how a digital image is represented.
 
-## Enunciado
+## Statement
 
-1. Cargar imágenes RGB y escala de grises.
-1. Inspeccionar dimensiones y canales.
-1. Visualizar histogramas básicos de píxeles.
-1. Comparar diferencias entre formatos.
+1. Load Images RGB and grayscale.
+1. Inspect dimensions and Channels.
+1. View basic histograms of Pixels.
+1. Compare diferencias entre formats.
 
-## Validación
+## Validation
 
-- Identifica correctamente resolución y canales.
-- Explica impacto de cada representación.
+- Correctly identifies resolution and Channels.
+- Explain impact of each representation.

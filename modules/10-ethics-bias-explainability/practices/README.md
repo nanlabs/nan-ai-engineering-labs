@@ -10,6 +10,6 @@
 
 ## Approval criteria
 
-- Resolver 4/5 prácticas como mínimo.
-- Presentar evidencia de riesgo, medición y mitigación.
-- Dejar documentación clara para auditoría.
+- Resolver 4/5 Practices como minimum.
+- Present evidence of risk, measurement and mitigation.
+- Leave clear documentation for audit.

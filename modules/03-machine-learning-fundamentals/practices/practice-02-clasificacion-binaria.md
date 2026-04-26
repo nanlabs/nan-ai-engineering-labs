@@ -1,17 +1,17 @@
-# Práctica 02 — Clasificación binaria
+# Practice 02 — Classification binaria
 
 ## Objective
 
-Entrenar y evaluar un clasificador binario básico.
+Train and evaluate a basic binary Classifier.
 
-## Enunciado
+## Statement
 
-1. Preparar dataset con target binario.
-1. Entrenar Logistic Regression.
-1. Evaluar accuracy, precision, recall y F1.
-1. Mostrar matriz de confusión.
+1. Prepare dataset with binary target.
+1. Train Logistic Regression.
+1. Evaluate accuracy, precision, recall and f1.
+1. Mostrar Confusion matrix.
 
-## Validación
+## Validation
 
-- Métricas coherentes.
-- Interpretación de falsos positivos/negativos.
+- Metrics coherentes.
+- Interpretation of false positives/negatives.

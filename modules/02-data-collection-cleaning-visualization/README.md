@@ -13,7 +13,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 - Apply basic feature engineering techniques
 - Create informative dashboards with matplotlib/seaborn
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
 - **theory/**: theoretical foundations in Spanish (collection, cleaning, visualization techniques)
 - **examples/**: guided examples (web scraping, cleaning pipelines, visualizations)
@@ -38,7 +38,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 ## Plan recomendado (4 semanas)
 
 - Week 1: data collection and quality criteria.
-- Semana 2: limpieza estructurada y valores faltantes.
+- Week 2: Structured cleaning and missing values.
 - Week 3: visualization and EDA (exploratory analysis).
 - S✅ Completed module criterion
 - 2 solved and validated practices
@@ -46,7 +46,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 - Final evaluation approved (>=70/100)
 - Demonstrate: data cleaning, outlier detection, effective visualizations
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Bookstores:**
 
@@ -54,7 +54,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 - [Matplotlib](https://matplotlib.org/) + [Seaborn](https://seaborn.pydata.org/)
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) (web scraping)
 
-**Tutoriales:**
+**Tutorials:**
 
 - [Python for Data Analysis (McKinney)](https://wesmckinney.com/book/)
 - [Kaggle Learn - Data Cleaning](https://www.kaggle.com/learn/data-cleaning)

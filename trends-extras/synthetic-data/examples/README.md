@@ -1,14 +1,14 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
 ## Available examples
 
-- Ejemplo 1: Placeholder breve
-- Ejemplo 2: Placeholder breve
+- Example 1: Generate tabular synthetic data and compare distribution drift.
+- Example 2: Run privacy-risk checks on synthetic outputs.
 
 ## How to use these examples
 
-Revisa, ejecuta y adapta cada ejemplo segun tu entorno.
+Review, execute and adapt each Example according to your environment.
 
 ## Next steps
 
-- Convertir un ejemplo en ejercicio guiado.
+- Convert an Example into a guided Exercise.

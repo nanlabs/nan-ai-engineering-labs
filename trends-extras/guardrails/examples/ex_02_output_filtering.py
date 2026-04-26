@@ -21,7 +21,7 @@ PII_PATTERNS = {
 
 def detect_pii(text: str) -> List[Dict]:
     """
-    Detecta PII en el texto.
+    Detect PII en el text.
 
     Returns:
         Lista de dicts con {type, value, start, end}
@@ -42,7 +42,7 @@ def detect_pii(text: str) -> List[Dict]:
 
 def redact_pii(text: str) -> Dict:
     """
-    Redacta PII del texto.
+    Redacta PII del text.
 
     Returns:
         {
@@ -78,7 +78,7 @@ TOXIC_WORDS = [
 
 def detect_toxicity(text: str) -> Dict:
     """
-    Detecta toxicidad en el texto.
+    Detect toxicidad en el text.
 
     In production, use a model such as:
     - Detoxify (transformers)

@@ -348,11 +348,11 @@ def demo_prompt_versioning():
     print("""
     prompts/
       ├── v1.0_baseline.txt
-      │     "Responde: {question}"
+      │     "Respond, Response, Responds, Responded, Responder: {question}"
       │     Score: 0.65
       │
       ├── v1.1_add_role.txt
-      │     "Eres un experto. Responde: {question}"
+      │     "Eres un experto. Respond, Response, Responds, Responded, Responder: {question}"
       │     Score: 0.72 (↑ 10.8%)
       │
       ├── v2.0_add_constraints.txt

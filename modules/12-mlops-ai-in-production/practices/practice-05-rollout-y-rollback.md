@@ -1,17 +1,17 @@
-# Práctica 05 — Rollout y rollback
+# Practice 05 — Rollout and rollback
 
 ## Objective
 
-Definir despliegue controlado y reversión segura.
+Defines controlled deployment and safe rollback.
 
-## Enunciado
+## Statement
 
-1. Diseñar estrategia canary o blue/green.
-1. Definir criterios de éxito/fallo.
-1. Simular incidente.
-1. Ejecutar plan de rollback.
+1. Design canary or blue/green strategy.
+1. Define success/failure criteria.
+1. Similar incidente.
+1. Execute rollback plan.
 
-## Validación
+## Validation
 
 - Estrategia operativa coherente.
-- Rollback ejecutable y claro.
+- Executable and clear rollback.

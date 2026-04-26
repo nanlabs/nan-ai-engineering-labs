@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de arquitectura y entrenamiento.
-- Implementación correcta y reproducible.
-- Calidad del análisis de overfitting.
-- Claridad en comunicación de resultados.
+- Understanding of architecture and Training.
+- Correct and reproducible implementation.
+- Quality of overfitting analysis.
+- Clarity in communication of Results.
 
 ## Checklist final
 
-- [ ] Explica neurona, capa y red con claridad.
-- [ ] Entrena una MLP funcional.
-- [ ] Monitorea curvas train/validation.
-- [ ] Aplica regularización cuando corresponde.
-- [ ] Compara baseline y mejora.
-- [ ] Presenta conclusiones accionables.
+- [ ] Explains Neuron, Layer and network clearly.
+- [ ] Train a functional MLP.
+- [ ] Monitorea curves train/validation.
+- [ ] Aplica Regularization when corresponde.
+- [ ] Compare baseline and improvement.
+- [ ] Presenta Conclusions actionable.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

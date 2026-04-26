@@ -1,7 +1,7 @@
-# Tendencias extra
+# Tendencies extra
 
-Espacio para estudiar novedades sin romper el foco del plan principal.
+Space to study new developments without breaking the focus of the main plan.
 
-## Documento clave
+## I document clave
 
-- `RESUMEN-EXTRAS.md`: evaluación actual de extras, brechas y criterio de completitud.
+- `SUMMARY-EXTRAS.md`: Current evaluation of extras, gaps and completeness criteria.

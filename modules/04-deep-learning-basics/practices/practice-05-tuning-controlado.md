@@ -1,17 +1,17 @@
-# Práctica 05 — Tuning controlado
+# Practice 05 — Tuning controlado
 
 ## Objective
 
-Ajustar hiperparámetros de forma ordenada.
+Adjust Hyperparameters in an orderly manner.
 
-## Enunciado
+## Statement
 
-1. Definir 3 configuraciones (learning rate, batch size, capas).
-1. Entrenar y registrar resultados.
-1. Comparar tiempo y performance.
-1. Elegir configuración final.
+1. Define 3 configuraciones (learning rate, batch size, Layers).
+1. Train and record results.
+1. Compare time and performance.
+1. Choose final configuration.
 
-## Validación
+## Validation
 
-- Comparación clara de configuraciones.
-- Decisión final argumentada.
+- Clear comparison of configurations.
+- Final decision argued.

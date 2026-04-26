@@ -1,17 +1,17 @@
-# Practice 01 — Neuron y forward pass
+# Practice 01 — Neuron and forward pass
 
 ## Objective
 
-Entender el cálculo básico de una Neuron artificial.
+Understand the basic calculation of an artificial Neuron.
 
-## Enunciado
+## Statement
 
-1. Definir entradas, pesos y sesgo.
-1. Calcular salida lineal.
-1. Aplicar Activation ReLU.
-1. Probar con diferentes valores.
+1. Defines inputs, weights and bias.
+1. Calculate output lineal.
+1. Apply Activation ReLU.
+1. Try different values.
 
 ## Validation
 
-- Cálculo correcto de salida.
-- Entiende impacto de pesos/sesgo.
+- Correct output calculation.
+- Understand impact of weights/bias.

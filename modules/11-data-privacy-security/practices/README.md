@@ -2,14 +2,14 @@
 
 ## Practices
 
-- `practice-01-clasificacion-de-datos.md`
-- `practice-02-controles-de-acceso.md`
+- `practice-01-data-classification.md`
+- `practice-02-access-controls.md`
 - `practice-03-anonimizacion-basica.md`
-- `practice-04-riesgos-en-pipeline-ia.md`
+- `practice-04-risks-in-pipeline-ia.md`
 - `practice-05-plan-respuesta-incidentes.md`
 
 ## Approval criteria
 
-- Resolver 4/5 prácticas como mínimo.
-- Presentar controles concretos y verificables.
-- Documentar riesgos residuales.
+- Resolver 4/5 Practices como minimum.
+- Present controls, concrete and verifiable controllers.
+- Document risks residuales.

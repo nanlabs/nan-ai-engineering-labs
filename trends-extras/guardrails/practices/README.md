@@ -1,10 +1,10 @@
-# Guardrails — Safety & Control para LLMs
+# Guardrails — Safety & Control for LLMs
 
 ## Practices
 
-- Practica 1: Placeholder breve
-- Practica 2: Placeholder breve
+- Practice 1: Implement input guardrails for prompt injection and forbidden content.
+- Practice 2: Add output filtering with fallback responses and incident logging.
 
 ## Approval criteria
 
-Se aprueba al completar las practicas y justificar decisiones tecnicas.
+Practices are fully approved and technical decisions justified.

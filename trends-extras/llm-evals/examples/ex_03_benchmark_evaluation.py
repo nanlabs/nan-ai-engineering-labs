@@ -236,8 +236,8 @@ def evaluate_hellaswag(model_name: str):
         for ending in endings:
             prompt = f"{context} {ending}"
 
-            # Get log probability (mejor que generar texto)
-            # Usar model.score() o similar
+            # Get log probability (mejor que generar text)
+            # Wear model.score() o similar
             score = get_log_prob(model_name, prompt)
             scores.append(score)
 
@@ -336,7 +336,7 @@ def demo_hellaswag():
         marker = "✅" if i == example['answer'] else "  "
         print(f"  {marker} {chr(65+i)}) {ending}")
 
-    print("\n💡 Requiere common sense reasoning")
+    print("\n💡 Require common sense reasoning")
     print("💡 Humanos: ~95%")
     print("💡 GPT-3: ~78%")
     print("💡 GPT-4: ~95%")

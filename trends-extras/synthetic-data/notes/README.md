@@ -1,5 +1,5 @@
-# Synthetic Data — Generación de Datos Sintéticos
+# Synthetic Data — Generation of Synthetic Data
 
 ## How to use this folder
 
-Documenta aprendizajes, dudas, decisiones y referencias utiles del modulo.
+Document learnings, questions, decisions and References useful of the module.

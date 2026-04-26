@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 20%
-- Prácticas: 40%
-- Mini-proyecto: 40%
+- Theory: 20%
+- Practices: 40%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de enfoques de recomendación.
-- Correctitud de implementación.
-- Calidad de evaluación @K.
-- Claridad en análisis de trade-offs.
+- Understanding of recommendation approaches.
+- Correctness of implementation.
+- Quality Evaluation @K.
+- Clarity in Trade-off Analysis.
 
 ## Checklist final
 
-- [ ] Baseline por popularidad implementado.
-- [ ] Modelo colaborativo funcionando.
-- [ ] Métricas @K reportadas.
-- [ ] Análisis de cold start.
-- [ ] Comparación final de enfoques.
-- [ ] Recomendación técnica documentada.
+- [ ] Baseline by popularity implemented.
+- [ ] Model colaborativo funcionando.
+- [ ] Metrics @K reported.
+- [ ] Cold start analysis.
+- [ ] Final comparison of approaches.
+- [ ] Documented technical recommendation.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

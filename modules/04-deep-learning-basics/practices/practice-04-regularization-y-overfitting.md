@@ -1,17 +1,17 @@
-# Práctica 04 — Regularización y overfitting
+# Practice 04 — Regularization and overfitting
 
 ## Objective
 
-Reducir sobreajuste usando técnicas de regularización.
+Reduce overfitting using Regularization techniques.
 
-## Enunciado
+## Statement
 
-1. Entrenar modelo baseline.
-1. Aplicar dropout o L2.
-1. Comparar métricas y curvas.
-1. Concluir qué técnica funcionó mejor.
+1. Train Model baseline.
+1. Apply dropout o L2.
+1. Compare Metrics and curves.
+1. Conclude which technique worked best.
 
-## Validación
+## Validation
 
-- Comparación antes/después.
-- Conclusión sustentada.
+- Before/after comparison.
+- Supported conclusion.

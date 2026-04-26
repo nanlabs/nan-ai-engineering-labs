@@ -1,22 +1,22 @@
-# Práctica 02 — Limpieza de nulos y duplicados
+# Practice 02 — Cleaning nulls and duplicates
 
 ## Objective
 
-Aplicar una estrategia de limpieza consistente y justificable.
+Apply a consistent and justifiable Cleaning strategy.
 
-## Enunciado
+## Statement
 
-1. Definir regla por tipo de columna para tratar nulos.
-1. Eliminar o consolidar duplicados.
-1. Comparar cantidad de filas antes y después.
-1. Guardar dataset limpio intermedio.
+1. Defines rule by column Type to deal with nulls.
+1. Eliminar o consolidar duplicates.
+1. Compare number of rows before and after.
+1. Save dataset clean intermedio.
 
 ## Entregable
 
-Script/notebook + tabla de cambios realizados.
+Script/notebook + table of changes made.
 
-## Validación
+## Validation
 
-- No quedan duplicados exactos.
-- Estrategia de nulos documentada.
-- Cambios reproducibles.
+- No quedan duplicates exactos.
+- Nulls strategy documented.
+- Cambios reproducible.

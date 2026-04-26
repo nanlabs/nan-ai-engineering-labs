@@ -1,19 +1,19 @@
-# Ritmo de estudio sugerido
+# Suggested Study Pace
 
-## Distribución semanal
+## Distribution semanal
 
-- 5 días foco principal (90-120 min por día).
-- 1 día de repaso liviano (30-60 min).
-- 1 día de descanso total.
+- 5 days main focus (90-120 min per day).
+- 1 day of light review (30-60 min).
+- 1 day of total rest.
 
-## Distribución por sesión
+## Distribution per session
 
-- 30% teoría.
-- 50% práctica.
-- 20% evaluación y notas.
+- 30% Theory.
+- 50% Practice.
+- 20% Evaluation and Notes.
 
-## Reglas de consistencia
+## Consistency rules
 
-- No cambiar de módulo sin cerrar evaluación mínima.
-- Registrar bloqueos en `STATUS.md` del módulo.
-- Mantener una única prioridad activa por vez.
+- Do not change Module without closing Evaluation minimum.
+- Log crashes in the Module's `STATUS.md`.
+- Keep only one active priority at a time.

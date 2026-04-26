@@ -1,17 +1,17 @@
-# Práctica 01 — Encriptación y Hashing
+# Practice 01 — Encryption and Hashing
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar encriptación simétrica/asimétrica
-- Usar hashing para passwords
+- Implement symmetric/asymmetric encryption
+- Use hashing for passwords
 - Secure key management
-- Aplicar en ML pipelines
+- Apply in ML pipelines
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Hashing con bcrypt
+### Exercise 1.1: Hashing with bcrypt
 
 ```python
 import bcrypt
@@ -27,7 +27,7 @@ hashed = bcrypt.hashpw(password, salt)
 print(f"Original: {password}")
 print(f"Hashed: {hashed}")
 
-# Verificación
+# Verification
 is_correct = bcrypt.checkpw(password, hashed)
 print(f"Password correct: {is_correct}")
 
@@ -46,12 +46,12 @@ print(f"Data integrity verified: {data_hash == received_hash}")
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Fernet Encryption
+### Exercise 2.1: Fernet Encryption
 
-**Enunciado:**
-Encripta datasets con Fernet:
+**Statement:**
+Encrypt datasets with Fernet:
 
 ```python
 from cryptography.fernet import Fernet
@@ -60,39 +60,39 @@ cipher = Fernet(key)
 encrypted = cipher.encrypt(data)
 ```
 
-### Ejercicio 2.2: RSA Asymmetric
+### Exercise 2.2: RSA Asymmetric
 
-**Enunciado:**
-Implementa RSA:
+**Statement:**
+Implement RSA:
 
-- Genera par de llaves (pública/privada)
-- Encripta con pública
-- Desencripta con privada
+- Generates key pair (public/private)
+- Encrypted with public
+- Decrypt with private
 - Firma digital
 
-### Ejercicio 2.3: Homomorphic Encryption
+### Exercise 2.3: Homomorphic Encryption
 
-**Enunciado:**
+**Statement:**
 Usa PySEAL o Pyfhel:
 
-- Opera sobre datos encriptados
-- Suma/multiplicación sin desencriptar
-- Aplica a modelo lineal simple
+- Opera about Data encriptados
+- Addition/multiplication without decryption
+- Aplica a Model lineal simple
 
-### Ejercicio 2.4: Secure ML Pipeline
+### Exercise 2.4: Secure ML Pipeline
 
-**Enunciado:**
-Pipeline completo:
+**Statement:**
+Pipeline complete:
 
 - Encripta features sensibles
-- Entrena sobre encrypted features
-- Desencripta predicciones
-- Mide overhead de performance
+- Train about encrypted features
+- Desencripta Predictions
+- Performance overhead measurement
 
-### Ejercicio 2.5: Key Management
+### Exercise 2.5: Key Management
 
-**Enunciado:**
-Sistema de gestión de llaves:
+**Statement:**
+Key management system:
 
 - Key rotation
 - Almacenamiento seguro (KeyVault simulation)
@@ -103,15 +103,15 @@ ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Hashing con bcrypt y SHA-256
-- [ ] Encriptación simétrica (Fernet)
-- [ ] Encriptación asimétrica (RSA)
-- [ ] Homomorphic encryption básico
+- [ ] Hashing with bcrypt and SHA-256
+- [ ] Symmetric encryption (Fernet)
+- [ ] Asymmetric encryption (RSA)
+- [ ] Homomorphic encryption basic
 - [ ] Secure key management
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [Cryptography.io](https://cryptography.io/)
 - [PyCryptodome Docs](https://pycryptodome.readthedocs.io/)

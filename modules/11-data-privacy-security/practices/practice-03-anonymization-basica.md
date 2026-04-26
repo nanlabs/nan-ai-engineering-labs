@@ -1,17 +1,17 @@
-# Práctica 03 — Anonimización básica
+# Practice 03 — Basic Anonymization
 
 ## Objective
 
-Reducir exposición de datos personales.
+Reduce exposure of personal data.
 
-## Enunciado
+## Statement
 
 1. Seleccionar campos sensibles.
-1. Aplicar enmascaramiento o pseudonimización.
-1. Verificar utilidad residual del dataset.
-1. Documentar limitaciones.
+1. Apply masking or pseudonymization.
+1. Verify residual utility of the dataset.
+1. Document limitations.
 
-## Validación
+## Validation
 
-- Datos sensibles protegidos.
+- Data sensibles protegidos.
 - Proceso reproducible.

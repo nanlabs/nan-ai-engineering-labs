@@ -1,5 +1,5 @@
-# LLM Evals — Evaluación Sistemática de LLMs
+# LLM Evals — Systematic Evaluation of LLMs
 
 ## How to use this folder
 
-Documenta aprendizajes, dudas, decisiones y referencias utiles del modulo.
+Document learnings, questions, decisions and References useful of the module.

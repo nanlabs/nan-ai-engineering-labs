@@ -1,17 +1,17 @@
-# Práctica 01 — Procesamiento de Texto y Embeddings
+# Practice 01 — Text processing and embeddings
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Preprocesar texto (tokenización, limpieza)
-- Vectorizar texto (BoW, TF-IDF, embeddings)
-- Entrenar modelos de clasificación de texto
-- Usar word embeddings pre-entrenados
+- Preprocesar text (Tokenization, Cleaning)
+- Vectorizar text (BoW, TF-IDF, embeddings)
+- Train Models of Text Classification
+- Wear word embeddings pre-trained
 
 ______________________________________________________________________
 
-## 📚 Parte 1: Ejercicios Guiados
+## 📚 Parte 1: Exercises Guided
 
-### Ejercicio 1.1: Preprocesamiento de texto
+### Exercise 1.1: Text preprocessing
 
 ```python
 import re
@@ -20,23 +20,23 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 import pandas as pd
 
-# Descargar recursos
+# Descargar resources
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Texto de ejemplo
+# Texto de example
 texts = [
     "Machine Learning is amazing!!! I love ML.",
     "NLP is a subfield of AI. Natural Language Processing rocks.",
     "Deep learning models require lots of data for training.",
 ]
 
-# Pipeline de limpieza
+# Pipeline de cleaning
 def preprocess_text(text):
     # Lowercase
     text = text.lower()
 
-    # Remover puntuación y números
+    # Remover punctuation y numbers
     text = re.sub(r'[^a-zA-Z\\s]', '', text)
 
     # Tokenizar
@@ -52,7 +52,7 @@ def preprocess_text(text):
 
     return ' '.join(tokens)
 
-# Aplicar
+# Apply
 cleaned_texts = [preprocess_text(text) for text in texts]
 
 for original, cleaned in zip(texts, cleaned_texts):
@@ -60,7 +60,7 @@ for original, cleaned in zip(texts, cleaned_texts):
     print(f"Cleaned:  {cleaned}\\n")
 ```
 
-**✅ Solución - Vectorización:**
+**✅ Solution - Vectorization:**
 
 ```python
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -83,65 +83,65 @@ print(f"TF-IDF Matrix:\\n{tfidf_matrix.toarray()}")
 
 ______________________________________________________________________
 
-## 🚀 Parte 2: Ejercicios Propuestos
+## 🚀 Parte 2: Exercises Proposed
 
-### Ejercicio 2.1: Clasificación de Sentimientos
+### Exercise 2.1: Classification of Feelings
 
-**Enunciado:**
+**Statement:**
 
-1. Carga dataset de reviews (IMDB o custom)
+1. Load reviews dataset (IMDB or custom)
 1. Preprocesa textos
-1. Vectoriza con TF-IDF
-1. Entrena Logistic Regression y SVM
-1. Compara accuracy
+1. Vectorize with TF-IDF
+1. Train Logistic Regression and SVM
+1. Compare accuracy
 
-### Ejercicio 2.2: N-grams
+### Exercise 2.2: N-grams
 
-**Enunciado:**
-Usa `CountVectorizer(ngram_range=(1,2))` para capturar bigramas.
-Compara performance de unigrams vs unigrams+bigrams.
+**Statement:**
+Use `CountVectorizer(ngram_range=(1,2))` to capture bigrams.
+Compare performance of unigrams vs unigrams+bigrams.
 
-### Ejercicio 2.3: Word2Vec con Gensim
+### Exercise 2.3: Word2Vec with Gensim
 
-**Enunciado:**
+**Statement:**
 
-1. Entrena Word2Vec con `gensim`
-1. Encuentra palabras similares: `model.most_similar('machine')`
-1. Visualiza embeddings con t-SNE
+1. Train Word2Vec with `gensim`
+1. Encuentra words similar: `model.most_similar('machine')`
+1. Visualize embeddings with t-SNE
 
-### Ejercicio 2.4: Embeddings Pre-entrenados
+### Exercise 2.4: embeddings Pre-trained
 
-**Enunciado:**
+**Statement:**
 Descarga GloVe embeddings:
 
-1. Carga vectores pre-entrenados
-1. Representa documentos como promedio de embeddings
-1. Clasifica con Random Forest
+1. Carga vectors pre-trained
+1. Represents documents as average of embeddings
+1. Classify with Random Forest
 
-### Ejercicio 2.5: Topic Modeling con LDA
+### Exercise 2.5: Topic Modeling with LDA
 
-**Enunciado:**
+**Statement:**
 Usa `sklearn.decomposition.LatentDirichletAllocation`:
 
-1. Extrae 5 topics de corpus
-1. Visualiza top words por topic
-1. Asigna documentos a topics
+1. Extract 5 topics from corpus
+1. View top words by topic
+1. Asigna documents a topics
 
 ______________________________________________________________________
 
 ## ✅ Checklist
 
-- [ ] Limpiar y tokenizar texto
-- [ ] Remover stopwords y aplicar stemming/lemmatization
-- [ ] Vectorizar con BoW y TF-IDF
-- [ ] Entrenar clasificadores de texto
-- [ ] Usar word embeddings (Word2Vec, GloVe)
-- [ ] Visualizar embeddings
-- [ ] Aplicar topic modeling
+- [ ] Clear and tokenize text
+- [ ] Remove stopwords and apply stemming/lemmatization
+- [ ] Vectorize with BoW and TF-IDF
+- [ ] Train text classifiers
+- [ ] Wear word embeddings (Word2Vec, GloVe)
+- [ ] Visualize embeddings
+- [ ] Apply topic modeling
 
 ______________________________________________________________________
 
-## 📚 Recursos
+## 📚 Resources
 
 - [NLTK Book](https://www.nltk.org/book/)
 - [Gensim Tutorials](https://radimrehurek.com/gensim/auto_examples/index.html)

@@ -1,21 +1,21 @@
-# Practice 01 — Ingesta y perfilado
+# Practice 01 — Intake and profiling
 
 ## Objective
 
-Cargar un dataset y construir un diagnóstico inicial de calidad.
+Load a dataset and build an initial quality diagnosis.
 
-## Enunciado
+## Statement
 
-1. Leer un CSV con Pandas.
-1. Mostrar `head()`, `info()` y `describe()`.
-1. Contar nulos por columna.
-1. Detectar filas duplicadas.
+1. Read a CSV with Pandas.
+1. Show `head()`, `info()` and `describe()`.
+1. Count nulls per column.
+1. Detect rows duplicadas.
 
 ## Entregable
 
-Notebook con resumen de hallazgos y prioridades de Cleaning.
+Notebook with summary of findings and Cleaning priorities.
 
 ## Validation
 
-- El perfilado incluye Types, nulos y duplicados.
-- Se listan al menos 3 Problems concretos.
+- Profiling includes Types, nulls and duplicates.
+- Se listan al less 3 Problems concretos.

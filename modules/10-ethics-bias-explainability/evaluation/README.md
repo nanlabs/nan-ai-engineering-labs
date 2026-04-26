@@ -2,30 +2,30 @@
 
 ## Weighting
 
-- Teoría: 25%
-- Prácticas: 35%
-- Mini-proyecto: 40%
+- Theory: 25%
+- Practices: 35%
+- Mini-project: 40%
 
 ## Rubric
 
-- Comprensión de ética y sesgo.
-- Calidad de medición de fairness.
-- Solidez de explicaciones del modelo.
-- Claridad del plan de mitigación.
+- Understanding of ethics and bias.
+- Fairness measurement quality.
+- Solidity of explanations of the Model.
+- Clarity of the mitigation plan.
 
 ## Checklist final
 
-- [ ] Riesgos identificados por contexto.
-- [ ] Sesgos medidos y documentados.
-- [ ] Explicaciones de predicción incluidas.
-- [ ] Plan de mitigación priorizado.
+- [ ] Risks identified by context.
+- [ ] Measured and documented biases.
+- [ ] Prediction explanations included.
+- [ ] Prioritized mitigation plan.
 - [ ] Trade-offs explicados.
-- [ ] Recomendaciones finales claras.
+- [ ] Recommendations finales claras.
 
 ## Approval criteria
 
-- Puntaje mínimo: 70/100.
+- Score minimum: 70/100.
 
 ## Final evaluation
 
-Pendiente de completar este apartado.
+Pending completion of this section.

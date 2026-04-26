@@ -10,13 +10,13 @@ Data splitting (train/test/validation)
 Model selection
 Training, evaluation, and tuning
 Core ML Concepts
-Overfitting & Underfitting
+overfitting & underfitting
 Bias-Variance Tradeoff
 Cross-validation
-Metrics (Accuracy, Precision, Recall, F1, ROC-AUC)
+Metrics (accuracy, Precision, recall, f1, ROC-auc)
 Popular Algorithms
 Linear & Logistic Regression
-Decision Trees, Random Forests, Gradient Boosting
+Decision Trees, Random Forests, gradient Boosting
 K-Means Clustering, PCA
 K-Nearest Neighbors (KNN)
 Naive Bayes

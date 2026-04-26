@@ -2,16 +2,16 @@
 
 ## Objective
 
-Superar el baseline con un Model temporal más robusto.
+Overcome the baseline with a more robust temporal Model.
 
-## Enunciado
+## Statement
 
-1. Entrenar ARIMA, SARIMA o Prophet.
-1. Evaluar sobre ventana de Validation.
-1. Comparar contra baseline.
-1. Analizar cuándo falla el Model.
+1. Train ARIMA, SARIMA o Prophet.
+1. Evaluate about Validation window.
+1. Compare contra baseline.
+1. Analyze when the Model fails.
 
 ## Validation
 
 - Mejora cuantificada vs baseline.
-- Limitaciones claramente explicadas.
+- Limitations claramente explicadas.

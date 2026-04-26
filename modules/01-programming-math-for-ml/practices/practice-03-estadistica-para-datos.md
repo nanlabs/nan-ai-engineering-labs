@@ -4,7 +4,7 @@
 
 Calculate and interpret basic statistical metrics in a dataset.
 
-## Enunciado
+## Statement
 
 1. Upload a simple CSV (can be synthetic).
 1. Calculate mean, median, variance and standard deviation per numerical column.
@@ -21,7 +21,7 @@ Calculate and interpret basic statistical metrics in a dataset.
 - Justified outliers method.
 - Clear conclusion about data distribution.
 
-## Errores comunes
+## Errors common
 
 - Include categorical columns in numerical calculations.
-- No tratar valores faltantes.
+- No tratar missing values.

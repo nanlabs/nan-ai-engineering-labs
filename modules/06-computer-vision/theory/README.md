@@ -2,73 +2,73 @@
 
 ## Why this module matters
 
-Computer Vision permite a las máquinas "ver" y comprender el mundo visual. Desde diagnóstico médico hasta vehículos autónomos, pasando por reconocimiento facial y moderación de Content, CV es fundamental en aplicaciones modernas de IA.
+Computer Vision allows machines to "see" and understand the visual world. From medical diagnosis to autonomous vehicles, facial recognition and content moderation, CV is essential in modern AI applications.
 
 ______________________________________________________________________
 
-## 1. ¿Qué es Computer Vision?
+## 1. What is Computer Vision?
 
-**Computer Vision (CV)** es el área de IA que permite a los sistemas interpretar y analizar **Images y videos** para detectar patrones, objetos, acciones o eventos.
+**Computer Vision (CV)** is the area of ​​AI that allows systems to interpret and analyze **Images and videos** to detect patterns, objects, actions or events.
 
-### Aplicaciones reales
+### Real applications
 
-- **Salud:** Detección de tumores en rayos X.
-- **Retail:** Checkout sin cajeros (Amazon Go).
-- **Automotriz:** Vehículos autónomos.
-- **Seguridad:** Reconocimiento facial, detección de Anomalies.
-- **Agricultura:** Monitoreo de cultivos con drones.
-- **Redes sociales:** Filters de realidad aumentada.
+- **Health:** Detection of tumors in X-rays.
+- **Retail:** Checkout without cashiers (Amazon Go).
+- **Automotive:** Autonomous vehicles.
+- **Security:** Facial recognition, Anomaly detection.
+- **Agriculture:** Crop monitoring with drones.
+- **Social networks:** Augmented reality filters.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Computer Vision Explained - IBM](https://www.youtube.com/watch?v=OcycT1Jwsns) - 10 min
-1. [CS231n Lecture 1 - Stanford](https://www.youtube.com/watch?v=vT1JzLTH4G4) - 1 hora (curso completo disponible)
+1. [CS231n Lecture 1 - Stanford](https://www.youtube.com/watch?v=vT1JzLTH4G4) - 1 hour (full cursor available)
 
 ______________________________________________________________________
 
-## 2. Fundamentos de Image digital
+## 2. Digital Image Fundamentals
 
-### Representación matemática
+### Mathematical representation
 
-- **Image = matriz de Pixels.**
-- **Escala de grises:** matriz 2D (altura × ancho). Cada valor: intensidad (0-255).
-- **RGB:** matriz 3D (altura × ancho × 3 Channels). Cada Channel: rojo, verde, azul.
+- **Image = matrix of Pixels.**
+- **Grayscale:** 2D matrix (height × width). Each value: intensity (0-255).
+- **RGB:** 3D matrix (height × width × 3 Channels). Each Channel: red, green, blue.
 
 **Example:**
 
 ```
-Imagen RGB de 224×224 = tensor de forma (224, 224, 3)
+Image RGB de 224×224 = tensor de forma (224, 224, 3)
 ```
 
-### Resolución
+### Resolution
 
-- Mayor resolución = más detalle pero mayor costo computacional.
-- Trade-off entre calidad y eficiencia.
+- Higher resolution = more detail but higher computational cost.
+- Trade-off between quality and efficiency.
 
-### Formatos comunes
+### Common formats
 
-- **JPEG:** compresión con pérdida (fotos).
-- **PNG:** compresión sin pérdida (gráficos, transparencia).
-- **TIFF:** sin compresión (Images médicas).
+- **JPEG:** lossy compression (photos).
+- **PNG:** lossless compression (graphics, transparency).
+- **TIFF:** without compression (medical images).
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Digital Images Explained - Computerphile](https://www.youtube.com/watch?v=15aqFQQVBWU) - 10 min
 
 ______________________________________________________________________
 
-## 3. Preprocesamiento de Images
+## 3. Image Preprocessing
 
-### Resize y Rescale
+### Resize and Rescale
 
-**Resize:** Cambiar dimensiones (ej: 1024×768 → 224×224).
-**Rescale:** Normalizar valores de Pixels.
+**Resize:** Change dimensions (ex: 1024×768 → 224×224).
+**Rescale:** Normalize Pixel values.
 
-**Técnicas comunes:**
+**Common techniques:**
 
-- Dividir por 255: valores de [0, 255] → [0, 1].
+- Divide by 255: values ​​of [0, 255] → [0, 1].
 
-- Normalizar con media y std de ImageNet:
+- Normalize with ImageNet mean and std:
 
   ```python
   mean = [0.485, 0.456, 0.406]
@@ -77,51 +77,51 @@ ______________________________________________________________________
 
 ### Data Augmentation
 
-Generar variaciones de Images para aumentar dataset y mejorar generalización.
+Generate variations of Images to increase dataset and improve generalization.
 
-**Transformaciones comunes:**
+**Common transformations:**
 
-- Rotación (ej: ±15°).
+- Rotation (eg: ±15°).
 - Flip horizontal/vertical.
 - Zoom in/out.
-- Cambios de brillo/contraste.
-- Recortes aleatorios (random crops).
-- Añadir ruido.
+- Brightness/contrast changes.
+- Random cuts (random crops).
+- Add noise.
 
-**Cuidado:** Aplicar solo a train set, no a test.
+**Caution:** Apply only to train set, not to test.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Image Preprocessing - Python Crash Course](https://www.youtube.com/watch?v=qH0dktiZmcg) - 20 min
 1. [Data Augmentation - Krish Naik](https://www.youtube.com/watch?v=mTVf7BN7S8w) - 25 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Keras ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator)
-- [Albumentations Library](https://albumentations.ai/docs/) - augmentations avanzadas
+- [Albumentations Library](https://albumentations.ai/docs/) - advanced augmentations
 
 ______________________________________________________________________
 
 ## 4. Convolutional Neural Networks (CNNs)
 
-### ¿Por qué CNNs?
+### Why CNNs?
 
-MLPs (redes fully-connected) sobre Images:
+MLPs (redes fully-connected) about Images:
 
-- Demasiados parámetros (Image 224×224×3 = 150,000 entradas).
-- No explotan Structure espacial.
+- Too many parameters (Image 224×224×3 = 150,000 entries).
+- They do not exploit spatial structure.
 
-CNNs explotan:
+CNNs explode:
 
-- **Localidad:** Pixels cercanos están relacionados.
-- **Invarianza a traslación:** un gato sigue siendo gato sin importar dónde esté en la Image.
+- **Locality:** Nearby pixels are related.
+- **Translation invariance:** a cat remains a cat no matter where it is in the Image.
 
-### Operación de Convolution
+### Convolution operation
 
-Aplicar **Filter/kernel** deslizándolo sobre la Image.
+Apply **Filter/kernel** by sliding it over the Image.
 
 **Example:**
-Filter de detección de bordes:
+Edge detection filter:
 
 ```
 [-1  0  1]
@@ -129,97 +129,97 @@ Filter de detección de bordes:
 [-1  0  1]
 ```
 
-### Componentes de una CNN
+### Components of a CNN
 
-#### 1. Layers convolucionales
+#### 1. Convolutional layers
 
-- Aprenden Filters automáticamente.
-- Parámetros: número de Filters, tamaño de kernel (3×3, 5×5).
+- They learn Filters automatically.
+- Parameters: number of Filters, kernel size (3×3, 5×5).
 
-#### 2. Functions de Activation
+#### 2. Activation Functions
 
-- ReLU después de cada Layer convolucional.
+- ReLU after each convolutional Layer.
 
 #### 3. Pooling
 
-Reducir dimensionalidad espacial manteniendo información relevante.
+Reduce spatial dimensionality while maintaining relevant information.
 
-**Max Pooling:** Tomar valor máximo de cada región.
-**Average Pooling:** Tomar promedio.
+**Max Pooling:** Take maximum value from each region.
+**Average Pooling:** Take average.
 
 **Example:**
 
 ```
-Entrada 4×4 → Max Pooling 2×2 → Salida 2×2
+Entrada 4×4 → Max Pooling 2×2 → Output 2×2
 ```
 
 #### 4. Layers fully-connected (Dense)
 
-Al final de la red para Classification.
+At the end of the network for Classification.
 
-#### 5. Softmax
+#### 5. softmax
 
-Layer de salida para Classification multiclase.
+Output layer for multiclass Classification.
 
-### Arquitectura típica
+### Typical architecture
 
 ```
 Entrada (224×224×3) →
-  Conv (32 filtros, 3×3) + ReLU →
+  Conv (32 filters, 3×3) + ReLU →
   MaxPooling (2×2) →
-  Conv (64 filtros, 3×3) + ReLU →
+  Conv (64 filters, 3×3) + ReLU →
   MaxPooling (2×2) →
-  Conv (128 filtros, 3×3) + ReLU →
+  Conv (128 filters, 3×3) + ReLU →
   MaxPooling (2×2) →
   Flatten →
-  Dense (128 neuronas, ReLU) →
+  Dense (128 neurons, ReLU) →
   Dropout (0.5) →
-  Dense (10 clases, Softmax)
+  Dense (10 classes, Softmax)
 ```
 
-📹 **Videos recomendados (FUNDAMENTALES):**
+📹 **Videos recommended (FUNDAMENTAL):**
 
-1. [CNNs Explained - 3Blue1Brown](https://www.youtube.com/watch?v=aircAruvnKk) - parte de su serie de DL
-1. [Convolutional Neural Networks - Stanford CS231n](https://www.youtube.com/watch?v=bNb2fEVKeEo) - 1 hora
+1. [CNNs Explained - 3Blue1Brown](https://www.youtube.com/watch?v=aircAruvnKk) - part of their DL series
+1. [Convolutional Neural Networks - Stanford CS231n](https://www.youtube.com/watch?v=bNb2fEVKeEo) - 1 hour
 1. [CNNs Visualized - Computerphile](https://www.youtube.com/watch?v=py5byOOHZM8) - 15 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [CS231n Convolutional Networks](http://cs231n.github.io/convolutional-networks/)
 - [A Comprehensive Guide to CNNs](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
 ______________________________________________________________________
 
-## 5. Arquitecturas clásicas de CNNs
+## 5. Classic CNN architectures
 
 ### LeNet-5 (1998)
 
-Primera CNN exitosa (reconocimiento de dígitos).
+First successful CNN (digit recognition).
 
 ### AlexNet (2012)
 
-Ganó ImageNet, popularizó deep learning en visión.
+ImageNet won, popularized deep learning in vision.
 
 ### VGGNet (2014)
 
-Red muy profunda (16-19 Layers), Filters pequeños (3×3).
+Very deep network (16-19 Layers), Small Filters (3×3).
 
 ### ResNet (2015)
 
-**Innovación:** Skip connections (conexiones residuales).
+**Innovation:** Skip connections (residual connections).
 
-- Permite entrenar redes muy profundas (50, 101, 152 Layers).
-- Resuelve Problem de vanishing gradients.
+- It allows training very deep networks (50, 101, 152 Layers).
+- Solve problem of vanishing gradients.
 
 ### Inception (GoogLeNet)
 
-Múltiples tamaños de Filters en paralelo.
+Multiple sizes of Filters in parallel.
 
 ### EfficientNet
 
-Escalado eficiente de ancho, profundidad y resolución.
+Efficient scaling of width, depth and resolution.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [CNN Architectures - Andrew Ng](https://www.youtube.com/watch?v=dXB-KQYkzNU) - 15 min
 1. [ResNet Explained - Yannic Kilcher](https://www.youtube.com/watch?v=0tBPSxioIZE) - 20 min
@@ -228,173 +228,173 @@ ______________________________________________________________________
 
 ## 6. Transfer Learning
 
-**Concept:** Usar red pre-entrenada en dataset masivo (ImageNet) y adaptarla a tu Problem.
+**Concept:** Use a pre-trained network on a massive dataset (ImageNet) and adapt it to your Problem.
 
-### ¿Por qué funciona?
+### Why does it work?
 
-Layers iniciales aprenden features genéricas (bordes, texturas).
-Layers finales aprenden features específicas de la tarea.
+Initial layers learn generic features (edges, textures).
+Final layers learn task-specific features.
 
-### Estrategias
+### Strategies
 
 #### 1. Feature Extraction
 
-- Congelar todas las Layers convolucionales.
-- Entrenar solo las Layers finales (Classifier).
-- **Usage:** Tienes pocos Data y tu tarea es similar a ImageNet.
+- Freeze the convolutional layers there.
+- Train only the final Layers (Classifier).
+- **Usage:** You have little Data and your task is similar to ImageNet.
 
 #### 2. Fine-tuning
 
-- Congelar primeras Layers.
-- Entrenar últimas Layers convolucionales + Classifier.
-- **Usage:** Tienes más Data o tu tarea difiere de ImageNet.
+- Freeze first Layers.
+- Train latest Convolutional Layers + Classifier.
+- **Usage:** You have more Data or your task differs from ImageNet.
 
-### Models pre-entrenados populares
+### Popular pre-trained models
 
-- ResNet50, VGG16, EfficientNet, MobileNet (para edge devices).
+- ResNet50, VGG16, EfficientNet, MobileNet (for edge devices).
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Transfer Learning - Andrew Ng](https://www.youtube.com/watch?v=FQM13HkEfBk) - 10 min
 1. [Transfer Learning in Practice - Krish Naik](https://www.youtube.com/watch?v=BqqfQnyjmgg) - 30 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Transfer Learning Guide - TensorFlow](https://www.tensorflow.org/tutorials/images/transfer_learning)
 - [PyTorch Transfer Learning](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
 
 ______________________________________________________________________
 
-## 7. Tareas comunes en Computer Vision
+## 7. Common tasks in Computer Vision
 
-### Classification de Image
+### Image Classification
 
-Asignar una etiqueta a toda la Image.
-**Example:** Gato vs Perro.
+Assign a tag to the entire Image.
+**Example:** Cat vs Dog.
 
 ### Object Detection
 
-Detectar múltiples objetos en Image + ubicación (bounding boxes).
+Detect multiple objects in Image + location (bounding boxes).
 **Models:** YOLO, Faster R-CNN, RetinaNet.
 
 ### Image Segmentation
 
-Clasificar cada píxel.
+Classify each pixel.
 
-- **Semantic Segmentation:** etiquetar clase (todos los autos = "auto").
-- **Instance Segmentation:** diferenciar instancias (auto1, auto2).
+- **Semantic Segmentation:** tag clause, class (all cars = "car").
+- **Instance Segmentation:** differentiate instances (auto1, auto2).
   **Models:** U-Net, Mask R-CNN.
 
 ### Pose Estimation
 
-Detectar posición de articulaciones humanas (keypoints).
+Detect position of human joints (keypoints).
 
 ### Image Generation
 
-Generar Images realistas.
+Generate realistic Images.
 **Models:** GANs, Diffusion Models (Stable Diffusion).
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Object Detection Overview - Paperspace](https://www.youtube.com/watch?v=O3b8lVF93jU) - 20 min
 1. [YOLO Explained - Papers with Code](https://www.youtube.com/watch?v=9s_FpMpdYW8) - 15 min
 
 ______________________________________________________________________
 
-## 8. Metrics de Evaluation
+## 8. Evaluation Metrics
 
 ### Classification
 
-- **accuracy:** % de Predictions correctas.
-- **Precision, recall, f1:** cuando hay desbalance de clases.
-- **Top-k accuracy:** si la clase correcta está en las top-k Predictions.
+- **accuracy:** % of correct Predictions.
+- **Precision, recall, f1:** when there is an imbalance of classes.
+- **Top-k accuracy:** if the correct class is in the top-k Predictions.
 
 ### Object Detection
 
-- **IoU (Intersection over Union):** overlap entre bounding box predicho y real.
-- **mAP (mean Average Precision):** Metric estándar en detection.
+- **IoU (Intersection over Union):** overlap between predicted and actual bounding box.
+- **mAP (mean Average Precision):** Standard metric in detection.
 
-### Segmentación
+### Segmentation
 
-- **Dice Coefficient / f1-Score por píxel.**
-- **IoU por clase.**
+- **Says Coefficient / f1-Score per pixel.**
+- **IoU per clause, class.**
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [mAP Explained - Papers with Code](https://www.youtube.com/watch?v=FppOzcDvaDI) - 12 min
 
 ______________________________________________________________________
 
-## 9. Errors comunes y soluciones
+## 9. Common errors and solutions
 
-### Dataset desbalanceado
+### Imbalanced dataset
 
-**Síntoma:** Model predice siempre la clase mayoritaria.
-**Solución:**
+**Symptom:** Model always predicts the majority class.
+**Solution:**
 
-- Pesos de clase (class weights).
-- Oversampling de clase minoritaria.
-- Focal Loss (penaliza Examples fáciles).
+- Clause weights, class (class weights).
+- Oversampling of clause, minority class.
+- Focal Loss (penalizes easy Examples).
 
 ### overfitting
 
-**Síntoma:** Alta accuracy en train, baja en test.
-**Solución:**
+**Symptom:** High accuracy in train, low in test.
+**Solution:**
 
 - Data augmentation.
 - Dropout.
 - Regularization L2.
 - Early stopping.
-- Usar más Data.
+- Use more Data.
 
 ### Data Leakage
 
-**Example:** Usar test images en data augmentation o Normalization.
-**Prevención:** Aplicar transformaciones solo en train.
+**Example:** Use test images in data augmentation or Normalization.
+**Prevention:** Apply transformations only on train.
 
 ### Model muy lento
 
-**Solución:**
+**Solution:**
 
-- Reducir resolución de entrada.
-- Usar arquitectura más eficiente (MobileNet, EfficientNet).
-- Cuantización (int8 en lugar de float32).
-- Pruning (podar pesos menos importantes).
+- Reduce input resolution.
+- Use more efficient architecture (MobileNet, EfficientNet).
+- Quantization (int8 instead of float32).
+- Pruning (pruning less important weights).
 
 ______________________________________________________________________
 
 ## 10. Buenas Practices
 
-- ✅ Empezar con baseline simple (Model pre-entrenado con transfer learning).
-- ✅ Usar GPU para Training (Google Colab gratuito).
-- ✅ Dividir Data de forma reproducible (fijar random seed).
-- ✅ Aplicar augmentation solo en train.
-- ✅ Visualizar Predictions del Model (especialmente Errors).
-- ✅ Analizar Confusion matrix para detectar clases problemáticas.
-- ✅ Guardar checkpoints del Model durante Training.
-- ✅ Monitorear loss y accuracy en train vs validation.
-- ✅ No ajustar múltiples Hyperparameters a la vez (cambiar uno, medir impacto).
+- ✅ Start with a simple baseline (Model pre-trained with transfer learning).
+- ✅ Use GPU for Training (free Google Colab).
+- ✅ Split Data reproducibly (set random seed).
+- ✅ Apply augmentation only on train.
+- ✅ Visualize Model Predictions (especially Errors).
+- ✅ Analyze Confusion matrix to detect problematic classes.
+- ✅ Save Model checkpoints during Training.
+- ✅ Monitor loss and accuracy in train vs validation.
+- ✅ Do not adjust multiple Hyperparameters at the same time (change one, measure impact).
 
-📚 **Resources generales:**
+📚 **General resources:**
 
-- [Stanford CS231n (Course)](http://cs231n.stanford.edu/) - curso completo con videos, Notes, assignments
-- [Fast.ai Practical Deep Learning](https://course.fast.ai/) - curso práctico gratuito
+- [Stanford CS231n (Course)](http://cs231n.stanford.edu/) - cursor complete with videos, Notes, assignments
+- [Fast.ai Practical Deep Learning](https://course.fast.ai/) - free practical course
 - [Deep Learning for Computer Vision (Book)](https://www.pyimagesearch.com/deep-learning-computer-vision-python-book/)
 
 ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente Module, deberías poder:
+Before moving to the next Module, you should be able to:
 
-- ✅ Explicar por qué CNNs superan a MLPs en tareas de visión.
-- ✅ Describir operaciones de Convolution y pooling con claridad.
-- ✅ Implementar una CNN simple con PyTorch o TensorFlow.
-- ✅ Aplicar transfer learning usando Model pre-entrenado.
-- ✅ Decidir cuándo usar data augmentation y qué transformaciones aplicar.
-- ✅ Detectar overfitting en curvas de Training.
-- ✅ Analizar Errors del Model con Confusion matrix y Visualization.
-- ✅ Diferenciar Classification, object detection y segmentación.
-- ✅ Manejar datasets desbalanceados con técnicas apropiadas.
+- ✅ Explain why CNNs outperform MLPs in vision tasks.
+- ✅ Describe Convolution and pooling operations clearly.
+- ✅ Implement a simple CNN with PyTorch or TensorFlow.
+- ✅ Apply transfer learning using pre-trained Model.
+- ✅ Decide when to use data augmentation and what transformations to apply.
+- ✅ Detect overfitting in Training curves.
+- ✅ Analyze Model Errors with Confusion matrix and Visualization.
+- ✅ Differentiate Classification, object detection and segmentation.
+- ✅ Manage unbalanced datasets with appropriate techniques.
 
-Si respondiste "sí" a todas, estás listo para architecturas avanzadas y aplicaciones especializadas de CV.
+If you answered "yes" to all, you are ready for advanced architectures and specialized CV applications.

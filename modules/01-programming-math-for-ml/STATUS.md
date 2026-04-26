@@ -2,22 +2,22 @@
 
 ## Current progress
 
-- Estado: En progreso
-- Nivel: L1
+- Status: In progress
+- Level: L1
 - Last update: 2026-03-05
 
 ## Checklist
 
-- [ ] L1 completado
-- [ ] L2 completado
-- [ ] L3 completado
-- [ ] L4 completado
-- [ ] Mini-proyecto validado
+- [ ] L1 completed
+- [ ] L2 completed
+- [ ] L3 completed
+- [ ] L4 completed
+- [ ] Mini-project validated
 - [ ] Approved final evaluation
 
 ## Blockers
 
-- Ninguno por ahora.
+- None for now.
 
 ## Next steps
 

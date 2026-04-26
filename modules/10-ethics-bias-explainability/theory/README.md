@@ -2,275 +2,275 @@
 
 ## Why this module matters
 
-Models de IA influyen en decisiones sobre créditos, contrataciones, justicia penal y salud. Decisiones injustas, sesgadas o opacas tienen consecuencias reales en vidas humanas. Este Module te equipa para construir sistemas responsables, justos y transparentes.
+AI models influence decisions about credit, hiring, criminal justice and health. Unfair, biased or opaque decisions have real consequences on human lives. This Module equips you to build responsible, fair and transparent systems.
 
 ______________________________________________________________________
 
-## 1. Ética en IA: Fundamentos
+## 1. Ethics in AI: Fundamentals
 
-### ¿Por qué la ética importa?
+### Why do ethics matter?
 
-- **Impacto social:** IA afecta oportunidades, derechos y bienestar.
-- **Responsabilidad legal:** Regulaciones emergentes (EU AI Act, GDPR).
-- **Reputación:** Sistemas injustos dañan confianza y marca.
-- **Sostenibilidad:** Sistemas no éticos no perduran.
+- **Social impact:** AI affects opportunities, rights and well-being.
+- **Legal liability:** Emerging regulations (EU AI Act, GDPR).
+- **Reputation:** Unfair systems damage trust and brand.
+- **Sustainability:** Unethical systems do not last.
 
-### Principios fundamentales
+### Fundamental principles
 
-1. **Beneficencia:** IA debe beneficiar a las personas.
-1. **No maleficencia:** No causar daño.
-1. **Autonomía:** Respetar decisión humana.
-1. **Justicia:** Distribución equitativa de beneficios y riesgos.
-1. **Explicabilidad:** Decisiones deben ser comprensibles.
+1. **Beneficence:** AI must benefit people.
+1. **Nonmaleficence:** Do not cause harm.
+1. **Autonomy:** Respect human decision.
+1. **Justice:** Equitable distribution of benefits and risks.
+1. **Explainability:** Decisions must be understandable.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [AI Ethics Explained - MIT](https://www.youtube.com/watch?v=AaU6tI2pb3M) - 15 min
 1. [Ethics of AI - Lex Fridman](https://www.youtube.com/watch?v=gmaONaP7TzI) - 30 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [AI Ethics Guidelines - EU](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
 
 ______________________________________________________________________
 
-## 2. Types de sesgo en IA
+## 2. Types of bias in AI
 
-### Sesgo de muestreo (Sampling Bias)
+### Sampling Bias
 
-**Problem:** Dataset no representa población Objective.
+**Problem:** Dataset does not represent Objective population.
 
-**Example:** Entrenar detector de enfermedades con Images solo de hospitales de élite.
+**Example:** Train disease detector with Images only from elite hospitals.
 
-**Mitigación:**
+**Mitigation:**
 
-- Muestreo estratificado.
-- Verificar distribución demográfica.
+- Stratified sampling.
+- Verify demographic distribution.
 
-### Sesgo histórico (Historical Bias)
+### Historical Bias
 
-**Problem:** Data reflejan discriminación pasada.
+**Problem:** Data reflects past discrimination.
 
-**Example:** Sistema de contratación entrenado con histórico donde 90% de ingenieros eran hombres.
+**Example:** Historically trained hiring system where 90% of engineers were men.
 
-**Mitigación:**
+**Mitigation:**
 
-- Rebalancear Data.
-- Intervenir en features problemáticas.
+- Rebalance Data.
+- Intervene in problematic features.
 
-### Sesgo de medición (Measurement Bias)
+### Measurement Bias
 
-**Problem:** Método de medición es sistemáticamente erróneo para ciertos grupos.
+**Problem:** Measurement method is systematically wrong for certain groups.
 
-**Example:** Oxímetros menos precisos en piel oscura.
+**Example:** Less accurate oximeters in dark skin.
 
-**Mitigación:**
+**Mitigation:**
 
-- Validar instrumentos de medición por subgrupo.
-- Usar múltiples fuentes de Data.
+- Validate measurement instruments by subgroup.
+- Use multiple data sources.
 
-### Sesgo de etiqueta (Label Bias)
+### Label Bias
 
-**Problem:** Etiquetas humanas contienen prejuicios.
+**Problem:** Human labels contain prejudices.
 
-**Example:** Moderadores etiquetan Content de minorías como "ofensivo" más frecuentemente.
+**Example:** Moderators label minority content as "offensive" more frequently.
 
-**Mitigación:**
+**Mitigation:**
 
-- Múltiples anotadores.
-- Auditoría de acuerdos inter-anotador.
+- Multiple scorers.
+- Audit of inter-scorer agreements.
 
-### Sesgo de agregación (Aggregation Bias)
+### Aggregation Bias
 
-**Problem:** Model único para grupos con Features diferentes.
+**Problem:** Unique model for groups with different Features.
 
-**Example:** Mismo Model de Prediction de diabetes para todas las etnias (cuando factores de riesgo difieren).
+**Example:** Same Diabetes Prediction Model for all ethnicities (when risk factors differ).
 
-**Mitigación:**
+**Mitigation:**
 
-- Models específicos por subgrupo.
-- Features contextuales.
+- Specific models by subgroup.
+- Contextual features.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Bias in Machine Learning - Google](https://www.youtube.com/watch?v=59bMh59JQDo) - 8 min
 1. [Understanding Fairness in ML - Microsoft](https://www.youtube.com/watch?v=jIU9JH9RsF0) - 15 min
 
 ______________________________________________________________________
 
-## 3. Fairness (Equidad)
+## 3. Fairness
 
-### Definiciones de fairness
+### Definitions of fairness
 
-#### Paridad demográfica (Demographic Parity)
+#### Demographic Parity
 
-**Definición:** Tasa de Predictions positivas debe ser igual entre grupos.
+**Definition:** Rate of positive Predictions must be equal between groups.
 
-**Example:** % de aprobación de crédito debe ser igual para hombres y mujeres.
+**Example:** Credit approval % must be the same for men and women.
 
-#### Igualdad de oportunidad (Equalized Odds)
+#### Equal opportunity (Equalized Odds)
 
-**Definición:** Tasas de verdaderos positivos y falsos positivos deben ser iguales entre grupos.
+**Definition:** True positive and false positive rates should be equal between groups.
 
-**Example:** Model de contratación debe tener misma tasa de éxito para candidatos calificados de todos los grupos.
+**Example:** Hiring model must have the same success rate for qualified candidates from all groups.
 
-#### Calibración (Calibration)
+#### Calibration
 
-**Definición:** Probabilidades predichas deben reflejar frecuencias reales por grupo.
+**Definition:** Predicted probabilities must reflect actual frequencies per group.
 
 ### Trade-offs
 
-**Teorema de imposibilidad:** No se pueden satisfacer todas las definiciones de fairness simultáneamente (excepto en casos triviales).
+**Impossibility theorem:** All definitions of fairness cannot be satisfied simultaneously (except in trivial cases).
 
-**Decisión:** Elegir definición de fairness según contexto y stakeholders.
+**Decision:** Choose definition of fairness according to context and stakeholders.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
-1. [Fairness in ML - Moritz Hardt](https://www.youtube.com/watch?v=jIXIuYdnyyk) - 1 hora (fundamental)
+1. [Fairness in ML - Moritz Hardt](https://www.youtube.com/watch?v=jIXIuYdnyyk) - 1 hour (fundamental)
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Fairness Definitions Explained](https://fairmlbook.org/)
 - [AI Fairness 360 (IBM)](https://aif360.mybluemix.net/)
 
 ______________________________________________________________________
 
-## 4. Explainability (Explicabilidad)
+## 4. Explainability
 
-### ¿Por qué explicabilidad?
+### Why explainability?
 
-- **Confianza:** Usuarios confían en lo que entienden.
-- **Debugging:** Identificar Errors del Model.
-- **Cumplimiento:** GDPR requiere "derecho a explicación".
-- **Justicia:** Decisiones que afectan vidas deben ser explicables.
+- **Trust:** Users trust what they understand.
+- **Debugging:** Identify Model Errors.
+- **Compliance:** GDPR requires "right to explanation".
+- **Justice:** Decisions that affect lives must be explainable.
 
-### Explicaciones globales
+### Global explanations
 
-**Objective:** Entender comportamiento general del Model.
+**Objective:** Understand general behavior of the Model.
 
-**Métodos:**
+**Methods:**
 
-- **Feature Importance:** Qué features son más importantes globalmente.
-- **Partial Dependence Plots (PDP):** Cómo cambia Prediction al variar una feature.
-- **Surrogate Models:** Entrenar Model simple (interpretable) que aproxime Model complejo.
+- **Feature Importance:** Which features are most important globally.
+- **Partial Dependence Plots (PDP):** How Prediction changes when varying a feature.
+- **Surrogate Models:** Simple (interpretable) Train Model that approximates a complex Model.
 
-### Explicaciones locales
+### Local explanations
 
-**Objective:** Explicar UNA Prediction específica.
+**Objective:** Explain A specific Prediction.
 
-**Métodos:**
+**Methods:**
 
 #### LIME (Local Interpretable Model-agnostic Explanations)
 
-- Perturbar entrada.
-- Entrenar Model lineal local alrededor de esa Prediction.
-- Interpretabilidad del Model lineal.
+- Disturb input.
+- Local linear Train Model around that Prediction.
+- Interpretability of the linear model.
 
 #### SHAP (SHapley Additive exPlanations)
 
-- Basado en Theory de juegos (valores Shapley).
-- Asigna contribución de cada feature a la Prediction.
-- Propiedades teóricas deseables (consistencia, aditividad).
+- Based on game theory (Shapley values).
+- Assigns contribution of each feature to the Prediction.
+- Desirable theoretical properties (consistency, additivity).
 
-**Usage:** SHAP es el estándar de facto en industria.
+**Usage:** SHAP is the de facto industry standard.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [Explainable AI - StatQuest](https://www.youtube.com/watch?v=C80SQe16Rao) - 20 min
 1. [SHAP Explained - Ritvik Math](https://www.youtube.com/watch?v=VB9uV-x0gtg) - 15 min
 1. [LIME Explained - Krish Naik](https://www.youtube.com/watch?v=d6j6bofhj2M) - 20 min
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [SHAP Documentation](https://shap.readthedocs.io/en/latest/)
 - [Interpretable ML Book (Free)](https://christophm.github.io/interpretable-ml-book/)
 
 ______________________________________________________________________
 
-## 5. Models interpretables vs explicaciones post-hoc
+## 5. Interpretable models vs post-hoc explanations
 
-### Models inherentemente interpretables
+### Inherently interpretable models
 
-- **Regresión lineal/logística:** Coeficientes directamente interpretables.
-- **Decision Trees:** Lógica visual clara.
-- **Reglas (if-then):** Transparentes por diseño.
+- **Linear/logistic regression:** Directly interpretable coefficients.
+- **Decision Trees:** Clear visual logic.
+- **Rules (if-then):** Transparent by design.
 
-**Ventaja:** Interpretabilidad garantizada.
-**Desventaja:** Puede sacrificar performance.
+**Advantage:** Guaranteed interpretability.
+**Disadvantage:** May sacrifice performance.
 
-### Explicaciones post-hoc (black-box)
+### Post-hoc explanations (black-box)
 
-Explicar Model complejo (Random Forest, XGBoost, Neural Networks) después de entrenar.
+Explain complex Model (Random Forest, XGBoost, Neural Networks) after training.
 
-**Herramientas:** SHAP, LIME.
+**Tools:** SHAP, LIME.
 
-**Ventaja:** No sacrificar performance.
-**Desventaja:** Explicación es aproximación, no verdad absoluta.
+**Advantage:** Do not sacrifice performance.
+**Disadvantage:** Explanation is approximation, not absolute truth.
 
 ### Trade-off: accuracy vs Interpretability
 
-No siempre es necesario sacrificar accuracy por interpretabilidad. Probar ambos enfoques.
+It is not always necessary to sacrifice accuracy for interpretability. Try both approaches.
 
 ______________________________________________________________________
 
-## 6. Riesgo y gobernanza
+## 6. Risk and governance
 
-### Evaluation de impacto
+### Impact evaluation
 
-**Preguntas clave:**
+**Key questions:**
 
-- ¿Quién se ve afectado por las decisiones del Model?
-- ¿Cuál es el costo de un error (FP y FN)?
-- ¿Hay asimetría de poder (usuarios vulnerables)?
+- Who is affected by the Model's decisions?
+- What is the cost of an error (FP and FN)?
+- Is there asymmetry of power (vulnerable users)?
 
-### Documentación: Model Cards
+### Documentation: Model Cards
 
 **Content:**
 
-- Propósito del Model.
-- Data de Training (distribución, limitaciones).
-- Metrics de performance por subgrupo.
-- Casos de Usage apropiados e inapropiados.
-- Consideraciones éticas.
+- Purpose of the Model.
+- Training data (distribution, limitations).
+- Performance metrics by subgroup.
+- Appropriate and inappropriate Usage cases.
+- Ethical considerations.
 
-📚 **Resources escritos:**
+📚 **Resources written:**
 
 - [Model Cards Paper (Google)](https://arxiv.org/abs/1810.03993)
 - [Datasheets for Datasets](https://arxiv.org/abs/1803.09010)
 
-### Monitoreo continuo
+### Continuous monitoring
 
-- **Performance por subgrupo:** ¿El Model funciona peor para algún grupo?
-- **Distributional shift:** ¿Cambió la distribución de Predictions?
-- **Feedback humano:** ¿Usuarios reportan Problems?
+- **Performance by subgroup:** Does the Model perform worse for any group?
+- **Distributional shift:** Did the distribution of Predictions change?
+- **Human feedback:** Do users report Problems?
 
-### Proceso de apelación
+### Appeal process
 
-Si el Model toma decisión adversa, debe haber proceso humano de revisión.
+If the Model makes an adverse decision, there must be a human review process.
 
 ______________________________________________________________________
 
-## 7. Casos de estudio reales
+## 7. Real case studies
 
-### COMPAS (Justicia Penal)
+### COMPAS (Criminal Justice)
 
-**Problem:** Algorithm de Prediction de reincidencia mostró sesgo racial (más falsos positivos para afroamericanos).
+**Problem:** Recidivism Prediction Algorithm showed racial bias (more false positives for African Americans).
 
-**Lesson:** Medir fairness por subgrupo desde el inicio.
+**Lesson:** Measure fairness by subgroup from the beginning.
 
 ### Amazon Recruiting Tool
 
-**Problem:** Sistema de contratación penalizaba CVs con palabra "mujer".
+**Problem:** Hiring system penalized CVs with the word "woman".
 
-**Lesson:** Sesgo histórico en Data se amplifica.
+**Lesson:** Historical bias in Data is amplified.
 
 ### Facial Recognition
 
-**Problem:** Sistemas comerciales tenían tasas de error mucho más altas en mujeres de piel oscura.
+**Problem:** Commercial systems had much higher error rates in dark-skinned women.
 
-**Lesson:** Evaluar performance en subgrupos diversos.
+**Lesson:** Evaluate performance in diverse subgroups.
 
-📹 **Videos recomendados:**
+📹 **Videos recommended:**
 
 1. [AI Bias: Real Examples - Vox](https://www.youtube.com/watch?v=Ok5sKLXqynQ) - 10 min
 
@@ -278,16 +278,16 @@ ______________________________________________________________________
 
 ## 8. Buenas Practices
 
-- ✅ Incluir revisión ética desde fase de diseño (no al final).
-- ✅ Auditar dataset: distribución, subgrupos, posibles sesgos.
-- ✅ Medir fairness en Validation (no solo accuracy global).
-- ✅ Documentar decisiones y trade-offs (Model Cards).
-- ✅ Involucrar stakeholders afectados en diseño.
-- ✅ Implementar explicabilidad (SHAP) desde desarrollo.
-- ✅ Monitoreo continuo de fairness en producción.
-- ✅ Establecer proceso de apelación humana.
+- ✅ Include ethical review from the design phase (not at the end).
+- ✅ Audit dataset: distribution, subgroups, possible biases.
+- ✅ Measure fairness in Validation (not just global accuracy).
+- ✅ Document decisions and trade-offs (Model Cards).
+- ✅ Involve affected stakeholders in design.
+- ✅ Implement explainability (SHAP) from development.
+- ✅ Continuous monitoring of fairness in production.
+- ✅ Establish human appeal process.
 
-📚 **Resources generales:**
+📚 **General resources:**
 
 - [Fairness and Machine Learning (Book - Free)](https://fairmlbook.org/)
 - [Google Responsible AI Practices](https://ai.google/responsibility/responsible-ai-practices/)
@@ -297,15 +297,15 @@ ______________________________________________________________________
 
 ## Final comprehension checklist
 
-Antes de pasar al siguiente Module, deberías poder:
+Before moving to the next Module, you should be able to:
 
-- ✅ Identificar Types de sesgo (muestreo, histórico, medición, etiqueta) en dataset.
-- ✅ Explicar diferencias entre paridad demográfica e igualdad de oportunidad.
-- ✅ Medir fairness para múltiples subgrupos demográficos.
-- ✅ Elegir entre explicación global (SHAP global) vs local (SHAP por Prediction).
-- ✅ Implementar SHAP para interpretar Model complejo.
-- ✅ Documentar Model con Model Card.
-- ✅ Proponer mitigación concreta para sesgo detectado.
-- ✅ Diseñar proceso de monitoreo de fairness en producción.
+- ✅ Identify Types of bias (sampling, historical, measurement, label) in dataset.
+- ✅ Explain differences between demographic parity and equality of opportunity.
+- ✅ Measure fairness for multiple demographic subgroups.
+- ✅ Choose between global explanation (SHAP global) vs local (SHAP by Prediction).
+- ✅ Implement SHAP to interpret complex Model.
+- ✅ Document Model with Model Card.
+- ✅ Propose concrete mitigation for detected bias.
+- ✅ Design fairness monitoring process in production.
 
-Si respondiste "sí" a todas, estás listo para construir sistemas de IA responsables y éticos.
+If you answered "yes" to all, you are ready to build responsible and ethical AI systems.

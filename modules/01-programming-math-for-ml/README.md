@@ -12,7 +12,7 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 - Complete a linear regression mini-project implemented from scratch.
 - Explain numerical decisions, reproducibility and technical trade-offs (advanced level).
 
-## Estructura interna mejorada
+## Structure interna mejorada
 
 - **theory/**: In-depth theory with linked videos (3Blue1Brown, StatQuest, Khan Academy), written resources, and comprehension checklist.
 - **examples/**: Complete, resolved examples with executable code, expected outputs, and common errors documented.
@@ -25,20 +25,20 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 
 ### Step 1: Base theory (2-4 sessions)
 
-1. Leer [theory/README.md](./theory/README.md) completo.
-1. Ver videos recomendados en orden sugerido:
+1. Leer [theory/README.md](./theory/README.md) complete.
+1. Watch recommended videos in suggested order:
    - Python + NumPy + Pandas (~3 horas total)
    - Linear algebra (3Blue1Brown, ~3 hours)
    - Calculation (3Blue1Brown, ~3 hours)
    - Probabilidad (StatQuest, ~2 horas)
 1. Take your own notes in `notes/TEORIA-RESUMEN.md`.
 
-### Paso 2: Ejemplos guiados (1-2 sesiones)
+### Paso 2: Examples guiados (1-2 sesiones)
 
-1. Ejecutar [examples/01-vectores-producto-punto.md](./examples/01-vectores-producto-punto.md).
-1. Ejecutar [examples/02-estadistica-descriptiva.md](./examples/02-estadistica-descriptiva.md).
+1. Execute [examples/01-vectores-producto-punto.md](./examples/01-vectores-producto-punto.md).
+1. Execute [examples/02-estadistica-descriptiva.md](./examples/02-estadistica-descriptiva.md).
 1. Solve exercises proposed at the end of each example.
-1. Documentar dudas o descubrimientos en `notes/`.
+1. Document doubts or discoveries in `notes/`.
 
 ### Step 3: Practices (3-4 sessions)
 
@@ -48,23 +48,23 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 1. Continue with practices 03, 04, 05 (statistics, optimization, integrated pipeline).
 1. Save solutions code in `practices/solutions/` (create folder).
 
-### Paso 4: Mini-proyecto (2-3 sesiones)
+### Paso 4: Mini-project (2-3 sesiones)
 
-1. Leer enunciado completo en [mini-project/README.md](./mini-project/README.md).
+1. Read complete statement in [mini-project/README.md](./mini-project/README.md).
 1. Implement linear regression from scratch with gradient descent.
 1. Evaluate with metrics (MAE, RMSE, R²).
-1. Documentar conclusiones y siguientes mejoras.
+1. Document Conclusions and following improvements.
 
 ### Step 5: Evaluation and closure (1 session)
 
 1. Complete [evaluation/README.md](./evaluation/README.md) (self-evaluation).
 1. Verify minimum score >= 70/100.
 1. Update [STATUS.md](./STATUS.md) with level reached and crashes resolved.
-1. Registrar lecciones principales en `notes/LECCIONES-APRENDIDAS.md`.
+1. Register main Lessons in `notes/Lessons-APRENDIDAS.md`.
 
 ## Level path (L1-L4)
 
-- **L1 Fundamentals:** Variables, functions, arrays, basic linear algebra, fluent Python.
+- **L1 Fundamentals:** variables, functions, arrays, basic linear algebra, fluent Python.
 - **L2 Applied:** Derivatives, optimization, probability, descriptive statistics applied to real data.
 - **L3 Advanced:** Implementation of gradient descent, validation of results, convergence analysis.
 - **L4 Senior:** Analysis of numerical trade-offs, complete reproducibility, experimental quality and impeccable documentation.
@@ -81,7 +81,7 @@ Before moving to module 02, you must complete:
 - ✅ Practices 01-05 solved and verified.
 - ✅ Mini-project working with documented metrics.
 - ✅ Final evaluation approved (>= 70/100).
-- ✅ Lecciones aprendidas registradas en `notes/`.
+- ✅ Lessons learned recorded in `notes/`.
 - ✅ STATUS.md updated with level achieved and clear next steps.
 
 ## Internal structure

@@ -2,27 +2,27 @@
 
 ## Project
 
-Clasificador de imágenes simple (MNIST/Fashion-MNIST o dataset equivalente).
+Simple Images Classifier (MNIST/Fashion-MNIST or equivalent dataset).
 
 ## Objective
 
-Entrenar una red neuronal básica y justificar decisiones de entrenamiento.
+Train a basic Neural network and justify Training decisions.
 
 ## Scope
 
-- Preparación de datos.
+- Data Preparation.
 - Baseline MLP.
-- Al menos una mejora (regularización o tuning).
-- Reporte de métricas y curvas.
+- At least one improvement (Regularization or tuning).
+- Metrics and curves report.
 
 ## Deliverables
 
 - Notebook/script reproducible.
-- Comparación baseline vs modelo mejorado.
-- Conclusión técnica final.
+- Baseline vs improved Model comparison.
+- Final technical conclusion.
 
 ## Acceptance criteria
 
-- Entrenamiento completo sin errores.
-- Métricas reportadas correctamente.
-- Justificación clara de mejoras.
+- Training complete sin Errors.
+- Metrics reported correctly.
+- Clear justification for improvements.

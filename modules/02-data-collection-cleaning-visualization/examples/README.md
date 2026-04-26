@@ -8,7 +8,7 @@ Objective: read data with Pandas and generate a quick profile (types, nulls, dup
 
 Objective: compare imputation strategies and justify the choice.
 
-## Example 3 — Outlier detection
+## Example 3 — outlier detection
 
 Objective: apply IQR and visualize impact before/after treatment.
 

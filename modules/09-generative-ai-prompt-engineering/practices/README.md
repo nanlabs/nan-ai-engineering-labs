@@ -3,13 +3,13 @@
 ## Practices
 
 - `practice-01-prompt-base.md`
-- `practice-02-few-shot-y-formato.md`
-- `practice-03-iteracion-y-mejora.md`
+- `practice-02-few-shot-y-format.md`
+- `practice-03-iteration-and-improvement.md`
 - `practice-04-guardrails-basicos.md`
-- `practice-05-evaluacion-de-respuestas.md`
+- `practice-05-answer-evaluation.md`
 
 ## Approval criteria
 
-- Resolver 4/5 prácticas como mínimo.
-- Mostrar mejora de calidad entre versiones de prompt.
-- Documentar límites y riesgos observados.
+- Resolver 4/5 Practices como minimum.
+- Show quality improvement between prompt versions.
+- Document limits and observed risks.

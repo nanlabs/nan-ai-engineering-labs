@@ -1,17 +1,17 @@
-# Práctica 05 — Cold start y mejora
+# Practice 05 — Cold start and improvement
 
 ## Objective
 
-Diseñar estrategias para usuarios o ítems nuevos.
+Design strategies for new users or items.
 
-## Enunciado
+## Statement
 
-1. Simular escenario cold start.
-1. Probar estrategia de popularidad por segmento o contenido.
-1. Medir impacto en recomendaciones iniciales.
-1. Definir plan de mejora continua.
+1. Similar escenario cold start.
+1. Test popularity strategy by segment or Content.
+1. Measure impact on initial recommendations.
+1. Defines continuous improvement plan.
 
-## Validación
+## Validation
 
-- Estrategia de cold start implementada.
-- Resultados comparados con baseline.
+- Cold start strategy implemented.
+- Results compared with baseline.

@@ -1,12 +1,12 @@
-# Ejemplo 01 — Collaborative Filtering para Recomendaciones de Películas
+# Example 01 — Collaborative Filtering for Movie Recommendations
 
-## Contexto
+## Context
 
-aprendes **Collaborative Filtering** para construir sistemas de recomendación basados en comportamientos de usuarios similares.
+You learn **Collaborative Filtering** to build recommendation systems based on similar user behaviors.
 
 ## Objective
 
-Recomendar películas usando user-item ratings.
+Recommend movies using user-item ratings.
 
 ______________________________________________________________________
 
@@ -26,15 +26,15 @@ np.random.seed(42)
 
 ______________________________________________________________________
 
-## 📥 Cargar datos (MovieLens-style)
+## 📥 Load Data (MovieLens-style)
 
 ```python
-# Simular ratings (en producción: usar MovieLens dataset)
+# Similar ratings (en production: use MovieLens dataset)
 n_users = 100
 n_movies = 50
 sparsity = 0.1  # 10% de interacciones
 
-# Crear matriz user-item sparse
+# Create matrix user-item sparse
 ratings_data = []
 for user_id in range(n_users):
     n_ratings = np.random.randint(1, 10)
@@ -53,13 +53,13 @@ print(f"Sparsity: {100*(1 - len(df)/(n_users*n_movies)):.2f}%")
 print(f"\n{df.head()}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 Total ratings: 543
 Users: 100
 Movies: 50
-Sparsity: 89.14%  👈 Matriz muy sparse (común en sistemas recomendación)
+Sparsity: 89.14%  👈 Matrix muy sparse (common en systems recommendation)
 
    user_id  movie_id  rating
 0        0        42       3
@@ -71,23 +71,23 @@ ______________________________________________________________________
 
 ## 🏗️ User-Based Collaborative Filtering
 
-### Crear matriz user-item
+### Create matrix user-item
 
 ```python
-# Pivot table: usuarios en filas, películas en columnas
+# Pivot table: users en rows, movies en columns
 user_item_matrix = df.pivot_table(index='user_id', columns='movie_id', values='rating')
 
-print(f"Matriz shape: {user_item_matrix.shape}")  # (100, 50)
+print(f"Matrix shape: {user_item_matrix.shape}")  # (100, 50)
 print(f"\n{user_item_matrix.head()}")
 ```
 
-### Calcular similitud entre usuarios
+### Calculate similarity entre users
 
 ```python
-# Fill NaN con 0 para cálculo de similitud
+# Fill NaN con 0 para calculation de similarity
 user_item_filled = user_item_matrix.fillna(0)
 
-# Cosine similarity entre usuarios
+# Cosine similarity entre users
 user_similarity = cosine_similarity(user_item_filled)
 user_similarity_df = pd.DataFrame(user_similarity,
                                    index=user_item_matrix.index,
@@ -97,40 +97,40 @@ print(f"\nSimilitud entre user 0 y otros:")
 print(user_similarity_df.loc[0].sort_values(ascending=False).head())
 ```
 
-**Salida:**
+**Output:**
 
 ```
 user_id
-0    1.000000  👈 Consigo mismo
+0    1.000000  👈 Consigo same
 23   0.893456  👈 Usuario más similar
 45   0.856712
 12   0.834521
 89   0.812345
 ```
 
-### Función de recomendación
+### Recommendation function
 
 ```python
 def recommend_movies_user_based(user_id, user_item_matrix, user_similarity_df, top_n=5):
     """
-    Recomendar películas basándose en usuarios similares
+    Recommend movies based en users similar
     """
-    # Obtener usuarios similares (excluyendo el mismo usuario)
+    # Obtener users similar (excluyendo el same user)
     similar_users = user_similarity_df[user_id].sort_values(ascending=False)[1:11]  # Top 10
 
-    # Películas que el usuario NO ha visto
+    # Movies que el user NO ha visto
     user_ratings = user_item_matrix.loc[user_id]
     unwatched_movies = user_ratings[user_ratings.isna()].index
 
-    # Predecir ratings para películas no vistas
+    # Predict ratings para movies no vistas
     predictions = {}
     for movie in unwatched_movies:
-        # Weighted average de ratings de usuarios similares
+        # Weighted average de ratings de users similar
         similar_users_ratings = user_item_matrix.loc[similar_users.index, movie]
         valid_ratings = similar_users_ratings.dropna()
 
         if len(valid_ratings) > 0:
-            # Pesos = similitudes de usuarios que vieron la película
+            # Pesos = similitudes de users que vieron la movie
             weights = similar_users[valid_ratings.index]
             weighted_rating = (valid_ratings * weights).sum() / weights.sum()
             predictions[movie] = weighted_rating
@@ -140,7 +140,7 @@ def recommend_movies_user_based(user_id, user_item_matrix, user_similarity_df, t
 
     return recommendations
 
-# Ejemplo: recomendar para user 0
+# Example: recomendar para user 0
 user_id_test = 0
 recommendations = recommend_movies_user_based(user_id_test, user_item_matrix, user_similarity_df, top_n=5)
 
@@ -149,7 +149,7 @@ for movie_id, predicted_rating in recommendations:
     print(f"Movie ID: {movie_id}, Predicted Rating: {predicted_rating:.2f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
 === Recomendaciones para User 0 ===
@@ -165,40 +165,40 @@ ______________________________________________________________________
 
 ## 🎯 Item-Based Collaborative Filtering
 
-### Calcular similitud entre películas
+### Calculate similarity between movies
 
 ```python
-# Transponer matriz: películas en filas, usuarios en columnas
+# Transponer matrix: movies en rows, users en columns
 item_user_matrix = user_item_matrix.T.fillna(0)
 
-# Similitud entre películas
+# Similarity entre movies
 item_similarity = cosine_similarity(item_user_matrix)
 item_similarity_df = pd.DataFrame(item_similarity,
                                    index=user_item_matrix.columns,
                                    columns=user_item_matrix.columns)
 
-print(f"\nPelículas más similares a Movie 0:")
+print(f"\nPelículas más similar a Movie 0:")
 print(item_similarity_df.loc[0].sort_values(ascending=False).head())
 ```
 
-### Recomendación item-based
+### Item-based recommendation
 
 ```python
 def recommend_movies_item_based(user_id, user_item_matrix, item_similarity_df, top_n=5):
     """
-    Recomendar películas similares a las que el usuario ya vio
+    Recommend movies similar a las que el user ya vio
     """
-    # Películas que el usuario vio (con buenos ratings)
+    # Movies que el user vio (con buenos ratings)
     user_ratings = user_item_matrix.loc[user_id].dropna()
-    liked_movies = user_ratings[user_ratings >= 4].index  # Solo películas con rating >= 4
+    liked_movies = user_ratings[user_ratings >= 4].index  # Solo movies con rating >= 4
 
-    # Películas candidatas (no vistas)
+    # Movies candidates (no vistas)
     unwatched_movies = user_item_matrix.loc[user_id][user_item_matrix.loc[user_id].isna()].index
 
-    # Calcular scores
+    # Calculate scores
     scores = {}
     for candidate in unwatched_movies:
-        # Similitud promedio con películas que le gustaron
+        # Similarity average con movies que le gustaron
         similarities = item_similarity_df.loc[candidate, liked_movies]
         scores[candidate] = similarities.mean()
 
@@ -215,15 +215,15 @@ for movie_id, score in recommendations_item:
 
 ______________________________________________________________________
 
-## 📊 Evaluación
+## 📊 Evaluation
 
 ### Train/Test Split
 
 ```python
-# Split temporal (simular)
+# Split temporal (similar)
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 
-# Crear matriz de train
+# Create matrix de train
 train_matrix = train_df.pivot_table(index='user_id', columns='movie_id', values='rating')
 
 # Recalcular similitudes
@@ -232,11 +232,11 @@ user_sim_train = cosine_similarity(train_filled)
 user_sim_train_df = pd.DataFrame(user_sim_train, index=train_matrix.index, columns=train_matrix.index)
 ```
 
-### Predecir ratings en test set
+### Predict ratings in test set
 
 ```python
 def predict_rating_user_based(user_id, movie_id, train_matrix, user_sim_df):
-    """Predecir rating de user_id para movie_id"""
+    """Predict rating de user_id para movie_id"""
     if user_id not in train_matrix.index or movie_id not in train_matrix.columns:
         return train_matrix.mean().mean()  # Global mean fallback
 
@@ -249,7 +249,7 @@ def predict_rating_user_based(user_id, movie_id, train_matrix, user_sim_df):
     weights = similar_users[ratings.index]
     return (ratings * weights).sum() / weights.sum()
 
-# Predecir en test set
+# Predict en test set
 predictions = []
 actuals = []
 
@@ -258,19 +258,19 @@ for _, row in test_df.iterrows():
     predictions.append(pred)
     actuals.append(row['rating'])
 
-# Métricas
+# Metrics
 mae = mean_absolute_error(actuals, predictions)
 rmse = np.sqrt(mean_squared_error(actuals, predictions))
 
-print(f"\n=== Evaluación ===\n")
+print(f"\n=== Evaluation ===\n")
 print(f"MAE:  {mae:.3f}")
 print(f"RMSE: {rmse:.3f}")
 ```
 
-**Salida:**
+**Output:**
 
 ```
-=== Evaluación ===
+=== Evaluation ===
 
 MAE:  0.876
 RMSE: 1.123
@@ -278,46 +278,46 @@ RMSE: 1.123
 
 ______________________________________________________________________
 
-## 📝 Resumen
+## 📝 Summary
 
 ### ✅ Collaborative Filtering
 
 **User-Based:**
 
-- Encuentra usuarios similares
-- Recomienda lo que les gustó a usuarios similares
-- **Ventaja:** Captura preferencias subjetivas
-- **Desventaja:** Escalabilidad (comparar todos los usuarios)
+- Find similar users
+- Recommend what similar users liked
+- **Advantage:** Captures subjective preferences
+- **Disadvantage:** Scalability (compare all users)
 
 **Item-Based:**
 
-- Encuentra items similares
-- Recomienda items similares a los que le gustaron
-- **Ventaja:** Más escalable (items son menos que usuarios)
-- **Desventaja:** Menos diversidad ("más de lo mismo")
+- Find similar items
+- Recommends items similar to those you liked
+- **Advantage:** More scalable (items are less than users)
+- **Disadvantage:** Less diversity ("more of the same")
 
 ### 🎯 Cold Start Problem
 
-- **Nuevos usuarios:** No tienen historial → no se puede calcular similitud
+- **New users:** They do not have history → cannot calculate similarity
 
-- **Solución:** Pedir ratings iniciales, usar contenido (Content-Based), popularidad
+- **Solution:** Ask for initial ratings, use Content (Content-Based), popularity
 
-- **Nuevos items:** No tienen ratings → no aparecen en recomendaciones
+- **New items:** They have no ratings → they do not appear in recommendations
 
-- **Solución:** Recomendar a usuarios early adopters, usar metadata
+- **Solution:** Recommend a users early adopters, use metadata
 
-### 💡 Mejoras
+### 💡 Improvements
 
-1. **Matrix Factorization:** SVD, ALS (Ejemplo 02)
-1. **Hybrid Systems:** Combinar collaborative + content-based
+1. **Matrix Factorization:** SVD, ALS (Example 02)
+1. **Hybrid Systems:** Combine collaborative + content-based
 1. **Deep Learning:** Neural Collaborative Filtering
-1. **Context-Aware:** Considerar tiempo, ubicación, dispositivo
+1. **Context-Aware:** Consider time, location, device
 
 ### 📌 Checklist
 
-- ✅ Crear matriz user-item
-- ✅ Calcular similitudes (cosine, Pearson)
-- ✅ Implementar user-based y item-based
-- ✅ Manejar sparsity (fill NaN, regularización)
-- ✅ Evaluar con MAE/RMSE en test set
-- ✅ Estrategia para cold start
+- ✅ Create matrix user-item
+- ✅ Calculate similarities (cosine, Pearson)
+- ✅ Implement user-based and item-based
+- ✅ Handle sparsity (fill NaN, Regularization)
+- ✅ Evaluate yourself with MAE/RMSE in test set
+- ✅ Strategy for cold start

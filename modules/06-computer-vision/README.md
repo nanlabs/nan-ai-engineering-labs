@@ -8,21 +8,21 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 
 - Understand digital representation of images and preprocessing (resize, normalize, augmentation)
 - Train CNNs for image classification (custom architectures + pre-trained)
-- Implementar object detection con YOLO (bounding boxes, NMS, mAP)
-- Aplicar image segmentation (semantic y instance segmentation)
-- Usar transfer learning y fine-tuning efectivamente
+- Implement object detection with YOLO (bounding boxes, NMS, mAP)
+- Apply image segmentation (semantic and instance segmentation)
+- Wear transfer learning and fine-tuning effectively
 - Evaluate with appropriate metrics (accuracy, IoU, mAP) and explain errors
 
-## 📂 Estructura interna
+## 📂 Structure interna
 
-- **theory/**: fundamentos (píxeles, CNNs, architectures, detection/segmentation)
+- **theory/**: fundamentals (Pixels, CNNs, architectures, detection/segmentation)
 - **examples/**: guided examples with PyTorch/torchvision
-- **practices/**: ejercicios hands-on
+- **practices/**: Exercises hands-on
   - 01: Image Classification with CNNs (ResNet vs VGG, data augmentation ablation)
-  - 02: Object Detection y Segmentation (YOLO, Mask R-CNN, NMS, real-time tracking)
+  - 02: Object Detection and Segmentation (YOLO, Mask R-CNN, NMS, real-time tracking)
 - **mini-project/**: complete detection/classification system
 - **evaluation/**: checklist and rubric
-- **notes/**: arquitecturas probadas y resultados
+- **notes/**: tested architectures and results
 
 ## Level path (L1-L4)
 
@@ -33,7 +33,7 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 
 ## Migration
 
-- Fuente base original: folders/Computer Vision
+- Fountain base original: folders/Computer Vision
 
 ## Plan recomendado (4 semanas)
 
@@ -47,9 +47,9 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 - 2 solved and validated practices
 - Functional mini-project with metrics (accuracy, mAP, IoU)
 - Final evaluation approved (>=70/100)
-- Demostrar: CNNs custom, transfer learning, object detection, segmentation
+- Demonstrate: CNNs custom, transfer learning, object detection, segmentation
 
-## 📚 Recursos Adicionales
+## 📚 Resources Adicionales
 
 **Frameworks:**
 
@@ -57,7 +57,7 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 - [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5)
 - [Detectron2 (Facebook)](https://github.com/facebookresearch/detectron2)
 
-**Cursos:**
+**Cursors, Cursor:**
 
 - [CS231n: CNNs for Visual Recognition](http://cs231n.stanford.edu/)
 - [Fast.ai Course](https://course.fast.ai/)
