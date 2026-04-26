@@ -1,34 +1,34 @@
-# 📚 Documentación Central — Guías de Estudio
+# 📚 Documentation Central — Study Guides
 
-> **Hub de navegación: Toda la documentación del programa AI/ML en un solo lugar**
+> **Navigation Hub: All AI/ML program documentation in one place**
 
 ______________________________________________________________________
 
-## 🎯 Si estás empezando
+## 🎯 If you are starting
 
-**Lectura en orden recomendado (15-20 min total):**
+**Reading in recommended order (15-20 min total):**
 
-1. 📋 [**RESUMEN-MODULOS.md**](RESUMEN-MODULOS.md) (5 min)
+1. 📋 [**SUMMARY-MODULES.md**](SUMMARY-MODULES.md) (5 min)
 
-   - Qué aprenderás módulo por módulo
-   - Overview rápido de los 12 módulos core + 6 avanzados
+   - What you will learn Module by Module
+   - Fast overview of the 12 core + 6 advanced Modules
 
 1. 🗺️ [**LEARNING-PATH.md**](LEARNING-PATH.md) (10 min)
 
-   - Ruta completa de estudio por fases
-   - Secuencia sugerida sin deadlines fijos
+   - Complete study route by phases
+   - Suggested sequence without fixed deadlines
 
 1. ⏰ [**STUDY-RHYTHM.md**](STUDY-RHYTHM.md) (5 min)
 
-   - Cómo sostener un ritmo realista
-   - Tips de consistencia y disciplina
+   - How to maintain a realistic rhythm
+   - Consistency and discipline tips
 
-1. ⚡ [**QUICK-START.md**](QUICK-START.md) (10 min + práctica)
+1. ⚡ [**QUICK-START.md**](QUICK-START.md) (10 min + Practice)
 
-   - Setup del entorno en 3 minutos
-   - Ejecuta tu primer código de ML
+   - Environment setup in 3 minutes
+   - Run your first ML code
 
-1. 🚀 **¡Comienza!**
+1. 🚀 **Start!**
 
    ```bash
    cd ../modules/01-programming-math-for-ml/
@@ -37,52 +37,53 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 📖 Guías Completas
+## 📖 Complete Guides
 
-### 🎓 **Para Estudiantes**
+### 🎓 **For Students**
 
-| Documento                                    | Propósito                             | Cuándo leer                |
+| I document | Purpose | When to read |
 | -------------------------------------------- | ------------------------------------- | -------------------------- |
-| [**LEARNING-PATH.md**](LEARNING-PATH.md)     | Roadmap completo por fases sin fechas | ⭐ Antes de empezar        |
-| [**RESUMEN-MODULOS.md**](RESUMEN-MODULOS.md) | Qué aprenderás en cada módulo         | Planificando tu ruta       |
-| [**QUICK-START.md**](QUICK-START.md)         | Setup rápido + primer ejemplo         | ⚡ Para empezar HOY        |
-| [**STUDY-RHYTHM.md**](STUDY-RHYTHM.md)       | Cómo mantener consistencia            | Si no sabes cuánto dedicar |
-| [**RESOURCES.md**](RESOURCES.md)             | Libros, cursos, papers recomendados   | Durante el estudio         |
+| [**LEARNING-PATH.md**](LEARNING-PATH.md) | Roadmap complete by phases, phases without dates | ⭐ Before you start |
+| [**SUMMARY-MODULES.md**](SUMMARY-MODULES.md) | What you will learn in each Module | Planning your route |
+| [**QUICK-START.md**](QUICK-START.md) | Setup fast + first Example | ⚡ To start TODAY |
+| [**STUDY-RHYTHM.md**](STUDY-RHYTHM.md) | How to maintain consistency | If you don't know how much to dedicate |
+| [**RESOURCES.md**](RESOURCES.md) | Books, cursors, cursor, papers recommended | During the study |
+| [**MODULES-COMPARISON-WITH-TRAINING-PY.md**](MODULES-COMPARISON-WITH-TRAINING-PY.md) | Detailed comparison of study models and repeated README structures | If you want to align both repositories |
 
-### 🛠️ **Para Mantenedores**
+### 🛠️ **For Maintainers**
 
-| Documento                                                | Propósito                         | Audiencia                     |
-| -------------------------------------------------------- | --------------------------------- | ----------------------------- |
-| [**IMPLEMENTATION-STATUS.md**](IMPLEMENTATION-STATUS.md) | Estado 100% completo del proyecto | Verificar qué está disponible |
-| [**PHASES-CREACION.md**](PHASES-CREACION.md)             | Fases de construcción del repo    | Contribuidores y creadores    |
-| [**ROADMAP-ORIGINAL.md**](ROADMAP-ORIGINAL.md)           | Referencia histórica inicial      | Contexto del diseño original  |
-| [**COVERAGE-GAP-MATRIX.md**](COVERAGE-GAP-MATRIX.md)     | Matriz P0/P1/P2 de brechas        | Planificación de ejecución    |
-| [**EXAMPLE-BACKLOG-PILOT.md**](EXAMPLE-BACKLOG-PILOT.md) | Backlog piloto de ejemplos        | Ejecución Fase 2              |
+| I document | Purpose | Audience |
+| -------------------------------------------------------- | --------------------------------- | -------------------------- |
+| [**IMPLEMENTATION-STATUS.md**](IMPLEMENTATION-STATUS.md) | Status 100% complete of the project | Check what is available |
+| [**PHASES-CREATION.md**](PHASES-CREATION.md) | Fazes, Repo construction phases | Contributors and creators |
+| [**ROADMAP-ORIGINAL.md**](ROADMAP-ORIGINAL.md) | Initial historical reference | Context of the original design |
+| [**COVERAGE-GAP-MATRIX.md**](COVERAGE-GAP-MATRIX.md) | Matrix P0/P1/P2 of gaps | Execution planning |
+| [**EXAMPLE-BACKLOG-PILOT.md**](EXAMPLE-BACKLOG-PILOT.md) | Examples pilot backlog | Execution Phase 2 |
 
 ______________________________________________________________________
 
-## 🗂️ Estructura del Repositorio
+## 🗂️ Repository Structure
 
 ```
 training-ai/
-├── 📄 README.md                    → Punto de entrada principal
+├── 📄 README.md                    → Punto de input principal
 │
-├── 📁 docs/                        → Documentación centralizada (estás aquí)
-│   ├── LEARNING-PATH.md           → Ruta de estudio completa
-│   ├── RESUMEN-MODULOS.md         → Qué aprenderás
+├── 📁 docs/                        → Documentation centralizada (are here)
+│   ├── LEARNING-PATH.md           → Ruta de estudio complete
+│   ├── RESUMEN-MODULOS.md         → Qué you will learn
 │   ├── STUDY-RHYTHM.md            → Ritmo sugerido
-│   ├── RESOURCES.md               → Recursos externos
-│   ├── IMPLEMENTATION-STATUS.md   → Estado del proyecto
-│   ├── PHASES-CREACION.md         → Fases de construcción
-│   └── ROADMAP-ORIGINAL.md        → Referencia histórica
+│   ├── RESOURCES.md               → Resources externos
+│   ├── IMPLEMENTATION-STATUS.md   → Status del project
+│   ├── PHASES-CREACION.md         → Fazes, Phases de construction
+│   └── ROADMAP-ORIGINAL.md        → Referencia historical
 │
-├── 📁 modules/                     → 12 módulos core (tu foco)
+├── 📁 modules/                     → 12 modules core (tu foco)
 │   ├── 01-programming-math-for-ml/
 │   ├── 02-data-collection-cleaning-visualization/
 │   ├── ...
 │   └── 12-mlops-ai-in-production/
 │
-├── 📁 trends-extras/               → 6 módulos avanzados
+├── 📁 trends-extras/               → 6 modules advanceds
 │   ├── agents/
 │   ├── guardrails/
 │   ├── multimodal/
@@ -90,8 +91,8 @@ training-ai/
 │   ├── ai-observability/
 │   └── synthetic-data/
 │
-├── 📁 shared/                      → Recursos compartidos
-│   ├── datasets/                  → Datasets públicos
+├── 📁 shared/                      → Resources compartidos
+│   ├── datasets/                  → Datasets public
 │   ├── notebooks/                 → Jupyter notebooks
 │   └── utils/                     → Utilidades reutilizables
 │
@@ -103,83 +104,84 @@ training-ai/
 
 ______________________________________________________________________
 
-## 🔗 Links Rápidos
+## 🔗 Links Rapid
 
-### 🎯 **Empezar a Estudiar**
+### 🎯 **Start Studying**
 
-- [← Volver al README principal](../README.md)
-- [→ Ir al Módulo 1](../modules/01-programming-math-for-ml/README.md)
-- [📋 Ver resumen de todos los módulos](RESUMEN-MODULOS.md)
+- [← Return to main README](../README.md)
+- [→ Ir al Module 1](../modules/01-programming-math-for-ml/README.md)
+- [📋 See summary of all modules](SUMMARY-MODULES.md)
 
-### 📊 **Estado del Proyecto**
+### 📊 **Project Status**
 
-- [✅ Estado de implementación](IMPLEMENTATION-STATUS.md) - 100% completo
-- [📈 Fases de creación](PHASES-CREACION.md) - Cómo se construyó
+- [✅ Implementation status](IMPLEMENTATION-STATUS.md) - 100% complete
+- [📈 Fazes, Phases de creation](PHASES-CREACION.md) - As built
+- [🔍 Study model comparison](MODULES-COMPARISON-WITH-TRAINING-PY.md) - `training-py` vs `nan-ai-engineering-labs`
 
-### 📚 **Recursos Externos**
+### 📚 **External Resources**
 
-- [🔖 Recursos recomendados](RESOURCES.md) - Papers, cursos, libros
+- [🔖 Resources recommended](RESOURCES.md) - Papers, cursors, cursor, books
 
 ______________________________________________________________________
 
-## 💡 Cómo navegar este repositorio
+## 💡 How to navigate this repository
 
-### 🎓 **Si quieres aprender AI/ML:**
+### 🎓 **If you want to learn AI/ML:**
 
 ```
-1. Lee ../README.md (overview motivacional)
-2. Lee RESUMEN-MODULOS.md (qué aprenderás)
-3. Lee LEARNING-PATH.md (ruta completa)
+1. Lee ../README.md (overview motivational)
+2. Lee RESUMEN-MODULOS.md (qué you will learn)
+3. Lee LEARNING-PATH.md (ruta complete)
 4. Ve a modules/01-... y empieza
 ```
 
-### 🔍 **Si buscas material específico:**
+### 🔍 **If you are looking for specific material:**
 
 ```
-- Busca en trends-extras/ para temas avanzados
-- Usa shared/datasets/ para datos de práctica
+- Busca en trends-extras/ para topics advanceds
+- Usa shared/datasets/ para data de practice
 - Revisa templates/ para crear tus propios proyectos
 ```
 
-### 🤝 **Si quieres contribuir:**
+### 🤝 **If you want to contribute:**
 
 ```
-1. Lee IMPLEMENTATION-STATUS.md (qué está completo)
-2. Lee PHASES-CREACION.md (arquitectura del repo)
-3. Fork y abre un PR con mejoras
+1. Lee IMPLEMENTATION-STATUS.md (qué this complete)
+2. Lee PHASES-CREACION.md (architecture del repo)
+3. Fork y abre un PR con improvements
 ```
 
 ______________________________________________________________________
 
-## 📝 Nota sobre `init-path/`
+## 📝 Nota about `init-path/`
 
-La carpeta `init-path/` contiene el primer draft del programa y se mantiene como referencia histórica.
+The `init-path/` folder contains the first draft of the program and is kept for historical reference.
 
-**El contenido vigente y mantenido está en:**
+**The current and maintained Content is in:**
 
-- ✅ `modules/` - Módulos actualizados y completos
-- ✅ `trends-extras/` - Tendencias actuales de la industria
-- ✅ `docs/` - Documentación centralizada
+- ✅ `modules/` - Updated and complete Modules
+- ✅ `trends-extras/` - Current industry trends
+- ✅ `docs/` - Centralized documentation
 
 ______________________________________________________________________
 
-## 🎯 Próximos Pasos
+## 🎯 Next Steps
 
-¿Listo para empezar? Sigue esta secuencia:
+Ready to get started? Follow this sequence:
 
-1. ✅ Leíste este archivo (docs/README.md) ← **Estás aquí**
-1. → Lee [RESUMEN-MODULOS.md](RESUMEN-MODULOS.md) (5 min)
+1. ✅ Did you read this file (docs/README.md) ← **Are here**
+1. → Read [SUMMARY-MODULES.md](SUMMARY-MODULES.md) (5 min)
 1. → Lee [LEARNING-PATH.md](LEARNING-PATH.md) (10 min)
-1. → Abre [Módulo 1](../modules/01-programming-math-for-ml/README.md)
-1. → ¡Empieza a programar! 💻
+1. → Open [Module 1](../modules/01-programming-math-for-ml/README.md)
+1. → Start programming! 💻
 
 ______________________________________________________________________
 
 <div align="center">
 
-**¿Dudas? ¿Sugerencias?**
-Abre un issue en GitHub o inicia una Discussion
+**Doubts? Suggestions?**
+Open an issue on GitHub or start a Discussion
 
-[← Volver al inicio](../README.md) | [Comenzar Módulo 1 →](../modules/01-programming-math-for-ml/README.md)
+[← Back to top](../README.md) | [Start Module 1 →](../modules/01-programming-math-for-ml/README.md)
 
 </div>

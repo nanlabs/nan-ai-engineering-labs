@@ -1,6 +1,6 @@
 # 🎓 AI & Machine Learning Engineer — Programa Completo
 
-> **De fundamentos a producción: Tu camino estructurado para convertirte en AI/ML Engineer profesional**
+> **De fundamentos a production: Tu camino estructurado para convertirte en AI/ML Engineer profesional**
 
 [![Status](https://img.shields.io/badge/Status-100%25%20Completo-success)](<>)
 [![Modules](https://img.shields.io/badge/M%C3%B3dulos-12%20Core%20%2B%206%20Avanzados-blue)](<>)
@@ -12,89 +12,89 @@ ______________________________________________________________________
 
 ## 🎯 ¿Qué vas a aprender?
 
-Este programa te lleva desde **cero conocimiento en AI** hasta **implementar sistemas de producción**, cubriendo todo el stack necesario para trabajar como AI/ML Engineer profesional:
+Este programa te lleva from **cero conocimiento en AI** hasta **implementar systems de production**, cubriendo todo el stack necesario para trabajar como AI/ML Engineer profesional:
 
-### 🧠 **Foundation** (Módulos 1-4)
+### 🧠 **Foundation** (Modules 1-4)
 
 Construirás bases sólidas en programación, matemáticas y ML clásico:
 
 - Python científico (NumPy, Pandas, Matplotlib)
 - Álgebra lineal, cálculo y estadística aplicados a ML
-- Algoritmos de ML: regresión, clasificación, clustering, ensemble
-- Deep Learning: redes neuronales, backpropagation, CNNs, RNNs
+- Algorithms de ML: regression, Classification, clustering, ensemble
+- Deep Learning: neural networks, backpropagation, CNNs, RNNs
 
-**Al finalizar:** Podrás entrenar modelos de ML clásico y redes neuronales, entender papers técnicos, y diagnosticar problemas de overfitting/underfitting.
+**Al finalizar:** Podrás entrenar Models de ML clásico y neural networks, entender papers técnicos, y diagnosticar Problems de overfitting/underfitting.
 
 ______________________________________________________________________
 
-### 🚀 **Specialization** (Módulos 5-8)
+### 🚀 **Specialization** (Modules 5-8)
 
 Dominarás las 4 áreas críticas de AI moderna:
 
 - **NLP & LLMs**: Fine-tuning, prompt engineering, RAG, embeddings
 - **Computer Vision**: CNNs, transfer learning, object detection, segmentación
-- **Time Series**: Forecasting con ARIMA/Prophet/LSTMs, detección de anomalías
+- **Time Series**: Forecasting con ARIMA/Prophet/LSTMs, detección de Anomalies
 - **Recommender Systems**: Collaborative filtering, matrix factorization, hybrid systems
 
-**Al finalizar:** Podrás construir chatbots inteligentes, clasificar imágenes médicas, predecir ventas futuras, y recomendar productos personalizados.
+**Al finalizar:** Podrás construir chatbots inteligentes, clasificar Images médicas, predecir ventas futuras, y recomendar products personalizados.
 
 ______________________________________________________________________
 
-### 🎨 **Generative AI** (Módulos 9)
+### 🎨 **Generative AI** (Modules 9)
 
-Crearás sistemas generativos de última generación:
+Crearás systems generativos de última generación:
 
-- GANs para generar imágenes realistas
+- GANs para generar Images realistas
 - VAEs y Diffusion Models (Stable Diffusion)
-- Prompt engineering avanzado para LLMs
+- Prompt engineering advanced para LLMs
 - RAG (Retrieval-Augmented Generation) para aplicaciones empresariales
 
-**Al finalizar:** Podrás construir aplicaciones como generadores de imágenes, chatbots con memoria, y sistemas de pregunta-respuesta sobre documentos propios.
+**Al finalizar:** Podrás construir aplicaciones como generadores de Images, chatbots con memoria, y systems de pregunta-respuesta about documents propios.
 
 ______________________________________________________________________
 
-### ⚖️ **Ethics & Governance** (Módulos 10-11)
+### ⚖️ **Ethics & Governance** (Modules 10-11)
 
-Desarrollarás criterio profesional sobre ética y seguridad:
+Desarrollarás criterio profesional about ética y security:
 
-- Detección y mitigación de bias en modelos
+- Detection y mitigación de bias en Models
 - Explainability con SHAP, LIME, attention visualization
 - Privacidad: anonimización, differential privacy, federated learning
-- Seguridad: encriptación, hashing, tokenización de datos sensibles
+- Seguridad: encriptación, hashing, Tokenization de Data sensibles
 
-**Al finalizar:** Podrás auditar modelos por bias, explicar decisiones a stakeholders no técnicos, y cumplir regulaciones como GDPR/HIPAA.
+**Al finalizar:** Podrás auditar Models por bias, explicar decisions a stakeholders no técnicos, y cumplir regulaciones como GDPR/HIPAA.
 
 ______________________________________________________________________
 
-### 🏭 **Production & MLOps** (Módulo 12)
+### 🏭 **Production & MLOps** (Module 12)
 
-Llevarás modelos a producción de forma robusta:
+Llevarás Models a production de forma robusta:
 
 - Deployment con FastAPI, Docker, Kubernetes
 - CI/CD para ML con GitHub Actions, MLflow
 - Monitoring: drift detection, latency tracking, cost optimization
 - A/B testing y experimentación controlada
 
-**Al finalizar:** Podrás desplegar modelos escalables en AWS/GCP, configurar pipelines automatizados, y monitorear sistemas en producción.
+**Al finalizar:** Podrás desplegar Models escalables en AWS/GCP, configurar pipelines automatizados, y monitorear systems en production.
 
 ______________________________________________________________________
 
-### 🔥 **Cutting-Edge Trends** (6 Módulos Avanzados)
+### 🔥 **Cutting-Edge Trends** (6 Modules Avanzados)
 
 Además, dominarás las tendencias más recientes de la industria:
 
-| Tema                 | Qué aprenderás                                         | Para qué sirve                                                   |
+| Topic                 | Qué aprenderás                                         | Para qué sirve                                                   |
 | -------------------- | ------------------------------------------------------ | ---------------------------------------------------------------- |
-| **AI Agents**        | ReAct, tool use, multi-agent systems                   | Construir asistentes autónomos que ejecutan tareas complejas     |
-| **LLM Guardrails**   | Input validation, output filtering, toxicity detection | Proteger aplicaciones LLM de prompt injection y contenido dañino |
-| **Multimodal AI**    | CLIP, BLIP, Stable Diffusion                           | Combinar texto e imágenes (búsqueda visual, VQA, generación)     |
-| **LLM Evaluation**   | BLEU, ROUGE, BERTScore, benchmarks                     | Medir calidad de respuestas y optimizar prompts sistemáticamente |
-| **AI Observability** | Logging, tracing, cost tracking, dashboards            | Monitorear LLMs en producción (latencia, costos, errores)        |
-| **Synthetic Data**   | CTGAN, text augmentation, differential privacy         | Generar datos sintéticos para training manteniendo privacidad    |
+| **AI Agents**        | ReAct, tool use, multi-agent systems                   | Build asistentes autónomos que executen tareas complejas     |
+| **LLM Guardrails**   | Input validation, output filtering, toxicity detection | Proteger aplicaciones LLM de prompt injection y Content dañino |
+| **Multimodal AI**    | CLIP, BLIP, Stable Diffusion                           | Combiner text e Images (búsqueda visual, VQA, generación)     |
+| **LLM Evaluation**   | BLEU, ROUGE, BERTScore, benchmarks                     | Medir quality de responses y optimizar prompts sistemáticamente |
+| **AI Observability** | Logging, tracing, cost tracking, dashboards            | Monitorear LLMs en production (latencia, costos, Errors)        |
+| **Synthetic Data**   | CTGAN, text augmentation, differential privacy         | Generate Data sintéticos para training manteniendo privacy    |
 
 ______________________________________________________________________
 
-## 🗺️ Roadmap de Aprendizaje
+## 🗺️ Roadmap de Learning
 
 ```
 FASE 1: Fundamentos (2-3 meses)
@@ -102,7 +102,7 @@ FASE 1: Fundamentos (2-3 meses)
 ├─ Módulo 02: Data Wrangling & Visualization
 ├─ Módulo 03: ML Fundamentals
 └─ Módulo 04: Deep Learning Basics
-   └─ Checkpoint: Implementar clasificador de imágenes con CNN
+   └─ Checkpoint: Implement clasificador de imágenes con CNN
 
 FASE 2: Especialización (3-4 meses)
 ├─ Módulo 05: NLP & Large Language Models
@@ -116,26 +116,26 @@ FASE 3: Producción (2-3 meses)
 ├─ Módulo 10: Ethics, Bias & Explainability
 ├─ Módulo 11: Data Privacy & Security
 └─ Módulo 12: MLOps & AI in Production
-   └─ Checkpoint: Deploy sistema completo con CI/CD
+   └─ Checkpoint: Deploy sistema complete con CI/CD
 
 FASE 4: Avanzado (1-2 meses)
 ├─ Trends: Agents, Guardrails, Multimodal
 ├─ Trends: Evaluación, Observability, Synthetic Data
-└─ Proyecto Final: Sistema de producción con monitoring completo
+└─ Proyecto Final: Sistema de production con monitoring complete
 ```
 
 **Tiempo total estimado:** 8-12 meses (a tu propio ritmo)
 
 ______________________________________________________________________
 
-## 📚 Estructura del Programa
+## 📚 Structure del Programa
 
-Cada módulo sigue una estructura pedagógica probada:
+Cada Module sigue una Structure pedagógica probada:
 
 ```
 📁 modules/0X-nombre-modulo/
-├── 📖 README.md          → Overview, objetivos, casos de uso
-├── 📊 STATUS.md          → Tu progreso personal
+├── 📖 README.md          → Overview, objetivos, cases de uso
+├── 📊 STATUS.md          → Tu progress personal
 ├── 📚 theory/            → Material teórico (conceptos, papers, explicaciones)
 ├── 💻 examples/          → Código funcional demostrando conceptos
 ├── 🎯 practices/         → Ejercicios guiados con soluciones
@@ -145,23 +145,23 @@ Cada módulo sigue una estructura pedagógica probada:
 
 **Total de materiales:**
 
-- ✅ **12 módulos core** (fundamentos → producción)
-- ✅ **6 módulos avanzados** (tendencias actuales)
-- ✅ **60+ ejemplos de código** Python ejecutables
-- ✅ **40+ prácticas guiadas** con soluciones
+- ✅ **12 Modules core** (fundamentos → production)
+- ✅ **6 Modules advanceds** (tendencias actuales)
+- ✅ **60+ Examples de code** Python executebles
+- ✅ **40+ Practices guiadas** con soluciones
 - ✅ **12 mini-proyectos** integradores
-- ✅ **~28,000 líneas** de código y documentación
+- ✅ **~28,000 líneas** de code y documentación
 
 ______________________________________________________________________
 
 ## 🚀 Inicio Rápido
 
-### 1️⃣ **Revisa el programa completo**
+### 1️⃣ **Revisa el programa complete**
 
-- 📋 [**RESUMEN-MODULOS.md**](docs/RESUMEN-MODULOS.md) - Qué aprenderás en cada módulo (5 min)
-- 🗺️ [**LEARNING-PATH.md**](docs/LEARNING-PATH.md) - Ruta de estudio completa por fases
-- 📊 [**IMPLEMENTATION-STATUS.md**](docs/IMPLEMENTATION-STATUS.md) - Estado 100% completo del proyecto
-- ⚡ [**QUICK-START.md**](docs/QUICK-START.md) - ¡Empieza en 10 minutos! (setup + primer ejemplo)
+- 📋 [**RESUMEN-MODULOS.md**](docs/RESUMEN-MODULOS.md) - Qué aprenderás en each Module (5 min)
+- 🗺️ [**LEARNING-PATH.md**](docs/LEARNING-PATH.md) - Ruta de estudio complete por fases
+- 📊 [**IMPLEMENTATION-STATUS.md**](docs/IMPLEMENTATION-STATUS.md) - Status 100% complete del project
+- ⚡ [**QUICK-START.md**](docs/QUICK-START.md) - ¡Empieza en 10 minutos! (setup + primer Example)
 
 ### 2️⃣ **Configura tu entorno**
 
@@ -179,24 +179,24 @@ source venv/bin/activate  # Linux/Mac
 pip install numpy pandas matplotlib scikit-learn jupyter
 ```
 
-### 3️⃣ **Empieza el Módulo 1**
+### 3️⃣ **Empieza el Module 1**
 
 ```bash
 cd modules/01-programming-math-for-ml
 cat README.md  # Lee el overview del módulo
 ```
 
-**Flujo de estudio dentro de cada módulo:**
+**Flujo de estudio dentro de each Module:**
 
 ```
 theory/ → examples/ → practices/ → mini-project/ → evaluation/
 ```
 
-### 4️⃣ **Trackea tu progreso**
+### 4️⃣ **Trackea tu progress**
 
-- Marca tu avance en `STATUS.md` de cada módulo
+- Marca tu avance en `STATUS.md` de each Module
 - Completa los checklists de autoevaluación
-- Documenta blockers y aprendizajes en `notes/`
+- Document blockers y learnings en `notes/`
 
 ______________________________________________________________________
 
@@ -204,19 +204,20 @@ ______________________________________________________________________
 
 ### 📁 Guías Principales
 
-| Documento                                         | Descripción                        | Cuándo leerlo              |
+| I document                                         | Description                        | When leerlo              |
 | ------------------------------------------------- | ---------------------------------- | -------------------------- |
-| [**README.md**](README.md)                        | Este archivo - hub central         | ⭐ Punto de entrada        |
-| [**LEARNING-PATH.md**](docs/LEARNING-PATH.md)     | Ruta completa de estudio por fases | Antes de empezar           |
-| [**RESUMEN-MODULOS.md**](docs/RESUMEN-MODULOS.md) | Qué aprenderás módulo por módulo   | Planificación inicial      |
+| [**README.md**](README.md)                        | Este archivo - hub central         | ⭐ Punto de input        |
+| [**LEARNING-PATH.md**](docs/LEARNING-PATH.md)     | Ruta complete de estudio por fases | Antes de empezar           |
+| [**RESUMEN-MODULOS.md**](docs/RESUMEN-MODULOS.md) | Qué aprenderás Module por Module   | Planificación inicial      |
 | [**STUDY-RHYTHM.md**](docs/STUDY-RHYTHM.md)       | Ritmo sugerido adaptable           | Si no sabes cuánto dedicar |
-| [**RESOURCES.md**](docs/RESOURCES.md)             | Recursos externos recomendados     | Durante el estudio         |
+| [**RESOURCES.md**](docs/RESOURCES.md)             | Resources externos recommended     | Durante el estudio         |
+| [**MODULES-COMPARISON-WITH-TRAINING-PY.md**](docs/MODULES-COMPARISON-WITH-TRAINING-PY.md) | Comparación detallada del modelo de estudio con `training-py` | Si vas a usar ambos repos |
 
 ### 🛠️ Guías Técnicas
 
-| Documento                                                     | Descripción                    | Cuándo usarlo                  |
+| I document                                                     | Description                    | When usarlo                  |
 | ------------------------------------------------------------- | ------------------------------ | ------------------------------ |
-| [**IMPLEMENTATION-STATUS.md**](docs/IMPLEMENTATION-STATUS.md) | Estado completo del proyecto   | Verificar qué está disponible  |
+| [**IMPLEMENTATION-STATUS.md**](docs/IMPLEMENTATION-STATUS.md) | Status complete del project   | Verificar qué está disponible  |
 | [**PHASES-CREACION.md**](docs/PHASES-CREACION.md)             | Fases de construcción del repo | Solo para mantenedores         |
 | [**templates/**](templates/)                                  | Plantillas reutilizables       | Al crear tus propios proyectos |
 
@@ -225,7 +226,7 @@ ______________________________________________________________________
 ```
 training-ai/
 ├── 📁 modules/          → 12 módulos core (tu foco principal)
-├── 📁 trends-extras/    → 6 módulos avanzados (después de core)
+├── 📁 trends-extras/    → 6 módulos advanceds (after de core)
 ├── 📁 docs/             → Documentación centralizada
 ├── 📁 shared/           → Datasets, utils, notebooks compartidos
 └── 📁 templates/        → Plantillas para prácticas/proyectos
@@ -238,44 +239,44 @@ ______________________________________________________________________
 ### ✅ **Perfecto si eres:**
 
 - **Developer** queriendo pivotear a AI/ML
-- **Data Analyst** buscando profundizar en modelos predictivos
+- **Data Analyst** buscando profundizar en Models predictivos
 - **Estudiante** de CS/Math/Engineering interesado en AI
-- **Self-learner** disciplinado con tiempo para práctica intensiva
+- **Self-learner** disciplinado con time para Practice intensiva
 - **Professional** buscando actualizar skills en LLMs y Generative AI
 
-### ⚠️ **Requisitos previos:**
+### ⚠️ **Requirements previous:**
 
-- Python básico (variables, loops, funciones)
+- Python basic (variables, loops, Functions)
 - Matemáticas de secundaria (álgebra, gráficos)
 - Inglés técnico (para leer papers/docs)
-- Dedicación: 10-15 horas/semana recomendadas
+- Dedicación: 10-15 horas/week recomendadas
 
-### 🎓 **Al completar tendrás nivel para:**
+### 🎓 **Al complete tendrás nivel para:**
 
-- **Junior AI/ML Engineer** (completa Fase 1-2)
-- **Mid-level ML Engineer** (completa Fase 1-3)
-- **Senior AI Engineer** (completa Fase 1-4 + proyectos personales)
+- **Junior AI/ML Engineer** (complete Phase 1-2)
+- **Mid-level ML Engineer** (complete Phase 1-3)
+- **Senior AI Engineer** (complete Phase 1-4 + proyectos personales)
 
 ______________________________________________________________________
 
 ## 💡 Metodología de Estudio
 
-### 🔄 **Ciclo de Aprendizaje**
+### 🔄 **Ciclo de Learning**
 
-Cada módulo sigue este ciclo probado:
+Cada Module sigue este ciclo probado:
 
 ```
 1. 📖 THEORY (30%)
    └─ Lee conceptos, papers, explicaciones
 
 2. 👀 EXAMPLES (20%)
-   └─ Ejecuta código funcional, entiende detalles
+   └─ Ejecuta code funcional, entiende detalles
 
 3. 🎯 PRACTICES (30%)
    └─ Resuelve ejercicios guiados, compara con soluciones
 
 4. 🚀 MINI-PROJECT (15%)
-   └─ Construye proyecto integrador aplicando todo
+   └─ Construye project integrador aplicando todo
 
 5. ✅ EVALUATION (5%)
    └─ Autoevalúa con checklist, identifica gaps
@@ -283,62 +284,62 @@ Cada módulo sigue este ciclo probado:
 
 ### 📊 **Tracking de Progreso**
 
-Usa `STATUS.md` en cada módulo para registrar:
+Usa `STATUS.md` en each Module para registrar:
 
 ```markdown
-## Estado actual: 🟡 En progreso
+## Status actual: 🟡 En progress
 
 ✅ Theory completada (2024-03-01)
-✅ Examples ejecutados (2024-03-05)
+✅ Examples executedos (2024-03-05)
 🟡 Practices 1/2 completadas
 ❌ Mini-project pendiente
 
-**Blocker actual:** Overfitting en modelo CNN
-**Próximo paso:** Aplicar data augmentation
+**Blocker actual:** Overfitting en model CNN
+**Próximo paso:** Apply data augmentation
 ```
 
 ### 🤝 **Tips de Éxito**
 
-1. **No saltees módulos** - Cada uno construye sobre el anterior
-1. **Tipea el código** - No copies/pegues, escribe manualmente
-1. **Modifica ejemplos** - Cambia hiperparámetros, observa resultados
-1. **Documenta aprendizajes** - Usa `notes/` para tus descubrimientos
+1. **No saltees Modules** - Cada uno construye about el anterior
+1. **Tipea el code** - No copies/pegues, escribe manualmente
+1. **Modifica Examples** - Cambia Hyperparameters, observa Results
+1. **Document learnings** - Usa `notes/` para tus descubrimientos
 1. **Comparte proyectos** - Sube mini-projects a GitHub para portfolio
-1. **Únete a comunidad** - Discord/Reddit de ML para dudas
+1. **Únete a comunidad** - Discord/Reddit de ML para questions
 
 ______________________________________________________________________
 
 ## 🏆 Proyectos que Construirás
 
-A lo largo del programa completarás proyectos reales para tu portfolio:
+A lo largo del programa completarás proyectos real para tu portfolio:
 
-### 🎯 **Mini-Proyectos por Módulo**
+### 🎯 **Mini-Proyectos por Module**
 
-1. **Análisis exploratorio** completo de dataset Titanic con insights
-1. **Sistema de recomendación** de películas con matrix factorization
-1. **Clasificador de sentimientos** de reviews con fine-tuned BERT
-1. **Detector de anomalías** en series temporales financieras
-1. **Chatbot con RAG** respondiendo preguntas sobre documentos PDF
-1. **Auditoría de bias** en modelo de scoring crediticio
-1. **Pipeline ML completo** con CI/CD, monitoring y A/B testing
+1. **Analysis exploratorio** complete de dataset Titanic con insights
+1. **Sistema de recommendation** de películas con matrix factorization
+1. **Classifier de sentimientos** de reviews con fine-tuned BERT
+1. **Detector de Anomalies** en time series financieras
+1. **Chatbot con RAG** respondiendo preguntas about documents PDF
+1. **Auditoría de bias** en Model de scoring crediticio
+1. **Pipeline ML complete** con CI/CD, monitoring y A/B testing
 
 ### 🚀 **Proyecto Final Sugerido**
 
-Construye un **sistema de producción completo** que integre:
+Construye un **sistema de production complete** que integre:
 
-- LLM con RAG sobre tu dominio elegido
-- Guardrails para seguridad (input validation + output filtering)
+- LLM con RAG about tu dominio elegido
+- Guardrails para security (input validation + output filtering)
 - Deployment con FastAPI + Docker
 - Monitoring con Prometheus + Grafana
-- Evaluación automatizada con pytest
+- Evaluation automatizada con pytest
 - CI/CD con GitHub Actions
 
-**Ejemplos de dominios:**
+**Examples de dominios:**
 
-- 🏥 Asistente médico que responde sobre síntomas
-- 💼 HR bot que responde dudas de empleados sobre políticas
+- 🏥 Asistente médico que responde about síntomas
+- 💼 HR bot que responde questions de empleados about políticas
 - 📚 Tutor educativo personalizado para estudiantes
-- 🛒 Recomendador de productos con explicaciones
+- 🛒 Recomendador de products con explicaciones
 
 ______________________________________________________________________
 
@@ -347,17 +348,17 @@ ______________________________________________________________________
 ¿Encontraste un error? ¿Tienes sugerencias? Contribuciones son bienvenidas:
 
 1. Fork el repositorio
-1. Crea una branch (`git checkout -b feature/mejora`)
-1. Commit tus cambios (`git commit -m 'feat: Agrega nueva práctica'`)
-1. Push a la branch (`git push origin feature/mejora`)
+1. Crea una branch (`git checkout -b feature/improvement`)
+1. Commit tus cambios (`git commit -m 'feat: Agrega nueva Practice'`)
+1. Push a la branch (`git push origin feature/improvement`)
 1. Abre un Pull Request
 
 **Áreas donde puedes contribuir:**
 
 - 🐛 Reportar bugs o typos
 - 📝 Mejorar documentación
-- 💻 Agregar más ejemplos de código
-- 🎯 Crear prácticas adicionales
+- 💻 Add más Examples de code
+- 🎯 Create Practices adicionales
 - 🌐 Traducir a otros idiomas (inglés, portugués)
 
 ______________________________________________________________________
@@ -373,7 +374,7 @@ ______________________________________________________________________
 
 ## 📜 Licencia
 
-Este proyecto está bajo licencia MIT. Ver [LICENSE](LICENSE) para detalles.
+Este project está low licencia MIT. Ver [LICENSE](LICENSE) para detalles.
 
 ______________________________________________________________________
 
@@ -383,7 +384,7 @@ Este programa sintetiza conocimiento de:
 
 - 📚 Papers académicos (BERT, GPT, Stable Diffusion, etc.)
 - 🎓 Cursos de Stanford, MIT, Fast.ai
-- 🏢 Experiencia práctica en la industria
+- 🏢 Experiencia Practice en la industria
 - 🌐 Comunidad open-source de ML/AI
 
 ______________________________________________________________________
@@ -395,7 +396,7 @@ ______________________________________________________________________
 git clone https://github.com/matiasz8/training-ai.git
 cd training-ai
 
-# 2. Lee el overview completo
+# 2. Lee el overview complete
 cat docs/RESUMEN-MODULOS.md
 
 # 3. Salta al Módulo 1
@@ -405,7 +406,7 @@ cat README.md
 # 4. ¡A trabajar! 💪
 ```
 
-**Pro tip:** Lee primero [LEARNING-PATH.md](docs/LEARNING-PATH.md) para ver el mapa completo antes de profundizar.
+**Pro tip:** Lee primero [LEARNING-PATH.md](docs/LEARNING-PATH.md) para ver el mapa complete antes de profundizar.
 
 ______________________________________________________________________
 
@@ -415,7 +416,7 @@ ______________________________________________________________________
 
 ⭐ **Star este repo** si lo encuentras útil
 🔔 **Watch** para recibir updates
-🔀 **Fork** para tu aprendizaje personal
+🔀 **Fork** para tu Learning personal
 
 [**Comenzar Ahora →**](modules/01-programming-math-for-ml/README.md)
 
