@@ -15,7 +15,7 @@
 
 ## Checklist final
 
-- [ ] Time series preparada correctly.
+- [ ] Time series prepared correctly.
 - [ ] Implemented forecasting baseline.
 - [ ] Improved model compared to baseline.
 - [ ] Anomalies method applied.

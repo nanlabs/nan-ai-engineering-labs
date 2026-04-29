@@ -8,14 +8,14 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 
 - Understand components of time series (trend, seasonality, noise, decomposition)
 - Build forecasting models (ARIMA, Prophet, LSTM)
-- Implement Anomaly detectors (Z-score, IQR, Isolation Forest, LSTM Autoencoder)
+- Implement Anomaly detectors (Z-score, IQR, Isolation Forest, LSTM Auto-encoder)
 - Apply temporal cross-validation and multi-step forecasting
 - Evaluate with temporal metrics (MAE, RMSE, MAP) and visual analysis
 - Design detection systems in real time
 
-## 📂 Structure interna
+## 📂 Structure
 
-- **theory/**: fundamentos (time series, estacionariedad, forecasting, anomaly detection)
+- **theory/**: fundamentals (time series, stationarity, forecasting, anomaly detection)
 - **examples/**: guided examples with statsmodels, Prophet, PyOD
 - **practices/**: Exercises hands-on
   - 01: Time series forecasting (ARIMA, Prophet, LSTM, temporal cross-validation)
@@ -33,9 +33,9 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 
 ## Migration
 
-- Fuente base original: folders/Time Series & Anomaly Detection
+- Original base source: folders/Time Series & Anomaly Detection
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: basics of time series.
 - Week 2: base forecast models.
@@ -49,7 +49,7 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 - Final evaluation approved (>=70/100)
 - Demonstrate: forecasting with ARIMA/Prophet, detection with multiple methods, evaluation
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 
@@ -62,7 +62,7 @@ Learn to model time series and detect anomalies to anticipate events, failures o
 - [Time Series Forecasting Guide](https://otexts.com/fpp3/)
 - [Anomaly Detection Papers](https://paperswithcode.com/task/anomaly-detection)
 
-**Libros:**
+**Books:**
 
 - [Forecasting: Principles and Practice](https://otexts.com/fpp3/)
 

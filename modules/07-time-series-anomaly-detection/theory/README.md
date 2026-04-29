@@ -57,7 +57,7 @@ Random variability that is not explained by Trend, Seasonality or cycles.
 ### Decomposition
 
 ```
-Y(t) = Trend + Seasonality + Residuales
+Y(t) = Trend + Seasonality + Residuals
 ```
 
 **Types:**
@@ -177,7 +177,7 @@ Average of last `n` values.
 
 **ARIMA:** AutoRegressive Integrated Moving Average.
 
-- **AR (p):** autoregression (depends on passed values).
+- **AR (p):** auto-regression (depends on passed values).
 - **I (d):** differentiation (make stationary series).
 - **MA (q):** moving average of Errors.
 
