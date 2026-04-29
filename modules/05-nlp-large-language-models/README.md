@@ -13,7 +13,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 - Fine-tuning of pre-trained models with LoRA
 - Design a basic mini RAG flow with retrieval + generation
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (tokenization, embeddings, transformers, LLMs)
 - **examples/**: guided examples with NLTK, Gensim, Hugging Face
@@ -35,7 +35,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 
 - Fountain base original: folders/NLP & Large Language Models
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: NLP fundamentals.
 - Week 2: classic text models.
@@ -49,7 +49,7 @@ Learn the fundamentals of natural language processing and the bases of LLMs to b
 - Final evaluation approved (>=70/100)
 - Demonstrate: text preprocessing, embeddings, use of transformers, prompt engineering
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 

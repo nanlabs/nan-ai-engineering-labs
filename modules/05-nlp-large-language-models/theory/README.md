@@ -150,7 +150,7 @@ Extract entities: people, places, organizations, dates.
 
 ```
 "Elon Musk founded Tesla en 2003."
-→ [Elon Musk: PERSONA], [Tesla: ORGANIZATION], [2003: FECHA]
+→ [Elon Musk: PERSONA], [Tesla: ORGANIZATION], [2003: DATE]
 ```
 
 ### Semantic search
@@ -265,9 +265,9 @@ The text input that you give to the LLM to generate an output.
 **Example:**
 
 ```
-Tarea: Clasificar el sentiment de la next review.
-Review: "El product arrive roto y el servicio al client, clientele nunca responded."
-Formato: Respond, Response, Responds, Responded, Responder solo con "Positivo", "Neutral" o "Negativo".
+Task: Classify the sentiment of the following review.
+Review: "The product arrived broken and customer service never responded."
+Format: Respond only with "Positive", "Neutral", or "Negative".
 ```
 
 ### Advanced techniques

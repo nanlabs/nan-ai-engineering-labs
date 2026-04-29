@@ -23,6 +23,6 @@ Build a practical flow that combines preprocessing, Base Model and LLM output ev
 
 ## Acceptance criteria
 
-- Pipeline complete funcionando.
+- Pipeline complete working.
 - Clear qualitative metrics and evaluation.
 - Documented hallucination risks and limits.

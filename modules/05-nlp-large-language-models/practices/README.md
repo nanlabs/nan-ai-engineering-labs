@@ -2,14 +2,14 @@
 
 ## Practices
 
-- `practice-01-Cleaning-tokenizacion.md`
-- `practice-02-tfidf-clasificacion.md`
-- `practice-03-embeddings-similitud.md`
-- `practice-04-prompting-basico.md`
-- `practice-05-evaluacion-llm.md`
+- `practice-01-Cleaning-tokenization.md`
+- `practice-02-tfidf-classification.md`
+- `practice-03-embeddings-similarity.md`
+- `practice-04-prompting-basic.md`
+- `practice-05-evaluation-llm.md`
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Compare baseline classic vs strategy with LLM when applicable.
 - Document Common errors and improvements.
