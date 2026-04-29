@@ -24,5 +24,5 @@ Build an iterative prompting flow with explicit quality and security evaluation.
 ## Acceptance criteria
 
 - Evaluation reproducible flow.
-- Mejoras medibles entre iteraciones.
+- Measurable improvements between iterations.
 - Documented and mitigated risks.

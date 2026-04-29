@@ -13,7 +13,7 @@ Master generative AI techniques (GANs, VAEs, Diffusion) and prompt engineering t
 - Identify and mitigate mode collapse in GANs
 - Explore latent spaces and generate interpolations
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (GANs, VAEs, diffusion, prompt engineering strategies)
 - **examples/**: guided examples with PyTorch
@@ -24,7 +24,7 @@ Master generative AI techniques (GANs, VAEs, Diffusion) and prompt engineering t
 - **evaluation/**: checklist and rubric
 - **notes/**: experiments with generative architectures
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
 - Module 04: Deep Learning Basics (PyTorch, training loops)
 - Module 05: NLP & LLMs (for advanced prompt engineering)
@@ -35,30 +35,30 @@ Master generative AI techniques (GANs, VAEs, Diffusion) and prompt engineering t
 **Week 1-2** (8-10 horas):
 
 1. Read material from `/theory` about GANs and VAEs (2h)
-1. Ejecuta `/examples` (3h)
-1. Complete `/practices/01-gans.md` (4h)
+2. Run `/examples` (3h)
+3. Complete `/practices/01-gans.md` (4h)
 
 **Week 3** (6-8 horas):
 4\. Complete `/practices/02-vae-diffusion.md` (4h)
-5\. Desarrolla Mini-project (3h)
+5\.. Develop Mini-project (3h)
 
-## ✅ Competencias Clave
+## ✅ Key Competencies
 
 - [ ] Implement Generator and Discriminator
 - [ ] Training loop adversarial (alternate updates)
 - [ ] Detect mode collapse
 - [ ] VAE with reparameterization trick
 - [ ] Latent space exploration
-- [ ] Prompt engineering efectivo
+- [ ] Prompt engineering effective
 
 ## ✅ Module criteria completed
 
 - 2 solved and validated practices
-- Mini-project: generador functional (samples realistas)
+- Mini-project: functional generator (realistic samples)
 - Final evaluation approved (>=70/100)
 - Demonstrate: GAN training, VAE implementation, prompt engineering
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Tutorials:**
 

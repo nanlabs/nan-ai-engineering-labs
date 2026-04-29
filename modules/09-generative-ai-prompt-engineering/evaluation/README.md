@@ -15,10 +15,10 @@
 
 ## Checklist final
 
-- [ ] Prompt base bien definido.
-- [ ] Variants few-shot implementadas.
+- [ ] Prompt base well defined.
+- [ ] Few-shot variants implemented.
 - [ ] Iterations with improvement documented.
-- [ ] Guardrails aplicados.
+- [ ] Guardrails applied.
 - [ ] Quality evaluation complete.
 - [ ] Actionable technical conclusion.
 

@@ -5,7 +5,7 @@
 - `practice-01-prompt-base.md`
 - `practice-02-few-shot-y-format.md`
 - `practice-03-iteration-and-improvement.md`
-- `practice-04-guardrails-basicos.md`
+- `practice-04-basic-guardrails.md`
 - `practice-05-answer-evaluation.md`
 
 ## Approval criteria
