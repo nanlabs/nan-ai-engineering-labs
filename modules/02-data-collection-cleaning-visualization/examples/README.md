@@ -25,8 +25,8 @@ Objective: create 3 charts that answer concrete analysis questions.
 
 ### Existing guided markdown examples
 
-1. [01 - Cleaning a dirty dataset](./01-limpieza-dataset-sucio.md)
-1. [02 - Full EDA on wine dataset](./02-eda-completo-dataset-vinos.md)
+1. [01 - Cleaning a dirty dataset](./01-dataset-cleaning-dirty.md)
+1. [02 - Full EDA on wine dataset](./02-complete-eda-wines-dataset.md)
 
 ### Executable scripts (phase-2 continuation)
 

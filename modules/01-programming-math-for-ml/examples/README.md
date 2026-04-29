@@ -7,8 +7,8 @@ and expected outputs.
 
 ### Existing guided markdown examples
 
-1. [01 - Vectors and dot product](./01-vectores-producto-punto.md)
-1. [02 - Descriptive statistics](./02-estadistica-descriptiva.md)
+1. [01 - Vectors and dot product](./01-vectors-dot-product.md)
+1. [02 - Descriptive statistics](./02-descriptive-statistics.md)
 
 ### Executable scripts (phase-2 continuation)
 
