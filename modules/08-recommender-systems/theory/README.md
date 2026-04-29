@@ -104,10 +104,10 @@ ______________________________________________________________________
 ### Representation
 
 ```
-           Ítem1  Ítem2  Ítem3  Ítem4
-Usuario1     5      ?      3      ?
-Usuario2     ?      4      ?      5
-Usuario3     4      3      ?      ?
+           Item 1  Item 2  Item 3  Item 4
+User 1     5       ?       3       ?
+User 2     ?       4       ?       5
+User 3     4       3       ?       ?
 ```
 
 - **Rows:** users.

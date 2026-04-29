@@ -11,7 +11,7 @@ Implement and compare two recommendation approaches with offline Metrics.
 ## Scope
 
 - Baseline by popularity.
-- Model colaborativo (item o user based).
+- Collaborative model (item or user based).
 - Evaluation @K.
 - Analysis of cold start cases.
 

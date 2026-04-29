@@ -16,7 +16,7 @@
 ## Checklist final
 
 - [ ] Baseline by popularity implemented.
-- [ ] Model colaborativo funcionando.
+- [ ] Collaborative model in operation.
 - [ ] Metrics @K reported.
 - [ ] Cold start analysis.
 - [ ] Final comparison of approaches.

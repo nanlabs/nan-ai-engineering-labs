@@ -13,7 +13,7 @@ Learn to design recommendation systems that help personalize experiences and inc
 - Manage cold start problem with strategies
 - Evaluate with RMSE/MAE and diversity metrics (coverage, novelty, serendipity)
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (CF, content-based, matrix factorization, evaluation)
 - **examples/**: guided examples with NumPy, Surprise
@@ -35,10 +35,10 @@ Learn to design recommendation systems that help personalize experiences and inc
 
 - Fountain base original: folders/Recommender Systems
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: fundamentals and simple baseline.
-- Week 2: Models colaborativos.
+- Week 2: Collaborative models.
 - Week 3: evaluation and ranking improvements.
 - Week 4: mini-project + final evaluation.
 
@@ -49,7 +49,7 @@ Learn to design recommendation systems that help personalize experiences and inc
 - Final evaluation approved (>=70/100)
 - Demonstrate: CF implementation, matrix factorization, hybrid systems, cold start handling
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 
