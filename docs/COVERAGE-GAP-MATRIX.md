@@ -9,7 +9,7 @@ Provide an up-to-date coverage map for core modules and trends-extras, and defin
 Source of truth:
 
 - `scripts/validate_learning_labs.py --strict-core`
-- `scripts/audit_english_conversion.py`
+- `scripts/validate_english_content.py`
 
 Latest snapshot:
 

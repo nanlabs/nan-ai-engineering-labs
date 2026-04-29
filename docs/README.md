@@ -48,7 +48,6 @@ ______________________________________________________________________
 | [**QUICK-START.md**](QUICK-START.md) | Setup fast + first Example | ⚡ To start TODAY |
 | [**STUDY-RHYTHM.md**](STUDY-RHYTHM.md) | How to maintain consistency | If you don't know how much to dedicate |
 | [**RESOURCES.md**](RESOURCES.md) | Books, cursors, cursor, papers recommended | During the study |
-| [**MODULES-COMPARISON-WITH-TRAINING-PY.md**](MODULES-COMPARISON-WITH-TRAINING-PY.md) | Detailed comparison of study models and repeated README structures | If you want to align both repositories |
 
 ### 🛠️ **For Maintainers**
 
@@ -116,7 +115,6 @@ ______________________________________________________________________
 
 - [✅ Implementation status](IMPLEMENTATION-STATUS.md) - 100% complete
 - [📈 Phases de creation](PHASES-CREATION.md) - As built
-- [🔍 Study model comparison](MODULES-COMPARISON-WITH-TRAINING-PY.md) - `training-py` vs `nan-ai-engineering-labs`
 
 ### 📚 **External Resources**
 

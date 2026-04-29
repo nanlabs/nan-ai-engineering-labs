@@ -65,7 +65,7 @@ Use these commands from repository root to verify current status:
 
 ```bash
 /media/nquiroga/SSDedo/Documents/projects/NanLabs/labs/.venv/bin/python scripts/validate_learning_labs.py --strict-core
-/media/nquiroga/SSDedo/Documents/projects/NanLabs/labs/.venv/bin/python scripts/audit_english_conversion.py
+/media/nquiroga/SSDedo/Documents/projects/NanLabs/labs/.venv/bin/python scripts/validate_english_content.py
 ```
 
 ## Overall Status
