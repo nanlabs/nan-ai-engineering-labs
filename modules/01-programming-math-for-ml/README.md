@@ -42,7 +42,7 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 
 ### Step 3: Practices (3-4 sessions)
 
-1. Solve guided part of [practice-01-python-y-numpy.md](./practices/practice-01-python-y-numpy.md).
+1. Solve guided part of [practice-01-python-and-numpy.md](./practices/practice-01-python-and-numpy.md).
 1. Solve proposed exercises independently (Part 2).
 1. Repeat with [practice-02-applied-linear-algebra.md](./practices/practice-02-applied-linear-algebra.md).
 1. Continue with practices 03, 04, 05 (statistics, optimization, integrated pipeline).
