@@ -12,7 +12,7 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 - Complete a linear regression mini-project implemented from scratch.
 - Explain numerical decisions, reproducibility and technical trade-offs (advanced level).
 
-## Structure interna mejorada
+## Improved internal structure
 
 - **theory/**: In-depth theory with linked videos (3Blue1Brown, StatQuest, Khan Academy), written resources, and comprehension checklist.
 - **examples/**: Complete, resolved examples with executable code, expected outputs, and common errors documented.
@@ -30,15 +30,15 @@ Build a solid foundation from scratch in Python and applied mathematics to under
    - Python + NumPy + Pandas (~3 horas total)
    - Linear algebra (3Blue1Brown, ~3 hours)
    - Calculation (3Blue1Brown, ~3 hours)
-   - Probabilidad (StatQuest, ~2 horas)
-1. Take your own notes in `notes/TEORIA-RESUMEN.md`.
+   - Probability (StatQuest, ~2 horas)
+1. Take your own notes in `notes/THEORY-SUMMARY.md`.
 
-### Paso 2: Examples guiados (1-2 sesiones)
+### Paso 2: Guided Examples (1-2 sessions)
 
-1. Execute [examples/01-vectores-producto-punto.md](./examples/01-vectores-producto-punto.md).
-1. Execute [examples/02-estadistica-descriptiva.md](./examples/02-estadistica-descriptiva.md).
-1. Solve exercises proposed at the end of each example.
-1. Document doubts or discoveries in `notes/`.
+1. Execute [examples/01-vectors-dot-product.md](./examples/01-vectors-dot-product.md).
+2. Execute [examples/02-descriptive-statistics.md](./examples/02-descriptive-statistics.md).
+3. Solve exercises proposed at the end of each example.
+4. Document doubts or discoveries in `notes/`.
 
 ### Step 3: Practices (3-4 sessions)
 
@@ -48,7 +48,7 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 1. Continue with practices 03, 04, 05 (statistics, optimization, integrated pipeline).
 1. Save solutions code in `practices/solutions/` (create folder).
 
-### Paso 4: Mini-project (2-3 sesiones)
+### Paso 4: Mini-project (2-3 sessions)
 
 1. Read complete statement in [mini-project/README.md](./mini-project/README.md).
 1. Implement linear regression from scratch with gradient descent.
@@ -60,7 +60,7 @@ Build a solid foundation from scratch in Python and applied mathematics to under
 1. Complete [evaluation/README.md](./evaluation/README.md) (self-evaluation).
 1. Verify minimum score >= 70/100.
 1. Update [STATUS.md](./STATUS.md) with level reached and crashes resolved.
-1. Register main Lessons in `notes/Lessons-APRENDIDAS.md`.
+1. Register main Lessons in `notes/Lessons-LEARNED.md`.
 
 ## Level path (L1-L4)
 

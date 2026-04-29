@@ -25,17 +25,17 @@ ______________________________________________________________________
 
 - **Jupyter Notebooks:** interactive environment for experimentation.
 - **Google Colab:** cloud notebooks with free GPUs.
-- **Reproducibilidad:** guardar code versionado, semillas aleatorias, entornos virtuales.
+- **Reproducibility:** saving versioned code, random seeds, virtual environments.
 
 📹 **Recommended videos (watch in this order):**
 
-1. [Python for Beginners - Microsoft](https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6) - 44 videos cortos
-1. [NumPy Tutorial - freeCodeCamp](https://www.youtube.com/watch?v=QUT1VHiLmmI) - 1 hora
-1. [Pandas Tutorial - Corey Schafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS) - 10 videos
+1. [Python for Beginners - Microsoft](https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6) - 44 short videos
+2. [NumPy Tutorial - freeCodeCamp](https://www.youtube.com/watch?v=QUT1VHiLmmI) - 1 hora
+3. [Pandas Tutorial - Corey Schafer](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS) - 10 videos
 
 📚 **Resources written:**
 
-- [Python Data Science Handbook (Jake VanderPlas)](https://jakevdp.github.io/PythonDataScienceHandbook/) - gratuito online
+- [Python Data Science Handbook (Jake VanderPlas)](https://jakevdp.github.io/PythonDataScienceHandbook/) - free online
 - [NumPy Documentation - Quickstart](https://numpy.org/doc/stable/user/quickstart.html)
 - [Pandas Getting Started](https://pandas.pydata.org/docs/getting_started/index.html)
 
@@ -43,7 +43,7 @@ ______________________________________________________________________
 
 ## 2. Applied linear algebra
 
-### Concepts fundamentales
+### Fundamental Concepts
 
 - **Scalars, vectors and matrices:** representation and notation.
 - **Operations with vectors:**
@@ -54,7 +54,7 @@ ______________________________________________________________________
   - Addition/subtraction of matrices
 - Matrix-vector and matrix-matrix multiplication
   - Transpose of a matrix
-  - Identidad e inversa
+  - Identity and inverse
 
 ### Intuition for ML
 
@@ -65,7 +65,7 @@ ______________________________________________________________________
 📹 **Videos recommended (view in order):**
 
 1. [Essence of Linear Algebra - 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) - Series complete (15 videos, ~3 horas)
-1. [Linear Algebra for Machine Learning - Imperial College (Coursera)](https://www.coursera.org/learn/linear-algebra-machine-learning) (cursor opcional certificable)
+1. [Linear Algebra for Machine Learning - Imperial College (Coursera)](https://www.coursera.org/learn/linear-algebra-machine-learning) (optional certifiable cursor)
 
 📚 **Resources written:**
 
@@ -102,11 +102,11 @@ ______________________________________________________________________
 
 ## 4. Probability and statistics
 
-### Concepts fundamentales
+### Fundamental Concepts
 
 - **Trend central measurements:** mean, median, mode.
 - **Dispersion measures:** variance, standard deviation, quartiles, interquartile range.
-- **Distribuciones:** normal (gaussiana), binomial, uniforme, Poisson.
+- **Distributions:** normal (Gaussian), binomial, uniform, Poisson.
 - **Conditional probability and Bayes' Theorem.**
 - **Correlation vs causality.**
 
@@ -123,7 +123,7 @@ ______________________________________________________________________
 
 📚 **Resources written:**
 
-- [Think Stats (Allen Downey)](https://greenteapress.com/thinkstats2/html/index.html) - gratuito
+- [Think Stats (Allen Downey)](https://greenteapress.com/thinkstats2/html/index.html) - free
 - [Seeing Theory - Visual Probability](https://seeing-theory.brown.edu/)
 
 ______________________________________________________________________
@@ -133,7 +133,7 @@ ______________________________________________________________________
 ### Concepts clave
 
 - **Cost function (loss function):** measures how poorly the Model predicts.
-- **Gradiente descent:**
+- **Gradient descent:**
   - Iterative algorithm to minimize the cost function.
 - Learning rate: how much to adjust the parameters in each step.
 - Convergence: when to stop training.
@@ -157,10 +157,10 @@ ______________________________________________________________________
 
 ## 6. Reproducibility and good practices
 
-### Fundamentos
+### Fundaments
 
-- Fijar semillas aleatorias (`np.random.seed`, `random.seed`, `torch.manual_seed`).
-- Separar Data correctly: train / validation / test.
+- Set random seeds (`np.random.seed`, `random.seed`, `torch.manual_seed`).
+- Separate Data correctly: train / validation / test.
 - Document experiments in `notes/` of the Module.
 - Use Git to version code and decisions.
 - Use virtual environments (`venv`, `conda`) for package reproducibility.

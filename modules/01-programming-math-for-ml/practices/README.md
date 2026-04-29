@@ -4,11 +4,11 @@ These Practices are ordered from least to most difficult.
 
 ## Practices
 
-- `practice-01-python-y-numpy.md`
-- `practice-02-algebra-lineal-aplicada.md`
-- `practice-03-statistics-for-Data.md`
-- `practice-04-derivadas-y-optimizacion.md`
-- `practice-05-pipeline-matematico-integrado.md`
+- practice-01-python-and-numpy.md
+- practice-02-applied-linear-algebra.md
+- practice-03-statistics-for-data.md
+- practice-04-derivatives-and-optimization.md
+- practice-05-integrated-mathematical-pipeline.md
 
 ## Approval criteria
 
