@@ -13,7 +13,7 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 - Use pre-trained Models with transfer learning (ResNet, VGG)
 - Evaluate with Learning curves and test accuracy
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: theoretical foundations (backpropagation, architectures, Regularization)
 - **examples/**: Guided examples with PyTorch
@@ -35,7 +35,7 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 
 - Fountain base original: folders/Deep Learning Basics
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: Basic concepts of neural networks.
 - Week 2: MLP Training for Classification.
@@ -46,10 +46,10 @@ Understand the fundamentals of deep learning to build, train and evaluate simple
 
 - 2 Practices solved and validated
 - Mini-project running with >90% accuracy
-- Evaluation final aprobada (>=70/100)
+- Final evaluation passed (>=70/100)
 - Demonstrate: construction of architectures, training loops, Regularization, transfer learning
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Framework:**
 

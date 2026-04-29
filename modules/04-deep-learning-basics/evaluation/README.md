@@ -17,10 +17,10 @@
 
 - [ ] Explains Neuron, Layer and network clearly.
 - [ ] Train a functional MLP.
-- [ ] Monitorea curves train/validation.
-- [ ] Aplica Regularization when corresponde.
+- [ ] Monitor curves train/validation.
+- [ ] Apply Regularization where appropriate.
 - [ ] Compare baseline and improvement.
-- [ ] Presenta Conclusions actionable.
+- [ ] Presents actionable conclusions.
 
 ## Approval criteria
 

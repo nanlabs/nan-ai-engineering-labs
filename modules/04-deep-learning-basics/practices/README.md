@@ -3,13 +3,13 @@
 ## Practices
 
 - `practice-01-Neuron-y-forward-pass.md`
-- `practice-02-red-mlp-basica.md`
+- `practice-02-basic-red-mlp.md`
 - `practice-03-metrics-and-curves.md`
-- `practice-04-regularización-y-overfitting.md`
-- `practice-05-tuning-controlado.md`
+- `practice-04-regularization-and-overfitting.md`
+- `practice-05-tuning-controlled.md`
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Explain architecture and training decisions.
 - Document findings in `notes/`.
