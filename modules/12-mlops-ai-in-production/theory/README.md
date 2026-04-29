@@ -349,7 +349,7 @@ ______________________________________________________________________
 ```
 V1: 95% traffic
 V2 (canary): 5% traffic
-→ Monitorear → Si OK, incrementar a 50% → 100%
+→ Monitor → If OK, increase to 50% → 100%
 ```
 
 **Advantage:** Limited risk.

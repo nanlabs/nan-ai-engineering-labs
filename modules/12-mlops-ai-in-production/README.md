@@ -16,7 +16,7 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 - A/B testing infrastructure for models
 - Log predictions and performance metrics
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (MLOps lifecycle, deployment strategies, monitoring, CI/CD)
 - **examples/**: guided examples with Docker, MLflow, FastAPI
@@ -27,7 +27,7 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 - **evaluation/**: checklist and rubric
 - **notes/**: deployment decisions and incident logs
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
 - Module 03: Machine Learning Fundamentals (model training)
 - Basic knowledge of Docker
@@ -39,15 +39,15 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 **Week 1** (8-10 horas):
 
 1. Read material from `/theory` (MLOps, CI/CD, deployment) (2h)
-1. Ejecuta `/examples` (Docker, FastAPI, MLflow) (3h)
+1. Run `/examples` (Docker, FastAPI, MLflow) (3h)
 1. Complete `/practices/01-cicd-ml.md` (5h)
 
 **Week 2** (8-10 horas):
 4\. Read material about monitoring and observability (2h)
 5\. Complete `/practices/02-monitoring-observability.md` (5h)
-6\. Desarrolla Mini-project (4h)
+6\. Develop Mini-project (4h)
 
-## ✅ Competencias Clave
+## ✅ Key Competences
 
 - [ ] Dockerize ML models (Dockerfile, requirements.txt)
 - [ ] FastAPI for model serving
@@ -68,7 +68,7 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 - Final evaluation approved (>=70/100)
 - Demonstrate: Docker, CI/CD, monitoring, alerting, drift detection
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Tools:**
 
@@ -79,13 +79,14 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 - [Prometheus](https://prometheus.io/)
 - [Grafana](https://grafana.com/)
 
-**Plataformas:**
+**Platforms:**
 
 - [Weights & Biases](https://wandb.ai/)
 - [Neptune.ai](https://neptune.ai/)
 - [Evidently AI (drift detection)](https://www.evidentlyai.com/)
 
-**Libros:**
+**Books:**
+
 
 - [Designing Machine Learning Systems (Chip Huyen)](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)
 - [ML Engineering on AWS](https://www.oreilly.com/library/view/machine-learning-engineering/9781803247595/)
@@ -99,10 +100,10 @@ Learn how to deploy, monitor and maintain ML models in production with CI/CD, ob
 
 Congratulations! You have completed all 12 core modules. Now you can:
 
-- Explorar **trends-extras/** (agents, guardrails, multimodal, etc.)
+- Explore **trends-extras/** (agents, guardrails, multimodal, etc.)
 - Go deeper into your area of ​​interest
-- Build proyectos end-to-end
-- Contribuir a proyectos open source
+- Build end-to-end projects
+- Contribute to open source projects
 
 ## Module objective
 

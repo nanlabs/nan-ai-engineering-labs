@@ -16,11 +16,11 @@
 ## Checklist final
 
 - [ ] Defined artifact versioning.
-- [ ] Serving basic implementado.
+- [ ] Serving basic implemented.
 - [ ] Operation metrics available.
 - [ ] Drift monitored with alerts.
 - [ ] Documented rollout/rollback plan.
-- [ ] Lessons learned registradas.
+- [ ] Lessons learned registered.
 
 ## Approval criteria
 

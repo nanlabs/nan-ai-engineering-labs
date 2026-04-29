@@ -17,12 +17,12 @@ Implement minimum flow of Training, serving, monitoring and controlled updating.
 
 ## Deliverables
 
-- Pipeline documentado.
-- Endpoint o process batch operativo.
+- Documented pipeline.
+- Endpoint or operational batch process.
 - Basic operation runbook.
 
 ## Acceptance criteria
 
-- Flujo end-to-end demostrable.
-- Monitoreo minimum functional.
+- Demonstrable end-to-end flow.
+- Minimum functional monitoring.
 - Defined rollback strategy.
