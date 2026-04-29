@@ -13,7 +13,7 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 - Wear transfer learning and fine-tuning effectively
 - Evaluate with appropriate metrics (accuracy, IoU, mAP) and explain errors
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (Pixels, CNNs, architectures, detection/segmentation)
 - **examples/**: guided examples with PyTorch/torchvision
@@ -35,7 +35,7 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 
 - Fountain base original: folders/Computer Vision
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: image fundamentals and preprocessing.
 - Week 2: Basic CNN for classification.
@@ -49,7 +49,7 @@ Learn computer vision fundamentals to analyze images, train classifiers, and mak
 - Final evaluation approved (>=70/100)
 - Demonstrate: CNNs custom, transfer learning, object detection, segmentation
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Frameworks:**
 

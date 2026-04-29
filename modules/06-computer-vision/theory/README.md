@@ -150,7 +150,7 @@ Reduce spatial dimensionality while maintaining relevant information.
 **Example:**
 
 ```
-Entrada 4×4 → Max Pooling 2×2 → Output 2×2
+Input 4×4 → Max Pooling 2×2 → Output 2×2
 ```
 
 #### 4. Layers fully-connected (Dense)
@@ -164,7 +164,7 @@ Output layer for multiclass Classification.
 ### Typical architecture
 
 ```
-Entrada (224×224×3) →
+Input (224×224×3) →
   Conv (32 filters, 3×3) + ReLU →
   MaxPooling (2×2) →
   Conv (64 filters, 3×3) + ReLU →

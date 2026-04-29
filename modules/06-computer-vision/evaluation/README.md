@@ -16,7 +16,7 @@
 ## Checklist final
 
 - [ ] Correct preprocessing of Images.
-- [ ] CNN baseline entrenada.
+- [ ] CNN baseline trained.
 - [ ] Usage of augmentation or equivalent adjustment.
 - [ ] Metrics and Confusion matrix reported.
 - [ ] Analysis of difficult classes.
@@ -24,7 +24,7 @@
 
 ## Approval criteria
 
-- Puntaje minimum: 70/100.
+- Minimum score: 70/100.
 
 ## Final evaluation
 
