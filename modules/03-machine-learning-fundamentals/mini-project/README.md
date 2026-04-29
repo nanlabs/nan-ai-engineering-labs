@@ -11,7 +11,7 @@ Build a complete ML flow: baseline, improvement, comparison and final recommenda
 ## Scope
 
 - Dataset tabular clean.
-- Baseline inicial.
+- Initial Baseline.
 - At least 1 improvement with tuning.
 - Evaluation with relevant Metrics.
 - Technical and business conclusions.
@@ -25,5 +25,5 @@ Build a complete ML flow: baseline, improvement, comparison and final recommenda
 ## Acceptance criteria
 
 - Complete Training Pipeline.
-- Metrics correctly interpretadas.
+- Metrics correctly interpreted.
 - Explicit risks and limitations.

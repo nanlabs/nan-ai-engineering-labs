@@ -2,14 +2,14 @@
 
 ## Practices
 
-- `practice-01-baseline-regresion.md`
-- `practice-02-clasificacion-binaria.md`
+- `practice-01-baseline-regression.md`
+- `practice-02-binary-classification.md`
 - `practice-03-metrics-and-Errors.md`
 - `practice-04-cross-validation-and-tuning.md`
-- `practice-05-Model-final-comparado.md`
+- `practice-05-Final-model-compared.md`
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Justify choice of Metrics and Model.
 - Record evidence in `notes/`.

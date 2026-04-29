@@ -17,8 +17,8 @@
 
 - [ ] Identifies Type of Problem correctly.
 - [ ] Train baseline reproducible.
-- [ ] Usa Metrics adecuadas.
-- [ ] Aplica Validation/tuning basic.
+- [ ] Use appropriate metrics.
+- [ ] Applies Validation/tuning basic.
 - [ ] Compare Models with criteria.
 - [ ] Recommends final Model with arguments.
 
