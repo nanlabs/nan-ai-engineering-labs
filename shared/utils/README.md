@@ -1,3 +1,3 @@
-# Utilidades compartidas
+# Shared Utilities
 
-Funciones y helpers comunes para acelerar prácticas.
+Common functions and helpers to accelerate practices.

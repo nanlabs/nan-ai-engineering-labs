@@ -1,3 +1,3 @@
-# Notebooks compartidos
+# Shared Notebooks
 
-Notebooks de apoyo y experimentación transversal.
+Notebooks for cross-disciplinary support and experimentation.

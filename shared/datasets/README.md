@@ -1,3 +1,3 @@
-# Datasets compartidos
+# Shared Datasets
 
-Datasets reutilizables para prácticas y mini-proyectos.
+Reusable datasets for practice exercises and mini-projects.

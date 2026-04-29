@@ -43,7 +43,7 @@ Work with multimodal Models that combine vision and language (CLIP, BLIP, GPT-4V
             └─────────────┘
 ```
 
-### Aplicaciones
+### Applications
 
 **Image → Text:**
 
@@ -82,7 +82,7 @@ similarity = image_features @ text_features.T  # [batch, batch]
 **Zero-Shot Classification**:
 
 ```python
-# Sin training adicional
+# without additional training
 prompts = ["a photo of a cat", "a photo of a dog"]
 text_features = clip.encode_text(prompts)
 image_features = clip.encode_image(image)
@@ -94,14 +94,14 @@ predicted_class = similarities.argmax()
 
 ## 📊 Models Comparison
 
-| Model | Task | Open Source | API | Best For |
+| Model                | Task                | Open Source | API | Best For                 |
 | -------------------- | ------------------- | ----------- | --- | ------------------------ |
-| **CLIP** | Image-text matching | ✅ | - | Zero-shot classification |
-| **BLIP** | Captioning, VQA | ✅ | - | Understanding images |
-| **KEY** | Visual chat | ✅ | - | Open source VLM |
-| **GPT-4V** | Multi-modal chat | ❌ | ✅ | Production apps |
-| **Stable Diffusion** | Text-to-image | ✅ | ✅ | Image generation |
-| **DALL-E 3** | Text-to-image | ❌ | ✅ | High quality images |
+| **CLIP**             | Image-text matching | ✅          | -   | Zero-shot classification |
+| **BLIP**             | Captioning, VQA     | ✅          | -   | Understanding images     |
+| **KEY**              | Visual chat         | ✅          | -   | Open source VLM          |
+| **GPT-4V**           | Multi-modal chat    | ❌          | ✅  | Production apps          |
+| **Stable Diffusion** | Text-to-image       | ✅          | ✅  | Image generation         |
+| **DALL-E 3**         | Text-to-image       | ❌          | ✅  | High quality images      |
 
 ## 💻 Code Pattern: VQA Pipeline
 
@@ -133,7 +133,7 @@ print(f"A: {answer}")
 1. **VQA**: Ask 3 questions about an Image
 1. **Compare**: Precision of CLIP vs BLIP in your Examples
 
-## 📚 Resources Curados
+## 📚 Health Resources
 
 **Models & Papers:**
 
@@ -168,7 +168,7 @@ print(f"A: {answer}")
 - [ ] Fine-tuning VLM in custom dataset
 - [ ] Evaluation metrics (BLEU, CIDEr for captioning)
 
-## 🎯 Impacto Real
+## 🎯 Real Impact
 
 - **E-commerce**: Search by Image + text, auto-tagging
 - **Accessibility**: Auto-captioning for people with visual impairments

@@ -23,13 +23,13 @@ Implement rigorous evaluations for LLMs and AI systems: benchmarks, automatic me
 - **ex_03_benchmark_evaluation.py**: Evaluate LLM on standard benchmarks
 - **ex_04_regression_testing.py**: Automatic tests to detect regressions
 
-## 🔑 Concepts Clave
+## 🔑 Key Concepts
 
 ### Evaluation Pyramid
 
 ```
 ┌────────────────────────┐
-│   Human Evaluation     │ ← Gold standard, caro, lento
+│   Human Evaluation     │ ← Gold standard, expensive, slow
 ├────────────────────────┤
 │   LLM-as-Judge         │ ← GPT-4 evaluate outputs
 ├────────────────────────┤
@@ -79,17 +79,17 @@ Instead of automatic Metrics, use GPT-4 as the evaluator:
 
 ```python
 evaluation_prompt = f"""
-Evaluate la next response en escala 1-5:
+Evaluate the following response (1-5):
 
-Pregunta: {question}
+Question: {question}
 Answer: {llm_response}
 
-Criterios:
-- Factualidad (1-5)
-- Relevancia (1-5)
-- Completitud (1-5)
+Criteria:
+- Factuality (1-5)
+- Relevance (1-5)
+- Completeness (1-5)
 
-Formato JSON:
+JSON Format:
 {{"factuality": X, "relevance": Y, "completeness": Z, "reasoning": "..."}}
 """
 
@@ -105,7 +105,7 @@ prompt_a = "Respond, Response, Responds, Responded, Responder en Spanish: {quest
 
 # Prompt B
 prompt_b = "Eres un asistente useful. Respond, Response, Responds, Responded, Responder en Spanish de forma concisa: {question}"
-
+****
 # Evaluate ambos
 results_a = evaluate(prompt_a, test_set)
 results_b = evaluate(prompt_b, test_set)
@@ -118,13 +118,13 @@ print(f"Winner: {'B' if results_b['avg_score'] > results_a['avg_score'] else 'A'
 
 ## 📈 Benchmark Datasets
 
-| Benchmark | Task | Evaluate | Datasets |
+| Benchmark      | Task            | Evaluate       | Datasets      |
 | -------------- | --------------- | -------------- | ------------- |
-| **MMLU** | Multi-choice QA | Knowledge | 57 subjects |
-| **HellaSwag** | Completion | Common sense | 10k scenarios |
-| **TruthfulQA** | QA | Truthfulness | 817 questions |
-| **HumanEval** | Code gen | Coding ability | 164 problems |
-| **GSM8K** | Math | Reasoning | 8.5k problems |
+| **MMLU**       | Multi-choice QA | Knowledge      | 57 subjects   |
+| **HellaSwag**  | Completion      | Common sense   | 10k scenarios |
+| **TruthfulQA** | QA              | Truthfulness   | 817 questions |
+| **HumanEval**  | Code gen        | Coding ability | 164 problems  |
+| **GSM8K**      | Math            | Reasoning      | 8.5k problems |
 
 ## 🔬 Regression Testing
 
@@ -152,12 +152,12 @@ def test_factuality():
 ## 🧪 Quick Exercise
 
 1. **Setup**: `pip install rouge-score bert-score`
-1. **Ground truth**: Create 10 Q&A pairs manualmente
-1. **Generate**: Get responses from LLM
-1. **Evaluate**: Calculate ROUGE and BERTScore
-1. **Iterate**: Improve prompt, re-evaluate
+2. **Ground truth**: Create 10 Q&A pairs manually
+3. **Generate**: Get responses from LLM
+4. **Evaluate**: Calculate ROUGE and BERTScore
+5. **Iterate**: Improve prompt, re-evaluate
 
-## 📚 Resources Curados
+## 📚 Health Resources
 
 **Frameworks:**
 
@@ -192,10 +192,10 @@ def test_factuality():
 - [ ] Human evaluation with pairwise comparison
 - [ ] Cost-quality analysis (GPT-4 vs GPT-3.5 precision/cost)
 
-## 🎯 Impacto Real
+## 🎯 Real Impact
 
 - **Prompt Engineering**: Data-driven prompt optimization
-- **Model Selection**: Compare Models objetivamente (GPT-4 vs Claude vs Llama)
+- **Model Selection**: Compare models objectively (GPT-4 vs. Claude vs. Llama)
 - **Quality Assurance**: Detect regressions before deploying
 - **Research**: Quantify improvements in papers/experiments
 

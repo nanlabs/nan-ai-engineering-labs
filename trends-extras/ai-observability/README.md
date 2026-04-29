@@ -7,7 +7,7 @@ Implement complete observability for applications with LLMs: tracing, prompt/com
 ## 💡 What will you learn
 
 - Distributed tracing for LLM calls (LangSmith, Weights & Biases)
-- Logging estructurado (prompts, completions, metadata)
+- Logging structure (prompts, completions, metadata)
 - Latency and performance monitoring
 - Cost tracking (tokens, API calls, $ per request)
 - error analysis and debugging
@@ -159,25 +159,25 @@ def log_llm_call(
 
 ## 🛠️ Tools Comparison
 
-| Tools | Type | Pros | Cons | Price |
-| -------------------- | ------------------- | -------------------------- | ----------------- | ----- |
-| **LangSmith** | Tracing | LangChain native, powerful | Tied to LangChain | $$ |
-| **Weights & Biases** | Experiment tracking | Great for ML | Learning curve | $$$ |
-| **Helicone** | Proxy logger | Easy setup | Limited features | $ |
-| **Custom Logging** | DIY | Full control | More work | Free |
-| **OpenTelemetry** | Standard | Vendor agnostic | Setup complex | Free |
+| Tools                | Type                | Pros                       | Cons              | Price |
+| ---------------------| ------------------- | -------------------------- | ----------------- | ----- |
+| **LangSmith**        | Tracing             | LangChain native, powerful | Tied to LangChain | $$    |
+| **Weights & Biases** | Experiment tracking | Great for ML               | Learning curve    | $$$   |
+| **Helicone**         | Proxy logger        | Easy setup                 | Limited features  | $     |
+| **Custom Logging**   | DIY                 | Full control               | More work         | Free  |
+| **OpenTelemetry**    | Standard            | Vendor agnostic            | Setup complex     | Free  |
 
 ## 🧪 Quick Exercise
 
 1. **Setup**: `pip install langsmith opentelemetry`
-1. **Log LLM calls**: Implement wrapper that logs each call
-1. **Track costs**: Calculate total cost of 100 requests
-1. **Visualize**: Create latency vs tokens graph
-1. **Alert**: Setup alerta si cost/day > $100
+2. **Log LLM calls**: Implement wrapper that logs each call
+3. **Track costs**: Calculate total cost of 100 requests
+4. **Visualize**: Create latency vs tokens graph
+5. **Alert**: Alert Setup if cost/day > $100
 
-## 📚 Resources Curados
+## 📚 Health Resources
 
-**Plataformas:**
+**Platforms:**
 
 - [LangSmith](https://www.langchain.com/langsmith)
 - [Weights & Biases](https://wandb.ai/)
@@ -210,7 +210,7 @@ def log_llm_call(
 - [ ] A/B testing with feature flags
 - [ ] Cost dashboards per user/endpoint/day
 
-## 🎯 Impacto Real
+## 🎯 Real impact
 
 - **Cost Control**: Detect "runaway costs" before it's too late
 - **Performance**: Identify bottlenecks (retrieval lento, LLM slow)
@@ -220,15 +220,15 @@ def log_llm_call(
 
 ## 🚨 Common Pitfalls
 
-**Privacy**: Loggear PII sin consent
+**Privacy**: logging PII without consent
 
 - **Solution**: Redact PII before logging
 
-**Volume**: Logs masivos impactan performance
+**Volume**: Massive logs impact performance
 
 - **Solution**: Sampling, async logging
 
-**Cost**: Tracing tools pueden ser caros
+**Cost**: Tracing tools can be expensive
 
 - **Solution**: Start with open source, upgrade if necessary
 

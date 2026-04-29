@@ -28,7 +28,7 @@ Generate high quality synthetic data for ML: from tabular (GANs) to text (augmen
 
 **1. Privacy**: Share data without exposing real information
 **2. Data Scarcity**: Increase small dataset for training
-**3. Balancing**: Oversample minority classes
+**3. Balancing**: Over-sample minority classes
 **4. Testing**: Generate edge cases for QA
 **5. Simulation**: Create "what-if" scenarios
 
@@ -42,7 +42,7 @@ Generate high quality synthetic data for ML: from tabular (GANs) to text (augmen
 ├──────────────────────────────────────────┤
 │  2. Train Generative Model               │
 │     ├─ GAN (CTGAN, TabGAN)               │
-│     ├─ VAE                                │
+│     ├─ VAE                               │
 │     └─ Diffusion Models                  │
 ├──────────────────────────────────────────┤
 │  3. Generate Synthetic Data              │
@@ -78,7 +78,7 @@ model.fit(real_data)
 # Generate synthetic customers
 synthetic_data = model.sample(num_rows=1000)
 
-# synthetic_data tiene mismas distributions but no son clients real
+# Synthetic data shares the same distributions but does not contain real customers.
 ```
 
 **Advantages**:
@@ -124,14 +124,15 @@ augmented = aug.augment("The product is good")
 
 ```python
 prompt = """
-Parafrasea el next text manteniendo el significado:
+Paraphrase the following text maintaining its meaning:
 
-Original: "El servicio al client, clientele fue excelente y fast."
+Original: "Customer service was excellent and fast."
 
 Paraphrase:
 """
 
-# LLM genera: "La attention al client, clientele fue muy buena y eficiente."
+# LLM generate: "The customer support was outstanding and efficient."
+
 ```
 
 ## 🔒 Differential Privacy
@@ -145,14 +146,14 @@ import numpy as np
 
 def add_laplace_noise(value, sensitivity, epsilon):
     """
-    epsilon: privacy budget (más low = más privacy)
-    sensitivity: maximum cambio possible en el agregado
+    epsilon: privacy budget (lower = more privacy)
+    sensitivity: maximum possible change in the aggregate
     """
     scale = sensitivity / epsilon
     noise = np.random.laplace(0, scale)
     return value + noise
 
-# Example: average de salarios
+# Example: average salary
 real_avg_salary = 75000
 epsilon = 1.0  # Privacy budget
 private_avg_salary = add_laplace_noise(real_avg_salary, 10000, epsilon)
@@ -168,9 +169,9 @@ private_avg_salary = add_laplace_noise(real_avg_salary, 10000, epsilon)
 from scipy.stats import ks_2samp
 
 # Kolmogorov-Smirnov test
-statistic, pvalue = ks_2samp(real_data["age"], synthetic_data["age"])
+statistic, p_value = ks_2samp(real_data["age"], synthetic_data["age"])
 
-if pvalue > 0.05:
+if p_value > 0.05:
     print("✅ Distributions are similar")
 else:
     print("❌ Distributions differ significantly")
@@ -196,19 +197,19 @@ utility = score_syn / score_real
 ### 3. Privacy Audit (Membership Inference)
 
 ```python
-# ¿Puede un atacante determinar si un registro estaba en training data?
-# Si el atacante acierta > 50%, hay privacy leak
+# # Can an attacker determine if a record was in training data?
+# If the attacker is correct > 50%, there is a privacy leak
 ```
 
 ## 🛠️ Tools & Libraries
 
-| Tools | Type | Use Case | Ease | Privacy |
-| -------------- | ------ | ---------------------------- | ---------- | ----------------- |
-| **SDV** | Python | Tabular GANs (CTGAN) | ⭐⭐⭐ | ⚠️No DP |
-| **Gretel** | API | Tabular + text + time series | ⭐⭐⭐⭐ | ✅ DP optional |
-| **NLPaug** | Python | Text augmentation | ⭐⭐⭐⭐⭐ | N/A |
-| **SmartNoise** | Python | Differential Privacy | ⭐⭐ | ✅ DP guaranteed |
-| **Faker** | Python | Simple fake data (not ML-based) | ⭐⭐⭐⭐⭐ | ✅ Not real data |
+| Tools          | Type   | Use Case                        | Ease       | Privacy          |
+| -------------- | ------ | --------------------------------| -----------| -----------------|
+| **SDV**        | Python | Tabular GANs (CTGAN)            | ⭐⭐⭐     | ⚠️No DP          |
+| **Gretel**     | API    | Tabular + text + time series    | ⭐⭐⭐⭐   | ✅ DP optional   |
+| **NLPaug**     | Python | Text augmentation               | ⭐⭐⭐⭐⭐ | N/A              |
+| **SmartNoise** | Python | Differential Privacy            | ⭐⭐       | ✅ DP guaranteed |
+| **Faker**      | Python | Simple fake data (not ML-based) | ⭐⭐⭐⭐⭐ | ✅ Not real data |
 
 ## 🧪 Quick Exercise
 
@@ -257,7 +258,7 @@ utility = score_syn / score_real
 - **Finance**: Generate synthetic transactions for fraud detection training
 - **Testing**: Create edge cases (extreme ages, negative income) for QA
 - **Data Marketplaces**: Sell synthetic datasets without privacy concerns
-- **Balancing**: Oversample minority classes (fraud, rare diseases)
+- **Balancing**: Over-sample minority classes (fraud, rare diseases)
 
 ## 🚨 Common Pitfalls
 

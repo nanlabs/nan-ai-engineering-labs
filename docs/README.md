@@ -65,25 +65,25 @@ ______________________________________________________________________
 ## 🗂️ Repository Structure
 
 ```
-training-ai/
-├── 📄 README.md                    → Punto de input principal
+nan-ai/
+├── 📄 README.md                   → Main entry point
 │
-├── 📁 docs/                        → Documentation centralizada (are here)
-│   ├── LEARNING-PATH.md           → Ruta de estudio complete
-│   ├── RESUMEN-MODULOS.md         → Qué you will learn
-│   ├── STUDY-RHYTHM.md            → Ritmo sugerido
-│   ├── RESOURCES.md               → Resources externos
-│   ├── IMPLEMENTATION-STATUS.md   → Status del project
-│   ├── PHASES-CREACION.md         → Fazes, Phases de construction
-│   └── ROADMAP-ORIGINAL.md        → Referencia historical
+├── 📁 docs/                       → Centralized documentation (you are here)
+│   ├── LEARNING-PATH.md           → Learning path complete
+│   ├── MODULE-SUMMARY.md          → What you will learn
+│   ├── STUDY-RHYTHM.md            → Study rhythm suggested
+│   ├── RESOURCES.md               → External resources
+│   ├── IMPLEMENTATION-STATUS.md   → Project Status
+│   ├── PHASES-CREATION.md         → Phases
+│   └── ORIGINAL-ROADMAP.md        → historical references
 │
-├── 📁 modules/                     → 12 modules core (tu foco)
+├── 📁 modules/                     → 12 modules core (your focus here)
 │   ├── 01-programming-math-for-ml/
 │   ├── 02-data-collection-cleaning-visualization/
 │   ├── ...
 │   └── 12-mlops-ai-in-production/
 │
-├── 📁 trends-extras/               → 6 modules advanceds
+├── 📁 trends-extras/               → 6 modules advanced
 │   ├── agents/
 │   ├── guardrails/
 │   ├── multimodal/
@@ -91,12 +91,12 @@ training-ai/
 │   ├── ai-observability/
 │   └── synthetic-data/
 │
-├── 📁 shared/                      → Resources compartidos
-│   ├── datasets/                  → Datasets public
+├── 📁 shared/                     → Shared resources
+│   ├── datasets/                  → Public datasets
 │   ├── notebooks/                 → Jupyter notebooks
-│   └── utils/                     → Utilidades reutilizables
+│   └── utils/                     → Reusable utilities
 │
-└── 📁 templates/                   → Plantillas reutilizables
+└── 📁 templates/                   → Reusable templates
     ├── PRACTICE.template.md
     ├── PROJECT.template.md
     └── EVALUATION-RUBRIC.template.md
@@ -128,27 +128,27 @@ ______________________________________________________________________
 
 ### 🎓 **If you want to learn AI/ML:**
 
-```
-1. Lee ../README.md (overview motivational)
-2. Lee RESUMEN-MODULOS.md (qué you will learn)
-3. Lee LEARNING-PATH.md (ruta complete)
-4. Ve a modules/01-... y empieza
+1. Read ../README.md (Motivational overview)
+2. Read MODULES-SUMMARY.md (What you will learn)
+3. Read LEARNING-PATH.md (Complete path)
+4. Go to modules/01-... and start
+
 ```
 
 ### 🔍 **If you are looking for specific material:**
 
-```
-- Busca en trends-extras/ para topics advanceds
-- Usa shared/datasets/ para data de practice
-- Revisa templates/ para crear tus propios proyectos
+```text
+* Search in **trends-extras/** for advanced topics
+* Use **shared/datasets/** for practice data
+* Check **templates/** to create your own projects
 ```
 
 ### 🤝 **If you want to contribute:**
 
 ```
-1. Lee IMPLEMENTATION-STATUS.md (qué this complete)
-2. Lee PHASES-CREACION.md (architecture del repo)
-3. Fork y abre un PR con improvements
+1. Read IMPLEMENTATION-STATUS.md (What is completed)
+2. Read CREATION-PHASES.md (Repo architecture)
+3. Clone and open a PR with improvements
 ```
 
 ______________________________________________________________________

@@ -30,12 +30,12 @@ Explore AI agent architectures that can reason, plan, and execute tasks autonomo
 
 ## 🧪 Quick Experiment
 
-1. **Setup basic**: Instala LangChain (`pip install langchain openai`)
-1. **Simple agent**: Create agent with tools (calculator + Wikipedia search)
-1. **Test**: Question "What is the square root of the population of France?"
-1. **Note**: The agent must:
-- Search population of France (tool: search)
-- Calculate square root (tool: calculator)
+1. **Setup basic**: Install LangChain (`pip install langchain openai`)
+2. **Simple agent**: Create agent with tools (calculator + Wikipedia search)
+3. **Test**: Question "What is the square root of the population of France?"
+4. **Note**: The agent must:
+   - Search population of France (tool: search)
+   - Calculate square root (tool: calculator)
    - Combiner Results
 
 ## 🔑 Concepts Clave
@@ -43,16 +43,16 @@ Explore AI agent architectures that can reason, plan, and execute tasks autonomo
 ### ReAct Pattern
 
 ```
-Thought: Necesito encontrar la population actual de Francia
-Action: search("population de Francia 2024")
-Observation: La population es ~67 millones
+Thought: I need to find the current population of France
+Action: search("population of France 2024")
+Observation: The population is ~67 million
 
-Thought: Ahora puedo calculator la root cuadrada
+Thought: Now I can calculate the square root
 Action: calculator("sqrt(67000000)")
 Observation: 8185.35
 
-Thought: Tengo la response final
-Answer: La root cuadrada de la population de Francia es aproximadamente 8,185
+Thought: I have the final response
+Answer: The square root of France's population is approximately 8,185
 ```
 
 ### Agent Architecture
@@ -92,15 +92,15 @@ Answer: La root cuadrada de la population de Francia es aproximadamente 8,185
 
 - **Mitigation**: Max iterations limit, timeout, circuit breakers
 
-**Cost explosion**: Muchas llamadas a LLM API
+**Cost explosion**: Frequent calls to LLM APIs
 
 - **Mitigation**: Budget limits, caching, cheaper models for planning
 
-**Security**: Agente execute code malicioso
+**Security**: Agent executes malicious code
 
 - **Mitigation**: Sandboxing, tool whitelist, human-in-the-loop
 
-## 📚 Resources Curados
+## 📚 Health Resources
 
 **Frameworks:**
 
@@ -140,7 +140,7 @@ Answer: La root cuadrada de la population de Francia es aproximadamente 8,185
 1. Synthesize final response with References
 1. Save findings in memory for future reference
 
-## 🎯 Impacto Real
+## 🎯 Real Impact
 
 - **Customer Support**: Autonomous agents who resolve tickets
 - **Data Analysis**: Agents that explore datasets and generate insights
