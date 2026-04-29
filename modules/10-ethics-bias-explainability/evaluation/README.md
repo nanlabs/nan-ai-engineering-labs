@@ -19,8 +19,8 @@
 - [ ] Measured and documented biases.
 - [ ] Prediction explanations included.
 - [ ] Prioritized mitigation plan.
-- [ ] Trade-offs explicados.
-- [ ] Recommendations finales claras.
+- [ ] Trade-offs explained.
+- [ ] Clear final recommendations.
 
 ## Approval criteria
 

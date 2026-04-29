@@ -2,14 +2,14 @@
 
 ## Practices
 
-- `practice-01-mapeo-riesgos.md`
-- `practice-02-deteccion-sesgos.md`
-- `practice-03-fairness-metrica.md`
-- `practice-04-explicabilidad-local-global.md`
-- `practice-05-plan-mitigacion.md`
+- `practice-01-risk-mapping.md`
+- `practice-02-bias-detection.md`
+- `practice-03-fairness-metric.md`
+- `practice-04-local-global-explainability.md`
+- `practice-05-mitigation-plan.md`
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Present evidence of risk, measurement and mitigation.
 - Leave clear documentation for audit.

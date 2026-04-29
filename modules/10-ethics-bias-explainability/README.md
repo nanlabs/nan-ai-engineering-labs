@@ -25,7 +25,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 - **evaluation/**: checklist and rubric
 - **notes/**: bias cases found and mitigations applied
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
 - Module 03: Machine Learning Fundamentals (classification, metrics)
 - Knowledge of metrics (confusion matrix, TPR, FPR)
@@ -36,14 +36,14 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 **Week 1** (6-8 horas):
 
 1. Read material from `/theory` (2h)
-1. Ejecuta `/examples` (2h)
-1. Complete `/practices/01-deteccion-mitigacion-bias.md` (4h)
+1. Run `/examples` (2h)
+1. Complete `/practices/01-detection-mitigation-bias.md` (4h)
 
 **Week 2** (6-8 horas):
 4\. Complete `/practices/02-explainability-shap-lime.md` (4h)
-5\. Desarrolla Mini-project (3h)
+5\. Develop Mini-project (3h)
 
-## ✅ Competencias Clave
+## ✅ Key Competencies
 
 - [ ] Detect bias in Data and Models
 - [ ] Calculate disparate impact (80% rule)
@@ -61,7 +61,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 - Final evaluation approved (>=70/100)
 - Demonstrate: bias detection, debiasing, SHAP/LIME, fairness dashboard
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 
@@ -79,7 +79,7 @@ Learn to identify, measure and mitigate biases in ML models, and explain model d
 - [Fairness Definitions Explained](https://arxiv.org/abs/1710.03184)
 - [A Unified Approach to Interpreting Model Predictions (SHAP)](https://arxiv.org/abs/1705.07874)
 
-**Libros:**
+**Books:**
 
 - [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)
 

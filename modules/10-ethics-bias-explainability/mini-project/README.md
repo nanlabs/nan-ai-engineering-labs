@@ -13,7 +13,7 @@ Evaluate bias, explainability and risks of the Model, proposing concrete improve
 - Analyze dataset and sensitive groups.
 - Measure minimum fairness.
 - Explain Predictions representatives.
-- Propose mitigaciones priorizadas.
+- Propose prioritized mitigations.
 
 ## Deliverables
 
@@ -25,4 +25,4 @@ Evaluate bias, explainability and risks of the Model, proposing concrete improve
 
 - Findings supported by Data.
 - Realistic and actionable mitigations.
-- Limitations bien documented.
+- Limitations well documented.
