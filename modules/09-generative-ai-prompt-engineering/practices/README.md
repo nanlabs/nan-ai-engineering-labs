@@ -10,6 +10,6 @@
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Show quality improvement between prompt versions.
 - Document limits and observed risks.

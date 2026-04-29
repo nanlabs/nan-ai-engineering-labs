@@ -204,7 +204,7 @@ ______________________________________________________________________
 
 ### 📁 Main Guides
 
-| I Document                                        | Description                        | When to read it            |
+| Document                                        | Description                        | When to read it            |
 | ------------------------------------------------- | ---------------------------------- | -------------------------- |
 | [**README.md**](README.md)                        | This file - central hub            | ⭐ Entry point             |
 | [**LEARNING-PATH.md**](docs/LEARNING-PATH.md)     | Complete phase-by-phase study path | Before starting            |
@@ -214,7 +214,7 @@ ______________________________________________________________________
 
 ### 🛠️ Technical Guides
 
-| I Document                                                    | Description              | When to use it                  |
+| Document                                                    | Description              | When to use it                  |
 | ------------------------------------------------------------- | -------------------------| --------------------------------|
 | [**IMPLEMENTATION-STATUS.md**](docs/IMPLEMENTATION-STATUS.md) | Full project status      | Verify available content        |
 | [**PHASES-CREATION.md**](docs/PHASES-CREATION.md)             | Repo construction phases | For maintainers only            |

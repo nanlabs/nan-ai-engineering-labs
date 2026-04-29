@@ -46,7 +46,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 - Final evaluation approved (>=70/100)
 - Demonstrate: data cleaning, outlier detection, effective visualizations
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 
