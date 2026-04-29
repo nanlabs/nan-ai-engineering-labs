@@ -10,6 +10,6 @@
 
 ## Approval criteria
 
-- Resolver 4/5 Practices como minimum.
+- Solve at least 4/5 Practices.
 - Present controls, concrete and verifiable controllers.
-- Document risks residuales.
+- Document residual risks.

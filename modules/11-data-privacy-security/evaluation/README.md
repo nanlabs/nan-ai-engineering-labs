@@ -16,11 +16,11 @@
 ## Checklist final
 
 - [ ] Data classified by sensitivity.
-- [ ] Risks principles identificados.
+- [ ] Risks principles identified.
 - [ ] Defined minimum controls.
 - [ ] Proposed access matrix.
 - [ ] Incident plan prepared.
-- [ ] Recommendations finales claras.
+- [ ] Clear final recommendations.
 
 ## Approval criteria
 

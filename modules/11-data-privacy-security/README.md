@@ -11,11 +11,11 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 - Understand and apply basic homomorphic encryption
 - Implement differential privacy (Laplace mechanism, DP-SGD)
 - Simulate federated learning with multiple clients
-- Gestionar privacy budgets (ε, δ)
-- Analizar privacy-utility trade-offs
+- Manage privacy budgets (ε, δ)
+- Analyze privacy-utility trade-offs
 - Design secure ML pipelines
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: fundamentals (cryptography, differential privacy, federated learning, secure computation)
 - **examples/**: guided examples with cryptography, OpenDP, PySyft
@@ -26,7 +26,7 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 - **evaluation/**: checklist and rubric
 - **notes/**: privacy considerations and threat models
 
-## 📋 Prerrequisitos
+## 📋 Prerequisites
 
 - Module 03: Machine Learning Fundamentals (training pipelines)
 - Basic knowledge of cryptography
@@ -37,15 +37,15 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 **Week 1** (6-8 horas):
 
 1. Read material from `/theory` (encryption, hashing, threat models) (2h)
-1. Ejecuta `/examples` (2h)
-1. Complete `/practices/01-encriptacion-hashing.md` (4h)
+1. Run `/examples` (2h)
+1. Complete `/practices/01-hashing-encryption.md` (4h)
 
 **Week 2** (6-8 horas):
 4\. Read material about differential privacy and FL (2h)
 5\. Complete `/practices/02-differential-privacy-federated.md` (4h)
-6\. Desarrolla Mini-project (3h)
+6\. Develop Mini-project (3h)
 
-## ✅ Competencias Clave
+## ✅ Key Competences
 
 - [ ] Secure hashing with bcrypt
 - [ ] Symmetric encryption (Fernet)
@@ -64,7 +64,7 @@ Learn privacy and security techniques to protect sensitive data in ML, implement
 - Final evaluation approved (>=70/100)
 - Demonstrate: encryption, differential privacy, federated learning, privacy budgets
 
-## 📚 Resources Adicionales
+## 📚 Additional Resources
 
 **Bookstores:**
 

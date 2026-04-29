@@ -23,6 +23,5 @@ Identify critical risks and propose minimum technical and operational controls.
 
 ## Acceptance criteria
 
-- Risks claramente identificados.
-- Controls, Controllers applicable in real context.
+- Clearly identified risks.- Controls, Controllers applicable in real context.
 - Plan with priorities and suggested responsible parties.
