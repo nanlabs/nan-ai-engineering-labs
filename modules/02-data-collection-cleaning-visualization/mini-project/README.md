@@ -11,7 +11,7 @@ Build a reproducible ingest, Cleaning and Visualization pipeline that gets the D
 ## Scope
 
 - Dataset ingestion.
-- Perfilado initial.
+- Initial profiling.
 - Cleaning of nulls, duplicates and formats.
 - Treatment of outliers.
 - EDA with key visualizations.
@@ -20,12 +20,12 @@ Build a reproducible ingest, Cleaning and Visualization pipeline that gets the D
 ## Deliverables
 
 - Notebook/script reproducible.
-- Dataset clean versionado.
+- Dataset clean versioned.
 - Short report with quality decisions and visualizations.
 
 ## Acceptance criteria
 
 - Pipeline runs from end to end.
 - Justified Cleaning decisions.
-- Visualizaciones responden questions concretas.
+- Visualizations answer specific questions.
 - Final dataset suitable for Training.

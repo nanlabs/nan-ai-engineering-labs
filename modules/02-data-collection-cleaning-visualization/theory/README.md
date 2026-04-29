@@ -156,7 +156,7 @@ Understand the Structure, distribution and relationships in your Data **BEFORE**
 ```python
 df.info()          # types, nulls
 df.describe()      # statistics numerical
-df.value_counts()  # frecuencias categorical
+df.value_counts()  # frequencies categorical
 ```
 
 **2. Analysis of distributions:**
@@ -169,7 +169,7 @@ df.value_counts()  # frecuencias categorical
 
 - Scatter plots for relationship between two numerical variables.
 - Grouped box plots to compare distributions by category.
-- Correlation matrix (heatmap) to detect multicollinearity.
+- Correlation matrix (heatmap) to detect multi-collinearity.
 
 **4. Pattern detection:**
 

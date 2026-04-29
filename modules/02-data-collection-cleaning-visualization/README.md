@@ -13,7 +13,7 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 - Apply basic feature engineering techniques
 - Create informative dashboards with matplotlib/seaborn
 
-## 📂 Structure interna
+## 📂 Structure
 
 - **theory/**: theoretical foundations in Spanish (collection, cleaning, visualization techniques)
 - **examples/**: guided examples (web scraping, cleaning pipelines, visualizations)
@@ -33,9 +33,9 @@ Learn how to obtain data, properly clean it, and visualize it to make informed m
 
 ## Migration
 
-- Fuente base original: folders/Data Collection, Cleaning & Visualization
+- Original base source: folders/Data Collection, Cleaning & Visualization
 
-## Plan recomendado (4 semanas)
+## Recommended plan (4 weeks)
 
 - Week 1: data collection and quality criteria.
 - Week 2: Structured cleaning and missing values.

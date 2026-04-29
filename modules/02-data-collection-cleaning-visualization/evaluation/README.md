@@ -15,16 +15,16 @@
 
 ## Checklist final
 
-- [ ] Perfilado inicial complete.
+- [ ] Initial profiling complete.
 - [ ] Nulls strategy applied and justified.
-- [ ] Duplicados tratados correctly.
+- [ ] Duplicates handled correctly.
 - [ ] outliers evaluated with criteria.
 - [ ] EDA with useful visualizations.
-- [ ] Dataset clean exportado.
+- [ ] Exported clean dataset.
 
 ## Approval criteria
 
-- Puntaje minimum: 70/100.
+- Minimum score: 70/100.
 - If Mini-project \<70, redo with feedback.
 
 ## Rubric
