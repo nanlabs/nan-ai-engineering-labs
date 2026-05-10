@@ -8,11 +8,11 @@ requires-python = ">=3.11"
 [project.optional-dependencies]
 dev = [
   "pre-commit>=3.7.0",
-  "ruff>=0.6.0",
-  "basedpyright>=1.18.0",
+  "ruff>=0.15.0",
+  "basedpyright>=1.39.0",
   "mdformat>=0.7.21",
   "mdformat-gfm>=0.4.1",
-  "bandit[toml]>=1.7.8",
+  "bandit[toml]>=1.9.0",
   "pytest>=8.2.0",
 ]
 
