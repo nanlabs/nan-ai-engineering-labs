@@ -170,7 +170,7 @@ cd nan-ai-engineering-labs
 # create virtual env
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
-# .venv\Scripts\activate  # Windows
+# .venv\Scriptsctivate  # Windows
 
 # Install deps
 pip install numpy pandas matplotlib scikit-learn jupyter
@@ -371,3 +371,11 @@ This program synthesizes knowledge from:
 - Courses from Stanford, MIT, and Fast.ai.
 - Practical industry experience.
 - Open-source ML/AI community.
+
+## 👥 Contributors
+
+<a href="https://github.com/nanlabs/nan-ai-engineering-labs/contributors">
+  <img src="https://contrib.rocks/image?repo=nanlabs/nan-ai-engineering-labs"/>
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
